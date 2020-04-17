@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeBaseView" customModule="TraceCovid19JP" customModuleProvider="target">
+            <connections>
+                <outlet property="actionGuideLabel" destination="dBT-vV-rQz" id="ht1-iQ-khf"/>
+                <outlet property="expandButton" destination="zY6-JQ-EV7" id="r32-GG-x0m"/>
+                <outlet property="statusDescriptionBaseView" destination="fs9-tw-PgZ" id="urI-AJ-flB"/>
+                <outlet property="statusDescriptionLabel" destination="VXV-hC-o7N" id="lZq-hG-o6F"/>
+                <outlet property="statusImageBaseView" destination="Axl-CY-aJS" id="gh0-su-4E8"/>
+                <outlet property="statusLevelLabel" destination="gBn-0J-fSY" id="JRV-5l-jf6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gtu-My-cZK">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Axl-CY-aJS">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="404"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fs9-tw-PgZ">
+                    <rect key="frame" x="24" y="404" width="327" height="126"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="危険度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUF-MD-W5A">
+                            <rect key="frame" x="24" y="23" width="62" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="低い" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBn-0J-fSY">
+                            <rect key="frame" x="97" y="23" width="41" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ここ14日間で感染者との接触は認められません。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VXV-hC-o7N">
+                            <rect key="frame" x="20" y="77.5" width="287" height="31.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zY6-JQ-EV7">
+                            <rect key="frame" x="0.0" y="0.0" width="327" height="126"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="11.5" maxY="0.0"/>
+                            <state key="normal" image="Vector 24"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.18431372549019609" green="0.50196078431372548" blue="0.92941176470588238" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="JUF-MD-W5A" firstAttribute="top" secondItem="fs9-tw-PgZ" secondAttribute="top" constant="23" id="1Wa-LG-dLk"/>
+                        <constraint firstItem="JUF-MD-W5A" firstAttribute="leading" secondItem="fs9-tw-PgZ" secondAttribute="leading" constant="24" id="8OS-5O-U24"/>
+                        <constraint firstAttribute="trailing" secondItem="zY6-JQ-EV7" secondAttribute="trailing" id="9mq-QW-rLm"/>
+                        <constraint firstItem="zY6-JQ-EV7" firstAttribute="leading" secondItem="fs9-tw-PgZ" secondAttribute="leading" id="EH0-YR-Bda"/>
+                        <constraint firstAttribute="height" constant="126" id="EX4-E2-AD7"/>
+                        <constraint firstItem="VXV-hC-o7N" firstAttribute="leading" secondItem="fs9-tw-PgZ" secondAttribute="leading" constant="20" id="Oer-SX-ZSP"/>
+                        <constraint firstItem="zY6-JQ-EV7" firstAttribute="top" secondItem="fs9-tw-PgZ" secondAttribute="top" id="TOZ-ho-QN0"/>
+                        <constraint firstAttribute="bottom" secondItem="VXV-hC-o7N" secondAttribute="bottom" constant="17" id="dpY-1Q-brW"/>
+                        <constraint firstAttribute="bottom" secondItem="zY6-JQ-EV7" secondAttribute="bottom" id="hSA-Y7-Mik"/>
+                        <constraint firstItem="gBn-0J-fSY" firstAttribute="leading" secondItem="JUF-MD-W5A" secondAttribute="trailing" constant="11" id="kos-CZ-GVk"/>
+                        <constraint firstItem="gBn-0J-fSY" firstAttribute="centerY" secondItem="JUF-MD-W5A" secondAttribute="centerY" id="yOl-9x-56M"/>
+                        <constraint firstAttribute="trailing" secondItem="VXV-hC-o7N" secondAttribute="trailing" constant="20" id="z2Z-yb-OWR"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="引き続きソーシャルディスタンスを保って行動してください。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dBT-vV-rQz">
+                    <rect key="frame" x="44" y="560" width="287" height="41"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="dBT-vV-rQz" firstAttribute="top" secondItem="zY6-JQ-EV7" secondAttribute="bottom" constant="30" id="FhA-Xq-oYr"/>
+                <constraint firstAttribute="trailing" secondItem="Axl-CY-aJS" secondAttribute="trailing" id="SjR-AC-g2S"/>
+                <constraint firstAttribute="trailing" secondItem="fs9-tw-PgZ" secondAttribute="trailing" constant="24" id="Uhu-lv-51J"/>
+                <constraint firstAttribute="trailing" secondItem="dBT-vV-rQz" secondAttribute="trailing" constant="44" id="aoU-eA-Gqr"/>
+                <constraint firstItem="Axl-CY-aJS" firstAttribute="top" secondItem="gtu-My-cZK" secondAttribute="top" id="dAn-1b-iqp"/>
+                <constraint firstItem="fs9-tw-PgZ" firstAttribute="leading" secondItem="gtu-My-cZK" secondAttribute="leading" constant="24" id="s48-cp-kxF"/>
+                <constraint firstItem="fs9-tw-PgZ" firstAttribute="top" secondItem="Axl-CY-aJS" secondAttribute="bottom" id="vCT-7p-GxB"/>
+                <constraint firstItem="Axl-CY-aJS" firstAttribute="leading" secondItem="gtu-My-cZK" secondAttribute="leading" id="wYP-uf-9nb"/>
+                <constraint firstAttribute="bottom" secondItem="dBT-vV-rQz" secondAttribute="bottom" constant="8" id="woW-g9-IG2"/>
+                <constraint firstItem="dBT-vV-rQz" firstAttribute="leading" secondItem="gtu-My-cZK" secondAttribute="leading" constant="44" id="ziq-e9-0h4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-356" y="35.532233883058474"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Vector 24" width="9" height="16"/>
+    </resources>
+</document>

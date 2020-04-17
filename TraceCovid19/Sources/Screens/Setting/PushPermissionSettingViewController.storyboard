@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uFH-Fh-iGn">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--利用いただくために-->
+        <scene sceneID="0Ow-lR-nbD">
+            <objects>
+                <viewController id="uFH-Fh-iGn" customClass="PushPermissionSettingViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AWm-54-kwI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZf-PN-HcN" customClass="ActionButton" customModule="TraceCovid19JP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="567.33333333333337" width="343" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="hv1-61-QCt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="利用をはじめる"/>
+                                <connections>
+                                    <action selector="tappedNextButton:" destination="uFH-Fh-iGn" eventType="touchUpInside" id="Bn6-wk-fCQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="通知設定をオンにしてください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6cW-Yh-5RH">
+                                <rect key="frame" x="16" y="445.33333333333331" width="343" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2si-GF-zk4">
+                                <rect key="frame" x="16" y="488.33333333333331" width="343" height="35.999999999999943"/>
+                                <string key="text">感染者との接触が確認された場合
+プッシュ通知などを送信します</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector 4" translatesAutoresizingMaskIntoConstraints="NO" id="i4G-F3-S0S">
+                                <rect key="frame" x="80" y="319.66666666666669" width="33" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="i4G-F3-S0S" secondAttribute="height" multiplier="33:47" id="vL2-f2-iY9"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 393" translatesAutoresizingMaskIntoConstraints="NO" id="UUM-Rv-4BK">
+                                <rect key="frame" x="110" y="119" width="252" height="243"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UUM-Rv-4BK" secondAttribute="height" multiplier="28:27" id="omX-Vj-dgn"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 27" translatesAutoresizingMaskIntoConstraints="NO" id="rrM-Mr-mBj">
+                                <rect key="frame" x="139" y="164" width="204" height="179"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rrM-Mr-mBj" secondAttribute="height" multiplier="204:179" id="989-0o-TJF"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="スクリーンショット 2020-04-07 22.19-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Y1-Q1-Efc">
+                                <rect key="frame" x="17" y="328.66666666666669" width="59" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3Y1-Q1-Efc" secondAttribute="height" multiplier="59:97" id="8Hu-3e-Evr"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rrM-Mr-mBj" firstAttribute="centerX" secondItem="UUM-Rv-4BK" secondAttribute="centerX" constant="5" id="0ci-Hb-tv1"/>
+                            <constraint firstItem="6cW-Yh-5RH" firstAttribute="leading" secondItem="6SO-En-gvf" secondAttribute="leading" constant="16" id="1ho-66-vyf"/>
+                            <constraint firstItem="rrM-Mr-mBj" firstAttribute="width" secondItem="UUM-Rv-4BK" secondAttribute="width" multiplier="0.809524" id="4i6-FQ-CMV"/>
+                            <constraint firstItem="6SO-En-gvf" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zZf-PN-HcN" secondAttribute="bottom" constant="4" id="6CM-fk-NmS"/>
+                            <constraint firstItem="3Y1-Q1-Efc" firstAttribute="width" secondItem="AWm-54-kwI" secondAttribute="width" multiplier="0.157333" id="Dig-be-2lr"/>
+                            <constraint firstItem="6SO-En-gvf" firstAttribute="trailing" secondItem="6cW-Yh-5RH" secondAttribute="trailing" constant="16" id="EYE-Ch-iaN"/>
+                            <constraint firstItem="i4G-F3-S0S" firstAttribute="bottom" secondItem="UUM-Rv-4BK" secondAttribute="bottom" constant="4.5" id="FCZ-SC-fGU"/>
+                            <constraint firstItem="i4G-F3-S0S" firstAttribute="width" secondItem="AWm-54-kwI" secondAttribute="width" multiplier="0.088" id="IBK-fg-0TZ"/>
+                            <constraint firstItem="zZf-PN-HcN" firstAttribute="top" secondItem="2si-GF-zk4" secondAttribute="bottom" priority="750" constant="43" id="IhN-s4-wHn"/>
+                            <constraint firstItem="UUM-Rv-4BK" firstAttribute="top" secondItem="6SO-En-gvf" secondAttribute="top" constant="31" id="Jb3-fN-RT2"/>
+                            <constraint firstItem="UUM-Rv-4BK" firstAttribute="width" secondItem="AWm-54-kwI" secondAttribute="width" multiplier="0.672" id="Jt7-CK-lHg"/>
+                            <constraint firstItem="rrM-Mr-mBj" firstAttribute="centerY" secondItem="UUM-Rv-4BK" secondAttribute="centerY" constant="13" id="MYb-Mp-kNI"/>
+                            <constraint firstItem="2si-GF-zk4" firstAttribute="top" secondItem="6cW-Yh-5RH" secondAttribute="bottom" constant="19" id="N5S-U4-aBo"/>
+                            <constraint firstItem="3Y1-Q1-Efc" firstAttribute="top" secondItem="i4G-F3-S0S" secondAttribute="bottom" constant="-38" id="P7V-Hl-WZc"/>
+                            <constraint firstItem="6cW-Yh-5RH" firstAttribute="top" secondItem="3Y1-Q1-Efc" secondAttribute="bottom" constant="19.833333333333314" id="S3d-lJ-lww"/>
+                            <constraint firstItem="UUM-Rv-4BK" firstAttribute="leading" secondItem="i4G-F3-S0S" secondAttribute="trailing" constant="-3" id="WPh-FI-QB0"/>
+                            <constraint firstItem="6SO-En-gvf" firstAttribute="trailing" secondItem="2si-GF-zk4" secondAttribute="trailing" constant="16" id="af4-gH-qBg"/>
+                            <constraint firstItem="6SO-En-gvf" firstAttribute="trailing" secondItem="UUM-Rv-4BK" secondAttribute="trailing" constant="13" id="h07-S0-sKJ"/>
+                            <constraint firstItem="3Y1-Q1-Efc" firstAttribute="leading" secondItem="6SO-En-gvf" secondAttribute="leading" constant="17" id="hMb-Qj-ftO"/>
+                            <constraint firstItem="6SO-En-gvf" firstAttribute="trailing" secondItem="zZf-PN-HcN" secondAttribute="trailing" constant="16" id="nkP-XW-pB0"/>
+                            <constraint firstItem="zZf-PN-HcN" firstAttribute="leading" secondItem="6SO-En-gvf" secondAttribute="leading" constant="16" id="ocf-J5-GYQ"/>
+                            <constraint firstItem="2si-GF-zk4" firstAttribute="leading" secondItem="6SO-En-gvf" secondAttribute="leading" constant="16" id="oiP-Ur-Eys"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6SO-En-gvf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="利用いただくために" id="toW-6g-aaY"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nM8-EF-Gpj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="137.4384236453202"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Group 27" width="204" height="179"/>
+        <image name="Rectangle 393" width="252" height="243"/>
+        <image name="Vector 4" width="33" height="47"/>
+        <image name="スクリーンショット 2020-04-07 22.19-1" width="59" height="97"/>
+    </resources>
+</document>

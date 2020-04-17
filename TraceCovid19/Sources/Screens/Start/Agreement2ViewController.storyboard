@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z0Z-0s-HhI">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--情報共有への同意-->
+        <scene sceneID="WxD-iO-oi8">
+            <objects>
+                <viewController id="z0Z-0s-HhI" customClass="Agreement2ViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wm7-pm-Jox">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poq-Aw-6jg" customClass="ActionButton" customModule="TraceCovid19JP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="716" width="343" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="HcY-gt-ueS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="同意する"/>
+                                <connections>
+                                    <action selector="tappedNextButton:" destination="z0Z-0s-HhI" eventType="touchUpInside" id="1LE-8W-TQx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tHF-ga-2RC">
+                                <rect key="frame" x="16" y="156" width="343" height="100.33333333333331"/>
+                                <string key="text">あなたが新型コロナウィルス陽性の診断をされた際、
+匿名での行動データを共有することを許可してください</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xVm-VO-Um6" firstAttribute="trailing" secondItem="tHF-ga-2RC" secondAttribute="trailing" constant="16" id="BeB-de-4LJ"/>
+                            <constraint firstItem="poq-Aw-6jg" firstAttribute="leading" secondItem="xVm-VO-Um6" secondAttribute="leading" constant="16" id="PLj-Ea-NsO"/>
+                            <constraint firstItem="tHF-ga-2RC" firstAttribute="top" secondItem="xVm-VO-Um6" secondAttribute="top" constant="68" id="Wv0-ID-ddM"/>
+                            <constraint firstItem="tHF-ga-2RC" firstAttribute="leading" secondItem="xVm-VO-Um6" secondAttribute="leading" constant="16" id="blc-xn-ekq"/>
+                            <constraint firstItem="xVm-VO-Um6" firstAttribute="trailing" secondItem="poq-Aw-6jg" secondAttribute="trailing" constant="16" id="mtw-Qa-EJN"/>
+                            <constraint firstItem="xVm-VO-Um6" firstAttribute="bottom" secondItem="poq-Aw-6jg" secondAttribute="bottom" constant="6" id="wIT-t1-pm7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xVm-VO-Um6"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="情報共有への同意" id="NGO-Jq-nb5"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gdX-bV-4kY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="287" y="106"/>
+        </scene>
+    </scenes>
+</document>

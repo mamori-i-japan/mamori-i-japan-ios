@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bym-QJ-Gzc">
+                                <rect key="frame" x="16" y="722" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="huE-bV-I0e"/>
+                                </constraints>
+                                <state key="normal" title="このアプリをシェア"/>
+                                <connections>
+                                    <action selector="tappedShareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Jw-z8-S0y"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gna-pw-di2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="626"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Py4-aa-Dot" customClass="HomeBaseView" customModule="TraceCovid19JP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="609" id="BYD-Sn-zbA"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Py4-aa-Dot" firstAttribute="centerX" secondItem="gna-pw-di2" secondAttribute="centerX" id="DW3-7m-kzm"/>
+                                    <constraint firstItem="Py4-aa-Dot" firstAttribute="top" secondItem="gna-pw-di2" secondAttribute="top" id="TxI-wK-VtE"/>
+                                    <constraint firstAttribute="bottom" secondItem="Py4-aa-Dot" secondAttribute="bottom" id="Wfq-nd-lUd"/>
+                                    <constraint firstItem="Py4-aa-Dot" firstAttribute="leading" secondItem="gna-pw-di2" secondAttribute="leading" id="h66-9P-NCV"/>
+                                    <constraint firstAttribute="trailing" secondItem="Py4-aa-Dot" secondAttribute="trailing" id="qMl-It-rZK"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="hL6-nn-y1x"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ezV-Uj-23X"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="gna-pw-di2" secondAttribute="top" constant="88" id="0Uy-q3-fxR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gna-pw-di2" secondAttribute="trailing" id="3Tr-FD-lhw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Bym-QJ-Gzc" secondAttribute="bottom" constant="12" id="80D-xc-j5v"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gna-pw-di2" secondAttribute="bottom" constant="152" id="EUl-Va-ocE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bym-QJ-Gzc" secondAttribute="trailing" constant="16" id="Q07-uJ-rgN"/>
+                            <constraint firstItem="gna-pw-di2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VdH-ON-tht"/>
+                            <constraint firstItem="Bym-QJ-Gzc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Wrb-32-JwG"/>
+                            <constraint firstItem="gna-pw-di2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="icJ-n2-Xfm"/>
+                            <constraint firstItem="Py4-aa-Dot" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="uew-Lz-8jx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="R7Z-1z-B4f">
+                        <barButtonItem key="rightBarButtonItem" image="menu" id="Die-kB-uCg">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="tappedMenuButton:" destination="BYZ-38-t0r" id="Cab-xF-0R9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="homeBaseView" destination="Py4-aa-Dot" id="6xf-wq-fpS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="137.4384236453202"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="menu" width="24" height="24"/>
+    </resources>
+</document>

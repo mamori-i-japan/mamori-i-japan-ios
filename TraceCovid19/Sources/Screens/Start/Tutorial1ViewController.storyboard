@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="99i-xg-uYj">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tutorial1 View Controller-->
+        <scene sceneID="AFv-59-n1P">
+            <objects>
+                <viewController id="99i-xg-uYj" customClass="Tutorial1ViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yzx-sx-MFb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHJ-hz-ZCU" customClass="ActionButton" customModule="TraceCovid19JP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="716" width="343" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Puv-iP-IbW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="次へ"/>
+                                <connections>
+                                    <action selector="tappedNextButton:" destination="99i-xg-uYj" eventType="touchUpInside" id="Dbu-Gc-mym"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illust01" translatesAutoresizingMaskIntoConstraints="NO" id="EG9-L6-zZH">
+                                <rect key="frame" x="0.0" y="240" width="375" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EG9-L6-zZH" secondAttribute="height" multiplier="15:14" id="Foc-gy-avo"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9r-lF-UC2">
+                                <rect key="frame" x="45.666666666666657" y="153" width="283.66666666666674" height="67"/>
+                                <string key="text">アプリ保持者同士の
+接触履歴を保存します</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lvU-ee-JyJ">
+                                <rect key="frame" x="16" y="618" width="343" height="40.666666666666629"/>
+                                <string key="text">氏名、年齢、性別などの
+個人情報は一切取得・通信しません。</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4nU-bd-eWA" firstAttribute="trailing" secondItem="hHJ-hz-ZCU" secondAttribute="trailing" constant="16" id="4tW-2x-16Q"/>
+                            <constraint firstItem="EG9-L6-zZH" firstAttribute="top" secondItem="Q9r-lF-UC2" secondAttribute="bottom" constant="20" id="5Qp-Um-0jm"/>
+                            <constraint firstItem="4nU-bd-eWA" firstAttribute="bottom" secondItem="hHJ-hz-ZCU" secondAttribute="bottom" constant="6" id="BUw-dY-mwl"/>
+                            <constraint firstItem="lvU-ee-JyJ" firstAttribute="leading" secondItem="4nU-bd-eWA" secondAttribute="leading" constant="16" id="EgA-6y-s1m"/>
+                            <constraint firstItem="Q9r-lF-UC2" firstAttribute="centerX" secondItem="4nU-bd-eWA" secondAttribute="centerX" id="L1a-on-LtW"/>
+                            <constraint firstItem="EG9-L6-zZH" firstAttribute="centerX" secondItem="4nU-bd-eWA" secondAttribute="centerX" id="Nkw-OQ-u3E"/>
+                            <constraint firstItem="EG9-L6-zZH" firstAttribute="width" secondItem="yzx-sx-MFb" secondAttribute="width" id="QYP-kO-9Pv"/>
+                            <constraint firstItem="4nU-bd-eWA" firstAttribute="trailing" secondItem="lvU-ee-JyJ" secondAttribute="trailing" constant="16" id="QtV-Yi-z90"/>
+                            <constraint firstItem="hHJ-hz-ZCU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lvU-ee-JyJ" secondAttribute="bottom" constant="8" id="VDQ-mO-vkn"/>
+                            <constraint firstItem="hHJ-hz-ZCU" firstAttribute="leading" secondItem="4nU-bd-eWA" secondAttribute="leading" constant="16" id="Wts-62-FVK"/>
+                            <constraint firstItem="lvU-ee-JyJ" firstAttribute="top" secondItem="EG9-L6-zZH" secondAttribute="bottom" priority="750" constant="28" id="ioc-tF-X4F"/>
+                            <constraint firstItem="EG9-L6-zZH" firstAttribute="centerY" secondItem="4nU-bd-eWA" secondAttribute="centerY" constant="-18" id="ugP-Dc-2Am"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4nU-bd-eWA"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PV1-N8-IcK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="137.4384236453202"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="illust01" width="375" height="350"/>
+    </resources>
+</document>

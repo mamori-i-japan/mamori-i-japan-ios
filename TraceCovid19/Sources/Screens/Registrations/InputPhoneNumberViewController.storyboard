@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lwX-e9-lTY">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--電話番号確認-->
+        <scene sceneID="NYZ-Rb-QPB">
+            <objects>
+                <viewController id="lwX-e9-lTY" customClass="InputPhoneNumberViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3to-lM-CyJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9Y-UD-n8W" customClass="ActionButton" customModule="TraceCovid19JP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="385" width="343" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="uze-uH-QMO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="SMSを送信"/>
+                                <connections>
+                                    <action selector="tappedNextButton:" destination="lwX-e9-lTY" eventType="touchUpInside" id="Dai-NJ-mYK"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="電話番号を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y59-T9-4Ul" customClass="NoPerformActionTextField" customModule="TraceCovid19JP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="257" width="343" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="c0l-Cc-SDM"/>
+                                </constraints>
+                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNZ-BS-5KM">
+                                <rect key="frame" x="16" y="317" width="343" height="1"/>
+                                <color key="backgroundColor" white="0.02" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="If6-NU-ice"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お使いの端末の電話番号を入力してください" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvV-La-nKK">
+                                <rect key="frame" x="16" y="158.66666666666666" width="343" height="19.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhV-EV-4em">
+                                <rect key="frame" x="16" y="192" width="343" height="43"/>
+                                <string key="text">・ハイフンは不要です
+・日本国内で契約されている携帯電話番号に限ります
+・国際電話などで用いる+81は不要です。</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.019607843137254902" green="0.094117647058823528" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hNZ-BS-5KM" firstAttribute="top" secondItem="Y59-T9-4Ul" secondAttribute="bottom" id="C2g-u6-zpP"/>
+                            <constraint firstItem="hNZ-BS-5KM" firstAttribute="centerX" secondItem="Y59-T9-4Ul" secondAttribute="centerX" id="CDG-ao-jBT"/>
+                            <constraint firstItem="lPb-68-SSA" firstAttribute="trailing" secondItem="LvV-La-nKK" secondAttribute="trailing" constant="16" id="LRy-eD-siS"/>
+                            <constraint firstItem="hNZ-BS-5KM" firstAttribute="width" secondItem="Y59-T9-4Ul" secondAttribute="width" id="SDv-mB-YAu"/>
+                            <constraint firstItem="R9Y-UD-n8W" firstAttribute="top" secondItem="Y59-T9-4Ul" secondAttribute="bottom" constant="68" id="T3f-V1-Qic"/>
+                            <constraint firstItem="Y59-T9-4Ul" firstAttribute="top" secondItem="lPb-68-SSA" secondAttribute="top" constant="169" id="YJ4-DO-4fH"/>
+                            <constraint firstItem="LvV-La-nKK" firstAttribute="leading" secondItem="lPb-68-SSA" secondAttribute="leading" constant="16" id="ZZ7-S9-cjP"/>
+                            <constraint firstItem="Y59-T9-4Ul" firstAttribute="top" secondItem="xhV-EV-4em" secondAttribute="bottom" constant="22" id="gmQ-dY-wjj"/>
+                            <constraint firstItem="Y59-T9-4Ul" firstAttribute="leading" secondItem="lPb-68-SSA" secondAttribute="leading" constant="16" id="mmU-0j-SK1"/>
+                            <constraint firstItem="R9Y-UD-n8W" firstAttribute="leading" secondItem="lPb-68-SSA" secondAttribute="leading" constant="16" id="oPN-nK-oRA"/>
+                            <constraint firstItem="lPb-68-SSA" firstAttribute="trailing" secondItem="R9Y-UD-n8W" secondAttribute="trailing" constant="16" id="ohZ-dg-dpH"/>
+                            <constraint firstItem="lPb-68-SSA" firstAttribute="trailing" secondItem="Y59-T9-4Ul" secondAttribute="trailing" constant="16" id="pfG-XZ-SCm"/>
+                            <constraint firstItem="xhV-EV-4em" firstAttribute="top" secondItem="LvV-La-nKK" secondAttribute="bottom" constant="14" id="sLe-73-Ebn"/>
+                            <constraint firstItem="lPb-68-SSA" firstAttribute="trailing" secondItem="xhV-EV-4em" secondAttribute="trailing" constant="16" id="tub-yy-jiH"/>
+                            <constraint firstItem="xhV-EV-4em" firstAttribute="leading" secondItem="lPb-68-SSA" secondAttribute="leading" constant="16" id="vYA-vi-N1L"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lPb-68-SSA"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="電話番号確認" id="5A9-7F-Nqi">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="WQm-E4-bQJ"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="nextButton" destination="R9Y-UD-n8W" id="3OB-mT-4in"/>
+                        <outlet property="phoneNumberTextField" destination="Y59-T9-4Ul" id="vL4-lh-1yE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KOd-mq-ieJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="762" y="88"/>
+        </scene>
+    </scenes>
+</document>

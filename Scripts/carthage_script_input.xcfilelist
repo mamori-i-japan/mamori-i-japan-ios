@@ -1,0 +1,5 @@
+$(SRCROOT)/Carthage/Build/iOS/Swinject.framework
+$(SRCROOT)/Carthage/Build/iOS/SwinjectStoryboard.framework
+$(SRCROOT)/Carthage/Build/iOS/NVActivityIndicatorView.framework
+$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework
+$(SRCROOT)/Carthage/Build/iOS/RNCryptor.framework

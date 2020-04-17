@@ -1,0 +1,45 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+workspace="TraceCovid19.xcworkspace"
+target_name="TraceCovid19"
+team_id="P8U5TV4K87"
+scheme="TraceCovid19"
+
+platform :ios do
+
+  lane :build_debug do
+    build_ipa(
+      configuration: "Debug",
+      export_method: "development",
+      code_sign_identity: "iPhone Developer",
+      provisioning: "App WC"
+    )
+  end
+
+  lane :build_ipa do |options|
+    gym(
+      workspace: workspace,
+      scheme: scheme,
+      configuration: options[:configuration],
+      clean: true,
+      export_method: options[:export_method],
+      export_team_id: team_id,
+      xcargs: "PROVISIONING_PROFILE_SPECIFIER='#{options[:provisioning]}'"
+    )
+  end
+end

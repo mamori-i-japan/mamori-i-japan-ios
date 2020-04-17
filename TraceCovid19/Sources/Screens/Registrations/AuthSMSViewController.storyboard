@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WVV-gg-cqX">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--確認番号入力-->
+        <scene sceneID="kRC-BA-xVH">
+            <objects>
+                <viewController id="WVV-gg-cqX" customClass="AuthSMSViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p5o-2c-oyi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="確認番号を入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udb-BZ-Stv">
+                                <rect key="frame" x="55" y="165" width="265" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNi-sC-LZ2" customClass="CodeInputView" customModule="TraceCovid19JP" customModuleProvider="target">
+                                <rect key="frame" x="22.666666666666657" y="254" width="330" height="48"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="750" constant="330" id="25T-YC-129"/>
+                                    <constraint firstAttribute="height" constant="48" id="xAK-WO-l3e"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-gT-zEB">
+                                <rect key="frame" x="22.666666666666657" y="325" width="330" height="14.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.96862745098039216" green="0.28235294117647058" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72S-u2-4bO">
+                                <rect key="frame" x="22.666666666666657" y="387" width="330" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Sr0-Am-icg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                <state key="normal" title="電話番号を変更">
+                                    <color key="titleColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedChangePhoneNumber:" destination="WVV-gg-cqX" eventType="touchUpInside" id="5dw-4m-mw2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="72S-u2-4bO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3eD-gT-zEB" secondAttribute="bottom" constant="8" id="19x-mm-Skp"/>
+                            <constraint firstItem="ESJ-h6-K1y" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hNi-sC-LZ2" secondAttribute="trailing" constant="16" id="2e7-u4-mb9"/>
+                            <constraint firstItem="3eD-gT-zEB" firstAttribute="leading" secondItem="hNi-sC-LZ2" secondAttribute="leading" id="3Iq-Rc-e8w"/>
+                            <constraint firstItem="udb-BZ-Stv" firstAttribute="centerX" secondItem="ESJ-h6-K1y" secondAttribute="centerX" id="AOw-zq-iCj"/>
+                            <constraint firstItem="72S-u2-4bO" firstAttribute="centerX" secondItem="hNi-sC-LZ2" secondAttribute="centerX" id="DpM-Lg-zV6"/>
+                            <constraint firstItem="hNi-sC-LZ2" firstAttribute="centerX" secondItem="ESJ-h6-K1y" secondAttribute="centerX" id="Gyd-92-5Fm"/>
+                            <constraint firstItem="72S-u2-4bO" firstAttribute="trailing" secondItem="hNi-sC-LZ2" secondAttribute="trailing" id="Rzy-Kz-2EP"/>
+                            <constraint firstItem="udb-BZ-Stv" firstAttribute="top" secondItem="ESJ-h6-K1y" secondAttribute="top" constant="77" id="UgC-bA-5hi"/>
+                            <constraint firstItem="72S-u2-4bO" firstAttribute="top" secondItem="hNi-sC-LZ2" secondAttribute="bottom" constant="85" id="WQP-gb-oa6"/>
+                            <constraint firstItem="hNi-sC-LZ2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ESJ-h6-K1y" secondAttribute="leading" constant="16" id="bbr-nt-26R"/>
+                            <constraint firstItem="3eD-gT-zEB" firstAttribute="top" secondItem="hNi-sC-LZ2" secondAttribute="bottom" constant="23" id="eQw-9u-Cfh"/>
+                            <constraint firstItem="3eD-gT-zEB" firstAttribute="trailing" secondItem="hNi-sC-LZ2" secondAttribute="trailing" id="zaV-Nj-tz3"/>
+                            <constraint firstItem="hNi-sC-LZ2" firstAttribute="top" secondItem="ESJ-h6-K1y" secondAttribute="top" constant="166" id="zwK-pw-TDI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ESJ-h6-K1y"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="確認番号入力" id="a2V-cy-PaX"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="codeInputView" destination="hNi-sC-LZ2" id="ZpT-Pi-UOO"/>
+                        <outlet property="errorLabel" destination="3eD-gT-zEB" id="OMd-Kz-vo3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="do0-Vz-DxY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="914" y="76"/>
+        </scene>
+    </scenes>
+</document>

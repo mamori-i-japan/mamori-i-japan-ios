@@ -1,0 +1,2 @@
+CODE_SIGN_ENTITLEMENTS = TraceCovid19/Resources/debug.entitlements
+INFOPLIST_FILE = TraceCovid19/Resources/Info-Debug.plist

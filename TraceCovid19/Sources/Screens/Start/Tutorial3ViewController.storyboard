@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rWF-A9-mdp">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tutorial3 View Controller-->
+        <scene sceneID="p89-KR-z17">
+            <objects>
+                <viewController id="rWF-A9-mdp" customClass="Tutorial3ViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NxB-6Y-DSg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1Y-hd-R42" customClass="ActionButton" customModule="TraceCovid19JP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="716" width="343" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="YZH-YF-Ph3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="次へ"/>
+                                <connections>
+                                    <action selector="tappedNextButton:" destination="rWF-A9-mdp" eventType="touchUpInside" id="BNT-Rk-SPR"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illust03" translatesAutoresizingMaskIntoConstraints="NO" id="Wrg-qz-bas">
+                                <rect key="frame" x="0.0" y="240" width="375" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Wrg-qz-bas" secondAttribute="height" multiplier="15:14" id="spY-BH-Ccs"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたの行動データが追跡調査に役立てられます" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="A2L-4R-YJj">
+                                <rect key="frame" x="16" y="162" width="343" height="67"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="行動データの共有は、保健所からの要請があり、ご本人の了承を得た場合に限ります。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OK8-6n-18g">
+                                <rect key="frame" x="16" y="618" width="343" height="40.666666666666629"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ご自身が陽性と判定された場合" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="es9-cT-KLX">
+                                <rect key="frame" x="45" y="127" width="285.33333333333331" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="f1Y-hd-R42" firstAttribute="leading" secondItem="PjP-FX-ZXc" secondAttribute="leading" constant="16" id="1zI-8a-HqR"/>
+                            <constraint firstItem="PjP-FX-ZXc" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="es9-cT-KLX" secondAttribute="trailing" constant="40" id="7Yh-Sv-YpO"/>
+                            <constraint firstItem="es9-cT-KLX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PjP-FX-ZXc" secondAttribute="leading" constant="40" id="Bc8-Km-h2Q"/>
+                            <constraint firstItem="Wrg-qz-bas" firstAttribute="centerX" secondItem="PjP-FX-ZXc" secondAttribute="centerX" id="Bic-5Z-aSv"/>
+                            <constraint firstItem="f1Y-hd-R42" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OK8-6n-18g" secondAttribute="bottom" constant="8" id="CtN-CF-2I3"/>
+                            <constraint firstItem="Wrg-qz-bas" firstAttribute="centerY" secondItem="PjP-FX-ZXc" secondAttribute="centerY" constant="-18" id="Kg0-a2-k2B"/>
+                            <constraint firstItem="PjP-FX-ZXc" firstAttribute="trailing" secondItem="f1Y-hd-R42" secondAttribute="trailing" constant="16" id="OQ6-ik-pck"/>
+                            <constraint firstItem="A2L-4R-YJj" firstAttribute="top" secondItem="es9-cT-KLX" secondAttribute="bottom" constant="11" id="OgO-KC-HB9"/>
+                            <constraint firstItem="Wrg-qz-bas" firstAttribute="top" secondItem="A2L-4R-YJj" secondAttribute="bottom" constant="11" id="Uuh-TQ-2tp"/>
+                            <constraint firstItem="es9-cT-KLX" firstAttribute="centerX" secondItem="A2L-4R-YJj" secondAttribute="centerX" id="XUN-fS-tqH"/>
+                            <constraint firstItem="PjP-FX-ZXc" firstAttribute="bottom" secondItem="f1Y-hd-R42" secondAttribute="bottom" constant="6" id="Xwk-cN-OI7"/>
+                            <constraint firstItem="OK8-6n-18g" firstAttribute="top" secondItem="Wrg-qz-bas" secondAttribute="bottom" priority="750" constant="28" id="ZyT-R3-Zyk"/>
+                            <constraint firstItem="A2L-4R-YJj" firstAttribute="trailing" secondItem="PjP-FX-ZXc" secondAttribute="trailing" constant="-16" id="aox-Hy-u8Q"/>
+                            <constraint firstItem="Wrg-qz-bas" firstAttribute="width" secondItem="NxB-6Y-DSg" secondAttribute="width" id="aqu-KN-ntn"/>
+                            <constraint firstItem="PjP-FX-ZXc" firstAttribute="leading" secondItem="A2L-4R-YJj" secondAttribute="leading" constant="-16" id="bv8-98-KmN"/>
+                            <constraint firstItem="OK8-6n-18g" firstAttribute="leading" secondItem="PjP-FX-ZXc" secondAttribute="leading" constant="16" id="kae-HK-2Wl"/>
+                            <constraint firstItem="A2L-4R-YJj" firstAttribute="centerX" secondItem="PjP-FX-ZXc" secondAttribute="centerX" id="pJ8-vw-v9j"/>
+                            <constraint firstItem="PjP-FX-ZXc" firstAttribute="trailing" secondItem="OK8-6n-18g" secondAttribute="trailing" constant="16" id="vcm-CH-Cgl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PjP-FX-ZXc"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yRn-9g-4xQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="287" y="106"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="illust03" width="375" height="350"/>
+    </resources>
+</document>
