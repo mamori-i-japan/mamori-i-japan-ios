@@ -9,6 +9,7 @@ import Foundation
 import RNCryptor
 
 /// CoreDataの特定のStringのフィールドを暗号化・複合化するための変換
+/// NOTE: 保存する値を暗号化するので、もし対象のフィールドの値を検索条件にしてもNSPredicateで引っ掛からなくなるので注意
 ///
 /// ```
 /// // 以下をCoreData側で指定すること
@@ -19,7 +20,7 @@ import RNCryptor
 @objc(EncryptedStringTransformer)
 final class EncryptedStringTransformer: ValueTransformer {
     private var p: String {
-        return "feawpjfa+JF213jifop"
+        return "feawpjfa+JF213jifop" // TODO: フィールドの暗号化をちゃんとするなら共通鍵の管理を考える
     }
 
     override func transformedValue(_ value: Any?) -> Any? {
