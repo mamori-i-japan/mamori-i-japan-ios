@@ -8,7 +8,7 @@
 import Foundation
 
 struct Profile: DictionaryEncodable, DictionaryDecodable {
-    private(set) var prefecture: Int
+    private(set) var prefecture: Int?
     private(set) var job: String?
 
     init(prefecture: PrefectureModel, job: String?) {

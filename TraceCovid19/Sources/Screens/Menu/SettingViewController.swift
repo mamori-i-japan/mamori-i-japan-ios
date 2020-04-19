@@ -49,15 +49,24 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
     }
 
     func update(profile: Profile) {
+        let normalColor = UIColor(hex: 0x05182E)
+        let blankColor = UIColor(hex: 0x9E9FA8)
+
         if let job = profile.job, !job.isEmpty {
             jobLabel.text = job
-            jobLabel.textColor = UIColor(hex: 0x05182E)
+            jobLabel.textColor = normalColor
         } else {
             jobLabel.text = "未入力"
-            jobLabel.textColor = UIColor(hex: 0x9E9FA8)
+            jobLabel.textColor = blankColor
         }
 
-        prefectureLabel.text = PrefectureModel(index: profile.prefecture)?.rawValue
+        if let perefecture = PrefectureModel(index: profile.prefecture) {
+            prefectureLabel.text = perefecture.rawValue
+            prefectureLabel.textColor = normalColor
+        } else {
+            prefectureLabel.text = "未入力"
+            prefectureLabel.textColor = blankColor
+        }
     }
 
     func gotoChangePrefecture() {

@@ -57,10 +57,9 @@ enum PrefectureModel: String, CaseIterable {
     case miyazaki = "宮崎県"
     case kagoshima = "鹿児島県"
     case okinawa = "沖縄県"
-    case unknown = ""
 
     var rawIndex: Int {
-        guard self != .unknown, let rawIndex = type(of: self).allCases.firstIndex(of: self) else {
+        guard let rawIndex = type(of: self).allCases.firstIndex(of: self) else {
             return errorIndex
         }
         return rawIndex
@@ -74,7 +73,8 @@ enum PrefectureModel: String, CaseIterable {
         return allCases.compactMap { $0.rawValue }
     }
 
-    init?(index: Int) {
+    init?(index: Int?) {
+        guard let index = index else { return nil }
         /// 1~47を想定
         let allCases = type(of: self).allCases
         let rawIndex = index - 1
