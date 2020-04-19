@@ -7,9 +7,10 @@
 
 import Foundation
 import FirebaseStorage
+import Swinject
 
 final class PositiveContactService {
-    private let storage: Storage
+    private let storage: Lazy<Storage>
     private let jsonDecoder: JSONDecoder
     private let tempIdService: TempIdService
     private let deepContactCheck: DeepContactCheckService
@@ -22,7 +23,7 @@ final class PositiveContactService {
     }
 
     init(
-        storage: Storage,
+        storage: Lazy<Storage>,
         jsonDecoder: JSONDecoder,
         tempIdService: TempIdService,
         deepContactCheck: DeepContactCheckService
@@ -61,7 +62,7 @@ final class PositiveContactService {
     }
 
     func load(completion: @escaping (Result<[PositiveContact], PositiveContactStatus>) -> Void) {
-        let reference = storage.reference().child(fileName)
+        let reference = storage.instance.reference().child(fileName)
 
         reference.getMetadata { [weak self] metaData, error in
             guard let metaData = metaData, error == nil else {

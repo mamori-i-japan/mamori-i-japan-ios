@@ -101,6 +101,7 @@
 		F079FF7F244C1F0100202A91 /* DictionaryEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF7E244C1F0100202A91 /* DictionaryEncodable.swift */; };
 		F079FF81244C1F1300202A91 /* DictionaryDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF80244C1F1300202A91 /* DictionaryDecodable.swift */; };
 		F079FF83244C244500202A91 /* ProfileChangeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF82244C244500202A91 /* ProfileChangeable.swift */; };
+		F079FF85244C3EBC00202A91 /* AppStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF84244C3EBC00202A91 /* AppStatus.swift */; };
 		F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829B243EBF7F008390AE /* LoginAPI.swift */; };
 		F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829D243EC06E008390AE /* TokenResponse.swift */; };
 		F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829F243EC0AD008390AE /* LoginService.swift */; };
@@ -265,6 +266,7 @@
 		F079FF7E244C1F0100202A91 /* DictionaryEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEncodable.swift; sourceTree = "<group>"; };
 		F079FF80244C1F1300202A91 /* DictionaryDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecodable.swift; sourceTree = "<group>"; };
 		F079FF82244C244500202A91 /* ProfileChangeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeable.swift; sourceTree = "<group>"; };
+		F079FF84244C3EBC00202A91 /* AppStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatus.swift; sourceTree = "<group>"; };
 		F0A2829B243EBF7F008390AE /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F0A2829D243EC06E008390AE /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		F0A2829F243EC0AD008390AE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -482,17 +484,18 @@
 		F04759B0243599DC0091059F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F079FF84244C3EBC00202A91 /* AppStatus.swift */,
 				F0A282D8243EF600008390AE /* AppVersion.swift */,
 				F051AD62244699FA007278A0 /* DeepContactUser.swift */,
 				F051AD812446E7C5007278A0 /* PositiveContact.swift */,
 				F051AD7F2446E7B5007278A0 /* PositiveContactList.swift */,
 				F0A2831A24418AAD008390AE /* PrefectureModel.swift */,
+				F079FF78244C09B700202A91 /* Profile.swift */,
+				F051ADBF2449476C007278A0 /* TempUserId.swift */,
 				F0A2829D243EC06E008390AE /* TokenResponse.swift */,
 				F02356BD2442F7B1001E72ED /* TraceData.swift */,
 				F02356BF2442F83E001E72ED /* TraceDataRecord.swift */,
 				F02356BA2442F5F4001E72ED /* Model.xcdatamodeld */,
-				F051ADBF2449476C007278A0 /* TempUserId.swift */,
-				F079FF78244C09B700202A91 /* Profile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1002,6 +1005,7 @@
 				F0A282D7243EF5CA008390AE /* UserDefaultsService+Property.swift in Sources */,
 				F051ADC224495577007278A0 /* Debug3ViewController.swift in Sources */,
 				F0A282F424408BA8008390AE /* DeviceUtility.swift in Sources */,
+				F079FF85244C3EBC00202A91 /* AppStatus.swift in Sources */,
 				F04759B824359BC90091059F /* NSObject+ClassName.swift in Sources */,
 				F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */,
 				F051ADBA2448924D007278A0 /* String+ToDate.swift in Sources */,

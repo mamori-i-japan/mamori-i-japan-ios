@@ -134,7 +134,8 @@ extension SwinjectStoryboard {
                 userDefaults: r.resolve(UserDefaultsService.self)!,
                 keychain: r.resolve(KeychainService.self)!,
                 loginService: r.resolve(LoginService.self)!,
-                remoteConfig: r.resolve(Lazy<RemoteConfig>.self)!
+                storage: r.resolve(Lazy<Storage>.self)!,
+                jsonDecoder: r.resolve(JSONDecoder.self)!
             )
         }
 
@@ -168,7 +169,7 @@ extension SwinjectStoryboard {
 
         defaultContainer.register(PositiveContactService.self) { r in
             PositiveContactService(
-                storage: r.resolve(Storage.self)!,
+                storage: r.resolve(Lazy<Storage>.self)!,
                 jsonDecoder: r.resolve(JSONDecoder.self)!,
                 tempIdService: r.resolve(TempIdService.self)!,
                 deepContactCheck: r.resolve(DeepContactCheckService.self)!

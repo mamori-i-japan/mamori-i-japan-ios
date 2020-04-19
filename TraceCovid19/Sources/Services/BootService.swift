@@ -6,45 +6,35 @@
 //
 
 import Foundation
-import FirebaseRemoteConfig
+import FirebaseStorage
 import Swinject
 
 final class BootService {
     private let userDefaults: UserDefaultsService
     private let keychain: KeychainService
     private let loginService: LoginService
-    private let remoteConfig: Lazy<RemoteConfig>
+    private let storage: Lazy<Storage>
+    private let jsonDecoder: JSONDecoder
 
-    private var isMaintenance: Bool {
-        return remoteConfig.instance.configValue(forKey: "is_maintenance").boolValue
-    }
+    private var lastGeneration: Int64?
+    private(set) var appStatus: AppStatusDetail?
 
-    private var minimumVersion: AppVersion? {
-        guard let versionString = remoteConfig.instance.configValue(forKey: "minimum_version").stringValue,
-            let version = AppVersion(versionString: versionString) else {
-            return nil
-        }
-        return version
-    }
-
-    private var storeURL: URL? {
-        guard let urlString = remoteConfig.instance.configValue(forKey: "store_url").stringValue,
-            let url = URL(string: urlString) else {
-            return nil
-        }
-        return url
+    private var fileName: String {
+        return "app_status.json"
     }
 
     init(
         userDefaults: UserDefaultsService,
         keychain: KeychainService,
         loginService: LoginService,
-        remoteConfig: Lazy<RemoteConfig>
+        storage: Lazy<Storage>,
+        jsonDecoder: JSONDecoder
     ) {
         self.userDefaults = userDefaults
         self.keychain = keychain
         self.loginService = loginService
-        self.remoteConfig = remoteConfig
+        self.storage = storage
+        self.jsonDecoder = jsonDecoder
     }
 
     enum RemoteConfigStatus {
@@ -58,12 +48,12 @@ final class BootService {
         print(#function)
         clearStorageIfUninstalled()
         setupRandomToken()
-        syncRemoteConfig(completion: completion)
+        fetchAppStatus(completion: completion)
     }
 
     func execEnterForeground(completion: @escaping (RemoteConfigStatus) -> Void) {
         print(#function)
-        syncRemoteConfig(completion: completion)
+        fetchAppStatus(completion: completion)
     }
 
     /// アンインストールを検知したらログアウト(状態を初期化)する
@@ -85,35 +75,64 @@ final class BootService {
         }
     }
 
-    private func syncRemoteConfig(completion: @escaping (RemoteConfigStatus) -> Void) {
-        remoteConfig.instance.fetchAndActivate { [weak self] _, error in
-            guard self?.checkRemoteConfigResult() == true && error == nil else {
+    private func fetchAppStatus(completion: @escaping (RemoteConfigStatus) -> Void) {
+        let reference = storage.instance.reference().child(fileName)
+        reference.getMetadata { [weak self] metaData, error in
+            guard let metaData = metaData, error == nil else {
+                print("[BootService] error occurred: \(String(describing: error))")
                 completion(.failed)
                 return
             }
-            guard self?.checkMaintenance() == true else {
-                completion(.isMaintenance)
+
+            print("[BootService] new generation: \(String(describing: metaData.generation)), last generation: \(String(describing: self?.lastGeneration))")
+            if let lastGeneration = self?.lastGeneration,
+                lastGeneration <= metaData.generation {
+                // 取得不要
+                self?.handle(completion: completion)
                 return
             }
-            guard self?.checkAppVersion() == true else {
-                completion(.isNeedUpdate(storeURL: self!.storeURL!))
-                return
+
+            // メモリ指定（最大1MB）
+            reference.getData(maxSize: 1 * 1024 * 1024) { [weak self] data, error in
+                guard let sSelf = self else { return }
+                guard let data = data, error == nil else {
+                    print("[BootService] error occurred: \(String(describing: error))")
+                    completion(.failed)
+                    return
+                }
+                print("[BootService] data: \(String(describing: String(data: data, encoding: .utf8)))")
+
+                do {
+                    let appStatus = try sSelf.jsonDecoder.decode(AppStatus.self, from: data)
+                    self?.lastGeneration = metaData.generation
+                    self?.appStatus = appStatus.ios
+                    self?.handle(completion: completion)
+                } catch {
+                    print("[BootService] parse error: \(error)")
+                    completion(.failed)
+                }
             }
-            completion(.success)
         }
     }
 
-    private func checkRemoteConfigResult() -> Bool {
-        return minimumVersion != nil && storeURL != nil
-    }
+    private func handle(completion: @escaping (RemoteConfigStatus) -> Void) {
+        guard let appStatus = appStatus, appStatus.minAppVersion != nil else {
+            completion(.failed)
+            return
+        }
 
-    private func checkMaintenance() -> Bool {
-        print("is isMaintenance: \(isMaintenance)")
-        return !isMaintenance
-    }
+        print("[BootService] isMaintenance: \(appStatus.isMaintenance)")
+        guard !appStatus.isMaintenance else {
+            completion(.isMaintenance)
+            return
+        }
 
-    private func checkAppVersion() -> Bool {
-        print("is currentAppVersion: \(AppVersion.currentAppVersion) >= minimumVersion: \(minimumVersion!)")
-        return AppVersion.currentAppVersion >= minimumVersion!
+        print("[BootService] is currentAppVersion: \(AppVersion.currentAppVersion) >= minAppVersion: \(appStatus.minAppVersion!)")
+        guard AppVersion.currentAppVersion >= appStatus.minAppVersion! else {
+            completion(.isNeedUpdate(storeURL: appStatus.storeUrl))
+            return
+        }
+
+        completion(.success)
     }
 }
