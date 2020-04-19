@@ -54,12 +54,20 @@ final class ProfileService {
             .document(uid)
             .collection("profile")
             .document(uid).getDocument { response, error in
-                guard error == nil,
-                    let dictionary = response?.data(),
-                    let profile = try? Profile.make(dictionary: dictionary) else {
-                        // TODO: ない場合はエラーとはしないようにする
-                        completion(.failure(NSError(domain: "not found profile", code: 0, userInfo: nil)))
-                        return
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+
+                guard let dictionary = response?.data() else {
+                    // 空状態(理論上はありうるため正常系として返す)
+                    completion(.success(Profile.empty))
+                    return
+                }
+
+                guard let profile = try? Profile.make(dictionary: dictionary) else {
+                    completion(.failure(NSError(domain: "Profile parse error", code: 0, userInfo: nil)))
+                    return
                 }
                 completion(.success(profile))
             }

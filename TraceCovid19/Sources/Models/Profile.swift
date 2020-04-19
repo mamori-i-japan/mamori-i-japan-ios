@@ -11,11 +11,6 @@ struct Profile: DictionaryEncodable, DictionaryDecodable {
     private(set) var prefecture: Int?
     private(set) var job: String?
 
-    init(prefecture: PrefectureModel, job: String?) {
-        self.prefecture = prefecture.index
-        self.job = isValidJob(job: job)
-    }
-
     @discardableResult
     mutating func update(prefecture: PrefectureModel) -> Profile {
         self.prefecture = prefecture.index
@@ -27,6 +22,17 @@ struct Profile: DictionaryEncodable, DictionaryDecodable {
         self.job = isValidJob(job: job)
         return self
     }
+}
+
+extension Profile {
+    init(prefecture: PrefectureModel, job: String?) {
+        self.prefecture = prefecture.index
+        self.job = isValidJob(job: job)
+    }
+
+    static let empty: Profile = {
+        .init(prefecture: nil, job: nil)
+    }()
 }
 
 private func isValidJob(job: String?) -> String? {
