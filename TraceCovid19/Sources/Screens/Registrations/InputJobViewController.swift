@@ -28,6 +28,7 @@ final class InputJobViewController: UIViewController, ProfileChangeable, NVActiv
         if case .change(let profile) = flow {
             // 変更フローの場合はテキストに設定
             jobTextField.text = profile.job
+            nextButton.setTitle("更新する", for: .normal)
         }
 
         jobTextField.delegate = self

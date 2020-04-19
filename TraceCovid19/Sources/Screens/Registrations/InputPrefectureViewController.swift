@@ -30,6 +30,7 @@ final class InputPrefectureViewController: UIViewController, NVActivityIndicator
         if case .change(let profile) = flow {
             // 変更フローの場合はテキストに設定
             prefectureTextField.text = PrefectureModel(index: profile.prefecture)?.rawValue
+            nextButton.setTitle("更新する", for: .normal)
         }
 
         prefectureTextField.delegate = self

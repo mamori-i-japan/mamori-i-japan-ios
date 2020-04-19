@@ -49,7 +49,10 @@ extension ProfileChangeable where Self: NVActivityIndicatorViewable & UIViewCont
 extension ProfileChangeable where Self: UIViewController {
     func endNavigation() {
         // デフォルトでは1つ戻る
-        navigationController?.popViewController(animated: true)
+        // TODO: 文言とか
+        showAlert(message: "更新が完了しました", buttonTitle: "OK") { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
 
     func errorNavigation(error: Error?) {
