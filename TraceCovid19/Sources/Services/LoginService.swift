@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseAuth
 import Swinject
+import FirebaseFirestore
 
 final class LoginService {
     private let auth: Lazy<Auth> // Firebase.configure()の後で使用するためLazyでラップ
@@ -16,38 +17,48 @@ final class LoginService {
     private let ble: BLEService
     private let coreData: CoreDataService
     private let loginAPI: LoginAPI
+    private let profileService: ProfileService
 
     var isLogin: Bool {
         return auth.instance.currentUser != nil
     }
 
-    init(auth: Lazy<Auth>, keychain: KeychainService, userDefaults: UserDefaultsService, ble: BLEService, coreData: CoreDataService, loginAPI: LoginAPI) {
+    init(
+        auth: Lazy<Auth>,
+        keychain: KeychainService,
+        userDefaults: UserDefaultsService,
+        ble: BLEService,
+        coreData: CoreDataService,
+        loginAPI: LoginAPI,
+        profileService: ProfileService
+    ) {
         self.auth = auth
         self.keychain = keychain
         self.userDefaults = userDefaults
         self.ble = ble
         self.coreData = coreData
         self.loginAPI = loginAPI
+        self.profileService = profileService
     }
 
-    func signIn(verificationID: String, code: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    func signIn(verificationID: String, code: String, profile: Profile, completion: @escaping (Result<Void, Error>) -> Void) {
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: code)
 
         auth.instance.signIn(with: credential) { [weak self] _, error in
             if let error = error {
                 completion(.failure(error))
             } else {
-                self?.requestLogin(completion: completion)
+                self?.requestLogin(profile: profile, completion: completion)
             }
         }
     }
 
-    private func requestLogin(completion: @escaping (Result<Void, Error>) -> Void) {
+    private func requestLogin(profile: Profile, completion: @escaping (Result<Void, Error>) -> Void) {
         loginAPI.login { [weak self] result in
             switch result {
             case .success:
                 // 非同期で、とりあえず投げておく（結果は見ない）
-                self?.forceRefreshToken()
+                self?.forceRefreshToken(profile: profile)
                 completion(.success(()))
 
             case .failure(.error(let error)),
@@ -58,11 +69,15 @@ final class LoginService {
         }
     }
 
-    private func forceRefreshToken() {
-        auth.instance.currentUser?.getIDTokenForcingRefresh(true) { token, error in
+    private func forceRefreshToken(profile: Profile) {
+        auth.instance.currentUser?.getIDTokenForcingRefresh(true) { [weak self] token, error in
             print("[LoginService] ForeceRefresh finished. token: \(token ?? "nil"), error: \(String(describing: error))")
-            // TODO: つづいて、Firestoreを用いて都道府県・職業の同期を行う（結果はまたない）
+            self?.requestSetProfile(profile: profile)
         }
+    }
+
+    private func requestSetProfile(profile: Profile) {
+        profileService.set(profile: profile) { _ in }
     }
 
     func logout() {

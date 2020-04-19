@@ -15,6 +15,9 @@ final class InputPhoneNumberViewController: UIViewController, KeyboardCloseProto
 
     var smsService: SMSService!
 
+    // TODO: 画面渡しのやり方
+    var profile: Profile!
+
     private var observers = [NSKeyValueObservation]()
     private var isRequesting = false
 
@@ -81,6 +84,7 @@ final class InputPhoneNumberViewController: UIViewController, KeyboardCloseProto
     func gotoAuthSMS(verificationID: String) {
         let authVC = AuthSMSViewController.instantiate()
         authVC.verificationID = verificationID
+        authVC.profile = profile
         navigationController?.pushViewController(authVC, animated: true)
     }
 }

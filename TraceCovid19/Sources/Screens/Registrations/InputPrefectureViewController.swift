@@ -42,8 +42,7 @@ final class InputPrefectureViewController: UIViewController {
         prefectureTextField.inputView = pickerView
         prefectureTextField.inputAccessoryView = toolbar
 
-        guard let tokyoIndex = PrefectureModel.prefectures.firstIndex(of: "東京都") else { return }
-        pickerView.selectRow(Int(tokyoIndex), inComponent: 0, animated: false)
+        pickerView.selectRow(PrefectureModel.tokyo.index, inComponent: 0, animated: false)
     }
 
     private func setupKVO() {
@@ -60,18 +59,20 @@ final class InputPrefectureViewController: UIViewController {
     }
 
     @IBAction func tappedNextButton(_ sender: Any) {
-        gotoInputWork()
+        guard let prefecture = PrefectureModel(rawValue: prefectureTextField.text ?? "") else { return }
+        gotoInputJob(prefecture: prefecture)
     }
 
-    func gotoInputWork() {
-        // TODO: 都道府県情報の引き継ぎ
-        navigationController?.pushViewController(InputWorkViewController.instantiate(), animated: true)
+    func gotoInputJob(prefecture: PrefectureModel) {
+        let vc = InputJobViewController.instantiate()
+        vc.prefecture = prefecture
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc
     func done() {
         prefectureTextField.endEditing(true)
-        prefectureTextField.text = PrefectureModel.prefectures[pickerView.selectedRow(inComponent: 0)]
+        prefectureTextField.text = PrefectureModel.rawValues[pickerView.selectedRow(inComponent: 0)]
     }
 }
 
@@ -81,13 +82,13 @@ extension InputPrefectureViewController: UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        PrefectureModel.prefectures.count
+        PrefectureModel.allCases.count
     }
 }
 
 extension InputPrefectureViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return PrefectureModel.prefectures[row]
+        return PrefectureModel.rawValues[row]
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

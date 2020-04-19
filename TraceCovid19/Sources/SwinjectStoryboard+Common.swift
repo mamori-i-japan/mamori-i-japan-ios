@@ -14,6 +14,7 @@ import CoreData
 import FirebaseAuth
 import FirebaseRemoteConfig
 import FirebaseStorage
+import FirebaseFirestore
 
 extension SwinjectStoryboard {
     @objc
@@ -110,7 +111,8 @@ extension SwinjectStoryboard {
                 userDefaults: r.resolve(UserDefaultsService.self)!,
                 ble: r.resolve(BLEService.self, argument: r.resolve(DispatchQueue.self, name: "BluetoothQueue")!)!,
                 coreData: r.resolve(CoreDataService.self)!,
-                loginAPI: r.resolve(LoginAPI.self)!
+                loginAPI: r.resolve(LoginAPI.self)!,
+                profileService: r.resolve(ProfileService.self)!
             )
         }
 
@@ -166,6 +168,13 @@ extension SwinjectStoryboard {
 
         defaultContainer.register(TempIdService.self) { r in
             TempIdService(tempIdAPI: r.resolve(TempIdAPI.self)!, coreData: r.resolve(CoreDataService.self)!)
+        }
+
+        defaultContainer.register(ProfileService.self) { r in
+            ProfileService(
+                firestore: r.resolve(Lazy<Firestore>.self)!,
+                auth: r.resolve(Lazy<Auth>.self)!
+            )
         }
 
         // MARK: - Others
@@ -235,6 +244,10 @@ extension SwinjectStoryboard {
 
         defaultContainer.register(TempIdAPI.self) { _ in
             TempIdAPI()
+        }
+
+        defaultContainer.register(Firestore.self) { _ in
+            Firestore.firestore()
         }
     }
 }

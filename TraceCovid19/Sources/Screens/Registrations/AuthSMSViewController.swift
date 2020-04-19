@@ -14,6 +14,8 @@ final class AuthSMSViewController: UIViewController, KeyboardCloseProtocol, NVAc
     @IBOutlet weak var errorLabel: UILabel!
 
     var verificationID: String!
+    var profile: Profile!
+
     var keychain: KeychainService!
     var loginService: LoginService!
 
@@ -54,7 +56,7 @@ final class AuthSMSViewController: UIViewController, KeyboardCloseProtocol, NVAc
         startAnimating(type: .circleStrokeSpin)
         closeKeyboard()
 
-        loginService.signIn(verificationID: verificationID, code: code) { [weak self] result in
+        loginService.signIn(verificationID: verificationID, code: code, profile: profile) { [weak self] result in
             self?.stopAnimating()
 
             switch result {
