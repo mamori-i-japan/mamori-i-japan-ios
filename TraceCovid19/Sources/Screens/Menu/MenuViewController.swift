@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MenuViewController: UITableViewController {
+final class MenuViewController: UITableViewController, NavigationBarHiddenApplicapable {
     @IBOutlet weak var settingTableViewCell: UITableViewCell!
     @IBOutlet weak var aboutTableViewCell: UITableViewCell!
 

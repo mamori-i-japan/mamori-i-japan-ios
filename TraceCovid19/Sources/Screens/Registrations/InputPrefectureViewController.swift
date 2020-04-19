@@ -6,16 +6,31 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-final class InputPrefectureViewController: UIViewController {
+final class InputPrefectureViewController: UIViewController, NVActivityIndicatorViewable, ProfileChangeable {
     @IBOutlet weak var prefectureTextField: UITextField!
     @IBOutlet weak var nextButton: ActionButton!
+
+    var profileService: ProfileService!
+
+    enum Flow {
+        case start
+        case change(Profile)
+    }
+
+    var flow: Flow!
 
     private let pickerView = UIPickerView()
     private var observers = [NSKeyValueObservation]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if case .change(let profile) = flow {
+            // 変更フローの場合はテキストに設定
+            prefectureTextField.text = PrefectureModel(index: profile.prefecture)?.rawValue
+        }
 
         prefectureTextField.delegate = self
         setupPickerView()
@@ -42,7 +57,8 @@ final class InputPrefectureViewController: UIViewController {
         prefectureTextField.inputView = pickerView
         prefectureTextField.inputAccessoryView = toolbar
 
-        pickerView.selectRow(PrefectureModel.tokyo.index, inComponent: 0, animated: false)
+        let defaultPrefecture = PrefectureModel(rawValue: prefectureTextField.text ?? "") ?? .tokyo
+        pickerView.selectRow(defaultPrefecture.rawIndex, inComponent: 0, animated: false)
     }
 
     private func setupKVO() {
@@ -60,12 +76,20 @@ final class InputPrefectureViewController: UIViewController {
 
     @IBAction func tappedNextButton(_ sender: Any) {
         guard let prefecture = PrefectureModel(rawValue: prefectureTextField.text ?? "") else { return }
-        gotoInputJob(prefecture: prefecture)
+
+        switch flow {
+        case .start:
+            gotoInputJob(prefecture: prefecture)
+        case .change(var profile):
+            requestProfile(profile: profile.update(prefecture: prefecture))
+        case .none:
+            break
+        }
     }
 
     func gotoInputJob(prefecture: PrefectureModel) {
         let vc = InputJobViewController.instantiate()
-        vc.prefecture = prefecture
+        vc.flow = .start(prefecture)
         navigationController?.pushViewController(vc, animated: true)
     }
 

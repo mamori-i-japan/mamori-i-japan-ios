@@ -13,6 +13,8 @@ final class Agreement2ViewController: UIViewController {
     }
 
     func gotoInputPrefecture() {
-        navigationController?.pushViewController(InputPrefectureViewController.instantiate(), animated: true)
+        let vc = InputPrefectureViewController.instantiate()
+        vc.flow = .start
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

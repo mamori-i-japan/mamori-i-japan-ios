@@ -7,6 +7,8 @@
 
 import Foundation
 
+private let errorIndex = 999
+
 enum PrefectureModel: String, CaseIterable {
     case hokkaido = "北海道"
     case aomori = "青森県"
@@ -55,13 +57,30 @@ enum PrefectureModel: String, CaseIterable {
     case miyazaki = "宮崎県"
     case kagoshima = "鹿児島県"
     case okinawa = "沖縄県"
+    case unknown = ""
+
+    var rawIndex: Int {
+        guard self != .unknown, let rawIndex = type(of: self).allCases.firstIndex(of: self) else {
+            return errorIndex
+        }
+        return rawIndex
+    }
 
     var index: Int {
-        guard let rawIndex = type(of: self).allCases.firstIndex(of: self) else { return 999 }
-        return Int(rawIndex) + 1 // 0始まりになってしまうので、1加算
+        return rawIndex == errorIndex ? errorIndex : rawIndex + 1 // 0始まりになってしまうので、B/Eに投げる場合などは1を加算（異常系は固定）
     }
 
     static var rawValues: [String] {
         return allCases.compactMap { $0.rawValue }
+    }
+
+    init?(index: Int) {
+        /// 1~47を想定
+        let allCases = type(of: self).allCases
+        let rawIndex = index - 1
+        guard rawIndex < allCases.count else {
+            return nil
+        }
+        self = allCases[rawIndex]
     }
 }

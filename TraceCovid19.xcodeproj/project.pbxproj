@@ -100,6 +100,7 @@
 		F079FF7D244C168700202A91 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF7C244C168700202A91 /* ProfileService.swift */; };
 		F079FF7F244C1F0100202A91 /* DictionaryEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF7E244C1F0100202A91 /* DictionaryEncodable.swift */; };
 		F079FF81244C1F1300202A91 /* DictionaryDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF80244C1F1300202A91 /* DictionaryDecodable.swift */; };
+		F079FF83244C244500202A91 /* ProfileChangeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF82244C244500202A91 /* ProfileChangeable.swift */; };
 		F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829B243EBF7F008390AE /* LoginAPI.swift */; };
 		F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829D243EC06E008390AE /* TokenResponse.swift */; };
 		F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829F243EC0AD008390AE /* LoginService.swift */; };
@@ -263,6 +264,7 @@
 		F079FF7C244C168700202A91 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		F079FF7E244C1F0100202A91 /* DictionaryEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEncodable.swift; sourceTree = "<group>"; };
 		F079FF80244C1F1300202A91 /* DictionaryDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecodable.swift; sourceTree = "<group>"; };
+		F079FF82244C244500202A91 /* ProfileChangeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeable.swift; sourceTree = "<group>"; };
 		F0A2829B243EBF7F008390AE /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F0A2829D243EC06E008390AE /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		F0A2829F243EC0AD008390AE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 				F0A282CE243ED0C5008390AE /* KeyboardCloseProtocol.swift */,
 				F04759B724359BC90091059F /* NSObject+ClassName.swift */,
 				F04759BB2435B2CD0091059F /* PrintUtility.swift */,
+				F079FF82244C244500202A91 /* ProfileChangeable.swift */,
 				F0A2831C24419234008390AE /* String+PhoneNumber.swift */,
 				F051ADB92448924D007278A0 /* String+ToDate.swift */,
 				F0A2830624416FA5008390AE /* UIColor+Hex.swift */,
@@ -951,6 +954,7 @@
 				F02356BE2442F7B1001E72ED /* TraceData.swift in Sources */,
 				F051ADC624498085007278A0 /* InputJobViewController.swift in Sources */,
 				F0031D40243462AC009F9643 /* HomeViewController.swift in Sources */,
+				F079FF83244C244500202A91 /* ProfileChangeable.swift in Sources */,
 				F051AD9D2447769B007278A0 /* Debug2ViewController.swift in Sources */,
 				F0A282CF243ED0C5008390AE /* KeyboardCloseProtocol.swift in Sources */,
 				F0A2831B24418AAD008390AE /* PrefectureModel.swift in Sources */,
