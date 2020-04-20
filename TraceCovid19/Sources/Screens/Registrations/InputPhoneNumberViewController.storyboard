@@ -29,7 +29,7 @@
                                     <action selector="tappedNextButton:" destination="lwX-e9-lTY" eventType="touchUpInside" id="Dai-NJ-mYK"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="電話番号を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y59-T9-4Ul" customClass="NoPerformActionTextField" customModule="TraceCovid19" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y59-T9-4Ul" customClass="NoPerformActionTextField" customModule="TraceCovid19" customModuleProvider="target">
                                 <rect key="frame" x="16" y="257" width="343" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="c0l-Cc-SDM"/>
@@ -37,6 +37,9 @@
                                 <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizedKey" value="input_phone_number"/>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNZ-BS-5KM">
                                 <rect key="frame" x="16" y="317" width="343" height="1"/>

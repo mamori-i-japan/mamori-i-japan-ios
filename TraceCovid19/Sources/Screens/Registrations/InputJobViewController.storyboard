@@ -29,7 +29,7 @@
                                     <action selector="tappedNextButton:" destination="Vnd-pH-PoI" eventType="touchUpInside" id="vt1-O0-pLV"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="職業名を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3bk-YR-kaD" customClass="NoPerformActionTextField" customModule="TraceCovid19" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3bk-YR-kaD" customClass="NoPerformActionTextField" customModule="TraceCovid19" customModuleProvider="target">
                                 <rect key="frame" x="16" y="257" width="343" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="j8a-JB-Ehf"/>
@@ -37,6 +37,9 @@
                                 <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderLocalizedKey" value="input_job_name"/>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kjs-be-RnK">
                                 <rect key="frame" x="16" y="317" width="343" height="1"/>

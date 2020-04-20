@@ -12,3 +12,6 @@
 "change_phone_number" = "電話番号を変更";
 "send_sms" = "SMSを送信";
 "start_using" = "利用をはじめる";
+"input_phone_number" = "電話番号を入力してください";
+"select_prefecture" = "お住まいの都道府県を選択";
+"input_job_name" = "職業名を入力";
