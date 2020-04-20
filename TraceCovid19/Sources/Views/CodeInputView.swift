@@ -29,6 +29,7 @@ final class CodeInputView: UIView {
             for (index, code) in newValue.enumerated() where index < codeInputUnitViews.count {
                 codeInputUnitViews[index].text = String(code)
             }
+            changeFocusSubviews()
         }
     }
 
@@ -50,7 +51,6 @@ final class CodeInputView: UIView {
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         stackView.spacing = 8.0
-
         addSubview(stackView)
 
         // テキストフィールドの実態は隠す
@@ -75,6 +75,14 @@ final class CodeInputView: UIView {
             let unitView = CodeInputUnitView(frame: CGRect(x: 0, y: 0, width: 0, height: bounds.height))
             stackView.addArrangedSubview(unitView)
             codeInputUnitViews.append(unitView)
+        }
+    }
+
+    private func changeFocusSubviews() {
+        // 各コード入力の下線部分の色変更
+        for (index, unitView) in codeInputUnitViews.enumerated() {
+            let isCurrent = text.count == index
+            unitView.changeFocus(isCurrent: isCurrent)
         }
     }
 

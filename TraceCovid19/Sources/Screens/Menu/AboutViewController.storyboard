@@ -11,7 +11,7 @@
         <!--このアプリについて-->
         <scene sceneID="hDD-5d-3Pi">
             <objects>
-                <viewController title="このアプリについて" id="l0p-OV-Fy2" customClass="AboutViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="このアプリについて" id="l0p-OV-Fy2" customClass="AboutViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YXf-gN-Tzb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

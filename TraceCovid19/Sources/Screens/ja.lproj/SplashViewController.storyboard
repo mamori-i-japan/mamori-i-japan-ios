@@ -11,7 +11,7 @@
         <!--Splash View Controller-->
         <scene sceneID="JOJ-vd-16Q">
             <objects>
-                <viewController id="srX-Cg-HzW" customClass="SplashViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="srX-Cg-HzW" customClass="SplashViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YLk-qr-R73">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

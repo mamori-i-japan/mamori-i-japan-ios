@@ -11,12 +11,12 @@
         <!--電話番号確認-->
         <scene sceneID="NYZ-Rb-QPB">
             <objects>
-                <viewController id="lwX-e9-lTY" customClass="InputPhoneNumberViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lwX-e9-lTY" customClass="InputPhoneNumberViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3to-lM-CyJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9Y-UD-n8W" customClass="ActionButton" customModule="TraceCovid19JP" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9Y-UD-n8W" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
                                 <rect key="frame" x="16" y="385" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="uze-uH-QMO"/>
@@ -27,7 +27,7 @@
                                     <action selector="tappedNextButton:" destination="lwX-e9-lTY" eventType="touchUpInside" id="Dai-NJ-mYK"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="電話番号を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y59-T9-4Ul" customClass="NoPerformActionTextField" customModule="TraceCovid19JP" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="電話番号を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y59-T9-4Ul" customClass="NoPerformActionTextField" customModule="TraceCovid19" customModuleProvider="target">
                                 <rect key="frame" x="16" y="257" width="343" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="c0l-Cc-SDM"/>

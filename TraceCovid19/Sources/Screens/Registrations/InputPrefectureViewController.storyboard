@@ -11,12 +11,12 @@
         <!--都道府県入力-->
         <scene sceneID="MME-NH-2RS">
             <objects>
-                <viewController id="lmi-Rv-2UM" customClass="InputPrefectureViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lmi-Rv-2UM" customClass="InputPrefectureViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pNk-SU-aeV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orZ-M0-oOc" customClass="ActionButton" customModule="TraceCovid19JP" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orZ-M0-oOc" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
                                 <rect key="frame" x="16" y="385" width="382" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="7JH-1C-TT6"/>
@@ -27,7 +27,7 @@
                                     <action selector="tappedNextButton:" destination="lmi-Rv-2UM" eventType="touchUpInside" id="HT6-NT-PRg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="お住まいの都道府県を選択" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxU-oe-ZHd" customClass="NoPerformActionTextField" customModule="TraceCovid19JP" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="お住まいの都道府県を選択" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxU-oe-ZHd" customClass="NoPerformActionTextField" customModule="TraceCovid19" customModuleProvider="target">
                                 <rect key="frame" x="16" y="257" width="382" height="60"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>

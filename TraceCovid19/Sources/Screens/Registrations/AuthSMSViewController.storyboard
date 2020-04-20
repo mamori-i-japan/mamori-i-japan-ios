@@ -11,7 +11,7 @@
         <!--確認番号入力-->
         <scene sceneID="kRC-BA-xVH">
             <objects>
-                <viewController id="WVV-gg-cqX" customClass="AuthSMSViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WVV-gg-cqX" customClass="AuthSMSViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p5o-2c-oyi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNi-sC-LZ2" customClass="CodeInputView" customModule="TraceCovid19JP" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNi-sC-LZ2" customClass="CodeInputView" customModule="TraceCovid19" customModuleProvider="target">
                                 <rect key="frame" x="22.666666666666657" y="254" width="330" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="height" constant="48" id="xAK-WO-l3e"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-gT-zEB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-gT-zEB">
                                 <rect key="frame" x="22.666666666666657" y="325" width="330" height="14.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.96862745098039216" green="0.28235294117647058" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,7 +68,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ESJ-h6-K1y"/>
                     </view>
-                    <navigationItem key="navigationItem" title="確認番号入力" id="a2V-cy-PaX"/>
+                    <navigationItem key="navigationItem" title="確認番号入力" id="a2V-cy-PaX">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="TbE-ue-q5P"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="codeInputView" destination="hNi-sC-LZ2" id="ZpT-Pi-UOO"/>

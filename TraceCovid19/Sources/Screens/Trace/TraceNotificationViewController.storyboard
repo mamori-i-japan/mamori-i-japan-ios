@@ -11,7 +11,7 @@
         <!--Trace Notification View Controller-->
         <scene sceneID="gZF-55-n6N">
             <objects>
-                <viewController id="aV3-q4-LYp" customClass="TraceNotificationViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aV3-q4-LYp" customClass="TraceNotificationViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wz9-vx-h4W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

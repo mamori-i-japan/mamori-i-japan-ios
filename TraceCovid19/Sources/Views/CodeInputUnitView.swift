@@ -9,6 +9,7 @@ import UIKit
 
 final class CodeInputUnitView: UIView, NibInstantiatable {
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var underBarView: UIView!
 
     var text: String {
         get {
@@ -37,4 +38,17 @@ final class CodeInputUnitView: UIView, NibInstantiatable {
 
         label.text = nil
     }
+
+    func changeFocus(isCurrent: Bool) {
+        if isCurrent {
+            underBarView.backgroundColor = .highlightedColor
+        } else {
+            underBarView.backgroundColor = .normalColor
+        }
+    }
+}
+
+private extension UIColor {
+    static var normalColor = { UIColor(hex: 0xE6E7EC) }()
+    static var highlightedColor = { UIColor(hex: 0x007AFF) }()
 }

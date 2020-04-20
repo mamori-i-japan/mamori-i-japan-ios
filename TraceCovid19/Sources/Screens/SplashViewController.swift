@@ -79,9 +79,13 @@ final class SplashViewController: UIViewController, NVActivityIndicatorViewable 
     @objc
     func handleNavigation() {
         if loginService.isLogin {
-            gotoHome()
+            DispatchQueue.main.async { [weak self] in
+                self?.gotoHome()
+            }
         } else {
-            gotoRegistration()
+            DispatchQueue.main.async { [weak self] in
+                self?.gotoRegistration()
+            }
         }
     }
 

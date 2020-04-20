@@ -11,12 +11,12 @@
         <!--Tutorial3 View Controller-->
         <scene sceneID="p89-KR-z17">
             <objects>
-                <viewController id="rWF-A9-mdp" customClass="Tutorial3ViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rWF-A9-mdp" customClass="Tutorial3ViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NxB-6Y-DSg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1Y-hd-R42" customClass="ActionButton" customModule="TraceCovid19JP" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1Y-hd-R42" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
                                 <rect key="frame" x="16" y="716" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="YZH-YF-Ph3"/>

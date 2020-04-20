@@ -11,7 +11,7 @@
         <!--デバッグ-->
         <scene sceneID="E6y-vo-PgU">
             <objects>
-                <viewController id="WWJ-8K-JAs" customClass="DebugViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WWJ-8K-JAs" customClass="DebugViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u8m-cW-j42">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -336,7 +336,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DebugBLECell" id="dFw-zg-wxw" customClass="DebugBLECell" customModule="TraceCovid19JP" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DebugBLECell" id="dFw-zg-wxw" customClass="DebugBLECell" customModule="TraceCovid19" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="48" width="375" height="91.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dFw-zg-wxw" id="GGu-yS-vW9">
@@ -412,7 +412,7 @@
                                             <outlet property="txPowerLabel" destination="pbz-eT-30A" id="lAl-NP-Nod"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DebugDeepContactUserCell" id="L0b-ve-TFs" customClass="DebugDeepContactUserCell" customModule="TraceCovid19JP" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DebugDeepContactUserCell" id="L0b-ve-TFs" customClass="DebugDeepContactUserCell" customModule="TraceCovid19" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="139.33333587646484" width="375" height="91.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L0b-ve-TFs" id="9BQ-Sz-dcY">

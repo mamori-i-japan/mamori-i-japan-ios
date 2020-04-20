@@ -11,7 +11,7 @@
         <!--Debug3 View Controller-->
         <scene sceneID="WCM-Vm-HgR">
             <objects>
-                <viewController id="Zcb-3K-xOn" customClass="Debug3ViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Zcb-3K-xOn" customClass="Debug3ViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nqv-47-LJx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="132" width="414" height="730"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DebugTempUserIdCell" rowHeight="247" id="3aW-jt-3Hk" customClass="DebugTempUserIdCell" customModule="TraceCovid19JP" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DebugTempUserIdCell" rowHeight="247" id="3aW-jt-3Hk" customClass="DebugTempUserIdCell" customModule="TraceCovid19" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="247"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3aW-jt-3Hk" id="AhN-cp-eTB">

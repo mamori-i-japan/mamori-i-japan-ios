@@ -11,12 +11,12 @@
         <!--利用いただくために-->
         <scene sceneID="0Ow-lR-nbD">
             <objects>
-                <viewController id="uFH-Fh-iGn" customClass="PushPermissionSettingViewController" customModule="TraceCovid19JP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uFH-Fh-iGn" customClass="PushPermissionSettingViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AWm-54-kwI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZf-PN-HcN" customClass="ActionButton" customModule="TraceCovid19JP" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZf-PN-HcN" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
                                 <rect key="frame" x="16" y="567.33333333333337" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="hv1-61-QCt"/>
