@@ -58,11 +58,8 @@ extension SwinjectStoryboard {
             vc.loginService = r.resolve(LoginService.self)
         }
 
-        defaultContainer.storyboardInitCompleted(BLEPermissionSettingViewController.self) { r, vc in
+        defaultContainer.storyboardInitCompleted(PermissionSettingViewController.self) { r, vc in
             vc.bleService = r.resolve(BLEService.self, argument: r.resolve(DispatchQueue.self, name: "BluetoothQueue")!)
-        }
-
-        defaultContainer.storyboardInitCompleted(PushPermissionSettingViewController.self) { r, vc in
             vc.notificationService = r.resolve(PushNotificationService.self)
         }
 

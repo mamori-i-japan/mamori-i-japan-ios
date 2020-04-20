@@ -119,8 +119,8 @@
 		F0A282AF243EC5D5008390AE /* InputPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282AE243EC5D5008390AE /* InputPhoneNumberViewController.swift */; };
 		F0A282B1243EC6A9008390AE /* AuthSMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282B0243EC6A9008390AE /* AuthSMSViewController.swift */; };
 		F0A282B3243EC6C3008390AE /* AuthSMSViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A282B2243EC6C3008390AE /* AuthSMSViewController.storyboard */; };
-		F0A282B5243EC77E008390AE /* BLEPermissionSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A282B4243EC77E008390AE /* BLEPermissionSettingViewController.storyboard */; };
-		F0A282B7243EC785008390AE /* BLEPermissionSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282B6243EC785008390AE /* BLEPermissionSettingViewController.swift */; };
+		F0A282B5243EC77E008390AE /* PermissionSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A282B4243EC77E008390AE /* PermissionSettingViewController.storyboard */; };
+		F0A282B7243EC785008390AE /* PermissionSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282B6243EC785008390AE /* PermissionSettingViewController.swift */; };
 		F0A282B9243EC812008390AE /* TraceDataUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282B8243EC812008390AE /* TraceDataUploadViewController.swift */; };
 		F0A282BB243EC826008390AE /* TraceDataUploadViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A282BA243EC826008390AE /* TraceDataUploadViewController.storyboard */; };
 		F0A282BE243EC913008390AE /* TraceNotificationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A282BD243EC913008390AE /* TraceNotificationViewController.storyboard */; };
@@ -167,8 +167,6 @@
 		F0A28321244194B4008390AE /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A28320244194B4008390AE /* CodeInputView.swift */; };
 		F0A283232441956F008390AE /* UIView+NibInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A283222441956F008390AE /* UIView+NibInstantiable.swift */; };
 		F0A28325244195A7008390AE /* CodeInputUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A28324244195A7008390AE /* CodeInputUnitView.swift */; };
-		F0A283272441AC97008390AE /* PushPermissionSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A283262441AC97008390AE /* PushPermissionSettingViewController.swift */; };
-		F0A283292441ACB7008390AE /* PushPermissionSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A283282441ACB7008390AE /* PushPermissionSettingViewController.storyboard */; };
 		F0A2832B2441BC77008390AE /* PushNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2832A2441BC77008390AE /* PushNotificationService.swift */; };
 		F0A283302441F81A008390AE /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2832F2441F81A008390AE /* CustomNavigationController.swift */; };
 		F0A2833224421142008390AE /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2833124421142008390AE /* DebugViewController.swift */; };
@@ -291,8 +289,8 @@
 		F0A282AE243EC5D5008390AE /* InputPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPhoneNumberViewController.swift; sourceTree = "<group>"; };
 		F0A282B0243EC6A9008390AE /* AuthSMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSMSViewController.swift; sourceTree = "<group>"; };
 		F0A282B2243EC6C3008390AE /* AuthSMSViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthSMSViewController.storyboard; sourceTree = "<group>"; };
-		F0A282B4243EC77E008390AE /* BLEPermissionSettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BLEPermissionSettingViewController.storyboard; sourceTree = "<group>"; };
-		F0A282B6243EC785008390AE /* BLEPermissionSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEPermissionSettingViewController.swift; sourceTree = "<group>"; };
+		F0A282B4243EC77E008390AE /* PermissionSettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PermissionSettingViewController.storyboard; sourceTree = "<group>"; };
+		F0A282B6243EC785008390AE /* PermissionSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionSettingViewController.swift; sourceTree = "<group>"; };
 		F0A282B8243EC812008390AE /* TraceDataUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceDataUploadViewController.swift; sourceTree = "<group>"; };
 		F0A282BA243EC826008390AE /* TraceDataUploadViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TraceDataUploadViewController.storyboard; sourceTree = "<group>"; };
 		F0A282BD243EC913008390AE /* TraceNotificationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TraceNotificationViewController.storyboard; sourceTree = "<group>"; };
@@ -339,8 +337,6 @@
 		F0A28320244194B4008390AE /* CodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
 		F0A283222441956F008390AE /* UIView+NibInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibInstantiable.swift"; sourceTree = "<group>"; };
 		F0A28324244195A7008390AE /* CodeInputUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputUnitView.swift; sourceTree = "<group>"; };
-		F0A283262441AC97008390AE /* PushPermissionSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushPermissionSettingViewController.swift; sourceTree = "<group>"; };
-		F0A283282441ACB7008390AE /* PushPermissionSettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PushPermissionSettingViewController.storyboard; sourceTree = "<group>"; };
 		F0A2832A2441BC77008390AE /* PushNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationService.swift; sourceTree = "<group>"; };
 		F0A2832F2441F81A008390AE /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		F0A2833124421142008390AE /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
@@ -698,10 +694,8 @@
 		F0A2832E2441E77A008390AE /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				F0A282B4243EC77E008390AE /* BLEPermissionSettingViewController.storyboard */,
-				F0A282B6243EC785008390AE /* BLEPermissionSettingViewController.swift */,
-				F0A283282441ACB7008390AE /* PushPermissionSettingViewController.storyboard */,
-				F0A283262441AC97008390AE /* PushPermissionSettingViewController.swift */,
+				F0A282B4243EC77E008390AE /* PermissionSettingViewController.storyboard */,
+				F0A282B6243EC785008390AE /* PermissionSettingViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -804,7 +798,7 @@
 				F051ADB424486EA4007278A0 /* gRPCCertificates-Cpp.bundle in Resources */,
 				F051ADC424495750007278A0 /* Debug3ViewController.storyboard in Resources */,
 				F0A282AD243EC5CC008390AE /* InputPhoneNumberViewController.storyboard in Resources */,
-				F0A282B5243EC77E008390AE /* BLEPermissionSettingViewController.storyboard in Resources */,
+				F0A282B5243EC77E008390AE /* PermissionSettingViewController.storyboard in Resources */,
 				F0A2830D24417513008390AE /* Agreement1ViewController.storyboard in Resources */,
 				F051AD842446EB36007278A0 /* HomeBaseView.xib in Resources */,
 				F051AD8C2446F48A007278A0 /* NormalImageStatusView.xib in Resources */,
@@ -826,7 +820,6 @@
 				F0031D41243462AC009F9643 /* LaunchScreen.storyboard in Resources */,
 				F0A282FE24416BFE008390AE /* Tutorial3ViewController.storyboard in Resources */,
 				F0A282AB243EC371008390AE /* Tutorial1ViewController.storyboard in Resources */,
-				F0A283292441ACB7008390AE /* PushPermissionSettingViewController.storyboard in Resources */,
 				F0A283112441755B008390AE /* Agreement2ViewController.storyboard in Resources */,
 				F0031D48243464CF009F9643 /* Release.xcconfig in Resources */,
 				F0A282FC24416BE2008390AE /* Tutorial2ViewController.storyboard in Resources */,
@@ -957,7 +950,6 @@
 				F0A282FA24416BC0008390AE /* Tutorial2ViewController.swift in Sources */,
 				F051AD802446E7B5007278A0 /* PositiveContactList.swift in Sources */,
 				F0A282A6243EC17E008390AE /* KeychainAccess+KeychainClient.swift in Sources */,
-				F0A283272441AC97008390AE /* PushPermissionSettingViewController.swift in Sources */,
 				F0031D43243462AC009F9643 /* AppDelegate.swift in Sources */,
 				F079FF81244C1F1300202A91 /* DictionaryDecodable.swift in Sources */,
 				F0A282E9244002BC008390AE /* BluetoothConfig.swift in Sources */,
@@ -1022,7 +1014,7 @@
 				F0A282AF243EC5D5008390AE /* InputPhoneNumberViewController.swift in Sources */,
 				F0A282D3243EF019008390AE /* KeychainService+Property.swift in Sources */,
 				F0A282DD243EF84C008390AE /* BootService.swift in Sources */,
-				F0A282B7243EC785008390AE /* BLEPermissionSettingViewController.swift in Sources */,
+				F0A282B7243EC785008390AE /* PermissionSettingViewController.swift in Sources */,
 				F051AD822446E7C5007278A0 /* PositiveContact.swift in Sources */,
 				F051ADB824487BC7007278A0 /* TempIdAPI.swift in Sources */,
 				F0A282B9243EC812008390AE /* TraceDataUploadViewController.swift in Sources */,

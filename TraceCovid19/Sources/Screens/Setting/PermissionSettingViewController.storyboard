@@ -11,7 +11,7 @@
         <!--利用いただくために-->
         <scene sceneID="U9i-nh-asp">
             <objects>
-                <viewController id="7fz-km-D4C" customClass="BLEPermissionSettingViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7fz-km-D4C" customClass="PermissionSettingViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ds8-8P-Jpd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

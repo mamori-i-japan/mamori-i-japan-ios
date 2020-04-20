@@ -41,19 +41,35 @@ final class LoginService {
         self.profileService = profileService
     }
 
-    func signIn(verificationID: String, code: String, profile: Profile, completion: @escaping (Result<Void, Error>) -> Void) {
+    enum SignInError: Error {
+        case notMatch
+        case expired
+        case unknown(Error)
+    }
+
+    func signIn(verificationID: String, code: String, profile: Profile, completion: @escaping (Result<Void, SignInError>) -> Void) {
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: code)
 
         auth.instance.signIn(with: credential) { [weak self] _, error in
             if let error = error {
-                completion(.failure(error))
+                switch AuthErrorCode(rawValue: (error as NSError).code) {
+                case .some(.invalidVerificationCode):
+                    print("[LoginService] singIn コード不正")
+                    completion(.failure(.notMatch))
+                case .some(.sessionExpired):
+                    print("[LoginService] singIn 期限切れ")
+                    completion(.failure(.expired))
+                default:
+                    print("[LoginService] singIn その他エラー")
+                    completion(.failure(.unknown(error)))
+                }
             } else {
                 self?.requestLogin(profile: profile, completion: completion)
             }
         }
     }
 
-    private func requestLogin(profile: Profile, completion: @escaping (Result<Void, Error>) -> Void) {
+    private func requestLogin(profile: Profile, completion: @escaping (Result<Void, SignInError>) -> Void) {
         loginAPI.login { [weak self] result in
             switch result {
             case .success:
@@ -63,7 +79,7 @@ final class LoginService {
 
             case .failure(.error(let error)),
                  .failure(.statusCodeError(_, _, let error)):
-                completion(.failure(error ?? NSError(domain: "unknown", code: 0, userInfo: nil)))
+                completion(.failure(.unknown(error ?? NSError(domain: "unknown", code: 0, userInfo: nil))))
             }
             print(result)
         }

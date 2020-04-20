@@ -78,6 +78,7 @@ extension CentralController: CBCentralManagerDelegate {
     }
 
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        print("[CC] \(central.state.toString)")
         centralDidUpdateStateCallback?(central.state)
         switch central.state {
         case .poweredOn:

@@ -21,6 +21,16 @@ final class SMSService {
     func sendSMS(phoneNumber: String, completion: @escaping (Result<String, Error>) -> Void) {
         phoneAuth.instance.verifyPhoneNumber(phoneNumber.formatted, uiDelegate: nil) { verificationID, error in
             if let error = error {
+                switch AuthErrorCode(rawValue: (error as NSError).code) {
+                case .some(.captchaCheckFailed):
+                    print("[SMSService] sendSMS reCAPTCHA不正")
+                case .some(.invalidPhoneNumber):
+                    print("[SMSService] sendSMS 電番不正")
+                case .some(.missingPhoneNumber):
+                    print("[SMSService] sendSMS 電番未入力")
+                default:
+                    print("[SMSService] sendSMS その他エラー")
+                }
                 completion(.failure(error))
                 return
             }

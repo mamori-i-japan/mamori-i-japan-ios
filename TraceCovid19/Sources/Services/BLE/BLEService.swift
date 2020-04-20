@@ -56,18 +56,18 @@ final class BLEService {
     func isBluetoothOn() -> Bool {
         switch centralController.getState() {
         case .poweredOff:
-            print("Bluetooth is off")
+            print("[BLEService] Bluetooth is off")
         case .resetting:
-            print("Resetting State")
+            print("[BLEService] Resetting State")
         case .unauthorized:
-            print("Unauth State")
+            print("[BLEService] Unauth State")
         case .unknown:
-            print("Unknown State")
+            print("[BLEService] Unknown State")
         case .unsupported:
             centralController.turnOn()
-            print("Unsupported State")
+            print("[BLEService] Unsupported State")
         default:
-            print("Bluetooth is on")
+            print("[BLEService] Bluetooth is on")
         }
         return centralController.getState() == CBManagerState.poweredOn
     }

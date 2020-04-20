@@ -61,18 +61,32 @@ final class AuthSMSViewController: UIViewController, KeyboardCloseProtocol, NVAc
 
             switch result {
             case .success:
-                self?.gotoBLEPermissionSetting()
+                self?.gotoPermissionSetting()
             case .failure(let error):
                 // TODO: エラーのUX
-                self?.setError(text: error.localizedDescription)
+                self?.setError(error: error)
                 self?.clearInput()
-                self?.codeInputView.becomeFirstResponder()
             }
         }
     }
 
     private func clearInput() {
         codeInputView.text = ""
+    }
+
+    private func setError(error: LoginService.SignInError) {
+        switch error {
+        case .notMatch:
+            setError(text: "確認番号が違います、もう一度入力してください")
+            codeInputView.becomeFirstResponder()
+        case .expired:
+            showAlert(message: "TODO: 有効期限が切れました") { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }
+        case .unknown(let error):
+            setError(text: error.localizedDescription)
+            codeInputView.becomeFirstResponder()
+        }
     }
 
     private func setError(text: String?) {
@@ -84,8 +98,8 @@ final class AuthSMSViewController: UIViewController, KeyboardCloseProtocol, NVAc
         }
     }
 
-    func gotoBLEPermissionSetting() {
-        navigationController?.pushViewController(BLEPermissionSettingViewController.instantiate(), animated: true)
+    func gotoPermissionSetting() {
+        navigationController?.pushViewController(PermissionSettingViewController.instantiate(), animated: true)
     }
 }
 
