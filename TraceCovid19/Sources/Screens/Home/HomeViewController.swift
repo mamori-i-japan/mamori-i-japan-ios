@@ -21,6 +21,7 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
     enum Status {
         case normal
         case contactedPositive
+        case isPositiveOwn
     }
 
     override func viewDidLoad() {
@@ -121,9 +122,9 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
 
 extension HomeViewController {
     private var status: Status {
-//        if positiveContact.isContactedPositivePeople() {
-//            return // TODO: 自身が陽性
-//        }
+        if positiveContact.isPositiveMyself() {
+            return .isPositiveOwn
+        }
         if positiveContact.isContactedPositivePeople() {
             return .contactedPositive
         }

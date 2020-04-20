@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gna-pw-di2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="626"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="718"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Py4-aa-Dot" customClass="HomeBaseView" customModule="TraceCovid19" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
@@ -53,7 +53,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="gna-pw-di2" secondAttribute="top" constant="88" id="0Uy-q3-fxR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gna-pw-di2" secondAttribute="trailing" id="3Tr-FD-lhw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Bym-QJ-Gzc" secondAttribute="bottom" constant="12" id="80D-xc-j5v"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gna-pw-di2" secondAttribute="bottom" constant="152" id="EUl-Va-ocE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gna-pw-di2" secondAttribute="bottom" constant="60" id="EUl-Va-ocE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bym-QJ-Gzc" secondAttribute="trailing" constant="16" id="Q07-uJ-rgN"/>
                             <constraint firstItem="gna-pw-di2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VdH-ON-tht"/>
                             <constraint firstItem="Bym-QJ-Gzc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Wrb-32-JwG"/>

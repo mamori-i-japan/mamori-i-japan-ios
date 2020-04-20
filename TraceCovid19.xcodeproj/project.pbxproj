@@ -107,6 +107,8 @@
 		F079FF90244D418400202A91 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF8F244D418400202A91 /* BaseLabel.swift */; };
 		F079FF92244D41B800202A91 /* LabelUtilityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF91244D41B800202A91 /* LabelUtilityProtocol.swift */; };
 		F079FF94244D431C00202A91 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF93244D431C00202A91 /* BaseTextField.swift */; };
+		F079FF96244D5B2D00202A91 /* PositiveOwnStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF95244D5B2D00202A91 /* PositiveOwnStatusView.swift */; };
+		F079FF98244D5B4C00202A91 /* PositiveOwnStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F079FF97244D5B4C00202A91 /* PositiveOwnStatusView.xib */; };
 		F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829B243EBF7F008390AE /* LoginAPI.swift */; };
 		F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829D243EC06E008390AE /* TokenResponse.swift */; };
 		F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829F243EC0AD008390AE /* LoginService.swift */; };
@@ -277,6 +279,8 @@
 		F079FF8F244D418400202A91 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		F079FF91244D41B800202A91 /* LabelUtilityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelUtilityProtocol.swift; sourceTree = "<group>"; };
 		F079FF93244D431C00202A91 /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
+		F079FF95244D5B2D00202A91 /* PositiveOwnStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveOwnStatusView.swift; sourceTree = "<group>"; };
+		F079FF97244D5B4C00202A91 /* PositiveOwnStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PositiveOwnStatusView.xib; sourceTree = "<group>"; };
 		F0A2829B243EBF7F008390AE /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F0A2829D243EC06E008390AE /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		F0A2829F243EC0AD008390AE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -659,6 +663,8 @@
 				F0A28318244189A1008390AE /* NoPerformActionTextField.swift */,
 				F051AD8D2446F4AB007278A0 /* NormalImageStatusView.swift */,
 				F051AD8B2446F48A007278A0 /* NormalImageStatusView.xib */,
+				F079FF95244D5B2D00202A91 /* PositiveOwnStatusView.swift */,
+				F079FF97244D5B4C00202A91 /* PositiveOwnStatusView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -812,6 +818,7 @@
 				F0A2831F2441932B008390AE /* CodeInputUnitView.xib in Resources */,
 				F0A282BE243EC913008390AE /* TraceNotificationViewController.storyboard in Resources */,
 				F0031D4F243468F0009F9643 /* Localizable.strings in Resources */,
+				F079FF98244D5B4C00202A91 /* PositiveOwnStatusView.xib in Resources */,
 				F0031D42243462AC009F9643 /* HomeViewController.storyboard in Resources */,
 				F0031D362434629F009F9643 /* Assets.xcassets in Resources */,
 				F051AD862446EB50007278A0 /* ContactedPositiveImageStatusView.xib in Resources */,
@@ -967,6 +974,7 @@
 				F04759AD243595D90091059F /* SwinjectStoryboard+Common.swift in Sources */,
 				F0A2830024416C05008390AE /* Tutorial3ViewController.swift in Sources */,
 				F051ADBE24494688007278A0 /* CoreDataService+TempId.swift in Sources */,
+				F079FF96244D5B2D00202A91 /* PositiveOwnStatusView.swift in Sources */,
 				F02356BC2442F5F4001E72ED /* Model.xcdatamodeld in Sources */,
 				F0A282CD243ED068008390AE /* AssociatedObjects.swift in Sources */,
 				F02356BE2442F7B1001E72ED /* TraceData.swift in Sources */,

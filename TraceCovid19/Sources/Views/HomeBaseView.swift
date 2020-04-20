@@ -60,6 +60,18 @@ final class HomeBaseView: UIView, NibInstantiatable {
             actionGuideLabel.text = "ご自宅で安静にしてください。"
             statusDescriptionBaseView.backgroundColor = .init(hex: 0xFFE0B0)
             expandButton.isHidden = false
+        case .isPositiveOwn:
+            let positiveOwnView = PositiveOwnStatusView(frame: statusImageBaseView.bounds)
+            statusImageBaseView.addSubview(positiveOwnView)
+            positiveOwnView.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+
+            statusLevelLabel.text = "大"
+            statusDescriptionLabel.text = "PCR検査で陽性反応が出ました。"
+            actionGuideLabel.text = "専門機関の指示に従ってください"
+            statusDescriptionBaseView.backgroundColor = .init(hex: 0xFFB0B0)
+            expandButton.isHidden = true
         }
     }
 }
