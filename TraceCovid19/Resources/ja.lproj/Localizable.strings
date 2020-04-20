@@ -5,3 +5,10 @@
   Created by yosawa on 2020/04/01.
   
 */
+
+"next" = "次へ";
+"agree" = "同意する";
+"go_forword_with_agreement" = "規約に同意して進む";
+"change_phone_number" = "電話番号を変更";
+"send_sms" = "SMSを送信";
+"start_using" = "利用をはじめる";

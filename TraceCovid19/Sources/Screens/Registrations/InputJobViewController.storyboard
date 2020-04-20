@@ -22,7 +22,9 @@
                                     <constraint firstAttribute="height" constant="56" id="3XD-bc-Pht"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="次へ"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="next"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tappedNextButton:" destination="Vnd-pH-PoI" eventType="touchUpInside" id="vt1-O0-pLV"/>
                                 </connections>

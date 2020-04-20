@@ -102,6 +102,8 @@
 		F079FF81244C1F1300202A91 /* DictionaryDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF80244C1F1300202A91 /* DictionaryDecodable.swift */; };
 		F079FF83244C244500202A91 /* ProfileChangeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF82244C244500202A91 /* ProfileChangeable.swift */; };
 		F079FF85244C3EBC00202A91 /* AppStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF84244C3EBC00202A91 /* AppStatus.swift */; };
+		F079FF8A244D3C5200202A91 /* XibLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF89244D3C5200202A91 /* XibLocalizable.swift */; };
+		F079FF8C244D3D0400202A91 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF8B244D3D0400202A91 /* BaseButton.swift */; };
 		F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829B243EBF7F008390AE /* LoginAPI.swift */; };
 		F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829D243EC06E008390AE /* TokenResponse.swift */; };
 		F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829F243EC0AD008390AE /* LoginService.swift */; };
@@ -267,6 +269,8 @@
 		F079FF80244C1F1300202A91 /* DictionaryDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDecodable.swift; sourceTree = "<group>"; };
 		F079FF82244C244500202A91 /* ProfileChangeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeable.swift; sourceTree = "<group>"; };
 		F079FF84244C3EBC00202A91 /* AppStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatus.swift; sourceTree = "<group>"; };
+		F079FF89244D3C5200202A91 /* XibLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibLocalizable.swift; sourceTree = "<group>"; };
+		F079FF8B244D3D0400202A91 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		F0A2829B243EBF7F008390AE /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F0A2829D243EC06E008390AE /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		F0A2829F243EC0AD008390AE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -536,6 +540,7 @@
 				F04759B524359AC20091059F /* UIViewController+Instantiate.swift */,
 				F02356D124444370001E72ED /* UIViewController+ShowAlert.swift */,
 				F0A282DE243F2A86008390AE /* UUID+DataRepresentation.swift */,
+				F079FF89244D3C5200202A91 /* XibLocalizable.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -634,6 +639,7 @@
 			isa = PBXGroup;
 			children = (
 				F0A2830224416C77008390AE /* ActionButton.swift */,
+				F079FF8B244D3D0400202A91 /* BaseButton.swift */,
 				F0A28324244195A7008390AE /* CodeInputUnitView.swift */,
 				F0A2831E2441932B008390AE /* CodeInputUnitView.xib */,
 				F0A28320244194B4008390AE /* CodeInputView.swift */,
@@ -969,6 +975,7 @@
 				F079FF7F244C1F0100202A91 /* DictionaryEncodable.swift in Sources */,
 				F051AD9424471D49007278A0 /* EncryptedStringTransformer.swift in Sources */,
 				F0A282ED2440056E008390AE /* CBPeripheralState+ToString.swift in Sources */,
+				F079FF8A244D3C5200202A91 /* XibLocalizable.swift in Sources */,
 				F0A282E7244001B4008390AE /* PeripheralController.swift in Sources */,
 				F0A282A9243EC344008390AE /* Tutorial1ViewController.swift in Sources */,
 				F0A282D9243EF600008390AE /* AppVersion.swift in Sources */,
@@ -1001,6 +1008,7 @@
 				F051ADB824487BC7007278A0 /* TempIdAPI.swift in Sources */,
 				F0A282B9243EC812008390AE /* TraceDataUploadViewController.swift in Sources */,
 				F02356C22442F87B001E72ED /* CoreDataService+SaveTraceDataRecord.swift in Sources */,
+				F079FF8C244D3D0400202A91 /* BaseButton.swift in Sources */,
 				F02356C62442FC57001E72ED /* CoreDataService.swift in Sources */,
 				F0A282D7243EF5CA008390AE /* UserDefaultsService+Property.swift in Sources */,
 				F051ADC224495577007278A0 /* Debug3ViewController.swift in Sources */,

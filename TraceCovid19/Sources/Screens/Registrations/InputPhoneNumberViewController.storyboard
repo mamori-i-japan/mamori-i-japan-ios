@@ -22,7 +22,9 @@
                                     <constraint firstAttribute="height" constant="56" id="uze-uH-QMO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="SMSを送信"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="send_sms"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tappedNextButton:" destination="lwX-e9-lTY" eventType="touchUpInside" id="Dai-NJ-mYK"/>
                                 </connections>

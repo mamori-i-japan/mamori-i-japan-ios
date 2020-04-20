@@ -22,7 +22,9 @@
                                     <constraint firstAttribute="height" constant="56" id="Q1S-ty-132"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="次へ"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="next"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tappedNextButton:" destination="v5t-ph-0YT" eventType="touchUpInside" id="GTI-mi-LSJ"/>
                                 </connections>

@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class ActionButton: UIButton {
+class ActionButton: BaseButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
 

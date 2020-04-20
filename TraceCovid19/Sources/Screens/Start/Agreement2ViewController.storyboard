@@ -22,7 +22,9 @@
                                     <constraint firstAttribute="height" constant="56" id="HcY-gt-ueS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="同意する"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="agree"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tappedNextButton:" destination="z0Z-0s-HhI" eventType="touchUpInside" id="1LE-8W-TQx"/>
                                 </connections>

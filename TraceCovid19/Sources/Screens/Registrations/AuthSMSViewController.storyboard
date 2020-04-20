@@ -36,15 +36,18 @@
                                 <color key="textColor" red="0.96862745098039216" green="0.28235294117647058" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72S-u2-4bO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72S-u2-4bO" customClass="BaseButton" customModule="TraceCovid19" customModuleProvider="target">
                                 <rect key="frame" x="22.666666666666657" y="387" width="330" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Sr0-Am-icg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
-                                <state key="normal" title="電話番号を変更">
+                                <state key="normal">
                                     <color key="titleColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="change_phone_number"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tappedChangePhoneNumber:" destination="WVV-gg-cqX" eventType="touchUpInside" id="5dw-4m-mw2"/>
                                 </connections>

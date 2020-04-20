@@ -22,7 +22,9 @@
                                     <constraint firstAttribute="height" constant="56" id="hv1-61-QCt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="利用をはじめる"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="start_using"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tappedNextButton:" destination="uFH-Fh-iGn" eventType="touchUpInside" id="Bn6-wk-fCQ"/>
                                 </connections>
