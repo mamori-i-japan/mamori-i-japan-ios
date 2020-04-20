@@ -109,6 +109,8 @@
 		F079FF94244D431C00202A91 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF93244D431C00202A91 /* BaseTextField.swift */; };
 		F079FF96244D5B2D00202A91 /* PositiveOwnStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF95244D5B2D00202A91 /* PositiveOwnStatusView.swift */; };
 		F079FF98244D5B4C00202A91 /* PositiveOwnStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F079FF97244D5B4C00202A91 /* PositiveOwnStatusView.xib */; };
+		F079FF9C244D8AE400202A91 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF9A244D8AE400202A91 /* Assets.swift */; };
+		F079FF9D244D8AE400202A91 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF9B244D8AE400202A91 /* Localized.swift */; };
 		F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829B243EBF7F008390AE /* LoginAPI.swift */; };
 		F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829D243EC06E008390AE /* TokenResponse.swift */; };
 		F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829F243EC0AD008390AE /* LoginService.swift */; };
@@ -279,6 +281,15 @@
 		F079FF93244D431C00202A91 /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
 		F079FF95244D5B2D00202A91 /* PositiveOwnStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveOwnStatusView.swift; sourceTree = "<group>"; };
 		F079FF97244D5B4C00202A91 /* PositiveOwnStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PositiveOwnStatusView.xib; sourceTree = "<group>"; };
+		F079FF9A244D8AE400202A91 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		F079FF9B244D8AE400202A91 /* Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		F079FFA0244D8CC300202A91 /* swiftgen_script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = swiftgen_script.sh; sourceTree = "<group>"; };
+		F079FFA1244D8CC300202A91 /* swiftgen_script_output.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = swiftgen_script_output.xcfilelist; sourceTree = "<group>"; };
+		F079FFA3244D8CC300202A91 /* carthage_script_input.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = carthage_script_input.xcfilelist; sourceTree = "<group>"; };
+		F079FFA4244D8CC300202A91 /* carthage_script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = carthage_script.sh; sourceTree = "<group>"; };
+		F079FFA5244D8CC300202A91 /* update_license_plist.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = update_license_plist.sh; sourceTree = "<group>"; };
+		F079FFA6244D8CC300202A91 /* swiftgen_script_input.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = swiftgen_script_input.xcfilelist; sourceTree = "<group>"; };
+		F079FFA7244D8CC300202A91 /* carthage_script_output.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = carthage_script_output.xcfilelist; sourceTree = "<group>"; };
 		F0A2829B243EBF7F008390AE /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F0A2829D243EC06E008390AE /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		F0A2829F243EC0AD008390AE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -395,14 +406,15 @@
 		F0031D332434629F009F9643 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F0475999243586C50091059F /* Settings.bundle */,
 				F0031D522434695B009F9643 /* debug.entitlements */,
 				F0031D54243469A6009F9643 /* release.entitlements */,
+				F02356842442E3B8001E72ED /* GoogleService-Info-Debug.plist */,
 				F0031D352434629F009F9643 /* Info-Debug.plist */,
 				F04759B92435B1560091059F /* Info-Release.plist */,
-				F02356842442E3B8001E72ED /* GoogleService-Info-Debug.plist */,
-				F0475999243586C50091059F /* Settings.bundle */,
 				F0031D342434629F009F9643 /* Assets.xcassets */,
 				F0031D4424346487009F9643 /* Configs */,
+				F079FF99244D8AE400202A91 /* Generated */,
 				F0031D51243468F0009F9643 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -550,6 +562,29 @@
 				F079FF89244D3C5200202A91 /* XibLocalizable.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F079FF99244D8AE400202A91 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				F079FF9A244D8AE400202A91 /* Assets.swift */,
+				F079FF9B244D8AE400202A91 /* Localized.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		F079FF9F244D8CC300202A91 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				F079FFA0244D8CC300202A91 /* swiftgen_script.sh */,
+				F079FFA1244D8CC300202A91 /* swiftgen_script_output.xcfilelist */,
+				F079FFA3244D8CC300202A91 /* carthage_script_input.xcfilelist */,
+				F079FFA4244D8CC300202A91 /* carthage_script.sh */,
+				F079FFA5244D8CC300202A91 /* update_license_plist.sh */,
+				F079FFA6244D8CC300202A91 /* swiftgen_script_input.xcfilelist */,
+				F079FFA7244D8CC300202A91 /* carthage_script_output.xcfilelist */,
+			);
+			path = Scripts;
 			sourceTree = "<group>";
 		};
 		F0A28291243EB2CA008390AE /* Services */ = {
@@ -704,8 +739,9 @@
 			isa = PBXGroup;
 			children = (
 				F0C6AD7E243461A600F863FC /* TraceCovid19 */,
-				F0C6AD7D243461A600F863FC /* Products */,
+				F079FF9F244D8CC300202A91 /* Scripts */,
 				F04759A3243592830091059F /* Frameworks */,
+				F0C6AD7D243461A600F863FC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -733,6 +769,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F0C6AD8E243461A800F863FC /* Build configuration list for PBXNativeTarget "TraceCovid19" */;
 			buildPhases = (
+				F079FF9E244D8C7400202A91 /* SwiftGen Script */,
 				F0031D55243470EA009F9643 /* Swiftlint Script */,
 				F047599D24358C1A0091059F /* Update License Plist Script */,
 				F02356852442E3C8001E72ED /* Copy GoogleService-Info Script */,
@@ -932,6 +969,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PROJECT_DIR}/Carthage/Build/iOS/Fabric.framework/run\"\n";
 		};
+		F079FF9E244D8C7400202A91 /* SwiftGen Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/Scripts/swiftgen_script_input.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "SwiftGen Script";
+			outputFileListPaths = (
+				"$(SRCROOT)/Scripts/swiftgen_script_output.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Scripts/swiftgen_script.sh\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -965,6 +1022,7 @@
 				F02356DC2445ACEB001E72ED /* DeepContactCheckService.swift in Sources */,
 				F04759AD243595D90091059F /* SwinjectStoryboard+Common.swift in Sources */,
 				F0A2830024416C05008390AE /* Tutorial3ViewController.swift in Sources */,
+				F079FF9C244D8AE400202A91 /* Assets.swift in Sources */,
 				F051ADBE24494688007278A0 /* CoreDataService+TempId.swift in Sources */,
 				F079FF96244D5B2D00202A91 /* PositiveOwnStatusView.swift in Sources */,
 				F02356BC2442F5F4001E72ED /* Model.xcdatamodeld in Sources */,
@@ -999,6 +1057,7 @@
 				F079FF79244C09B700202A91 /* Profile.swift in Sources */,
 				F0A282C2243EC9BE008390AE /* MenuViewController.swift in Sources */,
 				F0A282EB244004C9008390AE /* CBManagerState+ToString.swift in Sources */,
+				F079FF9D244D8AE400202A91 /* Localized.swift in Sources */,
 				F0A282CB243ED041008390AE /* UIGestureRecognizer+Closure.swift in Sources */,
 				F079FF92244D41B800202A91 /* LabelUtilityProtocol.swift in Sources */,
 				F02356D224444370001E72ED /* UIViewController+ShowAlert.swift in Sources */,

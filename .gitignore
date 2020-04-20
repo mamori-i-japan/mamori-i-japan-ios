@@ -37,3 +37,7 @@ fastlane/*
 !fastlane/README.md
 !fastlane/Fastfile
 !fastlane/Appfile
+
+# SwiftGen
+TraceCovid19/Resources/Generated/*
+!TraceCovid19/Resources/Genereated/.gitkeep
