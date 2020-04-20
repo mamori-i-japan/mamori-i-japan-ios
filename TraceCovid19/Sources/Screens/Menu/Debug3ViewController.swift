@@ -14,6 +14,7 @@ final class Debug3ViewController: UIViewController, NVActivityIndicatorViewable 
     @IBOutlet weak var tablewView: UITableView!
 
     var tempId: TempIdService!
+    var positiveContact: PositiveContactService!
 
     private let refreshControl = UIRefreshControl()
 
@@ -56,6 +57,17 @@ final class Debug3ViewController: UIViewController, NVActivityIndicatorViewable 
 }
 
 extension Debug3ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let uuid = tempUserIDs[indexPath.row].tempId
+        showAlertWithCancel(
+            message: "\(uuid) \nこのIDを一時的に陽性者として扱いますか？",
+            okAction: { _ in
+                self.positiveContact.appendPositiveContact(uuid: uuid)
+            }
+        )
+    }
 }
 
 extension Debug3ViewController: UITableViewDataSource {

@@ -108,6 +108,7 @@ extension SwinjectStoryboard {
 
         defaultContainer.storyboardInitCompleted(Debug3ViewController.self) { r, vc in
             vc.tempId = r.resolve(TempIdService.self)
+            vc.positiveContact = r.resolve(PositiveContactService.self)
         }
         #endif
 
