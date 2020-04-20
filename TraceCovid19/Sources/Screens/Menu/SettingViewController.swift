@@ -56,7 +56,7 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
             jobLabel.text = job
             jobLabel.textColor = normalColor
         } else {
-            jobLabel.text = "未入力"
+            jobLabel.text = L10n.noSetting
             jobLabel.textColor = blankColor
         }
 
@@ -64,7 +64,7 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
             prefectureLabel.text = perefecture.rawValue
             prefectureLabel.textColor = normalColor
         } else {
-            prefectureLabel.text = "未入力"
+            prefectureLabel.text = L10n.noSetting
             prefectureLabel.textColor = blankColor
         }
     }

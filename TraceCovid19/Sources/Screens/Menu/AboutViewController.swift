@@ -13,6 +13,6 @@ final class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        appVersionLabel.text = "アプリのバージョン\(AppVersion.currentAppVersion.versionString)"
+        appVersionLabel.text = L10n.appVersion(AppVersion.currentAppVersion.versionString)
     }
 }

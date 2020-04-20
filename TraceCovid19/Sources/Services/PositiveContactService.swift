@@ -51,14 +51,14 @@ final class PositiveContactService {
         return false
     }
 
-    /// 陽性者と接触したか
-    func isContactedPositivePeople() -> Bool {
+    /// 接触した陽性者の最新を取得
+    func getLatestContactedPositivePeople() -> DeepContactUser? {
         let deepContactUUIDs = deepContactCheck.getDeepContactUsers().compactMap { $0.tempId }
         let positiveContactUUIDs = positiveContacts.compactMap { $0.uuid }
         for uuid in deepContactUUIDs where positiveContactUUIDs.contains(uuid) {
-            return true
+            return deepContactCheck.getDeepContactUsers().first(where: { $0.tempId == uuid })
         }
-        return false
+        return nil
     }
 
     func load(completion: @escaping (Result<[PositiveContact], PositiveContactStatus>) -> Void) {

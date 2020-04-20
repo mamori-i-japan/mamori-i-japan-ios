@@ -40,7 +40,7 @@ final class SplashViewController: UIViewController, NVActivityIndicatorViewable 
                 self?.showUpdateAlert(storeURL: storeURL)
             case .failed:
                 // TODO: アラート表示
-                self?.showAlert(message: "データの読み込みに失敗しました", buttonTitle: "再読み込み") { [weak self] _ in
+                self?.showAlert(message: "TODO: データの読み込みに失敗しました", buttonTitle: "再読み込み") { [weak self] _ in
                     self?.firstLaunch()
                 }
             }

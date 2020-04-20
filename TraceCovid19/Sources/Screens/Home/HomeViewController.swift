@@ -20,7 +20,7 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
 
     enum Status {
         case normal
-        case contactedPositive
+        case contactedPositive(latest: DeepContactUser)
         case isPositiveOwn
     }
 
@@ -125,8 +125,8 @@ extension HomeViewController {
         if positiveContact.isPositiveMyself() {
             return .isPositiveOwn
         }
-        if positiveContact.isContactedPositivePeople() {
-            return .contactedPositive
+        if let latestPerson = positiveContact.getLatestContactedPositivePeople() {
+            return .contactedPositive(latest: latestPerson)
         }
         return .normal
     }

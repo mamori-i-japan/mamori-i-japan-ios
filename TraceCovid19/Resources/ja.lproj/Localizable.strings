@@ -15,3 +15,14 @@
 "input_phone_number" = "電話番号を入力してください";
 "select_prefecture" = "お住まいの都道府県を選択";
 "input_job_name" = "職業名を入力";
+"app_version" = "アプリのバージョン%@";
+"no_setting" = "未入力";
+"home.level.low" = "低い";
+"home.level.middle" = "中";
+"home.level.high" = "大";
+"home.status_description.low" = "ここ14日間で感染者との接触は認められません。";
+"home.status_description.middle" = "%@日前に感染者との接触の可能性があります。";
+"home.status_description.high" = "PCR検査で陽性反応が出ました。";
+"home.action_guide.low" = "引き続きソーシャルディスタンスを保って行動してください。";
+"home.action_guide.middle" = "ご自宅で安静にしてください。";
+"home.action_guide.high" = "専門機関の指示に従ってください";
