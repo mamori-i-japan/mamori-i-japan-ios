@@ -39,6 +39,18 @@ final class Debug2ViewController: UIViewController {
 }
 
 extension Debug2ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let uuid = positiveContact.positiveContacts[indexPath.row].uuid
+        showAlertWithCancel(
+            message: "\(uuid) \nこのIDを一時的に陽性者リストから除外しますか？",
+            okAction: { _ in
+                self.positiveContact.removePositiveContact(uuid: uuid)
+                self.tablewView.reloadData()
+            }
+        )
+    }
 }
 
 extension Debug2ViewController: UITableViewDataSource {

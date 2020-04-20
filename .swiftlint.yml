@@ -39,7 +39,6 @@ opt_in_rules:
 - overridden_super_call
 - redundant_nil_coalescing
 - redundant_type_annotation
-- trailing_closure
 - unavailable_function
 - unneeded_parentheses_in_closure_argument
 - vertical_whitespace_opening_braces

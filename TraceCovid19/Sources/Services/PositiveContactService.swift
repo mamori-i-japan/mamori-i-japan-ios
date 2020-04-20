@@ -112,6 +112,11 @@ extension PositiveContactService {
         }
     }
 
+    /// (デバッグ用) UUIDを陽性者リストから削除する
+    func removePositiveContact(uuid: String) {
+        positiveContacts.removeAll(where: { $0.uuid == uuid })
+    }
+
     func resetGeneration() {
         lastGeneration = nil
     }
