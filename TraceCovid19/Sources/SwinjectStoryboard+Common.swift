@@ -150,8 +150,8 @@ extension SwinjectStoryboard {
         defaultContainer.register(BLEService.self) { r, queue in
             BLEService(
                 queue: queue,
-                peripheralController: r.resolve(PeripheralManager.self, argument: queue)!,
-                centralController: r.resolve(CentralManager.self, argument: queue)!,
+                peripheralManager: r.resolve(PeripheralManager.self, argument: queue)!,
+                centralManager: r.resolve(CentralManager.self, argument: queue)!,
                 coreData: r.resolve(CoreDataService.self)!,
                 tempId: r.resolve(TempIdService.self)!
             )

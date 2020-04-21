@@ -58,8 +58,8 @@ typealias DidReadRSSI = (Peripheral, NSNumber, Error?) -> Void
 
 // BLEService holds all the business logic related to BLE.
 final class BLEService {
-    private var peripheralController: PeripheralManager!
-    private var centralController: CentralManager!
+    private var peripheralManager: PeripheralManager!
+    private var centralManager: CentralManager!
     private var coreData: CoreDataService!
     private var tempId: TempIdService!
     private var timerForScanning: Timer?
@@ -70,20 +70,20 @@ final class BLEService {
 
     init(
         queue: DispatchQueue,
-        peripheralController: PeripheralManager,
-        centralController: CentralManager,
+        peripheralManager: PeripheralManager,
+        centralManager: CentralManager,
         coreData: CoreDataService,
         tempId: TempIdService
     ) {
         self.queue = queue
-        self.peripheralController = peripheralController
-        self.centralController = centralController
+        self.peripheralManager = peripheralManager
+        self.centralManager = centralManager
         self.coreData = coreData
         self.tempId = tempId
         self.traceData = [:]
-        centralController.centralDidUpdateStateCallback = centralDidUpdateStateCallback
+        centralManager.centralDidUpdateStateCallback = centralDidUpdateStateCallback
 
-        _ = self.peripheralController
+        _ = self.peripheralManager
             // Central is trying to read from us
             .onRead { [unowned self] _, ch in
                 switch ch {
@@ -112,7 +112,7 @@ final class BLEService {
             }
 
         // Commands and callbacks should happen in this order
-        _ = self.centralController
+        _ = self.centralManager
             .appendCommand(
                 command: .ReadRSSI
             )
@@ -120,7 +120,7 @@ final class BLEService {
                 print("peripheral=\(peripheral), RSSI=\(RSSI), error=\(String(describing: error))")
 
                 guard error == nil else {
-                    self.centralController.disconnect(peripheral)
+                    self.centralManager.disconnect(peripheral)
                     return
                 }
                 var record = self.traceData[peripheral.id] ?? TraceDataRecord()
@@ -144,12 +144,12 @@ final class BLEService {
                 print("[CC] didUpdateValueFor peripheral=\(peripheral), ch=\(ch), data=\(String(describing: data)), error=\(String(describing: error))")
 
                 guard error == nil && data != nil else {
-                    self.centralController.disconnect(peripheral)
+                    self.centralManager.disconnect(peripheral)
                     return
                 }
 
                 guard let readData = ReadData(from: data!) else {
-                    self.centralController.disconnect(peripheral)
+                    self.centralManager.disconnect(peripheral)
                     return
                 }
                 var record = self.traceData[peripheral.id] ?? TraceDataRecord()
@@ -162,27 +162,27 @@ final class BLEService {
             }
             .appendCommand(
                 command: .Cancel(callback: { [unowned self] peripheral in
-                    self.centralController.disconnect(peripheral)
+                    self.centralManager.disconnect(peripheral)
                 })
             )
     }
 
     func turnOn() {
-        peripheralController.turnOn()
-        centralController.turnOn()
+        peripheralManager.turnOn()
+        centralManager.turnOn()
     }
 
     func turnOff() {
-        peripheralController.turnOff()
-        centralController.turnOff()
+        peripheralManager.turnOff()
+        centralManager.turnOff()
     }
 
     func getCentralStateText() -> String {
-        return centralController.getState().toString
+        return centralManager.getState().toString
     }
 
     func getPeripheralStateText() -> String {
-        return peripheralController.getState().toString
+        return peripheralManager.getState().toString
     }
 
     func isBluetoothAuthorized() -> Bool {
@@ -195,7 +195,7 @@ final class BLEService {
     }
 
     func isBluetoothOn() -> Bool {
-        switch centralController.getState() {
+        switch centralManager.getState() {
         case .poweredOff:
             print("[BLEService] Bluetooth is off")
         case .resetting:
@@ -205,12 +205,12 @@ final class BLEService {
         case .unknown:
             print("[BLEService] Unknown State")
         case .unsupported:
-            centralController.turnOn()
+            centralManager.turnOn()
             print("[BLEService] Unsupported State")
         default:
             print("[BLEService] Bluetooth is on")
         }
-        return centralController.getState() == CBManagerState.poweredOn
+        return centralManager.getState() == CBManagerState.poweredOn
     }
 
     func centralDidUpdateStateCallback(_ state: CBManagerState) {
@@ -223,7 +223,7 @@ final class BLEService {
                     self?.coreData.saveTraceDataWithCurrentTime(for: .scanningStopped)
                     self?.coreData.saveTraceDataWithCurrentTime(for: .scanningStarted)
 
-                    self?.centralController.restartScan()
+                    self?.centralManager.restartScan()
                 }
                 self.timerForScanning?.fire()
             }
@@ -234,17 +234,17 @@ final class BLEService {
 
     func toggleAdvertisement(_ state: Bool) {
         if state {
-            peripheralController.turnOn()
+            peripheralManager.turnOn()
         } else {
-            peripheralController.turnOff()
+            peripheralManager.turnOff()
         }
     }
 
     func toggleScanning(_ state: Bool) {
         if state {
-            centralController.turnOn()
+            centralManager.turnOn()
         } else {
-            centralController.turnOff()
+            centralManager.turnOff()
         }
     }
 }
