@@ -152,6 +152,7 @@ extension Peripheral: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
         log("peripheral=\(shortId), RSSI=\(RSSI), error=\(String(describing: error))")
         if case .readRSSI = currentCommand {
+            didReadRSSI?(self, RSSI, error)
             // ReadRSSI complete
             nextCommand()
         }
