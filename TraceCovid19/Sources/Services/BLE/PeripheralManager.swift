@@ -34,7 +34,7 @@ class PeripheralManager: NSObject {
     private let services: [CBMutableService]
 
     init(peripheralName: String, queue: DispatchQueue, services: [CBMutableService]) {
-        let options = [CBPeripheralManagerOptionRestoreIdentifierKey: "PeripheralManager"]
+        let options = [CBPeripheralManagerOptionRestoreIdentifierKey: "com.decurret.TraceCovid19JP.PeripheralManager"]
         self.peripheralName = peripheralName
         self.services = services
         super.init()
@@ -60,12 +60,13 @@ class PeripheralManager: NSObject {
         guard peripheralManager.state == .poweredOn else { return }
 
         peripheralManager.removeAllServices()
+
         services.forEach { service in
             peripheralManager.add(service)
         }
         let uuids = services.map { service in service.uuid }
-
-        let advertisementData = [
+        let advertisementData: [String: Any] = [
+            CBAdvertisementDataLocalNameKey: peripheralName,
             CBAdvertisementDataServiceUUIDsKey: uuids
         ]
         peripheralManager.startAdvertising(advertisementData)

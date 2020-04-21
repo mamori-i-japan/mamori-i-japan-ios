@@ -83,25 +83,35 @@ final class BLEService {
         self.traceData = [:]
         centralController.centralDidUpdateStateCallback = centralDidUpdateStateCallback
 
-        self.peripheralController
+        _ = self.peripheralController
+            // Central is trying to read from us
             .onRead { [unowned self] _, ch in
                 switch ch {
                 case .contact:
-                    return nil
+                    guard let userId = self.tempId.currentTempId ?? self.tempId.latestTempId else {
+                        print("[PC] not found temp user id on CoreData")
+                        return nil
+                    }
+
+                    let payload = PeripheralCharacteristicsDataV2(i: userId.tempId)
+                    guard let data = V2Peripheral.shared.prepareReadRequestData(characteristicDataV2: payload) else {
+                        print("failed to serialize payload=\(payload)")
+                        return nil
+                    }
+                    return data
                 }
             }
-            .onWrite { [unowned self] _, ch, _ in
+            // Central is trying to write into us
+            .onWrite { [unowned self] _, ch, data in
                 switch ch {
                 case .contact:
-//                    if let userId = UserId(data: data) {
-//                        log("Written Successful by \(userId)")
-//                        self.peerIds.append(userId)
-//                        self.peerIds.save(to: .peerIds)
-//                        self.debugNotify(identifier: "Written", message: "Written Successful by \(userId)")
-//                        return true
-//                    }
-//                    log("data to UserId parse failed: \(data)")
-                    return false
+                    guard let record = V2Peripheral.shared.processWriteRequestDataReceived(dataWritten: data) else {
+                        let str = String(data: data, encoding: .utf8)
+                        print("failed to deserialize data=\(String(describing: str))")
+                        return false
+                    }
+                    self.coreData.save(traceDataRecord: record)
+                    return true
                 }
             }
 

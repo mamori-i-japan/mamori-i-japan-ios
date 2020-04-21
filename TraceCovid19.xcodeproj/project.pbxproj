@@ -149,7 +149,6 @@
 		F0A282DD243EF84C008390AE /* BootService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282DC243EF84C008390AE /* BootService.swift */; };
 		F0A282DF243F2A86008390AE /* UUID+DataRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282DE243F2A86008390AE /* UUID+DataRepresentation.swift */; };
 		F0A282E1243F3DAB008390AE /* Date+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282E0243F3DAB008390AE /* Date+ToString.swift */; };
-		F0A282E7244001B4008390AE /* PeripheralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282E6244001B4008390AE /* PeripheralController.swift */; };
 		F0A282E9244002BC008390AE /* BluetoothConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282E8244002BC008390AE /* BluetoothConfig.swift */; };
 		F0A282EB244004C9008390AE /* CBManagerState+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282EA244004C9008390AE /* CBManagerState+ToString.swift */; };
 		F0A282ED2440056E008390AE /* CBPeripheralState+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282EC2440056E008390AE /* CBPeripheralState+ToString.swift */; };
@@ -333,7 +332,6 @@
 		F0A282DC243EF84C008390AE /* BootService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootService.swift; sourceTree = "<group>"; };
 		F0A282DE243F2A86008390AE /* UUID+DataRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UUID+DataRepresentation.swift"; sourceTree = "<group>"; };
 		F0A282E0243F3DAB008390AE /* Date+ToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ToString.swift"; sourceTree = "<group>"; };
-		F0A282E6244001B4008390AE /* PeripheralController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralController.swift; sourceTree = "<group>"; };
 		F0A282E8244002BC008390AE /* BluetoothConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConfig.swift; sourceTree = "<group>"; };
 		F0A282EA244004C9008390AE /* CBManagerState+ToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBManagerState+ToString.swift"; sourceTree = "<group>"; };
 		F0A282EC2440056E008390AE /* CBPeripheralState+ToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBPeripheralState+ToString.swift"; sourceTree = "<group>"; };
@@ -542,7 +540,6 @@
 				C75B12BF244F2FBF009C2ED6 /* PeripheralManager.swift */,
 				F0A282EF2440191F008390AE /* BLEService.swift */,
 				F0A282E8244002BC008390AE /* BluetoothConfig.swift */,
-				F0A282E6244001B4008390AE /* PeripheralController.swift */,
 				C75FDCF5244F82BD0020FA1E /* Protocol.swift */,
 			);
 			path = BLE;
@@ -1064,7 +1061,6 @@
 				F051AD9424471D49007278A0 /* EncryptedStringTransformer.swift in Sources */,
 				F0A282ED2440056E008390AE /* CBPeripheralState+ToString.swift in Sources */,
 				F079FF8A244D3C5200202A91 /* XibLocalizable.swift in Sources */,
-				F0A282E7244001B4008390AE /* PeripheralController.swift in Sources */,
 				F0A282A9243EC344008390AE /* Tutorial1ViewController.swift in Sources */,
 				F0A282D9243EF600008390AE /* AppVersion.swift in Sources */,
 				F051ADC02449476C007278A0 /* TempUserId.swift in Sources */,

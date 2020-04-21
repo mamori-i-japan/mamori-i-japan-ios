@@ -39,7 +39,7 @@ class CentralManager: NSObject {
         super.init()
         let options = [
             // CBCentralManagerOptionShowPowerAlertKey: 1,
-            CBCentralManagerOptionRestoreIdentifierKey: "com.decurret.TraceCovid19JP"
+            CBCentralManagerOptionRestoreIdentifierKey: "com.decurret.TraceCovid19JP.CentralManager"
         ] as [String: Any]
         centralManager = CBCentralManager(delegate: self, queue: queue, options: options)
     }

@@ -1,5 +1,43 @@
 import Foundation
 
+struct PeripheralCharacteristicsDataV2: Codable {
+//    var mp: String // phone model of peripheral
+    var i: String // tempID
+//    var o: String // organisation
+//    var v: Int // protocol version
+}
+
+class V2Peripheral {
+    static let shared = V2Peripheral()
+
+    func prepareReadRequestData(characteristicDataV2: PeripheralCharacteristicsDataV2) -> Data? {
+        do {
+            return try JSONEncoder().encode(characteristicDataV2)
+        } catch {
+            print("[P] Error: \(error). characteristic is \(characteristicDataV2)")
+        }
+        return nil
+    }
+
+    func processWriteRequestDataReceived(dataWritten: Data) -> TraceDataRecord? {
+        do {
+            let dataFromCentral = try JSONDecoder().decode(CentralWriteDataV2.self, from: dataWritten)
+            return TraceDataRecord(from: dataFromCentral)
+        } catch {
+            print("[P] Error: \(error). characteristicValue is \(dataWritten)")
+        }
+        return nil
+    }
+}
+
+struct CentralWriteDataV2: Codable {
+    //    var mc: String // phone model of central
+    var rs: Double // rssi
+    var i: String // tempID
+    //    var o: String // organisation
+    //    var v: Int // protocol version
+}
+
 final class V2Central {
     static let shared = V2Central()
 
@@ -37,12 +75,4 @@ final class V2Central {
         }
         return nil
     }
-}
-
-struct CentralWriteDataV2: Codable {
-    //    var mc: String // phone model of central
-    var rs: Double // rssi
-    var i: String // tempID
-    //    var o: String // organisation
-    //    var v: Int // protocol version
 }
