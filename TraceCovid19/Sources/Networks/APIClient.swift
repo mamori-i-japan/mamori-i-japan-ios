@@ -21,7 +21,8 @@ final class APIClient {
 
     func request<T: APIRequestProtocol>(request: T, completionHandler: @escaping (Result<T.Response, APIRequestError>) -> Void) {
         if request.isNeedAuthentication && auth.instance.currentUser != nil {
-            auth.instance.currentUser!.getIDToken { token, _ in
+            // NOTE: 10分でトークンが切れるらしいので、都度リフレッシュして取得する（負荷が高いなどの問題があったら変更する）
+            auth.instance.currentUser!.getIDTokenForcingRefresh(true) { token, _ in
                 self._request(request: request, accessToken: token, completionHandler: completionHandler)
             }
             return
@@ -36,6 +37,7 @@ final class APIClient {
             request.urlString,
             method: Alamofire.HTTPMethod(rawValue: request.method.rawValue),
             parameters: request.parameters,
+            encoding: request.encodingType.encoding,
             headers: HTTPHeaders(request.creaetHeaders(accessToken: accessToken))
         )
 
@@ -62,6 +64,17 @@ final class APIClient {
             response.responseDecodable(of: T.Response.self, decoder: decoder, completionHandler: handler)
         } else {
             response.responseDecodable(of: T.Response.self, completionHandler: handler)
+        }
+    }
+}
+
+extension ParameterEncodingType {
+    var encoding: Alamofire.ParameterEncoding {
+        switch self {
+        case .url:
+            return URLEncoding()
+        case .json:
+            return JSONEncoding()
         }
     }
 }

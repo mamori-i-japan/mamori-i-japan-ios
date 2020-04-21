@@ -19,6 +19,25 @@ final class LoginAPIRequest: APIRequestProtocol {
     var isNeedAuthentication: Bool {
         return true
     }
+
+    var parameters: [String: Any] {
+        var result: [String: Any] = [:]
+        if let prefecture = prefecture {
+            result["prefecture"] = prefecture
+        }
+        if let job = job {
+            result["job"] = job
+        }
+        return result
+    }
+
+    private let prefecture: Int?
+    private let job: String?
+
+    init(profile: Profile) {
+        prefecture = profile.prefecture
+        job = profile.job
+    }
 }
 
 struct LoginAPIResponse: Decodable {
@@ -31,8 +50,8 @@ final class LoginAPI {
         self.apiClient = apiClient
     }
 
-    func login(completionHandler: @escaping (Result<LoginAPIResponse, APIRequestError>) -> Void) {
-        let request = LoginAPIRequest()
+    func login(profile: Profile, completionHandler: @escaping (Result<LoginAPIResponse, APIRequestError>) -> Void) {
+        let request = LoginAPIRequest(profile: profile)
         apiClient.request(request: request, completionHandler: completionHandler)
     }
 }

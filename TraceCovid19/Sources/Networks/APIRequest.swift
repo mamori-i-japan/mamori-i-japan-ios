@@ -19,6 +19,20 @@ enum APIRequestMethod: String {
     case delete = "DELETE"
 }
 
+enum ParameterEncodingType {
+    case url
+    case json
+
+    var contentType: String {
+        switch self {
+        case .url:
+            return "application/x-www-form-urlencoded"
+        case .json:
+            return "application/json; charset=utf-8"
+        }
+    }
+}
+
 protocol APIRequestProtocol: CustomStringConvertible {
     associatedtype Response: Decodable
 
@@ -30,6 +44,7 @@ protocol APIRequestProtocol: CustomStringConvertible {
     var urlString: String { get }
     var headers: [String: String] { get }
     var parameters: [String: Any] { get }
+    var encodingType: ParameterEncodingType { get }
     var decoder: JSONDecoder? { get }
     var acceptableStatusCode: Range<Int> { get }
     var isNeedAuthentication: Bool { get }
@@ -56,6 +71,14 @@ extension APIRequestProtocol {
     var parameters: [String: Any] {
         return [:]
     }
+    var encodingType: ParameterEncodingType {
+        switch method {
+        case .get, .delete:
+            return .url
+        case .post, .put:
+            return .json
+        }
+    }
     var acceptableStatusCode: Range<Int> {
         return 200..<300
     }
@@ -67,6 +90,9 @@ extension APIRequestProtocol {
 extension APIRequestProtocol {
     func creaetHeaders(accessToken: String? = nil) -> [String: String] {
         var result: [String: String] = headers
+        // 共通設定
+        result["Content-Type"] = encodingType.contentType
+
         // Token付与
         if let accessToken = accessToken, isNeedAuthentication {
             result["Authorization"] = "Bearer \(accessToken)"
