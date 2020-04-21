@@ -59,6 +59,11 @@ class PeripheralManager: NSObject {
     private func startAdvertising() {
         guard peripheralManager.state == .poweredOn else { return }
 
+        if peripheralManager.isAdvertising {
+            log("Already advertising")
+            return
+        }
+
         peripheralManager.removeAllServices()
 
         services.forEach { service in
