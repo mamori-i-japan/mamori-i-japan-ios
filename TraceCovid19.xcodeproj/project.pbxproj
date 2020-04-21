@@ -11,6 +11,7 @@
 		C75B12C3244F2FBF009C2ED6 /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75B12C0244F2FBF009C2ED6 /* Peripheral.swift */; };
 		C75B12C4244F2FBF009C2ED6 /* CentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75B12C1244F2FBF009C2ED6 /* CentralManager.swift */; };
 		C75FDCF6244F82BD0020FA1E /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75FDCF5244F82BD0020FA1E /* Protocol.swift */; };
+		C75FDCF8244FAAB40020FA1E /* CBPeripheral+ShortId.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75FDCF7244FAAB40020FA1E /* CBPeripheral+ShortId.swift */; };
 		F0031D362434629F009F9643 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0031D342434629F009F9643 /* Assets.xcassets */; };
 		F0031D40243462AC009F9643 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0031D3A243462AC009F9643 /* HomeViewController.swift */; };
 		F0031D41243462AC009F9643 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0031D3B243462AC009F9643 /* LaunchScreen.storyboard */; };
@@ -185,6 +186,7 @@
 		C75B12C0244F2FBF009C2ED6 /* Peripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
 		C75B12C1244F2FBF009C2ED6 /* CentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralManager.swift; sourceTree = "<group>"; };
 		C75FDCF5244F82BD0020FA1E /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		C75FDCF7244FAAB40020FA1E /* CBPeripheral+ShortId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBPeripheral+ShortId.swift"; sourceTree = "<group>"; };
 		F0031D342434629F009F9643 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0031D352434629F009F9643 /* Info-Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Debug.plist"; sourceTree = "<group>"; };
 		F0031D3A243462AC009F9643 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -551,6 +553,7 @@
 				F0A282CC243ED068008390AE /* AssociatedObjects.swift */,
 				F0A282EA244004C9008390AE /* CBManagerState+ToString.swift */,
 				F0A282EC2440056E008390AE /* CBPeripheralState+ToString.swift */,
+				C75FDCF7244FAAB40020FA1E /* CBPeripheral+ShortId.swift */,
 				F0A2832F2441F81A008390AE /* CustomNavigationController.swift */,
 				F0A282E0243F3DAB008390AE /* Date+ToString.swift */,
 				F0A282F324408BA8008390AE /* DeviceUtility.swift */,
@@ -1066,6 +1069,7 @@
 				F051ADC02449476C007278A0 /* TempUserId.swift in Sources */,
 				F0A28319244189A1008390AE /* NoPerformActionTextField.swift in Sources */,
 				F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */,
+				C75FDCF8244FAAB40020FA1E /* CBPeripheral+ShortId.swift in Sources */,
 				F079FF90244D418400202A91 /* BaseLabel.swift in Sources */,
 				F051ADCA24498ED4007278A0 /* SettingViewController.swift in Sources */,
 				F0A28325244195A7008390AE /* CodeInputUnitView.swift in Sources */,

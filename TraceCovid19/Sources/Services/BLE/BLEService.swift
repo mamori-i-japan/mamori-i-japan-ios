@@ -46,11 +46,23 @@ enum Characteristic: String, CustomStringConvertible {
     }
 }
 
-enum Command {
-    case Read(from: Characteristic)
-    case Write(to: Characteristic, value: (Peripheral) -> (Data?))
-    case ReadRSSI
-    case Cancel(callback: (Peripheral) -> Void)
+enum Command: CustomStringConvertible {
+    case read(from: Characteristic)
+    case write(to: Characteristic, value: (Peripheral) -> (Data?))
+    case readRSSI
+    case cancel(callback: (Peripheral) -> Void)
+    var description: String {
+        switch self {
+        case .read:
+            return "read"
+        case .write:
+            return "write"
+        case .readRSSI:
+            return "readRSSI"
+        case .cancel:
+            return "cancel"
+        }
+    }
 }
 
 typealias CharacteristicDidUpdateValue = (Peripheral, Characteristic, Data?, Error?) -> Void
@@ -89,7 +101,7 @@ final class BLEService {
                 switch ch {
                 case .contact:
                     guard let userId = self.tempId.currentTempId ?? self.tempId.latestTempId else {
-                        print("[PC] not found temp user id on CoreData")
+                        log("not found temp user id on CoreData")
                         return nil
                     }
 
@@ -103,7 +115,7 @@ final class BLEService {
                 case .contact:
                     guard let writeData = WriteData(from: data) else {
                         let str = String(data: data, encoding: .utf8)
-                        print("failed to deserialize data=\(String(describing: str))")
+                        log("failed to deserialize data=\(String(describing: str))")
                         return false
                     }
                     self.coreData.save(traceDataRecord: TraceDataRecord(from: writeData))
@@ -114,10 +126,10 @@ final class BLEService {
         // Commands and callbacks should happen in this order
         _ = self.centralManager
             .appendCommand(
-                command: .ReadRSSI
+                command: .readRSSI
             )
             .didReadRSSI { [unowned self] peripheral, RSSI, error in
-                print("peripheral=\(peripheral), RSSI=\(RSSI), error=\(String(describing: error))")
+                log("peripheral=\(peripheral.shortId), RSSI=\(RSSI), error=\(String(describing: error))")
 
                 guard error == nil else {
                     self.centralManager.disconnect(peripheral)
@@ -128,20 +140,22 @@ final class BLEService {
                 self.traceData[peripheral.id] = record
             }
             .appendCommand(
-                command: .Write(to: .contact, value: { [unowned self] peripheral in
+                command: .write(to: .contact, value: { [unowned self] peripheral in
                     let record = self.traceData[peripheral.id] ?? TraceDataRecord()
-                    let tempId = self.tempId.currentTempId ?? self.tempId.latestTempId!
+                    guard let userId = self.tempId.currentTempId ?? self.tempId.latestTempId else {
+                        return nil
+                    }
 
                     // TODO txPower
-                    let writeData = WriteData(RSSI: record.rssi ?? 0, tempID: tempId.tempId)
+                    let writeData = WriteData(RSSI: record.rssi ?? 0, tempID: userId.tempId)
                     return writeData.data
                 })
             )
             .appendCommand(
-                command: .Read(from: .contact)
+                command: .read(from: .contact)
             )
             .didUpdateValue { [unowned self] peripheral, ch, data, error in
-                print("[CC] didUpdateValueFor peripheral=\(peripheral), ch=\(ch), data=\(String(describing: data)), error=\(String(describing: error))")
+                log("didUpdateValueFor peripheral=\(peripheral.shortId), ch=\(ch), data=\(String(describing: data)), error=\(String(describing: error))")
 
                 guard error == nil && data != nil else {
                     self.centralManager.disconnect(peripheral)
@@ -157,11 +171,11 @@ final class BLEService {
                 record.timestamp = Date()
                 self.traceData[peripheral.id] = record
 
-                print("[CC] save: \(record.tempId ?? "nil")")
+                log("save: \(record.tempId ?? "nil")")
                 self.coreData.save(traceDataRecord: record)
             }
             .appendCommand(
-                command: .Cancel(callback: { [unowned self] peripheral in
+                command: .cancel(callback: { [unowned self] peripheral in
                     self.centralManager.disconnect(peripheral)
                 })
             )
@@ -197,18 +211,18 @@ final class BLEService {
     func isBluetoothOn() -> Bool {
         switch centralManager.getState() {
         case .poweredOff:
-            print("[BLEService] Bluetooth is off")
+            log("[BLEService] Bluetooth is off")
         case .resetting:
-            print("[BLEService] Resetting State")
+            log("[BLEService] Resetting State")
         case .unauthorized:
-            print("[BLEService] Unauth State")
+            log("[BLEService] Unauth State")
         case .unknown:
-            print("[BLEService] Unknown State")
+            log("[BLEService] Unknown State")
         case .unsupported:
             centralManager.turnOn()
-            print("[BLEService] Unsupported State")
+            log("[BLEService] Unsupported State")
         default:
-            print("[BLEService] Bluetooth is on")
+            log("[BLEService] Bluetooth is on")
         }
         return centralManager.getState() == CBManagerState.poweredOn
     }
@@ -219,7 +233,7 @@ final class BLEService {
         case .poweredOn:
             DispatchQueue.main.async { [unowned self] in
                 self.timerForScanning = Timer.scheduledTimer(withTimeInterval: TimeInterval(BluetraceConfig.CentralScanInterval), repeats: true) { [weak self] _ in
-                    print("[CC] Restarting a scan")
+                    log("Restarting a scan")
                     self?.coreData.saveTraceDataWithCurrentTime(for: .scanningStopped)
                     self?.coreData.saveTraceDataWithCurrentTime(for: .scanningStarted)
 

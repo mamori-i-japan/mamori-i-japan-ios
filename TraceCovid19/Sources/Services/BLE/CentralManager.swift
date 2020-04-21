@@ -108,7 +108,7 @@ class CentralManager: NSObject {
 
 extension CentralManager: CBCentralManagerDelegate {
     public func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        print("state=\(central.state)")
+        log("state=\(central.state.toString)")
         if central.state == .poweredOn && started {
             startScanning()
         }
@@ -116,7 +116,7 @@ extension CentralManager: CBCentralManagerDelegate {
     }
 
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        print("peripheral=\(peripheral)")
+        log("peripheral=\(peripheral.shortId)")
 
         let p = peripherals[peripheral.identifier]
         if let p = p {
@@ -125,34 +125,33 @@ extension CentralManager: CBCentralManagerDelegate {
     }
 
     public func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        print("peripheral=\(peripheral), error=\(String(describing: error))")
+        log("peripheral=\(peripheral.shortId), error=\(String(describing: error))")
         peripherals.removeValue(forKey: peripheral.identifier)
     }
 
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
-        print("peripheral=\(peripheral.identifier.uuidString.prefix(8)), rssi=\(RSSI)")
+        log("peripheral=\(peripheral.shortId), rssi=\(RSSI)")
 
         // Android
         // iphones will "mask" the peripheral's identifier for android devices, resulting in the same android device being discovered multiple times with different peripheral identifier. Hence android is using CBAdvertisementDataServiceDataKey data for identifying an android pheripheral
         if let manuData = advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data {
             let androidIdentifierData = manuData.subdata(in: 2..<manuData.count)
             if androidIdentifiers.contains(androidIdentifierData) {
-                print("[CC] Android Peripheral \(peripheral) has been discovered already in this window, will not attempt to connect to it again")
+                log("Android Peripheral \(peripheral.shortId) has been discovered already in this window, will not attempt to connect to it again")
                 return
             }
             androidIdentifiers.append(androidIdentifierData)
             addPeripheral(peripheral)
             central.connect(peripheral, options: nil)
 //                scannedPeripherals.updateValue((peripheral, TraceDataRecord(rssi: RSSI.doubleValue, txPower: advertisementData[CBAdvertisementDataTxPowerLevelKey] as? Double)), forKey: peripheral.identifier)
-//                central.connect(peripheral)
             return
         }
 
 //                scannedPeripherals.updateValue((peripheral, TraceDataRecord(rssi: RSSI.doubleValue, txPower: advertisementData[CBAdvertisementDataTxPowerLevelKey] as? Double)), forKey: peripheral.identifier)
 
-        print("[CC] CBAdvertisementDataManufacturerDataKey Data not found. Peripheral is likely not android")
+        log("CBAdvertisementDataManufacturerDataKey Data not found. Peripheral is likely not android")
         if peripherals[peripheral.identifier] != nil {
-            print("[CC] iOS Peripheral \(peripheral) has been discovered already in this window, will not attempt to connect to it again")
+            log("iOS Peripheral \(peripheral.shortId) has been discovered already in this window, will not attempt to connect to it again")
             return
         }
         addPeripheral(peripheral)
@@ -160,11 +159,11 @@ extension CentralManager: CBCentralManagerDelegate {
     }
 
     public func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
-        print("peripheral=\(peripheral), error=\(String(describing: error))")
+        log("peripheral=\(peripheral.shortId), error=\(String(describing: error))")
     }
 
     func centralManager(_ central: CBCentralManager, willRestoreState dict: [String: Any]) {
-        print("dict=\(dict)")
+        log("dict=\(dict)")
 
         // Hmm, no we want to reconnect to them and re-record the proximity event
 //        if let peripherals = dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral] {

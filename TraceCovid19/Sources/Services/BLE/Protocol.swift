@@ -12,7 +12,7 @@ struct ReadData: Codable {
         do {
             self = try JSONDecoder().decode(ReadData.self, from: data)
         } catch {
-            print("[P] Error: \(error). characteristicValue is \(data)")
+            log("[P] Error: \(error). characteristicValue is \(data)")
             return nil
         }
     }
@@ -20,7 +20,7 @@ struct ReadData: Codable {
         do {
             return try JSONEncoder().encode(self)
         } catch {
-            print("[P] Error: \(error). data is \(self)")
+            log("[P] Error: \(error). data is \(self)")
         }
         return nil
     }
@@ -40,7 +40,7 @@ struct WriteData: Codable {
         do {
             self = try JSONDecoder().decode(WriteData.self, from: data)
         } catch {
-            print("[P] Error: \(error). characteristicValue is \(data)")
+            log("[P] Error: \(error). characteristicValue is \(data)")
             return nil
         }
     }
@@ -48,7 +48,7 @@ struct WriteData: Codable {
         do {
             return try JSONEncoder().encode(self)
         } catch {
-            print("[P] Error: \(error). data is \(self)")
+            log("[P] Error: \(error). data is \(self)")
         }
         return nil
     }

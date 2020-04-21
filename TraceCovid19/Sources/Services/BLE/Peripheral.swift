@@ -34,6 +34,9 @@ class Peripheral: NSObject {
     var id: UUID {
         return peripheral.identifier
     }
+    var shortId: String {
+        return peripheral.shortId
+    }
 
     init(peripheral: CBPeripheral, services: [Service], commands: [Command], didUpdateValue: CharacteristicDidUpdateValue?, didReadRSSI: DidReadRSSI?) {
         self.peripheral = peripheral
@@ -55,26 +58,26 @@ class Peripheral: NSObject {
             currentCommand = nil
             return
         }
-        print()
         currentCommand = commands[0]
+        log("currentCommand=\(currentCommand!)")
         commands = commands.shift()
         execute(currentCommand!)
     }
 
     func execute(_ command: Command) {
         switch command {
-        case .Read(let from):
+        case .read(let from):
             if let ch = toCBCharacteristic(c12c: from) {
                 peripheral.readValue(for: ch)
             }
-        case .Write(let to, let value):
+        case .write(let to, let value):
             if let ch = toCBCharacteristic(c12c: to), let val = value(self) {
                 peripheral.writeValue(val, for: ch, type: .withoutResponse)
             }
             nextCommand()
-        case .ReadRSSI:
+        case .readRSSI:
             peripheral.readRSSI()
-        case .Cancel(let callback):
+        case .cancel(let callback):
             callback(self)
         }
     }
@@ -83,16 +86,16 @@ class Peripheral: NSObject {
         if let c = self.toCBCharacteristic(c12c: ch) {
             self.peripheral.writeValue(value, for: c, type: type)
         } else {
-            print("c12c=\(ch) not found")
+            log("c12c=\(ch) not found")
         }
     }
 
     func readValueForCharacteristic(c12c: Characteristic) throws {
         guard let c = self.toCBCharacteristic(c12c: c12c) else {
-            print("c12c=\(c12c) not found")
+            log("c12c=\(c12c) not found")
             return
         }
-        print("reading=\(c12c)")
+        log("reading=\(c12c)")
         self.peripheral.readValue(for: c)
     }
 
@@ -117,7 +120,6 @@ class Peripheral: NSObject {
 
 extension Peripheral: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        print("services=\(String(describing: peripheral.services)), error=\(String(describing: error))")
         guard let discoveredServices = peripheral.services else { return }
 
         for discoveredService in discoveredServices {
@@ -126,7 +128,6 @@ extension Peripheral: CBPeripheralDelegate {
     }
 
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        print("service=\(service), ch=\(String(describing: service.characteristics)), error=\(String(describing: error))")
         if error != nil {
             return
         }
@@ -136,10 +137,10 @@ extension Peripheral: CBPeripheralDelegate {
 
     // This might happen regardless of calling or not calling readValue(for:)
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        print("peripheral=\(peripheral.identifier), ch=\(String(describing: Characteristic.fromCBCharacteristic(characteristic)))")
+        log("peripheral=\(shortId), ch=\(String(describing: Characteristic.fromCBCharacteristic(characteristic)))")
         if let ch = Characteristic.fromCBCharacteristic(characteristic) {
             didUpdateValue?(self, ch, characteristic.value, error)
-            if case .Read(let readCh) = currentCommand {
+            if case .read(let readCh) = currentCommand {
                 if readCh == ch {
                     // Read complete
                     nextCommand()
@@ -149,8 +150,8 @@ extension Peripheral: CBPeripheralDelegate {
     }
 
     func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
-        print("peripheral=\(peripheral.identifier), RSSI=\(RSSI), error=\(String(describing: error))")
-        if case .ReadRSSI = currentCommand {
+        log("peripheral=\(shortId), RSSI=\(RSSI), error=\(String(describing: error))")
+        if case .readRSSI = currentCommand {
             // ReadRSSI complete
             nextCommand()
         }
