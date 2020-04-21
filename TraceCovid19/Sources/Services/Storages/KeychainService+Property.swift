@@ -26,18 +26,18 @@ extension KeychainService {
 }
 
 extension KeychainService {
-    var randomToken: String? {
-        get {
-            // TODO: 暫定的に、ランダム文字列を固定値として扱う
-            return "helloworld"
-//            return try? keychain.get(.randomToken)
-        }
-        set {
-            guard let value = newValue else {
-                try? keychain.remove(.randomToken)
-                return
-            }
-            try? keychain.set(value, key: .randomToken)
-        }
-    }
+//    var randomToken: String? {
+//        get {
+//            // TODO: 暫定的に、ランダム文字列を固定値として扱う
+//            return "helloworld"
+////            return try? keychain.get(.randomToken)
+//        }
+//        set {
+//            guard let value = newValue else {
+//                try? keychain.remove(.randomToken)
+//                return
+//            }
+//            try? keychain.set(value, key: .randomToken)
+//        }
+//    }
 }

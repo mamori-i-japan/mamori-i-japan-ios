@@ -63,10 +63,8 @@ extension APIRequestProtocol {
 }
 
 extension APIRequestProtocol {
-    func creaetHeaders(mobileSecret: String, accessToken: String? = nil) -> [String: String] {
+    func creaetHeaders(accessToken: String? = nil) -> [String: String] {
         var result: [String: String] = headers
-        // ランダム文字列付与
-        result["x-mobile-secret-random-token"] = mobileSecret
         // Token付与
         if let accessToken = accessToken, isNeedAuthentication {
             result["Authorization"] = "Bearer \(accessToken)"

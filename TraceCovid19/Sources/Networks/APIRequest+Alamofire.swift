@@ -13,26 +13,23 @@ import SwinjectStoryboard
 
 extension APIRequestProtocol {
     func request(completionHandler: @escaping (Result<Response, APIRequestError>) -> Void) {
-        // TODO: mobileSecretのいれかた
-        let mobileSecret = SwinjectStoryboard.defaultContainer.resolve(KeychainService.self)!.randomToken!
-
         if isNeedAuthentication && Auth.auth().currentUser != nil {
             // TODO: Authのいれかた
             Auth.auth().currentUser!.getIDToken { token, _ in
-                self._request(mobileSecret: mobileSecret, accessToken: token, completionHandler: completionHandler)
+                self._request(accessToken: token, completionHandler: completionHandler)
             }
             return
         }
 
-        _request(mobileSecret: mobileSecret, completionHandler: completionHandler)
+        _request(completionHandler: completionHandler)
     }
 
-    private func _request(mobileSecret: String, accessToken: String? = nil, completionHandler: @escaping (Result<Response, APIRequestError>) -> Void) {
+    private func _request(accessToken: String? = nil, completionHandler: @escaping (Result<Response, APIRequestError>) -> Void) {
         let response = AF.request(
             urlString,
             method: Alamofire.HTTPMethod(rawValue: method.rawValue),
             parameters: parameters,
-            headers: HTTPHeaders(creaetHeaders(mobileSecret: mobileSecret, accessToken: accessToken))
+            headers: HTTPHeaders(creaetHeaders(accessToken: accessToken))
         )
 
         let handler: (DataResponse<Response, AFError>) -> Void = { result in

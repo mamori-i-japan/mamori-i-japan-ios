@@ -31,7 +31,7 @@ final class SMSService {
                 case .some(.networkError):
                     print("[SMSService] sendSMS ローカル通信エラー")
                 default:
-                    print("[SMSService] sendSMS その他エラー")
+                    print("[SMSService] sendSMS その他エラー: code=\((error as NSError).code)")
                 }
                 completion(.failure(error))
                 return

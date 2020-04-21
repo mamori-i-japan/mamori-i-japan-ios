@@ -61,10 +61,10 @@ final class LoginService {
                     print("[LoginService] singIn 期限切れ")
                     completion(.failure(.expired))
                 case .some(.networkError):
-                    print("[SMSService] sendSMS ローカル通信エラー")
+                    print("[LoginService] singIn ローカル通信エラー")
                     completion(.failure(.networkError))
                 default:
-                    print("[LoginService] singIn その他エラー")
+                    print("[LoginService] singIn その他エラー: code=\((error as NSError).code)")
                     completion(.failure(.unknown(error)))
                 }
             } else {

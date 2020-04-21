@@ -47,7 +47,6 @@ final class BootService {
     func execLaunch(completion: @escaping (RemoteConfigStatus) -> Void) {
         print(#function)
         clearStorageIfUninstalled()
-        setupRandomToken()
         fetchAppStatus(completion: completion)
     }
 
@@ -64,15 +63,6 @@ final class BootService {
 
         // 現在のアプリバージョンで更新する
         userDefaults.lastUseAppVersion = .currentAppVersion
-    }
-
-    /// APIアクセス用の識別子を準備(x-mobile-secret-random-token)
-    private func setupRandomToken() {
-        if keychain.randomToken == nil {
-            let uuid = UUID()
-            keychain.randomToken = uuid.uuidString
-            return
-        }
     }
 
     private func fetchAppStatus(completion: @escaping (RemoteConfigStatus) -> Void) {
