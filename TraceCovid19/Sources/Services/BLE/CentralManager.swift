@@ -55,6 +55,7 @@ class CentralManager: NSObject {
     }
 
     func restartScan() {
+        log()
         stopScan()
         peripherals.values.forEach { peripheral in
             disconnect(peripheral)
