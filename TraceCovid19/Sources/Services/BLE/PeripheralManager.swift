@@ -105,7 +105,7 @@ extension PeripheralManager: CBPeripheralManagerDelegate {
     }
 
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveRead request: CBATTRequest) {
-        log("request=\(request)")
+        log()
 
         guard let ch = Characteristic.fromCBCharacteristic(request.characteristic), let onRead = onRead else {
             peripheralManager.respond(to: request, withResult: .requestNotSupported)
@@ -121,7 +121,7 @@ extension PeripheralManager: CBPeripheralManagerDelegate {
     // https://developer.apple.com/documentation/corebluetooth/cbperipheralmanagerdelegate/1393315-peripheralmanager
     // When you respond to a write request, note that the first parameter of the respond(to:withResult:) method expects a single CBATTRequest object, even though you received an array of them from the peripheralManager(_:didReceiveWrite:) method. To respond properly, pass in the first request of the requests array.
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
-        log("requests=\(requests)")
+        log()
 
         if requests.count == 0 {
             return
