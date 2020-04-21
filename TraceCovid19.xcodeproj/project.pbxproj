@@ -535,11 +535,11 @@
 		F04759B124359A420091059F /* BLE */ = {
 			isa = PBXGroup;
 			children = (
+				F0A282EF2440191F008390AE /* BLEService.swift */,
+				F0A282E8244002BC008390AE /* BluetoothConfig.swift */,
 				C75B12C1244F2FBF009C2ED6 /* CentralManager.swift */,
 				C75B12C0244F2FBF009C2ED6 /* Peripheral.swift */,
 				C75B12BF244F2FBF009C2ED6 /* PeripheralManager.swift */,
-				F0A282EF2440191F008390AE /* BLEService.swift */,
-				F0A282E8244002BC008390AE /* BluetoothConfig.swift */,
 				C75FDCF5244F82BD0020FA1E /* Protocol.swift */,
 			);
 			path = BLE;

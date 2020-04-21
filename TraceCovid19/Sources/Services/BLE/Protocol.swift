@@ -1,77 +1,54 @@
 import Foundation
 
-struct PeripheralCharacteristicsDataV2: Codable {
+struct ReadData: Codable {
 //    var mp: String // phone model of peripheral
     var i: String // tempID
 //    var o: String // organisation
 //    var v: Int // protocol version
-}
-
-class V2Peripheral {
-    static let shared = V2Peripheral()
-
-    func prepareReadRequestData(characteristicDataV2: PeripheralCharacteristicsDataV2) -> Data? {
-        do {
-            return try JSONEncoder().encode(characteristicDataV2)
-        } catch {
-            print("[P] Error: \(error). characteristic is \(characteristicDataV2)")
-        }
-        return nil
+    init(tempID: String) {
+        i = tempID
     }
-
-    func processWriteRequestDataReceived(dataWritten: Data) -> TraceDataRecord? {
+    init?(from data: Data) {
         do {
-            let dataFromCentral = try JSONDecoder().decode(CentralWriteDataV2.self, from: dataWritten)
-            return TraceDataRecord(from: dataFromCentral)
+            self = try JSONDecoder().decode(ReadData.self, from: data)
         } catch {
-            print("[P] Error: \(error). characteristicValue is \(dataWritten)")
+            print("[P] Error: \(error). characteristicValue is \(data)")
+            return nil
+        }
+    }
+    var data: Data? {
+        do {
+            return try JSONEncoder().encode(self)
+        } catch {
+            print("[P] Error: \(error). data is \(self)")
         }
         return nil
     }
 }
 
-struct CentralWriteDataV2: Codable {
+struct WriteData: Codable {
     //    var mc: String // phone model of central
     var rs: Double // rssi
     var i: String // tempID
     //    var o: String // organisation
     //    var v: Int // protocol version
-}
-
-final class V2Central {
-    static let shared = V2Central()
-
-    func prepareWriteRequestData(tempId: String, rssi: Double, txPower: Double?) -> Data? {
-        do {
-            let dataToWrite = CentralWriteDataV2(
-                //                mc: DeviceUtility.machineName(),
-                rs: rssi,
-                i: tempId
-                //                o: BluetraceConfig.OrgID,
-                //                v: BluetraceConfig.ProtocolVersion
-            )
-
-            let encodedData = try JSONEncoder().encode(dataToWrite)
-
-            return encodedData
-        } catch {
-            print("[C] Error: \(error)")
-        }
-
-        return nil
+    init(RSSI: Double, tempID: String) {
+        rs = RSSI
+        i = tempID
     }
-
-    func processReadRequestDataReceived(scannedPeriData: TraceDataRecord?, characteristicValue: Data) -> TraceDataRecord? {
+    init?(from data: Data) {
         do {
-            let peripheralCharData = try JSONDecoder().decode(PeripheralCharacteristicsDataV2.self, from: characteristicValue)
-            var data = scannedPeriData ?? TraceDataRecord()
-
-            data.tempId = peripheralCharData.i
-            data.timestamp = Date() // NOTE: タイムスタンプ更新を追加
-
-            return data
+            self = try JSONDecoder().decode(WriteData.self, from: data)
         } catch {
-            print("[C] Error: \(error). characteristicValue is \(characteristicValue)")
+            print("[P] Error: \(error). characteristicValue is \(data)")
+            return nil
+        }
+    }
+    var data: Data? {
+        do {
+            return try JSONEncoder().encode(self)
+        } catch {
+            print("[P] Error: \(error). data is \(self)")
         }
         return nil
     }

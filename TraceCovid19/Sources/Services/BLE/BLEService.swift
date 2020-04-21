@@ -48,7 +48,7 @@ enum Characteristic: String, CustomStringConvertible {
 
 enum Command {
     case Read(from: Characteristic)
-    case Write(to: Characteristic, value: (Peripheral) -> (Data))
+    case Write(to: Characteristic, value: (Peripheral) -> (Data?))
     case ReadRSSI
     case Cancel(callback: (Peripheral) -> Void)
 }
@@ -93,24 +93,20 @@ final class BLEService {
                         return nil
                     }
 
-                    let payload = PeripheralCharacteristicsDataV2(i: userId.tempId)
-                    guard let data = V2Peripheral.shared.prepareReadRequestData(characteristicDataV2: payload) else {
-                        print("failed to serialize payload=\(payload)")
-                        return nil
-                    }
-                    return data
+                    let payload = ReadData(tempID: userId.tempId)
+                    return payload.data
                 }
             }
             // Central is trying to write into us
             .onWrite { [unowned self] _, ch, data in
                 switch ch {
                 case .contact:
-                    guard let record = V2Peripheral.shared.processWriteRequestDataReceived(dataWritten: data) else {
+                    guard let writeData = WriteData(from: data) else {
                         let str = String(data: data, encoding: .utf8)
                         print("failed to deserialize data=\(String(describing: str))")
                         return false
                     }
-                    self.coreData.save(traceDataRecord: record)
+                    self.coreData.save(traceDataRecord: TraceDataRecord(from: writeData))
                     return true
                 }
             }
@@ -137,8 +133,8 @@ final class BLEService {
                     let tempId = self.tempId.currentTempId ?? self.tempId.latestTempId!
 
                     // TODO txPower
-                    return V2Central.shared.prepareWriteRequestData(tempId: tempId.tempId, rssi: record.rssi ?? 0, txPower: nil)
-                        ?? Data()
+                    let writeData = WriteData(RSSI: record.rssi ?? 0, tempID: tempId.tempId)
+                    return writeData.data
                 })
             )
             .appendCommand(
@@ -152,14 +148,15 @@ final class BLEService {
                     return
                 }
 
-                guard let record = V2Central.shared.processReadRequestDataReceived(scannedPeriData: self.traceData[peripheral.id], characteristicValue: data!) else {
-                    let s = String(data: data!, encoding: .utf8)
-                    print("parse data failed, data=\(String(describing: s))")
+                guard let readData = ReadData(from: data!) else {
                     self.centralController.disconnect(peripheral)
                     return
                 }
-
+                var record = self.traceData[peripheral.id] ?? TraceDataRecord()
+                record.tempId = readData.i
+                record.timestamp = Date()
                 self.traceData[peripheral.id] = record
+
                 print("[CC] save: \(record.tempId ?? "nil")")
                 self.coreData.save(traceDataRecord: record)
             }

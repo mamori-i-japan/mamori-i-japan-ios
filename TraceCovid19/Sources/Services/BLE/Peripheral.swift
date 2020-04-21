@@ -68,8 +68,8 @@ class Peripheral: NSObject {
                 peripheral.readValue(for: ch)
             }
         case .Write(let to, let value):
-            if let ch = toCBCharacteristic(c12c: to) {
-                peripheral.writeValue(value(self), for: ch, type: .withoutResponse)
+            if let ch = toCBCharacteristic(c12c: to), let val = value(self) {
+                peripheral.writeValue(val, for: ch, type: .withoutResponse)
             }
             nextCommand()
         case .ReadRSSI:

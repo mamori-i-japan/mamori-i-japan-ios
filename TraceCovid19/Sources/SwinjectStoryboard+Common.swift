@@ -204,8 +204,8 @@ extension SwinjectStoryboard {
         }
 
         defaultContainer.register(PeripheralManager.self) { (_, queue: DispatchQueue) in
-            let tracerService = CBMutableService(type: BluetraceConfig.bluetoothServiceID, primary: true)
-            let characteristic = CBMutableCharacteristic(type: BluetraceConfig.characteristicServiceID, properties: [.read, .write, .writeWithoutResponse], value: nil, permissions: [.readable, .writeable])
+            let tracerService = CBMutableService(type: Service.trace.toCBUUID(), primary: true)
+            let characteristic = CBMutableCharacteristic(type: Characteristic.contact.toCBUUID(), properties: [.read, .write, .writeWithoutResponse], value: nil, permissions: [.readable, .writeable])
             tracerService.characteristics = [characteristic]
 
             // TODO: ペリフェラル名
