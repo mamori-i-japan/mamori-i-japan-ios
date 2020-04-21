@@ -237,6 +237,7 @@ final class BLEService {
                     self?.coreData.saveTraceDataWithCurrentTime(for: .scanningStopped)
                     self?.coreData.saveTraceDataWithCurrentTime(for: .scanningStarted)
 
+                    self?.traceData = [:]
                     self?.centralManager.restartScan()
                 }
                 self.timerForScanning?.fire()
