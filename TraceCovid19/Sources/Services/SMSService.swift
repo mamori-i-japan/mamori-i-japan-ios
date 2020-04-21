@@ -28,6 +28,8 @@ final class SMSService {
                     print("[SMSService] sendSMS 電番不正")
                 case .some(.missingPhoneNumber):
                     print("[SMSService] sendSMS 電番未入力")
+                case .some(.networkError):
+                    print("[SMSService] sendSMS ローカル通信エラー")
                 default:
                     print("[SMSService] sendSMS その他エラー")
                 }

@@ -44,6 +44,7 @@ final class LoginService {
     enum SignInError: Error {
         case notMatch
         case expired
+        case networkError
         case unknown(Error)
     }
 
@@ -59,6 +60,9 @@ final class LoginService {
                 case .some(.sessionExpired):
                     print("[LoginService] singIn 期限切れ")
                     completion(.failure(.expired))
+                case .some(.networkError):
+                    print("[SMSService] sendSMS ローカル通信エラー")
+                    completion(.failure(.networkError))
                 default:
                     print("[LoginService] singIn その他エラー")
                     completion(.failure(.unknown(error)))

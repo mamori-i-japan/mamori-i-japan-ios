@@ -83,6 +83,11 @@ final class AuthSMSViewController: UIViewController, KeyboardCloseProtocol, NVAc
             showAlert(message: "TODO: 有効期限が切れました") { [weak self] _ in
                 self?.navigationController?.popViewController(animated: true)
             }
+        case .networkError:
+            setError(text: nil)
+            showAlert(message: "TODO: 通信に失敗しました") { [weak self] _ in
+                self?.codeInputView.becomeFirstResponder()
+            }
         case .unknown(let error):
             setError(text: error.localizedDescription)
             codeInputView.becomeFirstResponder()
