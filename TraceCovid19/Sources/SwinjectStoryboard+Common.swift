@@ -10,6 +10,7 @@ import Swinject
 import SwinjectStoryboard
 import KeychainAccess
 import UserNotifications
+import CoreBluetooth
 import CoreData
 import FirebaseAuth
 import FirebaseRemoteConfig
@@ -149,8 +150,10 @@ extension SwinjectStoryboard {
         defaultContainer.register(BLEService.self) { r, queue in
             BLEService(
                 queue: queue,
-                peripheralController: r.resolve(PeripheralController.self, argument: queue)!,
-                centralController: r.resolve(CentralController.self, argument: queue)!
+                peripheralController: r.resolve(PeripheralManager.self, argument: queue)!,
+                centralController: r.resolve(CentralManager.self, argument: queue)!,
+                coreData: r.resolve(CoreDataService.self)!,
+                tempId: r.resolve(TempIdService.self)!
             )
         }.inObjectScope(.container)
 
@@ -196,13 +199,17 @@ extension SwinjectStoryboard {
             .standard
         }
 
-        defaultContainer.register(CentralController.self) { r, queue in
-            CentralController(queue: queue, keychain: r.resolve(KeychainService.self)!, coreData: r.resolve(CoreDataService.self)!)
+        defaultContainer.register(CentralManager.self) { _, queue in
+            CentralManager(queue: queue, services: [.trace])
         }
 
-        defaultContainer.register(PeripheralController.self) { r, queue in
+        defaultContainer.register(PeripheralManager.self) { (_, queue: DispatchQueue) in
+            let tracerService = CBMutableService(type: BluetraceConfig.bluetoothServiceID, primary: true)
+            let characteristic = CBMutableCharacteristic(type: BluetraceConfig.characteristicServiceID, properties: [.read, .write, .writeWithoutResponse], value: nil, permissions: [.readable, .writeable])
+            tracerService.characteristics = [characteristic]
+
             // TODO: ペリフェラル名
-            PeripheralController(peripheralName: "TR", queue: queue, tempId: r.resolve(TempIdService.self)!, coreData: r.resolve(CoreDataService.self)!)
+            return PeripheralManager(peripheralName: "TR", queue: queue, services: [tracerService])
         }
 
         defaultContainer.register(DispatchQueue.self, name: "BluetoothQueue") { _ in

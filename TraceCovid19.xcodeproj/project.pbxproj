@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C75B12C2244F2FBF009C2ED6 /* PeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75B12BF244F2FBF009C2ED6 /* PeripheralManager.swift */; };
+		C75B12C3244F2FBF009C2ED6 /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75B12C0244F2FBF009C2ED6 /* Peripheral.swift */; };
+		C75B12C4244F2FBF009C2ED6 /* CentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75B12C1244F2FBF009C2ED6 /* CentralManager.swift */; };
+		C75FDCF6244F82BD0020FA1E /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75FDCF5244F82BD0020FA1E /* Protocol.swift */; };
 		F0031D362434629F009F9643 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0031D342434629F009F9643 /* Assets.xcassets */; };
 		F0031D40243462AC009F9643 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0031D3A243462AC009F9643 /* HomeViewController.swift */; };
 		F0031D41243462AC009F9643 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0031D3B243462AC009F9643 /* LaunchScreen.storyboard */; };
@@ -145,7 +149,6 @@
 		F0A282DD243EF84C008390AE /* BootService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282DC243EF84C008390AE /* BootService.swift */; };
 		F0A282DF243F2A86008390AE /* UUID+DataRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282DE243F2A86008390AE /* UUID+DataRepresentation.swift */; };
 		F0A282E1243F3DAB008390AE /* Date+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282E0243F3DAB008390AE /* Date+ToString.swift */; };
-		F0A282E5244001A7008390AE /* CentralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282E4244001A7008390AE /* CentralController.swift */; };
 		F0A282E7244001B4008390AE /* PeripheralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282E6244001B4008390AE /* PeripheralController.swift */; };
 		F0A282E9244002BC008390AE /* BluetoothConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282E8244002BC008390AE /* BluetoothConfig.swift */; };
 		F0A282EB244004C9008390AE /* CBManagerState+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A282EA244004C9008390AE /* CBManagerState+ToString.swift */; };
@@ -179,6 +182,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C75B12BF244F2FBF009C2ED6 /* PeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralManager.swift; sourceTree = "<group>"; };
+		C75B12C0244F2FBF009C2ED6 /* Peripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
+		C75B12C1244F2FBF009C2ED6 /* CentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralManager.swift; sourceTree = "<group>"; };
+		C75FDCF5244F82BD0020FA1E /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		F0031D342434629F009F9643 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0031D352434629F009F9643 /* Info-Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Debug.plist"; sourceTree = "<group>"; };
 		F0031D3A243462AC009F9643 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -326,7 +333,6 @@
 		F0A282DC243EF84C008390AE /* BootService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootService.swift; sourceTree = "<group>"; };
 		F0A282DE243F2A86008390AE /* UUID+DataRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UUID+DataRepresentation.swift"; sourceTree = "<group>"; };
 		F0A282E0243F3DAB008390AE /* Date+ToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ToString.swift"; sourceTree = "<group>"; };
-		F0A282E4244001A7008390AE /* CentralController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralController.swift; sourceTree = "<group>"; };
 		F0A282E6244001B4008390AE /* PeripheralController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralController.swift; sourceTree = "<group>"; };
 		F0A282E8244002BC008390AE /* BluetoothConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConfig.swift; sourceTree = "<group>"; };
 		F0A282EA244004C9008390AE /* CBManagerState+ToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBManagerState+ToString.swift"; sourceTree = "<group>"; };
@@ -531,10 +537,13 @@
 		F04759B124359A420091059F /* BLE */ = {
 			isa = PBXGroup;
 			children = (
+				C75B12C1244F2FBF009C2ED6 /* CentralManager.swift */,
+				C75B12C0244F2FBF009C2ED6 /* Peripheral.swift */,
+				C75B12BF244F2FBF009C2ED6 /* PeripheralManager.swift */,
 				F0A282EF2440191F008390AE /* BLEService.swift */,
 				F0A282E8244002BC008390AE /* BluetoothConfig.swift */,
-				F0A282E4244001A7008390AE /* CentralController.swift */,
 				F0A282E6244001B4008390AE /* PeripheralController.swift */,
+				C75FDCF5244F82BD0020FA1E /* Protocol.swift */,
 			);
 			path = BLE;
 			sourceTree = "<group>";
@@ -1010,13 +1019,13 @@
 				F079FF7D244C168700202A91 /* ProfileService.swift in Sources */,
 				F0A2832B2441BC77008390AE /* PushNotificationService.swift in Sources */,
 				F0475995243584850091059F /* SplashViewController.swift in Sources */,
-				F0A282E5244001A7008390AE /* CentralController.swift in Sources */,
 				F0A282DF243F2A86008390AE /* UUID+DataRepresentation.swift in Sources */,
 				F0A2830F2441754A008390AE /* Agreement2ViewController.swift in Sources */,
 				F051ADA4244819C7007278A0 /* APIRequest.swift in Sources */,
 				F0A282FA24416BC0008390AE /* Tutorial2ViewController.swift in Sources */,
 				F051AD802446E7B5007278A0 /* PositiveContactList.swift in Sources */,
 				F0A282A6243EC17E008390AE /* KeychainAccess+KeychainClient.swift in Sources */,
+				C75FDCF6244F82BD0020FA1E /* Protocol.swift in Sources */,
 				F0031D43243462AC009F9643 /* AppDelegate.swift in Sources */,
 				F079FF81244C1F1300202A91 /* DictionaryDecodable.swift in Sources */,
 				F0A282E9244002BC008390AE /* BluetoothConfig.swift in Sources */,
@@ -1031,6 +1040,7 @@
 				F051AD63244699FA007278A0 /* DeepContactUser.swift in Sources */,
 				F02356DC2445ACEB001E72ED /* DeepContactCheckService.swift in Sources */,
 				F04759AD243595D90091059F /* SwinjectStoryboard+Common.swift in Sources */,
+				C75B12C2244F2FBF009C2ED6 /* PeripheralManager.swift in Sources */,
 				F0A2830024416C05008390AE /* Tutorial3ViewController.swift in Sources */,
 				F079FF9C244D8AE400202A91 /* Assets.swift in Sources */,
 				F051ADBE24494688007278A0 /* CoreDataService+TempId.swift in Sources */,
@@ -1070,6 +1080,7 @@
 				F0A282EB244004C9008390AE /* CBManagerState+ToString.swift in Sources */,
 				F079FF9D244D8AE400202A91 /* Localized.swift in Sources */,
 				F0A282CB243ED041008390AE /* UIGestureRecognizer+Closure.swift in Sources */,
+				C75B12C4244F2FBF009C2ED6 /* CentralManager.swift in Sources */,
 				F079FF92244D41B800202A91 /* LabelUtilityProtocol.swift in Sources */,
 				F02356D224444370001E72ED /* UIViewController+ShowAlert.swift in Sources */,
 				F0A282E1243F3DAB008390AE /* Date+ToString.swift in Sources */,
@@ -1095,6 +1106,7 @@
 				F079FF94244D431C00202A91 /* BaseTextField.swift in Sources */,
 				F0A282D7243EF5CA008390AE /* UserDefaultsService+Property.swift in Sources */,
 				F051ADC224495577007278A0 /* Debug3ViewController.swift in Sources */,
+				C75B12C3244F2FBF009C2ED6 /* Peripheral.swift in Sources */,
 				F0A282F424408BA8008390AE /* DeviceUtility.swift in Sources */,
 				F079FF85244C3EBC00202A91 /* AppStatus.swift in Sources */,
 				F04759B824359BC90091059F /* NSObject+ClassName.swift in Sources */,
