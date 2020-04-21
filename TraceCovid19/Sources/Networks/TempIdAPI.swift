@@ -42,8 +42,14 @@ struct TempIdAPIResponse: Decodable {
 }
 
 final class TempIdAPI {
+    private let apiClient: APIClient
+
+    init(apiClient: APIClient) {
+        self.apiClient = apiClient
+    }
+
     func getTempIDs(completionHandler: @escaping (Result<[TempIdAPIResponse], APIRequestError>) -> Void) {
         let request = TempIdAPIRequest()
-        request.request(completionHandler: completionHandler)
+        apiClient.request(request: request, completionHandler: completionHandler)
     }
 }

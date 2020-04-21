@@ -100,16 +100,19 @@ final class LoginService {
         profileService.set(profile: profile) { _ in }
     }
 
-    func logout() {
+    @discardableResult
+    func logout() -> Bool {
         do {
             try auth.instance.signOut()
             keychain.removeAll()
             userDefaults.removeAll()
             ble.turnOff()
             coreData.deleteAll()
+            return true
             // TODO: プッシュ通知の購読解除？
         } catch {
             print("sign out error: \(error)")
+            return false
         }
     }
 

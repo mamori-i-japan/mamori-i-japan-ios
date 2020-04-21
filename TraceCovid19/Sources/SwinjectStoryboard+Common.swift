@@ -15,6 +15,7 @@ import FirebaseAuth
 import FirebaseRemoteConfig
 import FirebaseStorage
 import FirebaseFirestore
+import Alamofire
 
 extension SwinjectStoryboard {
     @objc
@@ -246,16 +247,42 @@ extension SwinjectStoryboard {
             JSONDecoder()
         }
 
-        defaultContainer.register(LoginAPI.self) { _ in
-            LoginAPI()
+        defaultContainer.register(LoginAPI.self) { r in
+            LoginAPI(apiClient: r.resolve(APIClient.self)!)
         }
 
-        defaultContainer.register(TempIdAPI.self) { _ in
-            TempIdAPI()
+        defaultContainer.register(TempIdAPI.self) { r in
+            TempIdAPI(apiClient: r.resolve(APIClient.self)!)
         }
 
         defaultContainer.register(Firestore.self) { _ in
             Firestore.firestore()
+        }
+
+        defaultContainer.register(APIClient.self) { r in
+            APIClient(session: r.resolve(Session.self)!, auth: r.resolve(Lazy<Auth>.self)!)
+        }
+
+        defaultContainer.register(Session.self) { r in
+            Session(serverTrustManager: ServerTrustManager(evaluators: r.resolve([String: SSLPinningManager].self)!))
+        }
+
+        defaultContainer.register([String: SSLPinningManager].self) { r in
+            let pinningManager = SSLPinningManager(conditions: r.resolve([SSLPinningCondition].self)!)
+            var dictionay: [String: SSLPinningManager] = [:]
+            pinningManager.hosts.forEach { dictionay[$0] = pinningManager }
+            return dictionay
+        }
+
+        defaultContainer.register([SSLPinningCondition].self) { _ in
+            [
+                // TODO: 環境
+                SSLPinningCondition(
+                    host: "35111ugog3.execute-api.ap-northeast-1.amazonaws.com",
+                    hashes: ["5Ev9nbQIJbIn3IZ7LAhwja3OwmxcXatMqaO/6faKlD8="],
+                    expiredUnixTime: 1599307200 - 3600 * 24 * 30 // NOTE: Sep 5 12:00:00 2020 GMT からマージン(30日)を引いた日時を期限として設定
+                )
+            ]
         }
     }
 }

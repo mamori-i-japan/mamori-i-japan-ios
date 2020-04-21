@@ -25,8 +25,14 @@ struct LoginAPIResponse: Decodable {
 }
 
 final class LoginAPI {
+    private let apiClient: APIClient
+
+    init(apiClient: APIClient) {
+        self.apiClient = apiClient
+    }
+
     func login(completionHandler: @escaping (Result<LoginAPIResponse, APIRequestError>) -> Void) {
         let request = LoginAPIRequest()
-        request.request(completionHandler: completionHandler)
+        apiClient.request(request: request, completionHandler: completionHandler)
     }
 }

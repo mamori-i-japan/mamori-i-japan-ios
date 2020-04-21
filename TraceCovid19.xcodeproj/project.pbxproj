@@ -77,7 +77,7 @@
 		F051AD9E2447769B007278A0 /* Debug2ViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F051AD9C2447769B007278A0 /* Debug2ViewController.storyboard */; };
 		F051ADA02447F2EB007278A0 /* TempIdService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051AD9F2447F2EB007278A0 /* TempIdService.swift */; };
 		F051ADA4244819C7007278A0 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADA3244819C7007278A0 /* APIRequest.swift */; };
-		F051ADA624481A7A007278A0 /* APIRequest+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADA524481A7A007278A0 /* APIRequest+Alamofire.swift */; };
+		F051ADA624481A7A007278A0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADA524481A7A007278A0 /* APIClient.swift */; };
 		F051ADAA24486DBE007278A0 /* BoringSSL-GRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F051ADA724486DBE007278A0 /* BoringSSL-GRPC.framework */; };
 		F051ADAB24486DBE007278A0 /* gRPC-C++.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F051ADA824486DBE007278A0 /* gRPC-C++.framework */; };
 		F051ADAC24486DBE007278A0 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F051ADA924486DBE007278A0 /* gRPC-Core.framework */; };
@@ -112,6 +112,8 @@
 		F079FF9C244D8AE400202A91 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF9A244D8AE400202A91 /* Assets.swift */; };
 		F079FF9D244D8AE400202A91 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF9B244D8AE400202A91 /* Localized.swift */; };
 		F096D5A9244EC95500F7919B /* Gzip in Frameworks */ = {isa = PBXBuildFile; productRef = F096D5A8244EC95500F7919B /* Gzip */; };
+		F096D5AD244ED70F00F7919B /* SSLPinningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5AC244ED70F00F7919B /* SSLPinningManager.swift */; };
+		F096D5AF244EED5A00F7919B /* SSLPinningManager+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */; };
 		F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829B243EBF7F008390AE /* LoginAPI.swift */; };
 		F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829D243EC06E008390AE /* TokenResponse.swift */; };
 		F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829F243EC0AD008390AE /* LoginService.swift */; };
@@ -250,7 +252,7 @@
 		F051AD9C2447769B007278A0 /* Debug2ViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Debug2ViewController.storyboard; sourceTree = "<group>"; };
 		F051AD9F2447F2EB007278A0 /* TempIdService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempIdService.swift; sourceTree = "<group>"; };
 		F051ADA3244819C7007278A0 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
-		F051ADA524481A7A007278A0 /* APIRequest+Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIRequest+Alamofire.swift"; sourceTree = "<group>"; };
+		F051ADA524481A7A007278A0 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		F051ADA724486DBE007278A0 /* BoringSSL-GRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "BoringSSL-GRPC.framework"; path = "Carthage/Build/iOS/BoringSSL-GRPC.framework"; sourceTree = "<group>"; };
 		F051ADA824486DBE007278A0 /* gRPC-C++.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-C++.framework"; path = "Carthage/Build/iOS/gRPC-C++.framework"; sourceTree = "<group>"; };
 		F051ADA924486DBE007278A0 /* gRPC-Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-Core.framework"; path = "Carthage/Build/iOS/gRPC-Core.framework"; sourceTree = "<group>"; };
@@ -291,6 +293,8 @@
 		F079FFA5244D8CC300202A91 /* update_license_plist.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = update_license_plist.sh; sourceTree = "<group>"; };
 		F079FFA6244D8CC300202A91 /* swiftgen_script_input.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = swiftgen_script_input.xcfilelist; sourceTree = "<group>"; };
 		F079FFA7244D8CC300202A91 /* carthage_script_output.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = carthage_script_output.xcfilelist; sourceTree = "<group>"; };
+		F096D5AC244ED70F00F7919B /* SSLPinningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLPinningManager.swift; sourceTree = "<group>"; };
+		F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SSLPinningManager+Alamofire.swift"; sourceTree = "<group>"; };
 		F0A2829B243EBF7F008390AE /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F0A2829D243EC06E008390AE /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		F0A2829F243EC0AD008390AE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -552,6 +556,7 @@
 				F04759B724359BC90091059F /* NSObject+ClassName.swift */,
 				F04759BB2435B2CD0091059F /* PrintUtility.swift */,
 				F079FF82244C244500202A91 /* ProfileChangeable.swift */,
+				F096D5AC244ED70F00F7919B /* SSLPinningManager.swift */,
 				F0A2831C24419234008390AE /* String+PhoneNumber.swift */,
 				F051ADB92448924D007278A0 /* String+ToDate.swift */,
 				F0A2830624416FA5008390AE /* UIColor+Hex.swift */,
@@ -562,6 +567,7 @@
 				F02356D124444370001E72ED /* UIViewController+ShowAlert.swift */,
 				F0A282DE243F2A86008390AE /* UUID+DataRepresentation.swift */,
 				F079FF89244D3C5200202A91 /* XibLocalizable.swift */,
+				F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -609,8 +615,8 @@
 		F0A2829A243EBF71008390AE /* Networks */ = {
 			isa = PBXGroup;
 			children = (
+				F051ADA524481A7A007278A0 /* APIClient.swift */,
 				F051ADA3244819C7007278A0 /* APIRequest.swift */,
-				F051ADA524481A7A007278A0 /* APIRequest+Alamofire.swift */,
 				F0A2829B243EBF7F008390AE /* LoginAPI.swift */,
 				F051ADB724487BC7007278A0 /* TempIdAPI.swift */,
 			);
@@ -1034,6 +1040,7 @@
 				F02356BE2442F7B1001E72ED /* TraceData.swift in Sources */,
 				F051ADC624498085007278A0 /* InputJobViewController.swift in Sources */,
 				F0031D40243462AC009F9643 /* HomeViewController.swift in Sources */,
+				F096D5AD244ED70F00F7919B /* SSLPinningManager.swift in Sources */,
 				F079FF83244C244500202A91 /* ProfileChangeable.swift in Sources */,
 				F051AD9D2447769B007278A0 /* Debug2ViewController.swift in Sources */,
 				F0A282CF243ED0C5008390AE /* KeyboardCloseProtocol.swift in Sources */,
@@ -1072,9 +1079,10 @@
 				F051AD902446FB32007278A0 /* ContactedPositiveImageStatusView.swift in Sources */,
 				F0A2830724416FA5008390AE /* UIColor+Hex.swift in Sources */,
 				F04759BC2435B2CD0091059F /* PrintUtility.swift in Sources */,
-				F051ADA624481A7A007278A0 /* APIRequest+Alamofire.swift in Sources */,
+				F051ADA624481A7A007278A0 /* APIClient.swift in Sources */,
 				F051AD8A2446EB86007278A0 /* HomeBaseView.swift in Sources */,
 				F0A282AF243EC5D5008390AE /* InputPhoneNumberViewController.swift in Sources */,
+				F096D5AF244EED5A00F7919B /* SSLPinningManager+Alamofire.swift in Sources */,
 				F0A282D3243EF019008390AE /* KeychainService+Property.swift in Sources */,
 				F0A282DD243EF84C008390AE /* BootService.swift in Sources */,
 				F0A282B7243EC785008390AE /* PermissionSettingViewController.swift in Sources */,

@@ -135,6 +135,7 @@ extension HomeViewController {
     func getPositiveContacts() {
         startAnimating(type: .circleStrokeSpin)
 
+        // TODO: モーダル先からログアウトをする場合、ここの処理が呼ばれてしまうので余裕があればカバーする
         positiveContact.load { [weak self] result in
             self?.stopAnimating()
 

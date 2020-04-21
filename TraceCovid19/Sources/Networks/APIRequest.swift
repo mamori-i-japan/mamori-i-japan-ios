@@ -19,7 +19,7 @@ enum APIRequestMethod: String {
     case delete = "DELETE"
 }
 
-protocol APIRequestProtocol {
+protocol APIRequestProtocol: CustomStringConvertible {
     associatedtype Response: Decodable
 
     var scheme: String { get }
@@ -40,9 +40,11 @@ extension APIRequestProtocol {
         return "https://"
     }
     var host: String {
+        // TODO: 環境わけ
         return "35111ugog3.execute-api.ap-northeast-1.amazonaws.com"
     }
     var basePath: String {
+        // TODO: 環境わけ
         return "/dev"
     }
     var urlString: String {
@@ -70,5 +72,11 @@ extension APIRequestProtocol {
             result["Authorization"] = "Bearer \(accessToken)"
         }
         return result
+    }
+}
+
+extension APIRequestProtocol {
+    var description: String {
+        return "[\(method.rawValue)] \(urlString)"
     }
 }

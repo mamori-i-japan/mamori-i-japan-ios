@@ -170,7 +170,7 @@ final class DebugViewController: UIViewController {
     }
 
     @IBAction func tappedLogoutButton() {
-        loginService.logout()
+        print("did logout: \(loginService.logout())")
 
         /// スプラッシュに雑に戻す
         UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true) {
