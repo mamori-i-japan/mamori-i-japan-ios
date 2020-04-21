@@ -111,6 +111,7 @@
 		F079FF98244D5B4C00202A91 /* PositiveOwnStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F079FF97244D5B4C00202A91 /* PositiveOwnStatusView.xib */; };
 		F079FF9C244D8AE400202A91 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF9A244D8AE400202A91 /* Assets.swift */; };
 		F079FF9D244D8AE400202A91 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF9B244D8AE400202A91 /* Localized.swift */; };
+		F096D5A9244EC95500F7919B /* Gzip in Frameworks */ = {isa = PBXBuildFile; productRef = F096D5A8244EC95500F7919B /* Gzip */; };
 		F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829B243EBF7F008390AE /* LoginAPI.swift */; };
 		F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829D243EC06E008390AE /* TokenResponse.swift */; };
 		F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829F243EC0AD008390AE /* LoginService.swift */; };
@@ -394,6 +395,7 @@
 				F02356B72442F046001E72ED /* GoogleUtilities.framework in Frameworks */,
 				F02356B82442F046001E72ED /* nanopb.framework in Frameworks */,
 				F02356B92442F046001E72ED /* PromisesObjC.framework in Frameworks */,
+				F096D5A9244EC95500F7919B /* Gzip in Frameworks */,
 				F02356AD2442EDCC001E72ED /* NVActivityIndicatorView.framework in Frameworks */,
 				F02356A92442EDCC001E72ED /* Swinject.framework in Frameworks */,
 				F02356AA2442EDCC001E72ED /* SwinjectStoryboard.framework in Frameworks */,
@@ -787,6 +789,7 @@
 			packageProductDependencies = (
 				F01EA9032449C95D00B81DB6 /* Alamofire */,
 				F01EA9062449C97400B81DB6 /* KeychainAccess */,
+				F096D5A8244EC95500F7919B /* Gzip */,
 			);
 			productName = TraceCovid19;
 			productReference = F0C6AD7C243461A600F863FC /* TraceCovid19.app */;
@@ -817,6 +820,7 @@
 			packageReferences = (
 				F01EA9022449C95D00B81DB6 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F01EA9052449C97400B81DB6 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				F096D5A7244EC95500F7919B /* XCRemoteSwiftPackageReference "GzipSwift" */,
 			);
 			productRefGroup = F0C6AD7D243461A600F863FC /* Products */;
 			projectDirPath = "";
@@ -1346,6 +1350,14 @@
 				minimumVersion = 4.1.0;
 			};
 		};
+		F096D5A7244EC95500F7919B /* XCRemoteSwiftPackageReference "GzipSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/1024jp/GzipSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1358,6 +1370,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F01EA9052449C97400B81DB6 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		F096D5A8244EC95500F7919B /* Gzip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F096D5A7244EC95500F7919B /* XCRemoteSwiftPackageReference "GzipSwift" */;
+			productName = Gzip;
 		};
 /* End XCSwiftPackageProductDependency section */
 

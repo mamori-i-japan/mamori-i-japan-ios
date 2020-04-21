@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseStorage
 import Swinject
+import Gzip
 
 final class PositiveContactService {
     private let storage: Lazy<Storage>
@@ -19,7 +20,7 @@ final class PositiveContactService {
     private(set) var positiveContacts: [PositiveContact] = []
 
     private var fileName: String {
-        return "positive_person_list.json"
+        return "positives.json.gz"
     }
 
     init(
@@ -87,10 +88,22 @@ final class PositiveContactService {
                     completion(.failure(.error(error)))
                     return
                 }
-                print("[PositiveContactService] data: \(String(describing: String(data: data, encoding: .utf8)))")
+
+                // gunzip
+                let rawData: Data
+                if data.isGzipped {
+                    guard let gunzippedData = try? data.gunzipped() else {
+                        print("[PositiveContactService] gunzip failed: \(String(describing: String(data: data, encoding: .utf8)))")
+                        completion(.failure(.error(NSError(domain: "gunzip failed", code: 0, userInfo: nil))))
+                        return
+                    }
+                    rawData = gunzippedData
+                } else {
+                    rawData = data
+                }
 
                 do {
-                    let list = try sSelf.jsonDecoder.decode(PositiveContactList.self, from: data)
+                    let list = try sSelf.jsonDecoder.decode(PositiveContactList.self, from: rawData)
                     self?.lastGeneration = metaData.generation
                     self?.positiveContacts = list.data
                     completion(.success(list.data))
