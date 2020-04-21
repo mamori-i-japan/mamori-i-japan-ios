@@ -8,5 +8,5 @@
 import Foundation
 
 struct PositiveContact: Decodable {
-    let uuid: String
+    let tempID: String
 }

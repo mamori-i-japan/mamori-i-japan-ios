@@ -43,7 +43,7 @@ final class PositiveContactService {
     /// 自身の陽性判定
     func isPositiveMyself() -> Bool {
         let myTempIDs = tempIdService.tempIDs.compactMap { $0.tempId }
-        let positiveUUIDs = positiveContacts.compactMap { $0.uuid }
+        let positiveUUIDs = positiveContacts.compactMap { $0.tempID }
         for tempID in myTempIDs {
             if positiveUUIDs.contains(tempID) {
                 return true
@@ -55,7 +55,7 @@ final class PositiveContactService {
     /// 接触した陽性者の最新を取得
     func getLatestContactedPositivePeople() -> DeepContactUser? {
         let deepContactUUIDs = deepContactCheck.getDeepContactUsers().compactMap { $0.tempId }
-        let positiveContactUUIDs = positiveContacts.compactMap { $0.uuid }
+        let positiveContactUUIDs = positiveContacts.compactMap { $0.tempID }
         for uuid in deepContactUUIDs where positiveContactUUIDs.contains(uuid) {
             return deepContactCheck.getDeepContactUsers().first(where: { $0.tempId == uuid })
         }
@@ -120,14 +120,14 @@ final class PositiveContactService {
 extension PositiveContactService {
     /// (デバッグ用) UUIDを陽性者リストに追加する
     func appendPositiveContact(uuid: String) {
-        if !(positiveContacts.compactMap { $0.uuid }).contains(uuid) {
-            positiveContacts.append(PositiveContact(uuid: uuid))
+        if !(positiveContacts.compactMap { $0.tempID }).contains(uuid) {
+            positiveContacts.append(PositiveContact(tempID: uuid))
         }
     }
 
     /// (デバッグ用) UUIDを陽性者リストから削除する
     func removePositiveContact(uuid: String) {
-        positiveContacts.removeAll(where: { $0.uuid == uuid })
+        positiveContacts.removeAll(where: { $0.tempID == uuid })
     }
 
     func resetGeneration() {

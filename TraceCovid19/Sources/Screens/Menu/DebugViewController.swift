@@ -232,7 +232,7 @@ extension DebugViewController: UITableViewDataSource {
                 let deepContactUser = deepContactUsers[indexPath.row]
                 cell.update(deepContactUser: deepContactUser)
 
-                if (positiveContact.positiveContacts.compactMap { $0.uuid }).contains(deepContactUser.tempId!) {
+                if (positiveContact.positiveContacts.compactMap { $0.tempID }).contains(deepContactUser.tempId!) {
                     cell.tempIDLabel.textColor = .red // 陽性者だった場合は赤にする
                 } else {
                     cell.tempIDLabel.textColor = .black
