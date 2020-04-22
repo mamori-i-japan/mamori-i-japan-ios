@@ -24,7 +24,7 @@ extension TraceDataRecord {
 //        self.modelP = modelP
 //    }
 
-    init(from centralWriteDataV2: CentralWriteDataV2) {
+    init(from centralWriteDataV2: WriteData) {
         self.timestamp = Date()
         self.tempId = centralWriteDataV2.i
 //        self.msg = centralWriteDataV2.id

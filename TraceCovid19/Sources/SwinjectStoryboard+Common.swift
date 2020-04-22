@@ -10,6 +10,7 @@ import Swinject
 import SwinjectStoryboard
 import KeychainAccess
 import UserNotifications
+import CoreBluetooth
 import CoreData
 import FirebaseAuth
 import FirebaseRemoteConfig
@@ -150,8 +151,8 @@ extension SwinjectStoryboard {
         defaultContainer.register(BLEService.self) { r, queue in
             BLEService(
                 queue: queue,
-                peripheralController: r.resolve(PeripheralController.self, argument: queue)!,
-                centralController: r.resolve(CentralController.self, argument: queue)!
+                coreData: r.resolve(CoreDataService.self)!,
+                tempId: r.resolve(TempIdService.self)!
             )
         }.inObjectScope(.container)
 
@@ -195,15 +196,6 @@ extension SwinjectStoryboard {
 
         defaultContainer.register(UserDefaults.self) { _ in
             .standard
-        }
-
-        defaultContainer.register(CentralController.self) { r, queue in
-            CentralController(queue: queue, keychain: r.resolve(KeychainService.self)!, coreData: r.resolve(CoreDataService.self)!)
-        }
-
-        defaultContainer.register(PeripheralController.self) { r, queue in
-            // TODO: ペリフェラル名
-            PeripheralController(peripheralName: "TR", queue: queue, tempId: r.resolve(TempIdService.self)!, coreData: r.resolve(CoreDataService.self)!)
         }
 
         defaultContainer.register(DispatchQueue.self, name: "BluetoothQueue") { _ in
