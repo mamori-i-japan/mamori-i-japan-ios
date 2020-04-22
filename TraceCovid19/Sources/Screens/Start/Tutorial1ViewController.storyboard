@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHJ-hz-ZCU" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="716" width="343" height="56"/>
+                                <rect key="frame" x="16" y="698" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Puv-iP-IbW"/>
                                 </constraints>
@@ -35,8 +35,8 @@
                                     <constraint firstAttribute="width" secondItem="EG9-L6-zZH" secondAttribute="height" multiplier="15:14" id="Foc-gy-avo"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9r-lF-UC2">
-                                <rect key="frame" x="45.666666666666657" y="153" width="283.66666666666674" height="67"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Q9r-lF-UC2">
+                                <rect key="frame" x="16" y="153" width="343" height="67"/>
                                 <string key="text">アプリ保持者同士の
 接触履歴を保存します</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
@@ -56,14 +56,16 @@
                         <constraints>
                             <constraint firstItem="4nU-bd-eWA" firstAttribute="trailing" secondItem="hHJ-hz-ZCU" secondAttribute="trailing" constant="16" id="4tW-2x-16Q"/>
                             <constraint firstItem="EG9-L6-zZH" firstAttribute="top" secondItem="Q9r-lF-UC2" secondAttribute="bottom" constant="20" id="5Qp-Um-0jm"/>
-                            <constraint firstItem="4nU-bd-eWA" firstAttribute="bottom" secondItem="hHJ-hz-ZCU" secondAttribute="bottom" constant="6" id="BUw-dY-mwl"/>
+                            <constraint firstItem="Q9r-lF-UC2" firstAttribute="leading" secondItem="4nU-bd-eWA" secondAttribute="leading" constant="16" id="6L6-03-THJ"/>
+                            <constraint firstItem="4nU-bd-eWA" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hHJ-hz-ZCU" secondAttribute="bottom" constant="8" id="BUw-dY-mwl"/>
                             <constraint firstItem="lvU-ee-JyJ" firstAttribute="leading" secondItem="4nU-bd-eWA" secondAttribute="leading" constant="16" id="EgA-6y-s1m"/>
-                            <constraint firstItem="Q9r-lF-UC2" firstAttribute="centerX" secondItem="4nU-bd-eWA" secondAttribute="centerX" id="L1a-on-LtW"/>
+                            <constraint firstItem="4nU-bd-eWA" firstAttribute="trailing" secondItem="Q9r-lF-UC2" secondAttribute="trailing" constant="16" id="IRB-qT-0EZ"/>
                             <constraint firstItem="EG9-L6-zZH" firstAttribute="centerX" secondItem="4nU-bd-eWA" secondAttribute="centerX" id="Nkw-OQ-u3E"/>
                             <constraint firstItem="EG9-L6-zZH" firstAttribute="width" secondItem="yzx-sx-MFb" secondAttribute="width" id="QYP-kO-9Pv"/>
                             <constraint firstItem="4nU-bd-eWA" firstAttribute="trailing" secondItem="lvU-ee-JyJ" secondAttribute="trailing" constant="16" id="QtV-Yi-z90"/>
                             <constraint firstItem="hHJ-hz-ZCU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lvU-ee-JyJ" secondAttribute="bottom" constant="8" id="VDQ-mO-vkn"/>
                             <constraint firstItem="hHJ-hz-ZCU" firstAttribute="leading" secondItem="4nU-bd-eWA" secondAttribute="leading" constant="16" id="Wts-62-FVK"/>
+                            <constraint firstItem="4nU-bd-eWA" firstAttribute="bottom" secondItem="hHJ-hz-ZCU" secondAttribute="bottom" priority="250" constant="24" id="gVp-mt-CaL"/>
                             <constraint firstItem="lvU-ee-JyJ" firstAttribute="top" secondItem="EG9-L6-zZH" secondAttribute="bottom" priority="750" constant="28" id="ioc-tF-X4F"/>
                             <constraint firstItem="EG9-L6-zZH" firstAttribute="centerY" secondItem="4nU-bd-eWA" secondAttribute="centerY" constant="-18" id="ugP-Dc-2Am"/>
                         </constraints>

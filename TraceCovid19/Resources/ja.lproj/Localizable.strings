@@ -8,6 +8,7 @@
 
 "next" = "次へ";
 "agree" = "同意する";
+"read_all_agreement" = "個人情報保護に関する規約全文を読む";
 "go_forword_with_agreement" = "規約に同意して進む";
 "change_phone_number" = "電話番号を変更";
 "send_sms" = "SMSを送信";

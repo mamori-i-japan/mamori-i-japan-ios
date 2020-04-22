@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poq-Aw-6jg" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="716" width="343" height="56"/>
+                                <rect key="frame" x="16" y="698" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="HcY-gt-ueS"/>
                                 </constraints>
@@ -31,21 +31,33 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tHF-ga-2RC">
                                 <rect key="frame" x="16" y="156" width="343" height="100.33333333333331"/>
-                                <string key="text">あなたが新型コロナウィルス陽性の診断をされた際、
-匿名での行動データを共有することを許可してください</string>
+                                <string key="text">あなたが新型コロナウィルス陽性の
+診断をされた際、
+匿名での行動データを
+共有することを許可してください</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illust04" translatesAutoresizingMaskIntoConstraints="NO" id="lYl-Md-Y5R">
+                                <rect key="frame" x="48" y="379.66666666666669" width="272" height="217.00000000000006"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lYl-Md-Y5R" secondAttribute="height" multiplier="272:217" id="mhc-Xw-eaU"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="lYl-Md-Y5R" firstAttribute="centerX" secondItem="xVm-VO-Um6" secondAttribute="centerX" constant="-3.5" id="1MF-KS-2ag"/>
+                            <constraint firstItem="lYl-Md-Y5R" firstAttribute="width" secondItem="wm7-pm-Jox" secondAttribute="width" multiplier="0.725333" id="3vn-oV-WVz"/>
                             <constraint firstItem="xVm-VO-Um6" firstAttribute="trailing" secondItem="tHF-ga-2RC" secondAttribute="trailing" constant="16" id="BeB-de-4LJ"/>
+                            <constraint firstItem="xVm-VO-Um6" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="poq-Aw-6jg" secondAttribute="bottom" constant="8" id="Ldx-z0-bG0"/>
                             <constraint firstItem="poq-Aw-6jg" firstAttribute="leading" secondItem="xVm-VO-Um6" secondAttribute="leading" constant="16" id="PLj-Ea-NsO"/>
                             <constraint firstItem="tHF-ga-2RC" firstAttribute="top" secondItem="xVm-VO-Um6" secondAttribute="top" constant="68" id="Wv0-ID-ddM"/>
                             <constraint firstItem="tHF-ga-2RC" firstAttribute="leading" secondItem="xVm-VO-Um6" secondAttribute="leading" constant="16" id="blc-xn-ekq"/>
+                            <constraint firstItem="lYl-Md-Y5R" firstAttribute="centerY" secondItem="xVm-VO-Um6" secondAttribute="centerY" constant="55" id="kSe-XS-lOM"/>
                             <constraint firstItem="xVm-VO-Um6" firstAttribute="trailing" secondItem="poq-Aw-6jg" secondAttribute="trailing" constant="16" id="mtw-Qa-EJN"/>
-                            <constraint firstItem="xVm-VO-Um6" firstAttribute="bottom" secondItem="poq-Aw-6jg" secondAttribute="bottom" constant="6" id="wIT-t1-pm7"/>
+                            <constraint firstItem="xVm-VO-Um6" firstAttribute="bottom" secondItem="poq-Aw-6jg" secondAttribute="bottom" priority="250" constant="24" id="wIT-t1-pm7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xVm-VO-Um6"/>
                     </view>
@@ -57,4 +69,7 @@
             <point key="canvasLocation" x="287" y="106"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="illust04" width="272" height="217"/>
+    </resources>
 </document>

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqm-Sf-ykc" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="716" width="343" height="56"/>
+                                <rect key="frame" x="16" y="698" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Q1S-ty-132"/>
                                 </constraints>
@@ -35,8 +35,8 @@
                                     <constraint firstAttribute="width" secondItem="97V-C2-ZAb" secondAttribute="height" multiplier="15:14" id="3e9-OB-2Ih"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuf-iq-28P">
-                                <rect key="frame" x="17.333333333333343" y="153" width="340.66666666666663" height="67"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fuf-iq-28P">
+                                <rect key="frame" x="16" y="153" width="343" height="67"/>
                                 <string key="text">陽性者と接触の可能性が
 あった場合に通知が来ます</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
@@ -55,17 +55,19 @@ PCR検査の申請も可能です。</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="cqm-Sf-ykc" firstAttribute="leading" secondItem="o83-eE-7EL" secondAttribute="leading" constant="16" id="0BM-MR-TSN"/>
-                            <constraint firstItem="o83-eE-7EL" firstAttribute="bottom" secondItem="cqm-Sf-ykc" secondAttribute="bottom" constant="6" id="6Ph-vX-wrf"/>
+                            <constraint firstItem="o83-eE-7EL" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cqm-Sf-ykc" secondAttribute="bottom" constant="8" id="6Ph-vX-wrf"/>
                             <constraint firstItem="97V-C2-ZAb" firstAttribute="top" secondItem="fuf-iq-28P" secondAttribute="bottom" constant="20" id="DaE-8k-JDY"/>
                             <constraint firstItem="o83-eE-7EL" firstAttribute="trailing" secondItem="cqm-Sf-ykc" secondAttribute="trailing" constant="16" id="EY9-ge-fi0"/>
                             <constraint firstItem="o83-eE-7EL" firstAttribute="trailing" secondItem="C7T-7b-4ec" secondAttribute="trailing" constant="16" id="L7w-DP-tAf"/>
+                            <constraint firstItem="fuf-iq-28P" firstAttribute="leading" secondItem="o83-eE-7EL" secondAttribute="leading" constant="16" id="Lcj-nT-yIU"/>
                             <constraint firstItem="cqm-Sf-ykc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="C7T-7b-4ec" secondAttribute="bottom" constant="8" id="Rc1-6g-fjw"/>
                             <constraint firstItem="97V-C2-ZAb" firstAttribute="centerY" secondItem="o83-eE-7EL" secondAttribute="centerY" constant="-18" id="aP6-FX-dFx"/>
                             <constraint firstItem="97V-C2-ZAb" firstAttribute="width" secondItem="12H-Vs-VSb" secondAttribute="width" id="d3d-eq-v5q"/>
+                            <constraint firstItem="o83-eE-7EL" firstAttribute="trailing" secondItem="fuf-iq-28P" secondAttribute="trailing" constant="16" id="fpZ-d5-qcj"/>
+                            <constraint firstItem="o83-eE-7EL" firstAttribute="bottom" secondItem="cqm-Sf-ykc" secondAttribute="bottom" priority="250" constant="24" id="jmT-y8-BLL"/>
                             <constraint firstItem="C7T-7b-4ec" firstAttribute="leading" secondItem="o83-eE-7EL" secondAttribute="leading" constant="16" id="kk9-8y-Cfg"/>
                             <constraint firstItem="C7T-7b-4ec" firstAttribute="top" secondItem="97V-C2-ZAb" secondAttribute="bottom" priority="750" constant="28" id="pgA-hw-zHC"/>
                             <constraint firstItem="97V-C2-ZAb" firstAttribute="centerX" secondItem="o83-eE-7EL" secondAttribute="centerX" id="tjO-fM-Ohn"/>
-                            <constraint firstItem="fuf-iq-28P" firstAttribute="centerX" secondItem="o83-eE-7EL" secondAttribute="centerX" id="uGb-fK-UIe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o83-eE-7EL"/>
                     </view>

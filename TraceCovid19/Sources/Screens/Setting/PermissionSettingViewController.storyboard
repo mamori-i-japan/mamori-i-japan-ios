@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QmN-GZ-hK9" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="543" width="343" height="56"/>
+                                <rect key="frame" x="16" y="698" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="TCe-LZ-anf"/>
                                 </constraints>
@@ -36,13 +36,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Bluetooth設定をオンにしてください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ku5-5B-AKH">
-                                <rect key="frame" x="16" y="421" width="343" height="24"/>
+                                <rect key="frame" x="16" y="466" width="343" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="GPSを利用せず、あなたの近くのサービス利用者と通信することで情報を取得します。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="u2l-U1-3BW">
-                                <rect key="frame" x="16" y="464" width="343" height="36"/>
+                                <rect key="frame" x="16" y="506" width="343" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -51,15 +51,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="c8G-W7-Eay" firstAttribute="trailing" secondItem="QmN-GZ-hK9" secondAttribute="trailing" constant="16" id="6wA-Yh-nLR"/>
-                            <constraint firstItem="QmN-GZ-hK9" firstAttribute="top" secondItem="u2l-U1-3BW" secondAttribute="bottom" priority="750" constant="43" id="CA8-Tl-HAY"/>
                             <constraint firstItem="fJp-ip-uia" firstAttribute="centerX" secondItem="c8G-W7-Eay" secondAttribute="centerX" constant="-18" id="IRz-4I-NFo"/>
                             <constraint firstItem="fJp-ip-uia" firstAttribute="top" secondItem="c8G-W7-Eay" secondAttribute="top" constant="69" id="JNt-Bc-59L"/>
                             <constraint firstItem="Ku5-5B-AKH" firstAttribute="leading" secondItem="c8G-W7-Eay" secondAttribute="leading" constant="16" id="UvX-NT-cGP"/>
-                            <constraint firstItem="c8G-W7-Eay" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QmN-GZ-hK9" secondAttribute="bottom" constant="4" id="a1T-Xm-aFi"/>
+                            <constraint firstItem="c8G-W7-Eay" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QmN-GZ-hK9" secondAttribute="bottom" constant="8" id="a1T-Xm-aFi"/>
                             <constraint firstItem="c8G-W7-Eay" firstAttribute="trailing" secondItem="Ku5-5B-AKH" secondAttribute="trailing" constant="16" id="e1k-Fc-Vhg"/>
+                            <constraint firstItem="c8G-W7-Eay" firstAttribute="bottom" secondItem="QmN-GZ-hK9" secondAttribute="bottom" priority="250" constant="24" id="gLG-rC-Dbe"/>
                             <constraint firstItem="u2l-U1-3BW" firstAttribute="leading" secondItem="c8G-W7-Eay" secondAttribute="leading" constant="16" id="hCo-o4-Fxy"/>
-                            <constraint firstItem="u2l-U1-3BW" firstAttribute="top" secondItem="Ku5-5B-AKH" secondAttribute="bottom" constant="19" id="k0h-KL-lXg"/>
-                            <constraint firstItem="Ku5-5B-AKH" firstAttribute="top" secondItem="fJp-ip-uia" secondAttribute="bottom" constant="28" id="nev-qN-hTO"/>
+                            <constraint firstItem="u2l-U1-3BW" firstAttribute="top" secondItem="Ku5-5B-AKH" secondAttribute="bottom" constant="16" id="k0h-KL-lXg"/>
+                            <constraint firstItem="Ku5-5B-AKH" firstAttribute="top" secondItem="fJp-ip-uia" secondAttribute="bottom" constant="73" id="nev-qN-hTO"/>
                             <constraint firstItem="c8G-W7-Eay" firstAttribute="trailing" secondItem="u2l-U1-3BW" secondAttribute="trailing" constant="16" id="p4R-my-Pds"/>
                             <constraint firstItem="QmN-GZ-hK9" firstAttribute="leading" secondItem="c8G-W7-Eay" secondAttribute="leading" constant="16" id="xGf-5B-XnS"/>
                             <constraint firstItem="fJp-ip-uia" firstAttribute="width" secondItem="Ds8-8P-Jpd" secondAttribute="width" multiplier="0.845333" id="xYR-uN-55A"/>
