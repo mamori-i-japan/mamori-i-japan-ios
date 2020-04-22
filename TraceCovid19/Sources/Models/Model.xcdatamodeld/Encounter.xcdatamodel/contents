@@ -4,30 +4,21 @@
         <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="tempId" optional="YES" attributeType="String" valueTransformerName="EncryptedStringTransformer" customClassName="String"/>
-        <fetchedProperty name="fetchedProperty" optional="YES">
-            <fetchRequest name="fetchedPropertyFetchRequest" entity="DeepContactUser"/>
-        </fetchedProperty>
     </entity>
     <entity name="TempUserId" representedClassName="TempUserId" syncable="YES">
         <attribute name="expiryTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="tempId" optional="YES" attributeType="String" valueTransformerName="EncryptedStringTransformer" customClassName="String"/>
-        <fetchedProperty name="fetchedProperty" optional="YES">
-            <fetchRequest name="fetchedPropertyFetchRequest" entity="TempUserId"/>
-        </fetchedProperty>
     </entity>
     <entity name="TraceData" representedClassName="TraceData" syncable="YES">
         <attribute name="rssi" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="tempId" optional="YES" attributeType="String" valueTransformerName="EncryptedStringTransformer" customClassName="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="txPower" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <fetchedProperty name="fetchedProperty" optional="YES">
-            <fetchRequest name="fetchedPropertyFetchRequest" entity="TraceData"/>
-        </fetchedProperty>
     </entity>
     <elements>
-        <element name="DeepContactUser" positionX="-63" positionY="54" width="128" height="116"/>
-        <element name="TempUserId" positionX="-36" positionY="81" width="128" height="116"/>
-        <element name="TraceData" positionX="-63" positionY="-18" width="128" height="131"/>
+        <element name="DeepContactUser" positionX="-63" positionY="54" width="128" height="88"/>
+        <element name="TempUserId" positionX="-36" positionY="81" width="128" height="88"/>
+        <element name="TraceData" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>
