@@ -271,14 +271,18 @@ extension SwinjectStoryboard {
         }
 
         defaultContainer.register([SSLPinningCondition].self) { _ in
-            [
-                // TODO: 環境
+            // TODO: 環境
+            #if DEV
+            return [
                 SSLPinningCondition(
-                    host: "35111ugog3.execute-api.ap-northeast-1.amazonaws.com",
-                    hashes: ["5Ev9nbQIJbIn3IZ7LAhwja3OwmxcXatMqaO/6faKlD8="],
-                    expiredUnixTime: 1599307200 - 3600 * 24 * 30 // NOTE: Sep 5 12:00:00 2020 GMT からマージン(30日)を引いた日時を期限として設定
+                    host: "api-dev.mamori-i.jp",
+                    hashes: ["zMOvA34BcbgmGIaP3vndMkbThDS74hnTD4UZMK10MqA="],
+                    expiredUnixTime: 1621684800 - 3600 * 24 * 30 // NOTE: May 22 12:00:00 2021 GMT からマージン(30日)を引いた日時を期限として設定
                 )
             ]
+            #else
+            return [SSLPinningCondition]()
+            #endif
         }
     }
 }

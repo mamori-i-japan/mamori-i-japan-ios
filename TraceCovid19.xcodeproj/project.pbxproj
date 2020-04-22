@@ -17,8 +17,6 @@
 		F0031D41243462AC009F9643 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0031D3B243462AC009F9643 /* LaunchScreen.storyboard */; };
 		F0031D42243462AC009F9643 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0031D3D243462AC009F9643 /* HomeViewController.storyboard */; };
 		F0031D43243462AC009F9643 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0031D3F243462AC009F9643 /* AppDelegate.swift */; };
-		F0031D46243464A0009F9643 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F0031D45243464A0009F9643 /* Debug.xcconfig */; };
-		F0031D48243464CF009F9643 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F0031D47243464CF009F9643 /* Release.xcconfig */; };
 		F0031D4F243468F0009F9643 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0031D51243468F0009F9643 /* Localizable.strings */; };
 		F01EA9042449C95D00B81DB6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F01EA9032449C95D00B81DB6 /* Alamofire */; };
 		F01EA9072449C97400B81DB6 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F01EA9062449C97400B81DB6 /* KeychainAccess */; };
@@ -308,6 +306,9 @@
 		F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SSLPinningManager+Alamofire.swift"; sourceTree = "<group>"; };
 		F096D5B4244FDEE700F7919B /* ISO8601DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601DateFormatter.swift; sourceTree = "<group>"; };
 		F096D5B924501DE000F7919B /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
+		F096D5C224504D3600F7919B /* Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
+		F096D5C324504D3600F7919B /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
+		F096D5C424504D3700F7919B /* Stg.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Stg.xcconfig; sourceTree = "<group>"; };
 		F0A2829B243EBF7F008390AE /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F0A2829D243EC06E008390AE /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		F0A2829F243EC0AD008390AE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -473,7 +474,10 @@
 			isa = PBXGroup;
 			children = (
 				F0031D45243464A0009F9643 /* Debug.xcconfig */,
+				F096D5C324504D3600F7919B /* Dev.xcconfig */,
+				F096D5C224504D3600F7919B /* Prod.xcconfig */,
 				F0031D47243464CF009F9643 /* Release.xcconfig */,
+				F096D5C424504D3700F7919B /* Stg.xcconfig */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -873,7 +877,6 @@
 				F047599A243586C50091059F /* Settings.bundle in Resources */,
 				F0A282BB243EC826008390AE /* TraceDataUploadViewController.storyboard in Resources */,
 				F0A282B3243EC6C3008390AE /* AuthSMSViewController.storyboard in Resources */,
-				F0031D46243464A0009F9643 /* Debug.xcconfig in Resources */,
 				F0A2831524417C5A008390AE /* InputPrefectureViewController.storyboard in Resources */,
 				F0A2831F2441932B008390AE /* CodeInputUnitView.xib in Resources */,
 				F0A282BE243EC913008390AE /* TraceNotificationViewController.storyboard in Resources */,
@@ -887,7 +890,6 @@
 				F0A282FE24416BFE008390AE /* Tutorial3ViewController.storyboard in Resources */,
 				F0A282AB243EC371008390AE /* Tutorial1ViewController.storyboard in Resources */,
 				F0A283112441755B008390AE /* Agreement2ViewController.storyboard in Resources */,
-				F0031D48243464CF009F9643 /* Release.xcconfig in Resources */,
 				F0A282FC24416BE2008390AE /* Tutorial2ViewController.storyboard in Resources */,
 				F051ADC8244980A1007278A0 /* InputJobViewController.storyboard in Resources */,
 				F0A282C4243EC9CF008390AE /* MenuViewController.storyboard in Resources */,
@@ -934,7 +936,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "base_path=\"${SRCROOT}/TraceCovid19/Resources\";\nif [ $CONFIGURATION = \"Debug\" ]; then\n  google_service_file=\"${base_path}/GoogleService-Info-Debug.plist\";\nelse\n  google_service_file=\"${base_path}/GoogleService-Info-Release.plist\";\nfi\n\ncp ${google_service_file} ${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/GoogleService-Info.plist;\n\n\n";
+			shellScript = "base_path=\"${SRCROOT}/TraceCovid19/Resources\";\nif [ $CONFIGURATION != \"Prod\" ]; then\n  google_service_file=\"${base_path}/GoogleService-Info-Debug.plist\";\nelse\n  google_service_file=\"${base_path}/GoogleService-Info-Release.plist\";\nfi\n\ncp ${google_service_file} ${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/GoogleService-Info.plist;\n\n\n";
 		};
 		F047599D24358C1A0091059F /* Update License Plist Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -957,7 +959,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n  ./Scripts/update_license_plist.sh\nfi\n";
+			shellScript = "if [ $CONFIGURATION != \"Prod\" ]; then\n  ./Scripts/update_license_plist.sh\nfi\n";
 		};
 		F04759AB243592990091059F /* Carthage Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1170,9 +1172,9 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F0C6AD8C243461A800F863FC /* Debug */ = {
+		F096D5C524504D4B00F7919B /* Stg */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0031D45243464A0009F9643 /* Debug.xcconfig */;
+			baseConfigurationReference = F096D5C424504D3700F7919B /* Stg.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1230,11 +1232,100 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = Stg;
 		};
-		F0C6AD8D243461A800F863FC /* Release */ = {
+		F096D5C624504D4B00F7919B /* Stg */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0031D47243464CF009F9643 /* Release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = P8U5TV4K87;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.decurret.TraceCovid19JP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "App WC";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Stg;
+		};
+		F0C6AD8C243461A800F863FC /* Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F096D5C324504D3600F7919B /* Dev.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Dev;
+		};
+		F0C6AD8D243461A800F863FC /* Prod */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F096D5C224504D3600F7919B /* Prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1286,9 +1377,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Prod;
 		};
-		F0C6AD8F243461A800F863FC /* Debug */ = {
+		F0C6AD8F243461A800F863FC /* Dev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1313,9 +1404,9 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Debug;
+			name = Dev;
 		};
-		F0C6AD90243461A800F863FC /* Release */ = {
+		F0C6AD90243461A800F863FC /* Prod */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1340,7 +1431,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Release;
+			name = Prod;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1348,20 +1439,22 @@
 		F0C6AD77243461A600F863FC /* Build configuration list for PBXProject "TraceCovid19" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F0C6AD8C243461A800F863FC /* Debug */,
-				F0C6AD8D243461A800F863FC /* Release */,
+				F0C6AD8C243461A800F863FC /* Dev */,
+				F096D5C524504D4B00F7919B /* Stg */,
+				F0C6AD8D243461A800F863FC /* Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Prod;
 		};
 		F0C6AD8E243461A800F863FC /* Build configuration list for PBXNativeTarget "TraceCovid19" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F0C6AD8F243461A800F863FC /* Debug */,
-				F0C6AD90243461A800F863FC /* Release */,
+				F0C6AD8F243461A800F863FC /* Dev */,
+				F096D5C624504D4B00F7919B /* Stg */,
+				F0C6AD90243461A800F863FC /* Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Prod;
 		};
 /* End XCConfigurationList section */
 

@@ -56,11 +56,18 @@ extension APIRequestProtocol {
     }
     var host: String {
         // TODO: 環境わけ
-        return "35111ugog3.execute-api.ap-northeast-1.amazonaws.com"
+        #if DEV
+        return "api-dev.mamori-i.jp"
+        #elseif STG
+        return "api-stg.mamori-i.jp"
+        #elseif PROD
+        return "api.mamori-i.jp"
+        #else
+        fatalError("環境の指定がおかしい")
+        #endif
     }
     var basePath: String {
-        // TODO: 環境わけ
-        return "/dev"
+        return ""
     }
     var urlString: String {
         return scheme + host + basePath + path

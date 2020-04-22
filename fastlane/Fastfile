@@ -22,9 +22,18 @@ scheme="TraceCovid19"
 
 platform :ios do
 
-  lane :build_debug do
+  lane :build_dev do
     build_ipa(
-      configuration: "Debug",
+      configuration: "Dev",
+      export_method: "development",
+      code_sign_identity: "iPhone Developer",
+      provisioning: "App WC"
+    )
+  end
+
+  lane :build_stg do
+    build_ipa(
+      configuration: "Stg",
       export_method: "development",
       code_sign_identity: "iPhone Developer",
       provisioning: "App WC"
