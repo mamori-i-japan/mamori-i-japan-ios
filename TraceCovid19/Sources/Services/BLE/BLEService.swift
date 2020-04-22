@@ -70,8 +70,8 @@ typealias DidReadRSSI = (Peripheral, NSNumber, Error?) -> Void
 
 // BLEService holds all the business logic related to BLE.
 final class BLEService {
-    private var peripheralManager: PeripheralManager!
-    private var centralManager: CentralManager!
+    private var peripheralManager: PeripheralManager?
+    private var centralManager: CentralManager?
     private var coreData: CoreDataService!
     private var tempId: TempIdService!
     private var timerForScanning: Timer?
@@ -82,20 +82,33 @@ final class BLEService {
 
     init(
         queue: DispatchQueue,
-        peripheralManager: PeripheralManager,
-        centralManager: CentralManager,
         coreData: CoreDataService,
         tempId: TempIdService
     ) {
         self.queue = queue
-        self.peripheralManager = peripheralManager
-        self.centralManager = centralManager
+        self.peripheralManager = nil
+        self.centralManager = nil
         self.coreData = coreData
         self.tempId = tempId
         self.traceData = [:]
-        centralManager.centralDidUpdateStateCallback = centralDidUpdateStateCallback
+    }
 
-        _ = self.peripheralManager
+    func setupBluetooth() {
+        guard centralManager == nil && peripheralManager == nil else {
+            // Already setup
+            return
+        }
+        centralManager = CentralManager(queue: queue, services: [.trace])
+        centralManager?.centralDidUpdateStateCallback = centralDidUpdateStateCallback
+
+        let tracerService = CBMutableService(type: Service.trace.toCBUUID(), primary: true)
+        let characteristic = CBMutableCharacteristic(type: Characteristic.contact.toCBUUID(), properties: [.read, .write, .writeWithoutResponse], value: nil, permissions: [.readable, .writeable])
+        tracerService.characteristics = [characteristic]
+
+        // TODO: ペリフェラル名
+        peripheralManager = PeripheralManager(peripheralName: "TR", queue: queue, services: [tracerService])
+
+        _ = peripheralManager?
             // Central is trying to read from us
             .onRead { [unowned self] _, ch in
                 switch ch {
@@ -124,7 +137,7 @@ final class BLEService {
             }
 
         // Commands and callbacks should happen in this order
-        _ = self.centralManager
+        _ = centralManager?
             .appendCommand(
                 command: .readRSSI
             )
@@ -132,7 +145,7 @@ final class BLEService {
                 log("peripheral=\(peripheral.shortId), RSSI=\(RSSI), error=\(String(describing: error))")
 
                 guard error == nil else {
-                    self.centralManager.disconnect(peripheral)
+                    self.centralManager?.disconnect(peripheral)
                     return
                 }
                 var record = self.traceData[peripheral.id] ?? TraceDataRecord()
@@ -158,12 +171,12 @@ final class BLEService {
                 log("didUpdateValueFor peripheral=\(peripheral.shortId), ch=\(ch), data=\(String(describing: data)), error=\(String(describing: error))")
 
                 guard error == nil && data != nil else {
-                    self.centralManager.disconnect(peripheral)
+                    self.centralManager?.disconnect(peripheral)
                     return
                 }
 
                 guard let readData = ReadData(from: data!) else {
-                    self.centralManager.disconnect(peripheral)
+                    self.centralManager?.disconnect(peripheral)
                     return
                 }
                 var record = self.traceData[peripheral.id] ?? TraceDataRecord()
@@ -176,28 +189,21 @@ final class BLEService {
             }
             .appendCommand(
                 command: .cancel(callback: { [unowned self] peripheral in
-                    self.centralManager.disconnect(peripheral)
+                    self.centralManager?.disconnect(peripheral)
                 })
             )
     }
 
     func turnOn() {
-        peripheralManager.turnOn()
-        centralManager.turnOn()
+        setupBluetooth()
+        peripheralManager?.turnOn()
+        centralManager?.turnOn()
     }
 
     func turnOff() {
-        peripheralManager.turnOff()
-        centralManager.turnOff()
+        peripheralManager?.turnOff()
+        centralManager?.turnOff()
         timerForScanning?.invalidate()
-    }
-
-    func getCentralStateText() -> String {
-        return centralManager.getState().toString
-    }
-
-    func getPeripheralStateText() -> String {
-        return peripheralManager.getState().toString
     }
 
     func isBluetoothAuthorized() -> Bool {
@@ -210,7 +216,10 @@ final class BLEService {
     }
 
     func isBluetoothOn() -> Bool {
-        switch centralManager.getState() {
+        guard centralManager != nil else {
+            return false
+        }
+        switch centralManager!.getState() {
         case .poweredOff:
             log("[BLEService] Bluetooth is off")
         case .resetting:
@@ -220,12 +229,12 @@ final class BLEService {
         case .unknown:
             log("[BLEService] Unknown State")
         case .unsupported:
-            centralManager.turnOn()
+            centralManager!.turnOn()
             log("[BLEService] Unsupported State")
         default:
             log("[BLEService] Bluetooth is on")
         }
-        return centralManager.getState() == CBManagerState.poweredOn
+        return centralManager!.getState() == CBManagerState.poweredOn
     }
 
     func centralDidUpdateStateCallback(_ state: CBManagerState) {
@@ -239,28 +248,12 @@ final class BLEService {
                     self?.coreData.saveTraceDataWithCurrentTime(for: .scanningStarted)
 
                     self?.traceData = [:]
-                    self?.centralManager.restartScan()
+                    self?.centralManager?.restartScan()
                 }
                 self.timerForScanning?.fire()
             }
         default:
             timerForScanning?.invalidate()
-        }
-    }
-
-    func toggleAdvertisement(_ state: Bool) {
-        if state {
-            peripheralManager.turnOn()
-        } else {
-            peripheralManager.turnOff()
-        }
-    }
-
-    func toggleScanning(_ state: Bool) {
-        if state {
-            centralManager.turnOn()
-        } else {
-            centralManager.turnOff()
         }
     }
 }

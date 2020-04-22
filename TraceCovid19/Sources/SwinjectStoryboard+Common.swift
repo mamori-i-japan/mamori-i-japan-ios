@@ -150,8 +150,6 @@ extension SwinjectStoryboard {
         defaultContainer.register(BLEService.self) { r, queue in
             BLEService(
                 queue: queue,
-                peripheralManager: r.resolve(PeripheralManager.self, argument: queue)!,
-                centralManager: r.resolve(CentralManager.self, argument: queue)!,
                 coreData: r.resolve(CoreDataService.self)!,
                 tempId: r.resolve(TempIdService.self)!
             )
@@ -197,19 +195,6 @@ extension SwinjectStoryboard {
 
         defaultContainer.register(UserDefaults.self) { _ in
             .standard
-        }
-
-        defaultContainer.register(CentralManager.self) { _, queue in
-            CentralManager(queue: queue, services: [.trace])
-        }
-
-        defaultContainer.register(PeripheralManager.self) { (_, queue: DispatchQueue) in
-            let tracerService = CBMutableService(type: Service.trace.toCBUUID(), primary: true)
-            let characteristic = CBMutableCharacteristic(type: Characteristic.contact.toCBUUID(), properties: [.read, .write, .writeWithoutResponse], value: nil, permissions: [.readable, .writeable])
-            tracerService.characteristics = [characteristic]
-
-            // TODO: ペリフェラル名
-            return PeripheralManager(peripheralName: "TR", queue: queue, services: [tracerService])
         }
 
         defaultContainer.register(DispatchQueue.self, name: "BluetoothQueue") { _ in
