@@ -120,6 +120,8 @@
 		F096D5B5244FDEE700F7919B /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5B4244FDEE700F7919B /* ISO8601DateFormatter.swift */; };
 		F096D5B8245001E300F7919B /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = F096D5B7245001E300F7919B /* Reachability */; };
 		F096D5BA24501DE000F7919B /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5B924501DE000F7919B /* UIViewController+Navigation.swift */; };
+		F096D5C82450672D00F7919B /* TraceDataUploadAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5C72450672D00F7919B /* TraceDataUploadAPI.swift */; };
+		F096D5CA24506CEC00F7919B /* String+SHA256.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5C924506CEC00F7919B /* String+SHA256.swift */; };
 		F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829B243EBF7F008390AE /* LoginAPI.swift */; };
 		F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829D243EC06E008390AE /* TokenResponse.swift */; };
 		F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829F243EC0AD008390AE /* LoginService.swift */; };
@@ -309,6 +311,8 @@
 		F096D5C224504D3600F7919B /* Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
 		F096D5C324504D3600F7919B /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		F096D5C424504D3700F7919B /* Stg.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Stg.xcconfig; sourceTree = "<group>"; };
+		F096D5C72450672D00F7919B /* TraceDataUploadAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceDataUploadAPI.swift; sourceTree = "<group>"; };
+		F096D5C924506CEC00F7919B /* String+SHA256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SHA256.swift"; sourceTree = "<group>"; };
 		F0A2829B243EBF7F008390AE /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F0A2829D243EC06E008390AE /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		F0A2829F243EC0AD008390AE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -579,6 +583,7 @@
 				F096D5AC244ED70F00F7919B /* SSLPinningManager.swift */,
 				F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */,
 				F0A2831C24419234008390AE /* String+PhoneNumber.swift */,
+				F096D5C924506CEC00F7919B /* String+SHA256.swift */,
 				F051ADB92448924D007278A0 /* String+ToDate.swift */,
 				F0A2830624416FA5008390AE /* UIColor+Hex.swift */,
 				F0A2830824416FC6008390AE /* UIColor+ToImage.swift */,
@@ -640,6 +645,7 @@
 				F051ADA3244819C7007278A0 /* APIRequest.swift */,
 				F0A2829B243EBF7F008390AE /* LoginAPI.swift */,
 				F051ADB724487BC7007278A0 /* TempIdAPI.swift */,
+				F096D5C72450672D00F7919B /* TraceDataUploadAPI.swift */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -1070,6 +1076,7 @@
 				F0A2831B24418AAD008390AE /* PrefectureModel.swift in Sources */,
 				F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */,
 				F02356C02442F83E001E72ED /* TraceDataRecord.swift in Sources */,
+				F096D5CA24506CEC00F7919B /* String+SHA256.swift in Sources */,
 				F04759B624359AC20091059F /* UIViewController+Instantiate.swift in Sources */,
 				F0A282C0243EC957008390AE /* TraceNotificationViewController.swift in Sources */,
 				F0A2833224421142008390AE /* DebugViewController.swift in Sources */,
@@ -1110,6 +1117,7 @@
 				F096D5AF244EED5A00F7919B /* SSLPinningManager+Alamofire.swift in Sources */,
 				F0A282D3243EF019008390AE /* KeychainService+Property.swift in Sources */,
 				F0A282DD243EF84C008390AE /* BootService.swift in Sources */,
+				F096D5C82450672D00F7919B /* TraceDataUploadAPI.swift in Sources */,
 				F0A282B7243EC785008390AE /* PermissionSettingViewController.swift in Sources */,
 				F051AD822446E7C5007278A0 /* PositiveContact.swift in Sources */,
 				F051ADB824487BC7007278A0 /* TempIdAPI.swift in Sources */,
