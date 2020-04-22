@@ -189,6 +189,7 @@ final class BLEService {
     func turnOff() {
         peripheralManager.turnOff()
         centralManager.turnOff()
+        timerForScanning?.invalidate()
     }
 
     func getCentralStateText() -> String {

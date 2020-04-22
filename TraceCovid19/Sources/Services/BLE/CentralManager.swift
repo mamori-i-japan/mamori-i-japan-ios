@@ -63,7 +63,9 @@ class CentralManager: NSObject {
         peripherals = [:]
         androidIdentifiers = []
 
-        startScanning()
+        if started {
+            startScanning()
+        }
     }
 
     func getState() -> CBManagerState {
