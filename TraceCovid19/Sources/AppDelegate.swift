@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        log("launchOptions=\(String(describing: launchOptions))")
         PrintUtility.shared.isHidden = true
         FirebaseApp.configure()
         return true
