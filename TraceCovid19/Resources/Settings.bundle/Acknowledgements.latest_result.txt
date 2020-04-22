@@ -18,7 +18,11 @@ name: firebase-ios-sdk, nameSpecified: , owner: firebase, version: 6.22.0
 
 name: Alamofire, nameSpecified: , owner: Alamofire, version: 5.1.0
 
+name: GzipSwift, nameSpecified: , owner: 1024jp, version: 5.1.1
+
 name: KeychainAccess, nameSpecified: , owner: kishikawakatsumi, version: 4.1.0
+
+name: Reachability.swift, nameSpecified: , owner: ashleymills, version: 5.0.0
 
 add-version-numbers: false
 

@@ -934,7 +934,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Cartfile.resolved",
 				"$(SRCROOT)/Podfile.lock",
-				"$(SRCROOT)/Package.swift",
+				"$(SRCROOT)/TraceCovid19.xcworkspace/xcshareddata/swiftpm/Package.swift",
 				"$(SRCROOT)/license_plist.yml",
 			);
 			name = "Update License Plist Script";
