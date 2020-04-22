@@ -10,6 +10,7 @@ import Foundation
 struct Profile: DictionaryEncodable, DictionaryDecodable {
     private(set) var prefecture: Int?
     private(set) var job: String?
+    private let created: Date?
 
     @discardableResult
     mutating func update(prefecture: PrefectureModel) -> Profile {
@@ -22,17 +23,34 @@ struct Profile: DictionaryEncodable, DictionaryDecodable {
         self.job = isValidJob(job: job)
         return self
     }
+
+    static var jsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(.iso8601DateFormatter)
+        return decoder
+    }()
+
+    var jsonEncoder: JSONEncoder {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .custom { date, encoder in
+            // NOTE: Date型をFirebaseのtimestampとして扱うためにプレフィックスをつけた文字列として識別をわける
+            var container = encoder.singleValueContainer()
+            try container.encode("FIRTimestamp:\(DateFormatter.iso8601DateFormatter.string(from: date))")
+        }
+        return encoder
+    }
 }
 
 extension Profile {
-    init(prefecture: PrefectureModel, job: String?) {
-        self.prefecture = prefecture.index
+    init(prefecture: PrefectureModel?, job: String?, created: Date? = Date()) {
+        self.prefecture = prefecture?.index
         self.job = isValidJob(job: job)
+        self.created = created
     }
 
-    static let empty: Profile = {
+    static var empty: Profile {
         .init(prefecture: nil, job: nil)
-    }()
+    }
 }
 
 private func isValidJob(job: String?) -> String? {

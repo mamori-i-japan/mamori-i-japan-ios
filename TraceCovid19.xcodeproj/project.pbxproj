@@ -114,6 +114,7 @@
 		F096D5A9244EC95500F7919B /* Gzip in Frameworks */ = {isa = PBXBuildFile; productRef = F096D5A8244EC95500F7919B /* Gzip */; };
 		F096D5AD244ED70F00F7919B /* SSLPinningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5AC244ED70F00F7919B /* SSLPinningManager.swift */; };
 		F096D5AF244EED5A00F7919B /* SSLPinningManager+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */; };
+		F096D5B5244FDEE700F7919B /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5B4244FDEE700F7919B /* ISO8601DateFormatter.swift */; };
 		F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829B243EBF7F008390AE /* LoginAPI.swift */; };
 		F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829D243EC06E008390AE /* TokenResponse.swift */; };
 		F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829F243EC0AD008390AE /* LoginService.swift */; };
@@ -295,6 +296,7 @@
 		F079FFA7244D8CC300202A91 /* carthage_script_output.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = carthage_script_output.xcfilelist; sourceTree = "<group>"; };
 		F096D5AC244ED70F00F7919B /* SSLPinningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLPinningManager.swift; sourceTree = "<group>"; };
 		F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SSLPinningManager+Alamofire.swift"; sourceTree = "<group>"; };
+		F096D5B4244FDEE700F7919B /* ISO8601DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601DateFormatter.swift; sourceTree = "<group>"; };
 		F0A2829B243EBF7F008390AE /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F0A2829D243EC06E008390AE /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		F0A2829F243EC0AD008390AE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				F0A282DE243F2A86008390AE /* UUID+DataRepresentation.swift */,
 				F079FF89244D3C5200202A91 /* XibLocalizable.swift */,
 				F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */,
+				F096D5B4244FDEE700F7919B /* ISO8601DateFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1067,6 +1070,7 @@
 				F0A2831D24419234008390AE /* String+PhoneNumber.swift in Sources */,
 				F079FF79244C09B700202A91 /* Profile.swift in Sources */,
 				F0A282C2243EC9BE008390AE /* MenuViewController.swift in Sources */,
+				F096D5B5244FDEE700F7919B /* ISO8601DateFormatter.swift in Sources */,
 				F0A282EB244004C9008390AE /* CBManagerState+ToString.swift in Sources */,
 				F079FF9D244D8AE400202A91 /* Localized.swift in Sources */,
 				F0A282CB243ED041008390AE /* UIGestureRecognizer+Closure.swift in Sources */,
