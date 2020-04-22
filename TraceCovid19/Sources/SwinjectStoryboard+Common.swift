@@ -50,10 +50,12 @@ extension SwinjectStoryboard {
 
         defaultContainer.storyboardInitCompleted(InputPrefectureViewController.self) { r, vc in
             vc.profileService = r.resolve(ProfileService.self)
+            vc.loginService = r.resolve(LoginService.self)
         }
 
         defaultContainer.storyboardInitCompleted(InputJobViewController.self) { r, vc in
-             vc.profileService = r.resolve(ProfileService.self)
+            vc.profileService = r.resolve(ProfileService.self)
+            vc.loginService = r.resolve(LoginService.self)
         }
 
         defaultContainer.storyboardInitCompleted(AuthSMSViewController.self) { r, vc in
@@ -82,6 +84,7 @@ extension SwinjectStoryboard {
 
         defaultContainer.storyboardInitCompleted(SettingViewController.self) { r, vc in
             vc.profileService = r.resolve(ProfileService.self)
+            vc.loginService = r.resolve(LoginService.self)
         }
 
         defaultContainer.storyboardInitCompleted(TraceDataUploadViewController.self) { _, _ in

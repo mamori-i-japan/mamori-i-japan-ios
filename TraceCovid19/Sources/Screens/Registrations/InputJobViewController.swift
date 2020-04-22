@@ -13,6 +13,7 @@ final class InputJobViewController: UIViewController, ProfileChangeable, NVActiv
     @IBOutlet weak var nextButton: ActionButton!
 
     var profileService: ProfileService!
+    var loginService: LoginService!
 
     enum Flow {
         case start(PrefectureModel)
@@ -66,6 +67,11 @@ final class InputJobViewController: UIViewController, ProfileChangeable, NVActiv
         let vc = InputPhoneNumberViewController.instantiate()
         vc.profile = profile
         navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func forceLogout() {
+        loginService.logout()
+        backToSplash()
     }
 }
 

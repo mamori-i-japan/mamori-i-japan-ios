@@ -121,6 +121,7 @@
 		F096D5AF244EED5A00F7919B /* SSLPinningManager+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */; };
 		F096D5B5244FDEE700F7919B /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5B4244FDEE700F7919B /* ISO8601DateFormatter.swift */; };
 		F096D5B8245001E300F7919B /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = F096D5B7245001E300F7919B /* Reachability */; };
+		F096D5BA24501DE000F7919B /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5B924501DE000F7919B /* UIViewController+Navigation.swift */; };
 		F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829B243EBF7F008390AE /* LoginAPI.swift */; };
 		F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829D243EC06E008390AE /* TokenResponse.swift */; };
 		F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829F243EC0AD008390AE /* LoginService.swift */; };
@@ -306,6 +307,7 @@
 		F096D5AC244ED70F00F7919B /* SSLPinningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLPinningManager.swift; sourceTree = "<group>"; };
 		F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SSLPinningManager+Alamofire.swift"; sourceTree = "<group>"; };
 		F096D5B4244FDEE700F7919B /* ISO8601DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601DateFormatter.swift; sourceTree = "<group>"; };
+		F096D5B924501DE000F7919B /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		F0A2829B243EBF7F008390AE /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F0A2829D243EC06E008390AE /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		F0A2829F243EC0AD008390AE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -564,12 +566,14 @@
 				F079FF80244C1F1300202A91 /* DictionaryDecodable.swift */,
 				F079FF7E244C1F0100202A91 /* DictionaryEncodable.swift */,
 				F051AD9324471D49007278A0 /* EncryptedStringTransformer.swift */,
+				F096D5B4244FDEE700F7919B /* ISO8601DateFormatter.swift */,
 				F0A282CE243ED0C5008390AE /* KeyboardCloseProtocol.swift */,
 				F079FF91244D41B800202A91 /* LabelUtilityProtocol.swift */,
 				F04759B724359BC90091059F /* NSObject+ClassName.swift */,
 				F04759BB2435B2CD0091059F /* PrintUtility.swift */,
 				F079FF82244C244500202A91 /* ProfileChangeable.swift */,
 				F096D5AC244ED70F00F7919B /* SSLPinningManager.swift */,
+				F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */,
 				F0A2831C24419234008390AE /* String+PhoneNumber.swift */,
 				F051ADB92448924D007278A0 /* String+ToDate.swift */,
 				F0A2830624416FA5008390AE /* UIColor+Hex.swift */,
@@ -577,11 +581,10 @@
 				F0A282CA243ED041008390AE /* UIGestureRecognizer+Closure.swift */,
 				F0A283222441956F008390AE /* UIView+NibInstantiable.swift */,
 				F04759B524359AC20091059F /* UIViewController+Instantiate.swift */,
+				F096D5B924501DE000F7919B /* UIViewController+Navigation.swift */,
 				F02356D124444370001E72ED /* UIViewController+ShowAlert.swift */,
 				F0A282DE243F2A86008390AE /* UUID+DataRepresentation.swift */,
 				F079FF89244D3C5200202A91 /* XibLocalizable.swift */,
-				F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */,
-				F096D5B4244FDEE700F7919B /* ISO8601DateFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1040,6 +1043,7 @@
 				F0A282D1243EEFCC008390AE /* KeychainService.swift in Sources */,
 				F051AD7E2446D790007278A0 /* PositiveContactService.swift in Sources */,
 				F051ADA02447F2EB007278A0 /* TempIdService.swift in Sources */,
+				F096D5BA24501DE000F7919B /* UIViewController+Navigation.swift in Sources */,
 				F0A283302441F81A008390AE /* CustomNavigationController.swift in Sources */,
 				F0A283232441956F008390AE /* UIView+NibInstantiable.swift in Sources */,
 				F0A282C9243ECA6B008390AE /* AboutViewController.swift in Sources */,

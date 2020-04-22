@@ -13,6 +13,7 @@ final class InputPrefectureViewController: UIViewController, NVActivityIndicator
     @IBOutlet weak var nextButton: ActionButton!
 
     var profileService: ProfileService!
+    var loginService: LoginService!
 
     enum Flow {
         case start
@@ -92,6 +93,11 @@ final class InputPrefectureViewController: UIViewController, NVActivityIndicator
         let vc = InputJobViewController.instantiate()
         vc.flow = .start(prefecture)
         navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func forceLogout() {
+        loginService.logout()
+        backToSplash()
     }
 
     @objc

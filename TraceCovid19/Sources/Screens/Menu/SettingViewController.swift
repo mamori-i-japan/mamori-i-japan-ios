@@ -15,6 +15,7 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
     @IBOutlet weak var jobTableViewCell: UITableViewCell!
 
     var profileService: ProfileService!
+    var loginService: LoginService!
 
     private var profile: Profile?
 
@@ -35,9 +36,17 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
             case .success(let profile):
                 self?.profile = profile
                 self?.update(profile: profile)
-            case .failure(let error):
-                // TODO: エラー
-                self?.showAlert(message: error.localizedDescription)
+            case .failure(.network):
+                // TODO: ネットワークエラー
+                self?.showAlertWithCancel(message: "TODO: ネットワークエラー。再読み込みしますか？", okButtonTitle: "再読み込み", okAction: { [weak self] _ in self?.requestProfile() })
+            case .failure(.auth):
+                self?.forceLogout()
+            case  .failure(.parse):
+                // TODO: パースエラー
+                self?.showAlert(message: "TODO: parse error")
+            case .failure(.unknown(let error)):
+                // TODO: そのたエラー
+                self?.showAlert(message: error?.localizedDescription ?? "nil")
             }
         }
     }
@@ -81,6 +90,11 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
         let vc = InputJobViewController.instantiate()
         vc.flow = .change(profile)
         navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func forceLogout() {
+        loginService.logout()
+        backToSplash()
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

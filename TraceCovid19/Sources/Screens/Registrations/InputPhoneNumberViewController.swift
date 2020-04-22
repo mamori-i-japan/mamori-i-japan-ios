@@ -75,8 +75,15 @@ final class InputPhoneNumberViewController: UIViewController, KeyboardCloseProto
             switch result {
             case .success(let verificationID):
                 self?.gotoAuthSMS(verificationID: verificationID)
-            case .failure(let error):
-                self?.showAlert(message: error.localizedDescription)
+            case .failure(.upperLimit):
+                // TODO: 送信上限
+                self?.showAlert(message: "TODO: 送信が制限されました。時間を置いてから実行してください")
+            case .failure(.network):
+                // TODO: リトライ
+                self?.showAlertWithCancel(message: "TODO: ネットワークエラー。再実行しますか？", okButtonTitle: "再試行", okAction: { [weak self] _ in self?.sendSMS(phoneNumber: phoneNumber) })
+            case .failure(.unknown(let error)):
+                // TODO: そのたエラー
+                self?.showAlert(message: error?.localizedDescription ?? "nil")
             }
         }
     }

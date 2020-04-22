@@ -172,10 +172,7 @@ final class DebugViewController: UIViewController {
     @IBAction func tappedLogoutButton() {
         print("did logout: \(loginService.logout())")
 
-        /// スプラッシュに雑に戻す
-        UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true) {
-            NotificationCenter.default.post(name: .splashStartNotirication, object: nil)
-        }
+        backToSplash()
     }
 }
 

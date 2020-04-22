@@ -22,11 +22,13 @@ final class ProfileService {
 
     enum ProfileSetError: Error {
         case network
+        case auth
         case unknown(Error?)
     }
 
     enum ProfileGetError: Error {
         case network
+        case auth
         case parse
         case unknown(Error?)
     }
@@ -61,6 +63,10 @@ final class ProfileService {
                     case .unavailable:
                         print("[ProfileService] network error")
                         completion(.failure(.network))
+                    case .unauthenticated:
+                        // TODO: 認証エラーはこのコード？
+                        print("[ProfileService] unauthenticated error")
+                        completion(.failure(.auth))
                     default:
                         print("[ProfileService] error \(error as NSError)")
                         completion(.failure(.unknown(error)))
@@ -88,6 +94,10 @@ final class ProfileService {
                     case .unavailable:
                         print("[ProfileService] network error")
                         completion(.failure(.network))
+                    case .unauthenticated:
+                        // TODO: 認証エラーはこのコード？
+                        print("[ProfileService] unauthenticated error")
+                        completion(.failure(.auth))
                     default:
                         print("[ProfileService] error \(error as NSError)")
                         completion(.failure(.unknown(error)))

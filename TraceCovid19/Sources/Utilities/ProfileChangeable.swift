@@ -17,6 +17,7 @@ protocol ProfileChangeable: class {
     func endNavigation()
     func showRetry(retry: @escaping () -> Void)
     func errorNavigation(error: Error?)
+    func forceLogout()
 }
 
 extension ProfileChangeable {
@@ -33,6 +34,8 @@ extension ProfileChangeable {
                 self?.showRetry { [weak self] in
                     self?.requestProfile(profile: profile)
                 }
+            case .failure(.auth):
+                self?.forceLogout()
             case .failure(.unknown(let error)):
                 self?.errorNavigation(error: error)
             }
@@ -62,7 +65,7 @@ extension ProfileChangeable where Self: UIViewController {
     }
 
     func showRetry(retry: @escaping () -> Void) {
-        showAlertWithCancel(message: "TODO: 再読み込みしますか？", okButtonTitle: "再読み込み", okAction: { _ in retry() })
+        showAlertWithCancel(message: "TODO: ネットワークエラー。再読み込みしますか？", okButtonTitle: "再読み込み", okAction: { _ in retry() })
     }
 
     func errorNavigation(error: Error?) {

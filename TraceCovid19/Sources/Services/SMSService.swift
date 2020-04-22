@@ -16,9 +16,15 @@ final class SMSService {
         self.phoneAuth = phoneAuth
     }
 
+    enum SendSMSError: Error {
+        case network
+        case upperLimit
+        case unknown(Error?)
+    }
+
     /// SMS送信
     /// - Parameter phoneNumber: 11桁番号ハイフンなし
-    func sendSMS(phoneNumber: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func sendSMS(phoneNumber: String, completion: @escaping (Result<String, SendSMSError>) -> Void) {
         phoneAuth.instance.verifyPhoneNumber(phoneNumber.formatted, uiDelegate: nil) { verificationID, error in
             if let error = error {
                 switch AuthErrorCode(rawValue: (error as NSError).code) {
@@ -28,16 +34,23 @@ final class SMSService {
                     print("[SMSService] sendSMS 電番不正")
                 case .some(.missingPhoneNumber):
                     print("[SMSService] sendSMS 電番未入力")
+                case .some(.tooManyRequests):
+                    print("[SMSService] sendSMS 上限エラー")
+                    completion(.failure(.upperLimit))
+                    return
                 case .some(.networkError):
-                    print("[SMSService] sendSMS ローカル通信エラー")
+                    print("[SMSService] sendSMS network error")
+                    completion(.failure(.network))
+                    return
                 default:
+                    // TODO: キャプチャキャンセルなど、エラーとして扱わないものの精査
                     print("[SMSService] sendSMS その他エラー: code=\((error as NSError).code)")
                 }
-                completion(.failure(error))
+                completion(.failure(.unknown(error)))
                 return
             }
             guard let verificationID = verificationID else {
-                completion(.failure(NSError(domain: "Not found verification id", code: 0, userInfo: nil)))
+                completion(.failure(.unknown(NSError(domain: "Not found verification id", code: 0, userInfo: nil))))
                 return
             }
             completion(.success(verificationID))
