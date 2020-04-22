@@ -105,8 +105,7 @@ final class BLEService {
         let characteristic = CBMutableCharacteristic(type: Characteristic.contact.toCBUUID(), properties: [.read, .write, .writeWithoutResponse], value: nil, permissions: [.readable, .writeable])
         tracerService.characteristics = [characteristic]
 
-        // TODO: ペリフェラル名
-        peripheralManager = PeripheralManager(peripheralName: "TR", queue: queue, services: [tracerService])
+        peripheralManager = PeripheralManager(peripheralName: "mamori-i", queue: queue, services: [tracerService])
 
         _ = peripheralManager?
             // Central is trying to read from us
