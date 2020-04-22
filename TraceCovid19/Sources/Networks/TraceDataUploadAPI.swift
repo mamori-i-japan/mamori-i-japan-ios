@@ -36,8 +36,8 @@ final class TraceDataUploadAPIRequest: APIRequestProtocol {
 struct DeepContactUserModel: DictionaryEncodable {
     let uniqueInsertKey: String
     let externalTempId: String
-    let contactStartTime: TimeInterval
-    let contactEndTime: TimeInterval
+    let contactStartTime: Int
+    let contactEndTime: Int
 }
 
 extension DeepContactUserModel {
@@ -46,8 +46,8 @@ extension DeepContactUserModel {
             let startDate = deepContactUser.startTime,
             let endDate = deepContactUser.endTime else { return nil }
         externalTempId = tempId
-        contactStartTime = startDate.timeIntervalSince1970
-        contactEndTime = endDate.timeIntervalSince1970
+        contactStartTime = Int(startDate.timeIntervalSince1970)
+        contactEndTime = Int(endDate.timeIntervalSince1970)
         uniqueInsertKey = "\(externalTempId)\(contactStartTime)\(contactEndTime)".sha256 ?? ""
     }
 }
