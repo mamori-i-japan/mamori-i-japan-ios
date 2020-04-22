@@ -9,44 +9,73 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 import Swinject
+import Reachability
 
 final class ProfileService {
     private let firestore: Lazy<Firestore> // Firebase.configure()の後で使用するためLazyでラップ
     private let auth: Lazy<Auth>
+
     init(firestore: Lazy<Firestore>, auth: Lazy<Auth>) {
         self.firestore = firestore
         self.auth = auth
     }
 
-    func set(profile: Profile, completion: @escaping (Bool) -> Void) {
+    enum ProfileSetError: Error {
+        case network
+        case unknown(Error?)
+    }
+
+    enum ProfileGetError: Error {
+        case network
+        case parse
+        case unknown(Error?)
+    }
+
+    func set(profile: Profile, completion: @escaping (Result<Void, ProfileSetError>) -> Void) {
         guard let uid = auth.instance.currentUser?.uid else {
-            print("[LoginService] not found uid")
+            print("[ProfileService] not found uid")
+            completion(.failure(.unknown(NSError(domain: "Not found uid", code: 0, userInfo: nil))))
             return
         }
         guard let profileData = try? profile.asDictionary() else {
-            print("[LoginService] profile is invalid format: \(profile)")
+            print("[ProfileService] profile is invalid format: \(profile)")
+            completion(.failure(.unknown(NSError(domain: "Profile is invalid format", code: 0, userInfo: nil))))
             return
         }
+
+        // NOTE: Firestoreだと性質上オフラインでもエラーのcoallbackが帰ってこないので事前にチェックする
+        guard let rechability = try? Reachability(), rechability.connection != .unavailable else {
+            print("[ProfileService] network error")
+            completion(.failure(.network))
+            return
+        }
+
         firestore.instance
             .collection("users")
             .document(uid)
             .collection("profile")
             .document(uid).setData(profileData.convertDateToFirebaseTimestamp()) { error in
-                if let err = error {
-                    print("[LoginService] Error writing profile: \(err)")
-                    completion(false)
+                if let error = error {
+                    print("[ProfileService] Error writing profile: \(error)")
+                    switch FirestoreErrorCode(rawValue: (error as NSError).code) {
+                    case .unavailable:
+                        print("[ProfileService] network error")
+                        completion(.failure(.network))
+                    default:
+                        print("[ProfileService] error \(error as NSError)")
+                        completion(.failure(.unknown(error)))
+                    }
                 } else {
-                    // [NOTE] 成功しても特にフィードバックはしない
-                    print("[LoginService] Profile successfully written")
-                    completion(true)
+                    print("[ProfileService] Profile successfully written")
+                    completion(.success(()))
                 }
             }
     }
 
-    func get(completion: @escaping (Result<Profile, Error>) -> Void) {
+    func get(completion: @escaping (Result<Profile, ProfileGetError>) -> Void) {
         guard let uid = auth.instance.currentUser?.uid else {
-            print("[LoginService] not found uid")
-            completion(.failure(NSError(domain: "not found uid", code: 0, userInfo: nil)))
+            print("[ProfileService] not found uid")
+            completion(.failure(.unknown(NSError(domain: "not found uid", code: 0, userInfo: nil))))
             return
         }
         firestore.instance
@@ -55,7 +84,14 @@ final class ProfileService {
             .collection("profile")
             .document(uid).getDocument { response, error in
                 if let error = error {
-                    completion(.failure(error))
+                    switch FirestoreErrorCode(rawValue: (error as NSError).code) {
+                    case .unavailable:
+                        print("[ProfileService] network error")
+                        completion(.failure(.network))
+                    default:
+                        print("[ProfileService] error \(error as NSError)")
+                        completion(.failure(.unknown(error)))
+                    }
                     return
                 }
 
@@ -66,7 +102,8 @@ final class ProfileService {
                 }
 
                 guard let profile = try? Profile.make(dictionary: dictionary.convertFirebaseTimestampToDate()) else {
-                    completion(.failure(NSError(domain: "Profile parse error", code: 0, userInfo: nil)))
+                    print("[ProfileService] parse error")
+                    completion(.failure(.parse))
                     return
                 }
                 completion(.success(profile))

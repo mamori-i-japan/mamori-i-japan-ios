@@ -10,7 +10,11 @@ import Foundation
 struct Profile: DictionaryEncodable, DictionaryDecodable {
     private(set) var prefecture: Int?
     private(set) var job: String?
-    private let created: Date?
+
+    init(prefecture: PrefectureModel?, job: String?) {
+        self.prefecture = prefecture?.index
+        self.job = isValidJob(job: job)
+    }
 
     @discardableResult
     mutating func update(prefecture: PrefectureModel) -> Profile {
@@ -42,12 +46,6 @@ struct Profile: DictionaryEncodable, DictionaryDecodable {
 }
 
 extension Profile {
-    init(prefecture: PrefectureModel?, job: String?, created: Date? = Date()) {
-        self.prefecture = prefecture?.index
-        self.job = isValidJob(job: job)
-        self.created = created
-    }
-
     static var empty: Profile {
         .init(prefecture: nil, job: nil)
     }

@@ -20,7 +20,6 @@ extension DictionaryDecodable {
 
 extension DictionaryDecodable {
     static func make(dictionary: [String: Any]) throws -> Self {
-        print(dictionary)
         guard let data = try? JSONSerialization.data(withJSONObject: dictionary, options: [.fragmentsAllowed]) else {
             throw NSError(domain: "Json serialization error", code: 0, userInfo: nil)
         }

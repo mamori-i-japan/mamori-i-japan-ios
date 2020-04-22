@@ -115,6 +115,7 @@
 		F096D5AD244ED70F00F7919B /* SSLPinningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5AC244ED70F00F7919B /* SSLPinningManager.swift */; };
 		F096D5AF244EED5A00F7919B /* SSLPinningManager+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */; };
 		F096D5B5244FDEE700F7919B /* ISO8601DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5B4244FDEE700F7919B /* ISO8601DateFormatter.swift */; };
+		F096D5B8245001E300F7919B /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = F096D5B7245001E300F7919B /* Reachability */; };
 		F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829B243EBF7F008390AE /* LoginAPI.swift */; };
 		F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829D243EC06E008390AE /* TokenResponse.swift */; };
 		F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829F243EC0AD008390AE /* LoginService.swift */; };
@@ -389,6 +390,7 @@
 				F02356CF244439A4001E72ED /* FirebaseAuth.framework in Frameworks */,
 				F02356D0244439A4001E72ED /* GTMSessionFetcher.framework in Frameworks */,
 				F02356AF2442F046001E72ED /* FIRAnalyticsConnector.framework in Frameworks */,
+				F096D5B8245001E300F7919B /* Reachability in Frameworks */,
 				F02356B02442F046001E72ED /* FirebaseAnalytics.framework in Frameworks */,
 				F02356B12442F046001E72ED /* FirebaseCore.framework in Frameworks */,
 				F051AD742446BE23007278A0 /* Crashlytics.framework in Frameworks */,
@@ -799,6 +801,7 @@
 				F01EA9032449C95D00B81DB6 /* Alamofire */,
 				F01EA9062449C97400B81DB6 /* KeychainAccess */,
 				F096D5A8244EC95500F7919B /* Gzip */,
+				F096D5B7245001E300F7919B /* Reachability */,
 			);
 			productName = TraceCovid19;
 			productReference = F0C6AD7C243461A600F863FC /* TraceCovid19.app */;
@@ -830,6 +833,7 @@
 				F01EA9022449C95D00B81DB6 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F01EA9052449C97400B81DB6 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				F096D5A7244EC95500F7919B /* XCRemoteSwiftPackageReference "GzipSwift" */,
+				F096D5B6245001E300F7919B /* XCRemoteSwiftPackageReference "Reachability" */,
 			);
 			productRefGroup = F0C6AD7D243461A600F863FC /* Products */;
 			projectDirPath = "";
@@ -1370,6 +1374,14 @@
 				minimumVersion = 5.1.1;
 			};
 		};
+		F096D5B6245001E300F7919B /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1387,6 +1399,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F096D5A7244EC95500F7919B /* XCRemoteSwiftPackageReference "GzipSwift" */;
 			productName = Gzip;
+		};
+		F096D5B7245001E300F7919B /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F096D5B6245001E300F7919B /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
 		};
 /* End XCSwiftPackageProductDependency section */
 

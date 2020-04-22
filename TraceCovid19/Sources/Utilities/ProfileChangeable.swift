@@ -15,6 +15,7 @@ protocol ProfileChangeable: class {
     func stopAnimation()
     func requestProfile(profile: Profile)
     func endNavigation()
+    func showRetry(retry: @escaping () -> Void)
     func errorNavigation(error: Error?)
 }
 
@@ -25,10 +26,15 @@ extension ProfileChangeable {
         profileService.set(profile: profile) { [weak self] result in
             self?.stopAnimation()
             switch result {
-            case true:
+            case .success:
                 self?.endNavigation()
-            case false:
-                self?.errorNavigation(error: nil)
+            case .failure(.network):
+                // TODO: 再実行のみせかた
+                self?.showRetry { [weak self] in
+                    self?.requestProfile(profile: profile)
+                }
+            case .failure(.unknown(let error)):
+                self?.errorNavigation(error: error)
             }
         }
     }
@@ -53,6 +59,10 @@ extension ProfileChangeable where Self: UIViewController {
         showAlert(message: "更新が完了しました", buttonTitle: "OK") { [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         }
+    }
+
+    func showRetry(retry: @escaping () -> Void) {
+        showAlertWithCancel(message: "TODO: 再読み込みしますか？", okButtonTitle: "再読み込み", okAction: { _ in retry() })
     }
 
     func errorNavigation(error: Error?) {

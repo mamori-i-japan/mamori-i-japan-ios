@@ -16,6 +16,7 @@ import FirebaseRemoteConfig
 import FirebaseStorage
 import FirebaseFirestore
 import Alamofire
+import Reachability
 
 extension SwinjectStoryboard {
     @objc
