@@ -55,6 +55,8 @@
 		F03FB97D2451A92100158521 /* HomeActionContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03FB97C2451A92100158521 /* HomeActionContentsView.swift */; };
 		F03FB97F2451A9CB00158521 /* HomeActionContentsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03FB97E2451A9CB00158521 /* HomeActionContentsView.xib */; };
 		F03FB9812451AA8A00158521 /* BorederButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03FB9802451AA8A00158521 /* BorederButton.swift */; };
+		F03FB9832451F2EC00158521 /* HomePositiveContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03FB9822451F2EB00158521 /* HomePositiveContentsView.swift */; };
+		F03FB9852451F30600158521 /* HomePositiveContentsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03FB9842451F30600158521 /* HomePositiveContentsView.xib */; };
 		F0475995243584850091059F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0475994243584850091059F /* SplashViewController.swift */; };
 		F0475996243585180091059F /* SplashViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0475998243585180091059F /* SplashViewController.storyboard */; };
 		F047599A243586C50091059F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F0475999243586C50091059F /* Settings.bundle */; };
@@ -237,6 +239,8 @@
 		F03FB97C2451A92100158521 /* HomeActionContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeActionContentsView.swift; sourceTree = "<group>"; };
 		F03FB97E2451A9CB00158521 /* HomeActionContentsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeActionContentsView.xib; sourceTree = "<group>"; };
 		F03FB9802451AA8A00158521 /* BorederButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorederButton.swift; sourceTree = "<group>"; };
+		F03FB9822451F2EB00158521 /* HomePositiveContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePositiveContentsView.swift; sourceTree = "<group>"; };
+		F03FB9842451F30600158521 /* HomePositiveContentsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePositiveContentsView.xib; sourceTree = "<group>"; };
 		F0475994243584850091059F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		F0475997243585180091059F /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/SplashViewController.storyboard; sourceTree = "<group>"; };
 		F0475999243586C50091059F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -732,6 +736,8 @@
 				F03FB97E2451A9CB00158521 /* HomeActionContentsView.xib */,
 				F03FB97424517D7E00158521 /* HomeAttensionHeaderView.swift */,
 				F03FB97624517D9000158521 /* HomeAttensionHeaderView.xib */,
+				F03FB9822451F2EB00158521 /* HomePositiveContentsView.swift */,
+				F03FB9842451F30600158521 /* HomePositiveContentsView.xib */,
 				F03FB978245182B700158521 /* HomePositiveHeaderView.swift */,
 				F03FB97A245182C400158521 /* HomePositiveHeaderView.xib */,
 				F051AD892446EB86007278A0 /* HomeUsualHeaderView.swift */,
@@ -900,6 +906,7 @@
 				F0031D41243462AC009F9643 /* LaunchScreen.storyboard in Resources */,
 				F0A282FE24416BFE008390AE /* Tutorial3ViewController.storyboard in Resources */,
 				F0A282AB243EC371008390AE /* Tutorial1ViewController.storyboard in Resources */,
+				F03FB9852451F30600158521 /* HomePositiveContentsView.xib in Resources */,
 				F03FB97F2451A9CB00158521 /* HomeActionContentsView.xib in Resources */,
 				F0A283112441755B008390AE /* Agreement2ViewController.storyboard in Resources */,
 				F0A282FC24416BE2008390AE /* Tutorial2ViewController.storyboard in Resources */,
@@ -1076,6 +1083,7 @@
 				F051ADC624498085007278A0 /* InputJobViewController.swift in Sources */,
 				F0031D40243462AC009F9643 /* HomeViewController.swift in Sources */,
 				F096D5AD244ED70F00F7919B /* SSLPinningManager.swift in Sources */,
+				F03FB9832451F2EC00158521 /* HomePositiveContentsView.swift in Sources */,
 				F079FF83244C244500202A91 /* ProfileChangeable.swift in Sources */,
 				F051AD9D2447769B007278A0 /* Debug2ViewController.swift in Sources */,
 				F0A282CF243ED0C5008390AE /* KeyboardCloseProtocol.swift in Sources */,

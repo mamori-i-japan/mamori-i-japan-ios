@@ -23,7 +23,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mDV-p9-S2A">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1228"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q17-Gw-WfZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
@@ -67,8 +67,15 @@
                                                     <constraint firstAttribute="height" constant="426" id="pVO-ih-lFy"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o99-VN-4rq" customClass="HomePositiveContentsView" customModule="TraceCovid19" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="758" width="375" height="426"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="426" id="dXY-lh-vpE"/>
+                                                </constraints>
+                                            </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bym-QJ-Gzc">
-                                                <rect key="frame" x="0.0" y="758" width="375" height="44"/>
+                                                <rect key="frame" x="0.0" y="1184" width="375" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="huE-bV-I0e"/>
@@ -131,6 +138,7 @@
                         <outlet property="headerBaseView" destination="Ket-zt-1kb" id="YBe-6F-nDI"/>
                         <outlet property="headerImageView" destination="NgX-2e-DW3" id="nuN-2U-WDM"/>
                         <outlet property="homeActionContentsView" destination="hJh-Kb-ust" id="Hoa-6w-VDV"/>
+                        <outlet property="homePositiveContentsView" destination="o99-VN-4rq" id="O59-t3-Ysp"/>
                         <outlet property="scrollView" destination="57U-zj-zzS" id="Atk-24-1I4"/>
                         <outlet property="stackView" destination="mDV-p9-S2A" id="RaZ-a7-UnL"/>
                         <outlet property="topMarginConstraint" destination="G2K-gd-Py1" id="hXv-cT-0d6"/>

@@ -27,6 +27,7 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var homeActionContentsView: HomeActionContentsView!
+    @IBOutlet weak var homePositiveContentsView: HomePositiveContentsView!
 
     var keychain: KeychainService!
     var ble: BLEService!
@@ -74,10 +75,6 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         shareApp()
     }
 
-    @IBAction func tappedUploadButton(_ sender: Any) {
-        gotoUpload()
-    }
-
     @discardableResult
     private func fetchTempIDIfNotHave() -> Bool {
         guard !tempId.hasTempIDs else { return false }
@@ -105,13 +102,8 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         // SafeAreaを考慮したマージン設定
         topMarginConstraint.constant = topBarHeight
 
+        // ScrollViewのContentSize調整
         scrollView.contentInsetAdjustmentBehavior = .never
-//        print(scrollView.contentSize.height)
-//        var contentSize = scrollView.contentSize
-//        contentSize.height -= 64
-//        scrollView.contentSize = contentSize
-//        scrollView.adjustedContentInset
-//        print(scrollView.contentSize.height)
 
         // ドロップシャドー
         headerBaseView.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
@@ -122,6 +114,10 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         // 角丸
         headerBaseView.layer.cornerRadius = 8.0
         headerBaseView.clipsToBounds = false
+
+        homePositiveContentsView.setUploadButtonAction { [weak self] in
+            self?.gotoUpload()
+        }
     }
 
     private func reloadViews() {
@@ -175,8 +171,10 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         switch status {
         case .usual, .semiUsual, .attension:
             homeActionContentsView.isHidden = false
+            homePositiveContentsView.isHidden = true
         case .positive:
             homeActionContentsView.isHidden = true
+            homePositiveContentsView.isHidden = false
         }
     }
 
