@@ -1,13 +1,15 @@
 //
-//  ContactedPositiveImageStatusView.swift
+//  HomeAttensionHeaderView.swift
 //  TraceCovid19
 //
-//  Created by yosawa on 2020/04/15.
+//  Created by yosawa on 2020/04/23.
 //
 
 import UIKit
 
-final class ContactedPositiveImageStatusView: UIView, NibInstantiatable {
+final class HomeAttensionHeaderView: UIView, NibInstantiatable {
+    @IBOutlet weak var messageLabel: BaseLabel!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -23,5 +25,8 @@ final class ContactedPositiveImageStatusView: UIView, NibInstantiatable {
         view.frame = bounds
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(view)
+    }
+
+    func set(contactCount: Int) {
     }
 }

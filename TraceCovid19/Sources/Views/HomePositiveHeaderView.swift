@@ -1,13 +1,13 @@
 //
-//  NormalImageStatusView.swift
+//  HomePositiveHeaderView.swift
 //  TraceCovid19
 //
-//  Created by yosawa on 2020/04/15.
+//  Created by yosawa on 2020/04/23.
 //
 
 import UIKit
 
-final class NormalImageStatusView: UIView, NibInstantiatable {
+final class HomePositiveHeaderView: UIView, NibInstantiatable {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()

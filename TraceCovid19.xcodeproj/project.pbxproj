@@ -48,6 +48,10 @@
 		F02356D82445575C001E72ED /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02356D62445575C001E72ED /* FirebaseRemoteConfig.framework */; };
 		F02356DA24455B5B001E72ED /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02356D924455B5B001E72ED /* FirebaseInstanceID.framework */; };
 		F02356DC2445ACEB001E72ED /* DeepContactCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02356DB2445ACEB001E72ED /* DeepContactCheckService.swift */; };
+		F03FB97524517D7E00158521 /* HomeAttensionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03FB97424517D7E00158521 /* HomeAttensionHeaderView.swift */; };
+		F03FB97724517D9000158521 /* HomeAttensionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03FB97624517D9000158521 /* HomeAttensionHeaderView.xib */; };
+		F03FB979245182B700158521 /* HomePositiveHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03FB978245182B700158521 /* HomePositiveHeaderView.swift */; };
+		F03FB97B245182C400158521 /* HomePositiveHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03FB97A245182C400158521 /* HomePositiveHeaderView.xib */; };
 		F0475995243584850091059F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0475994243584850091059F /* SplashViewController.swift */; };
 		F0475996243585180091059F /* SplashViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0475998243585180091059F /* SplashViewController.storyboard */; };
 		F047599A243586C50091059F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F0475999243586C50091059F /* Settings.bundle */; };
@@ -67,12 +71,8 @@
 		F051AD7E2446D790007278A0 /* PositiveContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051AD7D2446D78F007278A0 /* PositiveContactService.swift */; };
 		F051AD802446E7B5007278A0 /* PositiveContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051AD7F2446E7B5007278A0 /* PositiveContactList.swift */; };
 		F051AD822446E7C5007278A0 /* PositiveContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051AD812446E7C5007278A0 /* PositiveContact.swift */; };
-		F051AD842446EB36007278A0 /* HomeBaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F051AD832446EB36007278A0 /* HomeBaseView.xib */; };
-		F051AD862446EB50007278A0 /* ContactedPositiveImageStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F051AD852446EB50007278A0 /* ContactedPositiveImageStatusView.xib */; };
-		F051AD8A2446EB86007278A0 /* HomeBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051AD892446EB86007278A0 /* HomeBaseView.swift */; };
-		F051AD8C2446F48A007278A0 /* NormalImageStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F051AD8B2446F48A007278A0 /* NormalImageStatusView.xib */; };
-		F051AD8E2446F4AB007278A0 /* NormalImageStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051AD8D2446F4AB007278A0 /* NormalImageStatusView.swift */; };
-		F051AD902446FB32007278A0 /* ContactedPositiveImageStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051AD8F2446FB32007278A0 /* ContactedPositiveImageStatusView.swift */; };
+		F051AD842446EB36007278A0 /* HomeUsualHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F051AD832446EB36007278A0 /* HomeUsualHeaderView.xib */; };
+		F051AD8A2446EB86007278A0 /* HomeUsualHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051AD892446EB86007278A0 /* HomeUsualHeaderView.swift */; };
 		F051AD92244701D9007278A0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F051AD91244701D9007278A0 /* SnapKit.framework */; };
 		F051AD9424471D49007278A0 /* EncryptedStringTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051AD9324471D49007278A0 /* EncryptedStringTransformer.swift */; };
 		F051AD9624471FCB007278A0 /* RNCryptor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F051AD9524471FCB007278A0 /* RNCryptor.framework */; };
@@ -110,8 +110,6 @@
 		F079FF90244D418400202A91 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF8F244D418400202A91 /* BaseLabel.swift */; };
 		F079FF92244D41B800202A91 /* LabelUtilityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF91244D41B800202A91 /* LabelUtilityProtocol.swift */; };
 		F079FF94244D431C00202A91 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF93244D431C00202A91 /* BaseTextField.swift */; };
-		F079FF96244D5B2D00202A91 /* PositiveOwnStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF95244D5B2D00202A91 /* PositiveOwnStatusView.swift */; };
-		F079FF98244D5B4C00202A91 /* PositiveOwnStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F079FF97244D5B4C00202A91 /* PositiveOwnStatusView.xib */; };
 		F079FF9C244D8AE400202A91 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF9A244D8AE400202A91 /* Assets.swift */; };
 		F079FF9D244D8AE400202A91 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF9B244D8AE400202A91 /* Localized.swift */; };
 		F096D5A9244EC95500F7919B /* Gzip in Frameworks */ = {isa = PBXBuildFile; productRef = F096D5A8244EC95500F7919B /* Gzip */; };
@@ -229,6 +227,10 @@
 		F02356D62445575C001E72ED /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = Carthage/Build/iOS/FirebaseRemoteConfig.framework; sourceTree = "<group>"; };
 		F02356D924455B5B001E72ED /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Carthage/Build/iOS/FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		F02356DB2445ACEB001E72ED /* DeepContactCheckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepContactCheckService.swift; sourceTree = "<group>"; };
+		F03FB97424517D7E00158521 /* HomeAttensionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAttensionHeaderView.swift; sourceTree = "<group>"; };
+		F03FB97624517D9000158521 /* HomeAttensionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeAttensionHeaderView.xib; sourceTree = "<group>"; };
+		F03FB978245182B700158521 /* HomePositiveHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePositiveHeaderView.swift; sourceTree = "<group>"; };
+		F03FB97A245182C400158521 /* HomePositiveHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePositiveHeaderView.xib; sourceTree = "<group>"; };
 		F0475994243584850091059F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		F0475997243585180091059F /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/SplashViewController.storyboard; sourceTree = "<group>"; };
 		F0475999243586C50091059F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -251,12 +253,8 @@
 		F051AD7D2446D78F007278A0 /* PositiveContactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveContactService.swift; sourceTree = "<group>"; };
 		F051AD7F2446E7B5007278A0 /* PositiveContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveContactList.swift; sourceTree = "<group>"; };
 		F051AD812446E7C5007278A0 /* PositiveContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveContact.swift; sourceTree = "<group>"; };
-		F051AD832446EB36007278A0 /* HomeBaseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBaseView.xib; sourceTree = "<group>"; };
-		F051AD852446EB50007278A0 /* ContactedPositiveImageStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactedPositiveImageStatusView.xib; sourceTree = "<group>"; };
-		F051AD892446EB86007278A0 /* HomeBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseView.swift; sourceTree = "<group>"; };
-		F051AD8B2446F48A007278A0 /* NormalImageStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NormalImageStatusView.xib; sourceTree = "<group>"; };
-		F051AD8D2446F4AB007278A0 /* NormalImageStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalImageStatusView.swift; sourceTree = "<group>"; };
-		F051AD8F2446FB32007278A0 /* ContactedPositiveImageStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactedPositiveImageStatusView.swift; sourceTree = "<group>"; };
+		F051AD832446EB36007278A0 /* HomeUsualHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeUsualHeaderView.xib; sourceTree = "<group>"; };
+		F051AD892446EB86007278A0 /* HomeUsualHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUsualHeaderView.swift; sourceTree = "<group>"; };
 		F051AD91244701D9007278A0 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		F051AD9324471D49007278A0 /* EncryptedStringTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedStringTransformer.swift; sourceTree = "<group>"; };
 		F051AD9524471FCB007278A0 /* RNCryptor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RNCryptor.framework; path = Carthage/Build/iOS/RNCryptor.framework; sourceTree = "<group>"; };
@@ -294,8 +292,6 @@
 		F079FF8F244D418400202A91 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		F079FF91244D41B800202A91 /* LabelUtilityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelUtilityProtocol.swift; sourceTree = "<group>"; };
 		F079FF93244D431C00202A91 /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
-		F079FF95244D5B2D00202A91 /* PositiveOwnStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveOwnStatusView.swift; sourceTree = "<group>"; };
-		F079FF97244D5B4C00202A91 /* PositiveOwnStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PositiveOwnStatusView.xib; sourceTree = "<group>"; };
 		F079FF9A244D8AE400202A91 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		F079FF9B244D8AE400202A91 /* Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		F079FFA0244D8CC300202A91 /* swiftgen_script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = swiftgen_script.sh; sourceTree = "<group>"; };
@@ -725,15 +721,13 @@
 				F0A28324244195A7008390AE /* CodeInputUnitView.swift */,
 				F0A2831E2441932B008390AE /* CodeInputUnitView.xib */,
 				F0A28320244194B4008390AE /* CodeInputView.swift */,
-				F051AD8F2446FB32007278A0 /* ContactedPositiveImageStatusView.swift */,
-				F051AD852446EB50007278A0 /* ContactedPositiveImageStatusView.xib */,
-				F051AD892446EB86007278A0 /* HomeBaseView.swift */,
-				F051AD832446EB36007278A0 /* HomeBaseView.xib */,
+				F03FB97424517D7E00158521 /* HomeAttensionHeaderView.swift */,
+				F03FB97624517D9000158521 /* HomeAttensionHeaderView.xib */,
+				F03FB978245182B700158521 /* HomePositiveHeaderView.swift */,
+				F03FB97A245182C400158521 /* HomePositiveHeaderView.xib */,
+				F051AD892446EB86007278A0 /* HomeUsualHeaderView.swift */,
+				F051AD832446EB36007278A0 /* HomeUsualHeaderView.xib */,
 				F0A28318244189A1008390AE /* NoPerformActionTextField.swift */,
-				F051AD8D2446F4AB007278A0 /* NormalImageStatusView.swift */,
-				F051AD8B2446F48A007278A0 /* NormalImageStatusView.xib */,
-				F079FF95244D5B2D00202A91 /* PositiveOwnStatusView.swift */,
-				F079FF97244D5B4C00202A91 /* PositiveOwnStatusView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -879,8 +873,9 @@
 				F0A282AD243EC5CC008390AE /* InputPhoneNumberViewController.storyboard in Resources */,
 				F0A282B5243EC77E008390AE /* PermissionSettingViewController.storyboard in Resources */,
 				F0A2830D24417513008390AE /* Agreement1ViewController.storyboard in Resources */,
-				F051AD842446EB36007278A0 /* HomeBaseView.xib in Resources */,
-				F051AD8C2446F48A007278A0 /* NormalImageStatusView.xib in Resources */,
+				F03FB97B245182C400158521 /* HomePositiveHeaderView.xib in Resources */,
+				F051AD842446EB36007278A0 /* HomeUsualHeaderView.xib in Resources */,
+				F03FB97724517D9000158521 /* HomeAttensionHeaderView.xib in Resources */,
 				F0A2833424421161008390AE /* DebugViewController.storyboard in Resources */,
 				F051ADCC24498EEA007278A0 /* SettingViewController.storyboard in Resources */,
 				F047599A243586C50091059F /* Settings.bundle in Resources */,
@@ -890,10 +885,8 @@
 				F0A2831F2441932B008390AE /* CodeInputUnitView.xib in Resources */,
 				F0A282BE243EC913008390AE /* TraceNotificationViewController.storyboard in Resources */,
 				F0031D4F243468F0009F9643 /* Localizable.strings in Resources */,
-				F079FF98244D5B4C00202A91 /* PositiveOwnStatusView.xib in Resources */,
 				F0031D42243462AC009F9643 /* HomeViewController.storyboard in Resources */,
 				F0031D362434629F009F9643 /* Assets.xcassets in Resources */,
-				F051AD862446EB50007278A0 /* ContactedPositiveImageStatusView.xib in Resources */,
 				F0475996243585180091059F /* SplashViewController.storyboard in Resources */,
 				F0031D41243462AC009F9643 /* LaunchScreen.storyboard in Resources */,
 				F0A282FE24416BFE008390AE /* Tutorial3ViewController.storyboard in Resources */,
@@ -1055,11 +1048,11 @@
 				F0A282D1243EEFCC008390AE /* KeychainService.swift in Sources */,
 				F051AD7E2446D790007278A0 /* PositiveContactService.swift in Sources */,
 				F051ADA02447F2EB007278A0 /* TempIdService.swift in Sources */,
+				F03FB979245182B700158521 /* HomePositiveHeaderView.swift in Sources */,
 				F096D5BA24501DE000F7919B /* UIViewController+Navigation.swift in Sources */,
 				F0A283302441F81A008390AE /* CustomNavigationController.swift in Sources */,
 				F0A283232441956F008390AE /* UIView+NibInstantiable.swift in Sources */,
 				F0A282C9243ECA6B008390AE /* AboutViewController.swift in Sources */,
-				F051AD8E2446F4AB007278A0 /* NormalImageStatusView.swift in Sources */,
 				F051AD63244699FA007278A0 /* DeepContactUser.swift in Sources */,
 				F02356DC2445ACEB001E72ED /* DeepContactCheckService.swift in Sources */,
 				F04759AD243595D90091059F /* SwinjectStoryboard+Common.swift in Sources */,
@@ -1067,7 +1060,6 @@
 				F0A2830024416C05008390AE /* Tutorial3ViewController.swift in Sources */,
 				F079FF9C244D8AE400202A91 /* Assets.swift in Sources */,
 				F051ADBE24494688007278A0 /* CoreDataService+TempId.swift in Sources */,
-				F079FF96244D5B2D00202A91 /* PositiveOwnStatusView.swift in Sources */,
 				F02356BC2442F5F4001E72ED /* Model.xcdatamodeld in Sources */,
 				F0A282CD243ED068008390AE /* AssociatedObjects.swift in Sources */,
 				F02356BE2442F7B1001E72ED /* TraceData.swift in Sources */,
@@ -1089,6 +1081,7 @@
 				F0A282ED2440056E008390AE /* CBPeripheralState+ToString.swift in Sources */,
 				F079FF8A244D3C5200202A91 /* XibLocalizable.swift in Sources */,
 				F0A282A9243EC344008390AE /* Tutorial1ViewController.swift in Sources */,
+				F03FB97524517D7E00158521 /* HomeAttensionHeaderView.swift in Sources */,
 				F0A282D9243EF600008390AE /* AppVersion.swift in Sources */,
 				F051ADC02449476C007278A0 /* TempUserId.swift in Sources */,
 				F0A28319244189A1008390AE /* NoPerformActionTextField.swift in Sources */,
@@ -1112,11 +1105,10 @@
 				F0A28321244194B4008390AE /* CodeInputView.swift in Sources */,
 				F0A282B1243EC6A9008390AE /* AuthSMSViewController.swift in Sources */,
 				F0A2830924416FC6008390AE /* UIColor+ToImage.swift in Sources */,
-				F051AD902446FB32007278A0 /* ContactedPositiveImageStatusView.swift in Sources */,
 				F0A2830724416FA5008390AE /* UIColor+Hex.swift in Sources */,
 				F04759BC2435B2CD0091059F /* PrintUtility.swift in Sources */,
 				F051ADA624481A7A007278A0 /* APIClient.swift in Sources */,
-				F051AD8A2446EB86007278A0 /* HomeBaseView.swift in Sources */,
+				F051AD8A2446EB86007278A0 /* HomeUsualHeaderView.swift in Sources */,
 				F0A282AF243EC5D5008390AE /* InputPhoneNumberViewController.swift in Sources */,
 				F096D5AF244EED5A00F7919B /* SSLPinningManager+Alamofire.swift in Sources */,
 				F0A282D3243EF019008390AE /* KeychainService+Property.swift in Sources */,

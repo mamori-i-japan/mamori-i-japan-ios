@@ -11,95 +11,121 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HomeViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bym-QJ-Gzc">
-                                <rect key="frame" x="16" y="722" width="343" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="huE-bV-I0e"/>
-                                </constraints>
-                                <state key="normal" title="このアプリをシェア"/>
-                                <connections>
-                                    <action selector="tappedShareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Jw-z8-S0y"/>
-                                </connections>
-                            </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gna-pw-di2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="718"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57U-zj-zzS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mjp-c4-Igo">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="669"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeUsualHeader" translatesAutoresizingMaskIntoConstraints="NO" id="NgX-2e-DW3">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mDV-p9-S2A">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="376"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Py4-aa-Dot" customClass="HomeBaseView" customModule="TraceCovid19" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q17-Gw-WfZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="609" id="BYD-Sn-zbA"/>
+                                                    <constraint firstAttribute="height" constant="88" id="G2K-gd-Py1"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umT-Qy-Xtl">
-                                                <rect key="frame" x="0.0" y="609" width="375" height="60"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXQ-N1-S0Q">
+                                                <rect key="frame" x="0.0" y="88" width="375" height="244"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhz-Sz-yK4">
-                                                        <rect key="frame" x="16" y="8" width="343" height="44"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ket-zt-1kb">
+                                                        <rect key="frame" x="24" y="0.0" width="327" height="208"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="44" id="R0A-uE-qZJ"/>
+                                                            <constraint firstAttribute="height" constant="208" id="PTK-7b-CAh"/>
                                                         </constraints>
-                                                        <state key="normal" title="行動履歴を保健所に共有する"/>
-                                                        <connections>
-                                                            <action selector="tappedUploadButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a9B-aj-z8s"/>
-                                                        </connections>
-                                                    </button>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最終更新：XX月XX日XX時" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-8h-qg8">
+                                                        <rect key="frame" x="114" y="220" width="147" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="0.43529411764705883" green="0.4392156862745098" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" red="0.086274509803921567" green="0.46666666666666667" blue="0.9137254901960784" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="Jhz-Sz-yK4" secondAttribute="bottom" constant="8" id="1Wr-Wm-DV1"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Jhz-Sz-yK4" secondAttribute="trailing" constant="16" id="flW-Tg-eNc"/>
-                                                    <constraint firstItem="Jhz-Sz-yK4" firstAttribute="leading" secondItem="umT-Qy-Xtl" secondAttribute="leading" constant="16" id="ltj-BM-MjI"/>
-                                                    <constraint firstItem="Jhz-Sz-yK4" firstAttribute="top" secondItem="umT-Qy-Xtl" secondAttribute="top" constant="8" id="q6b-Vt-aSo"/>
+                                                    <constraint firstItem="Ket-zt-1kb" firstAttribute="leading" secondItem="uXQ-N1-S0Q" secondAttribute="leading" constant="24" id="ACD-MU-SwR"/>
+                                                    <constraint firstAttribute="bottom" secondItem="8eN-8h-qg8" secondAttribute="bottom" id="Aol-vC-WNW"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ket-zt-1kb" secondAttribute="trailing" constant="24" id="MLx-2N-3qN"/>
+                                                    <constraint firstAttribute="height" constant="244" id="S7v-aK-qqy"/>
+                                                    <constraint firstItem="Ket-zt-1kb" firstAttribute="top" secondItem="uXQ-N1-S0Q" secondAttribute="top" id="pBB-mE-450"/>
+                                                    <constraint firstItem="8eN-8h-qg8" firstAttribute="centerX" secondItem="uXQ-N1-S0Q" secondAttribute="centerX" id="r6J-tQ-bhF"/>
+                                                    <constraint firstItem="8eN-8h-qg8" firstAttribute="top" secondItem="Ket-zt-1kb" secondAttribute="bottom" constant="12" id="vjd-zZ-VmK"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bym-QJ-Gzc">
+                                                <rect key="frame" x="0.0" y="332" width="375" height="44"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="huE-bV-I0e"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="このアプリをシェア"/>
+                                                <connections>
+                                                    <action selector="tappedShareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Jw-z8-S0y"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="mjp-c4-Igo" firstAttribute="centerX" secondItem="gna-pw-di2" secondAttribute="centerX" id="1DR-LQ-5RU"/>
-                                    <constraint firstAttribute="bottom" secondItem="mjp-c4-Igo" secondAttribute="bottom" id="3R5-R8-9Qu"/>
-                                    <constraint firstItem="mjp-c4-Igo" firstAttribute="top" secondItem="gna-pw-di2" secondAttribute="top" id="7iP-Zc-V25"/>
-                                    <constraint firstItem="mjp-c4-Igo" firstAttribute="leading" secondItem="gna-pw-di2" secondAttribute="leading" id="Iq2-rV-t04"/>
-                                    <constraint firstAttribute="trailing" secondItem="mjp-c4-Igo" secondAttribute="trailing" id="vEf-rZ-pBc"/>
+                                    <constraint firstAttribute="trailing" secondItem="mDV-p9-S2A" secondAttribute="trailing" id="9xe-lv-b0l"/>
+                                    <constraint firstItem="mDV-p9-S2A" firstAttribute="leading" secondItem="57U-zj-zzS" secondAttribute="leading" id="FNh-ga-Lwt"/>
+                                    <constraint firstItem="NgX-2e-DW3" firstAttribute="leading" secondItem="mDV-p9-S2A" secondAttribute="leading" id="Ke7-n8-f1j"/>
+                                    <constraint firstItem="mDV-p9-S2A" firstAttribute="centerX" secondItem="57U-zj-zzS" secondAttribute="centerX" id="N07-8o-VUT"/>
+                                    <constraint firstItem="NgX-2e-DW3" firstAttribute="trailing" secondItem="mDV-p9-S2A" secondAttribute="trailing" id="RFc-0j-Lt8"/>
+                                    <constraint firstItem="NgX-2e-DW3" firstAttribute="top" secondItem="mDV-p9-S2A" secondAttribute="top" id="Waj-e0-uee"/>
+                                    <constraint firstAttribute="bottom" secondItem="mDV-p9-S2A" secondAttribute="bottom" id="lXR-Wv-kCB"/>
+                                    <constraint firstItem="mDV-p9-S2A" firstAttribute="top" secondItem="57U-zj-zzS" secondAttribute="top" id="vqs-7D-HEf"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="hL6-nn-y1x"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="ezV-Uj-23X"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="MBe-9r-pzY"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Uwk-Pi-Sgl"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="gna-pw-di2" secondAttribute="top" constant="88" id="0Uy-q3-fxR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gna-pw-di2" secondAttribute="trailing" id="3Tr-FD-lhw"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Bym-QJ-Gzc" secondAttribute="bottom" constant="12" id="80D-xc-j5v"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gna-pw-di2" secondAttribute="bottom" constant="60" id="EUl-Va-ocE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bym-QJ-Gzc" secondAttribute="trailing" constant="16" id="Q07-uJ-rgN"/>
-                            <constraint firstItem="gna-pw-di2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VdH-ON-tht"/>
-                            <constraint firstItem="Bym-QJ-Gzc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Wrb-32-JwG"/>
-                            <constraint firstItem="gna-pw-di2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="icJ-n2-Xfm"/>
+                            <constraint firstItem="57U-zj-zzS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DVi-Yg-QjE"/>
+                            <constraint firstItem="57U-zj-zzS" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="L25-Gi-C1G"/>
+                            <constraint firstItem="57U-zj-zzS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UXg-Iu-PuV"/>
+                            <constraint firstItem="57U-zj-zzS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="cdm-ra-wCR"/>
+                            <constraint firstItem="57U-zj-zzS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gzI-jW-A5x"/>
+                            <constraint firstItem="57U-zj-zzS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="i9d-3r-uHN"/>
+                            <constraint firstItem="57U-zj-zzS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="m4v-a8-ZI7"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="yhX-3H-hRm"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="R7Z-1z-B4f">
-                        <barButtonItem key="rightBarButtonItem" image="menu" id="Die-kB-uCg">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="tappedMenuButton:" destination="BYZ-38-t0r" id="Cab-xF-0R9"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" id="rXh-LA-hW4">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="klL-Vt-UZA" customClass="BaseButton" customModule="TraceCovid19" customModuleProvider="target">
+                                <rect key="frame" x="276" y="5.6666666666666679" width="83" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.086274509803921567" green="0.46666666666666667" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="menu"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tappedMenuButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Avu-Yt-RGH"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="homeBaseView" destination="Py4-aa-Dot" id="6xf-wq-fpS"/>
+                        <outlet property="dateLabel" destination="8eN-8h-qg8" id="7V5-4h-8WV"/>
+                        <outlet property="headerBaseView" destination="Ket-zt-1kb" id="YBe-6F-nDI"/>
+                        <outlet property="headerImageView" destination="NgX-2e-DW3" id="nuN-2U-WDM"/>
+                        <outlet property="topMarginConstraint" destination="G2K-gd-Py1" id="hXv-cT-0d6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -108,6 +134,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="menu" width="24" height="24"/>
+        <image name="HomeUsualHeader" width="375" height="812"/>
     </resources>
 </document>

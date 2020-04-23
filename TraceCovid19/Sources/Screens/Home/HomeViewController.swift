@@ -8,9 +8,22 @@
 import UIKit
 import KeychainAccess
 import NVActivityIndicatorView
+import SnapKit
+
+enum UserStatus {
+    case usual
+    case semiUsual
+    case attension
+    case positive
+
+    static let usualUpperLimitCount = 25
+}
 
 final class HomeViewController: UIViewController, NavigationBarHiddenApplicapable, NVActivityIndicatorViewable {
-    @IBOutlet weak var homeBaseView: HomeBaseView!
+    @IBOutlet weak var headerImageView: UIImageView!
+    @IBOutlet weak var headerBaseView: UIView!
+    @IBOutlet weak var topMarginConstraint: NSLayoutConstraint!
+    @IBOutlet weak var dateLabel: UILabel!
 
     var keychain: KeychainService!
     var ble: BLEService!
@@ -18,14 +31,10 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
     var positiveContact: PositiveContactService!
     var tempId: TempIdService!
 
-    enum Status {
-        case normal
-        case contactedPositive(latest: DeepContactUser)
-        case isPositiveOwn
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupViews()
 
         if fetchTempIDIfNotHave() == false {
             // 持っているならばBLEをオンにする
@@ -83,8 +92,63 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         return true
     }
 
+    private func setupViews() {
+        // SafeAreaを考慮したマージン設定
+        topMarginConstraint.constant = topBarHeight
+
+        // ドロップシャドー
+        headerBaseView.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
+        headerBaseView.layer.shadowRadius = 10.0
+        headerBaseView.layer.shadowColor = UIColor(hex: 0x1d2a3e, alpha: 0.1).cgColor
+        headerBaseView.layer.shadowOpacity = 1.0
+
+        // 角丸
+        headerBaseView.layer.cornerRadius = 8.0
+        headerBaseView.clipsToBounds = false
+    }
+
     private func reloadViews() {
-        homeBaseView.setStatus(status)
+        // TODO: 時間
+        dateLabel.text = "最終更新: \(Date().toString(format: "MM月dd日HH時"))"
+        redrawHeaderView()
+    }
+
+    private func redrawHeaderView() {
+        // ヘッダのSubviewを再描画
+        headerBaseView.subviews.forEach { $0.removeFromSuperview() }
+        switch status {
+        case .usual:
+            headerImageView.image = Asset.homeUsualHeader.image
+            let header = HomeUsualHeaderView(frame: headerBaseView.frame)
+            header.set(contactCount: 10) // TODO: カウントセット
+            headerBaseView.addSubview(header)
+            header.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+        case .semiUsual:
+            headerImageView.image = Asset.homeSemiUsualHeader.image
+            let header = HomeUsualHeaderView(frame: headerBaseView.frame)
+            header.set(contactCount: 1000) // TODO: カウントセット
+            headerBaseView.addSubview(header)
+            header.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+        case .attension:
+            headerImageView.image = Asset.homeAttensionHeader.image
+            let header = HomeAttensionHeaderView(frame: headerBaseView.frame)
+            // header.set(contactCount: 1000) // TODO: 接触情報セット
+            headerBaseView.addSubview(header)
+            header.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+        case .positive:
+            headerImageView.image = Asset.homePositiveHeader.image
+            let header = HomePositiveHeaderView(frame: headerBaseView.frame)
+            headerBaseView.addSubview(header)
+            header.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+        }
     }
 
     func gotoMenu() {
@@ -133,14 +197,18 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
 }
 
 extension HomeViewController {
-    private var status: Status {
+    private var status: UserStatus {
+        // TODO: DEBUG
+        return .positive
+
         if positiveContact.isPositiveMyself() {
-            return .isPositiveOwn
+            return .positive
         }
         if let latestPerson = positiveContact.getLatestContactedPositivePeople() {
-            return .contactedPositive(latest: latestPerson)
+            return .attension //.contactedPositive(latest: latestPerson)
         }
-        return .normal
+        // TODO: カウント
+        return .usual
     }
 
     @objc
@@ -170,5 +238,13 @@ extension HomeViewController {
             print("[Home] deep contact check finished: \($0)")
             self?.reloadViews()
         }
+    }
+}
+
+ // TODO: あとできりだす
+extension UIViewController {
+    var topBarHeight: CGFloat {
+        return UIApplication.shared.statusBarFrame.height +
+            (navigationController?.navigationBar.bounds.height ?? 0.0)
     }
 }
