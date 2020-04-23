@@ -29,20 +29,47 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gna-pw-di2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="718"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Py4-aa-Dot" customClass="HomeBaseView" customModule="TraceCovid19" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="609" id="BYD-Sn-zbA"/>
-                                        </constraints>
-                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mjp-c4-Igo">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="669"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Py4-aa-Dot" customClass="HomeBaseView" customModule="TraceCovid19" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="609" id="BYD-Sn-zbA"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umT-Qy-Xtl">
+                                                <rect key="frame" x="0.0" y="609" width="375" height="60"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhz-Sz-yK4">
+                                                        <rect key="frame" x="16" y="8" width="343" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="R0A-uE-qZJ"/>
+                                                        </constraints>
+                                                        <state key="normal" title="行動履歴を保健所に共有する"/>
+                                                        <connections>
+                                                            <action selector="tappedUploadButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a9B-aj-z8s"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Jhz-Sz-yK4" secondAttribute="bottom" constant="8" id="1Wr-Wm-DV1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Jhz-Sz-yK4" secondAttribute="trailing" constant="16" id="flW-Tg-eNc"/>
+                                                    <constraint firstItem="Jhz-Sz-yK4" firstAttribute="leading" secondItem="umT-Qy-Xtl" secondAttribute="leading" constant="16" id="ltj-BM-MjI"/>
+                                                    <constraint firstItem="Jhz-Sz-yK4" firstAttribute="top" secondItem="umT-Qy-Xtl" secondAttribute="top" constant="8" id="q6b-Vt-aSo"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Py4-aa-Dot" firstAttribute="centerX" secondItem="gna-pw-di2" secondAttribute="centerX" id="DW3-7m-kzm"/>
-                                    <constraint firstItem="Py4-aa-Dot" firstAttribute="top" secondItem="gna-pw-di2" secondAttribute="top" id="TxI-wK-VtE"/>
-                                    <constraint firstAttribute="bottom" secondItem="Py4-aa-Dot" secondAttribute="bottom" id="Wfq-nd-lUd"/>
-                                    <constraint firstItem="Py4-aa-Dot" firstAttribute="leading" secondItem="gna-pw-di2" secondAttribute="leading" id="h66-9P-NCV"/>
-                                    <constraint firstAttribute="trailing" secondItem="Py4-aa-Dot" secondAttribute="trailing" id="qMl-It-rZK"/>
+                                    <constraint firstItem="mjp-c4-Igo" firstAttribute="centerX" secondItem="gna-pw-di2" secondAttribute="centerX" id="1DR-LQ-5RU"/>
+                                    <constraint firstAttribute="bottom" secondItem="mjp-c4-Igo" secondAttribute="bottom" id="3R5-R8-9Qu"/>
+                                    <constraint firstItem="mjp-c4-Igo" firstAttribute="top" secondItem="gna-pw-di2" secondAttribute="top" id="7iP-Zc-V25"/>
+                                    <constraint firstItem="mjp-c4-Igo" firstAttribute="leading" secondItem="gna-pw-di2" secondAttribute="leading" id="Iq2-rV-t04"/>
+                                    <constraint firstAttribute="trailing" secondItem="mjp-c4-Igo" secondAttribute="trailing" id="vEf-rZ-pBc"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="hL6-nn-y1x"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="ezV-Uj-23X"/>
@@ -58,7 +85,6 @@
                             <constraint firstItem="gna-pw-di2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VdH-ON-tht"/>
                             <constraint firstItem="Bym-QJ-Gzc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Wrb-32-JwG"/>
                             <constraint firstItem="gna-pw-di2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="icJ-n2-Xfm"/>
-                            <constraint firstItem="Py4-aa-Dot" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="uew-Lz-8jx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

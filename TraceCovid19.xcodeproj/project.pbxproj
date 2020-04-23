@@ -122,6 +122,7 @@
 		F096D5BA24501DE000F7919B /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5B924501DE000F7919B /* UIViewController+Navigation.swift */; };
 		F096D5C82450672D00F7919B /* TraceDataUploadAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5C72450672D00F7919B /* TraceDataUploadAPI.swift */; };
 		F096D5CA24506CEC00F7919B /* String+SHA256.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5C924506CEC00F7919B /* String+SHA256.swift */; };
+		F096D5CC24512F5000F7919B /* TraceDataUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F096D5CB24512F4F00F7919B /* TraceDataUploadService.swift */; };
 		F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829B243EBF7F008390AE /* LoginAPI.swift */; };
 		F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829D243EC06E008390AE /* TokenResponse.swift */; };
 		F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2829F243EC0AD008390AE /* LoginService.swift */; };
@@ -313,6 +314,7 @@
 		F096D5C424504D3700F7919B /* Stg.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Stg.xcconfig; sourceTree = "<group>"; };
 		F096D5C72450672D00F7919B /* TraceDataUploadAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceDataUploadAPI.swift; sourceTree = "<group>"; };
 		F096D5C924506CEC00F7919B /* String+SHA256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SHA256.swift"; sourceTree = "<group>"; };
+		F096D5CB24512F4F00F7919B /* TraceDataUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceDataUploadService.swift; sourceTree = "<group>"; };
 		F0A2829B243EBF7F008390AE /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F0A2829D243EC06E008390AE /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		F0A2829F243EC0AD008390AE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -628,10 +630,11 @@
 				F02356DB2445ACEB001E72ED /* DeepContactCheckService.swift */,
 				F0A2829F243EC0AD008390AE /* LoginService.swift */,
 				F051AD7D2446D78F007278A0 /* PositiveContactService.swift */,
+				F079FF7C244C168700202A91 /* ProfileService.swift */,
 				F0A2832A2441BC77008390AE /* PushNotificationService.swift */,
 				F02356D324444C58001E72ED /* SMSService.swift */,
 				F051AD9F2447F2EB007278A0 /* TempIdService.swift */,
-				F079FF7C244C168700202A91 /* ProfileService.swift */,
+				F096D5CB24512F4F00F7919B /* TraceDataUploadService.swift */,
 				F04759B124359A420091059F /* BLE */,
 				F0A282A4243EC16D008390AE /* Storages */,
 			);
@@ -1042,6 +1045,7 @@
 				F051ADA4244819C7007278A0 /* APIRequest.swift in Sources */,
 				F0A282FA24416BC0008390AE /* Tutorial2ViewController.swift in Sources */,
 				F051AD802446E7B5007278A0 /* PositiveContactList.swift in Sources */,
+				F096D5CC24512F5000F7919B /* TraceDataUploadService.swift in Sources */,
 				F0A282A6243EC17E008390AE /* KeychainAccess+KeychainClient.swift in Sources */,
 				C75FDCF6244F82BD0020FA1E /* Protocol.swift in Sources */,
 				F0031D43243462AC009F9643 /* AppDelegate.swift in Sources */,

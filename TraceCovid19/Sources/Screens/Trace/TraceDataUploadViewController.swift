@@ -8,16 +8,23 @@
 import UIKit
 import NVActivityIndicatorView
 
-final class TraceDataUploadViewController: UIViewController, NVActivityIndicatorViewable {
-    @IBAction func tappedInquireButton(sender: Any) {
-        requestInquire()
+final class TraceDataUploadViewController: UIViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable {
+    var traceDataUpload: TraceDataUploadService!
+
+    @IBAction func tappedUploadButton(sender: Any) {
+        requestUpload()
     }
 
-    func requestInquire() {
+    func requestUpload() {
         startAnimating(type: .circleStrokeSpin)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.stopAnimating()
+        traceDataUpload.upload { [weak self] result in
+            self?.stopAnimating()
+            print(result)
         }
+    }
+
+    @IBAction func tappedCloseButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }

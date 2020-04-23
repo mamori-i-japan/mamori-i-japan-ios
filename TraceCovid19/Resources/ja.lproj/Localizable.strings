@@ -18,6 +18,7 @@
 "input_job_name" = "職業名を入力";
 "app_version" = "アプリのバージョン%@";
 "no_setting" = "未入力";
+"upload_data" = "データをアップロードする";
 "home.level.low" = "低い";
 "home.level.middle" = "中";
 "home.level.high" = "大";

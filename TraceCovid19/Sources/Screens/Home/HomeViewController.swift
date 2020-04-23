@@ -56,6 +56,10 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         shareApp()
     }
 
+    @IBAction func tappedUploadButton(_ sender: Any) {
+        gotoUpload()
+    }
+
     @discardableResult
     private func fetchTempIDIfNotHave() -> Bool {
         guard !tempId.hasTempIDs else { return false }
@@ -112,12 +116,20 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         present(activityViewController, animated: true, completion: nil)
     }
 
+    func gotoUpload() {
+        let navigationController = CustomNavigationController(rootViewController: TraceDataUploadViewController.instantiate())
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
+    }
+
+    #if DEBUG
     @objc
     func gotoDebug() {
         let navigationController = CustomNavigationController(rootViewController: DebugViewController.instantiate())
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true, completion: nil)
     }
+    #endif
 }
 
 extension HomeViewController {

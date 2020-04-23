@@ -87,7 +87,8 @@ extension SwinjectStoryboard {
             vc.loginService = r.resolve(LoginService.self)
         }
 
-        defaultContainer.storyboardInitCompleted(TraceDataUploadViewController.self) { _, _ in
+        defaultContainer.storyboardInitCompleted(TraceDataUploadViewController.self) { r, vc in
+            vc.traceDataUpload = r.resolve(TraceDataUploadService.self)
         }
 
         defaultContainer.storyboardInitCompleted(TraceNotificationViewController.self) { _, _ in
@@ -191,6 +192,10 @@ extension SwinjectStoryboard {
             )
         }
 
+        defaultContainer.register(TraceDataUploadService.self) { r in
+            TraceDataUploadService(traceDataUploadAPI: r.resolve(TraceDataUploadAPI.self)!, coreData: r.resolve(CoreDataService.self)!)
+        }
+
         // MARK: - Others
 
         defaultContainer.register(Keychain.self) { _ in
@@ -266,6 +271,10 @@ extension SwinjectStoryboard {
         defaultContainer.register([String: SSLPinningManager].self) { r in
             let pinningManager = SSLPinningManager(conditions: r.resolve([SSLPinningCondition].self)!)
             var dictionay: [String: SSLPinningManager] = [:]
+            #if DEBUG
+            // デバッグではデフォルト無効にしておく
+            pinningManager.isEnable = false
+            #endif
             pinningManager.hosts.forEach { dictionay[$0] = pinningManager }
             return dictionay
         }
@@ -283,6 +292,10 @@ extension SwinjectStoryboard {
             #else
             return [SSLPinningCondition]()
             #endif
+        }
+
+        defaultContainer.register(TraceDataUploadAPI.self) { r in
+            TraceDataUploadAPI(apiClient: r.resolve(APIClient.self)!)
         }
     }
 }

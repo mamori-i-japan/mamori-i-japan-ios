@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6aq-Ew-NWX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -13,33 +13,51 @@
             <objects>
                 <viewController id="6aq-Ew-NWX" customClass="TraceDataUploadViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YQh-gU-NIz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqa-7B-aj4">
-                                <rect key="frame" x="16" y="816" width="382" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqa-7B-aj4" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
+                                <rect key="frame" x="16" y="307" width="343" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="xft-jx-zta"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="照会する"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="upload_data"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="tappedInquireButtonWithSender:" destination="6aq-Ew-NWX" eventType="touchUpInside" id="dQt-kL-TjY"/>
+                                    <action selector="tappedUploadButtonWithSender:" destination="6aq-Ew-NWX" eventType="touchUpInside" id="O1V-tg-Brl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="接触照会" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKq-wZ-uAi">
-                                <rect key="frame" x="172" y="442.5" width="70" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="N6H-pl-p4e">
+                                <rect key="frame" x="16" y="165" width="343" height="48"/>
+                                <string key="text">保健所からの行動ログデータ
+アップロード要請がありました。</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="JKq-wZ-uAi" firstAttribute="centerY" secondItem="qlL-l3-tPt" secondAttribute="centerY" id="P8c-gE-DeB"/>
+                            <constraint firstItem="N6H-pl-p4e" firstAttribute="top" secondItem="qlL-l3-tPt" secondAttribute="top" constant="77" id="EGx-So-ozg"/>
+                            <constraint firstItem="N6H-pl-p4e" firstAttribute="leading" secondItem="qlL-l3-tPt" secondAttribute="leading" constant="16" id="Ewq-0c-RdN"/>
+                            <constraint firstItem="xqa-7B-aj4" firstAttribute="top" secondItem="N6H-pl-p4e" secondAttribute="bottom" constant="94" id="S3M-hx-SKm"/>
                             <constraint firstItem="qlL-l3-tPt" firstAttribute="trailing" secondItem="xqa-7B-aj4" secondAttribute="trailing" constant="16" id="XRS-Fp-GMZ"/>
-                            <constraint firstItem="qlL-l3-tPt" firstAttribute="bottom" secondItem="xqa-7B-aj4" secondAttribute="bottom" constant="16" id="cRh-eZ-t7D"/>
+                            <constraint firstItem="qlL-l3-tPt" firstAttribute="trailing" secondItem="N6H-pl-p4e" secondAttribute="trailing" constant="16" id="fla-OU-ypg"/>
                             <constraint firstItem="xqa-7B-aj4" firstAttribute="leading" secondItem="qlL-l3-tPt" secondAttribute="leading" constant="16" id="jOk-SJ-DfM"/>
-                            <constraint firstItem="JKq-wZ-uAi" firstAttribute="centerX" secondItem="qlL-l3-tPt" secondAttribute="centerX" id="nGM-fB-P9k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qlL-l3-tPt"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ggS-sc-jjh">
+                        <barButtonItem key="leftBarButtonItem" title="閉じる" id="bCY-Cv-lKA">
+                            <connections>
+                                <action selector="tappedCloseButton:" destination="6aq-Ew-NWX" id="AYX-V3-w95"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vlb-Eb-V9s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
