@@ -8,11 +8,9 @@
 import UIKit
 import CoreBluetooth
 
-let peripheralName = "mamori-i"
-
 enum Service: String, CustomStringConvertible {
-    case trace = "416DFC7B-D6E2-4373-9299-D81ACD3CC728" // from `uuidgen`
-
+    // TODO currently from https://github.com/TCNCoalition/TCN
+    case trace = "0000C019-0000-1000-8000-00805F9B34FB"
     func toCBUUID() -> CBUUID {
         return CBUUID(string: self.rawValue)
     }
@@ -25,7 +23,8 @@ enum Service: String, CustomStringConvertible {
 }
 
 enum Characteristic: String, CustomStringConvertible {
-    case contact = "416DFC7B-D6E2-4373-9299-D81ACD3CC729" // .trace + 1
+    // TODO currently from https://github.com/TCNCoalition/TCN
+    case contact = "D61F4F27-3D6B-4B04-9E46-C9D2EA617F62"
 
     func toService() -> Service {
         switch self {
@@ -106,7 +105,7 @@ final class BLEService {
         let characteristic = CBMutableCharacteristic(type: Characteristic.contact.toCBUUID(), properties: [.read, .write, .writeWithoutResponse], value: nil, permissions: [.readable, .writeable])
         tracerService.characteristics = [characteristic]
 
-        peripheralManager = PeripheralManager(peripheralName: peripheralName, queue: queue, services: [tracerService])
+        peripheralManager = PeripheralManager(peripheralName: "mamori-i", queue: queue, services: [tracerService])
 
         _ = peripheralManager?
             // Central is trying to read from us
