@@ -152,9 +152,8 @@ extension CentralManager: CBCentralManagerDelegate {
 
 //                scannedPeripherals.updateValue((peripheral, TraceDataRecord(rssi: RSSI.doubleValue, txPower: advertisementData[CBAdvertisementDataTxPowerLevelKey] as? Double)), forKey: peripheral.identifier)
 
-        log("CBAdvertisementDataManufacturerDataKey Data not found. Peripheral is likely not android")
         if peripherals[peripheral.identifier] != nil {
-            log("iOS Peripheral \(peripheral.shortId) has been discovered already in this window, will not attempt to connect to it again")
+            log("iOS Peripheral \(peripheral.shortId) has been discovered already")
             return
         }
         addPeripheral(peripheral)

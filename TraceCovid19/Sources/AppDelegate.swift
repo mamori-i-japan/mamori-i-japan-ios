@@ -14,6 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        log("launchOptions=\(String(describing: launchOptions))")
+
+        // If we're launched in background because of a Bluetooth event, we were in turnOn state before entering background
+        if launchOptions?[.bluetoothCentrals] != nil || launchOptions?[.bluetoothPeripherals] != nil {
+            log("BLE state restoration launch")
+            let queue = SwinjectStoryboard.defaultContainer.resolve(DispatchQueue.self, name: "BluetoothQueue")!
+            let service = SwinjectStoryboard.defaultContainer.resolve(BLEService.self, argument: queue)
+            service?.turnOn()
+        }
+
         PrintUtility.shared.isHidden = true
         FirebaseApp.configure()
         return true

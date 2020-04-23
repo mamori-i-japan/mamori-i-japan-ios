@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os.log
 
 final class PrintUtility {
     static let shared = PrintUtility()
@@ -133,10 +134,9 @@ func debugPrint(_ items: Any..., separator: String = " ", terminator: String = "
 }
 
 func log(_ vars: Any..., filename: String = #file, line: Int = #line, funcname: String = #function) {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSZZZZZ"
-    dateFormatter.timeZone = NSTimeZone.local
     let isMain = Thread.current.isMainThread
     let file = filename.components(separatedBy: "/").last ?? ""
-    print("\(dateFormatter.string(from: Foundation.Date()))|Thread \(isMain ? "M" : "?")|\(file)#\(line) \(funcname)|" + vars.map { v in "\(v)" }.joined())
+    let p = "\(isMain ? "M" : "?")#\(line) \(funcname)|" + vars.map { v in "\(v)" }.joined()
+    let oslog = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: file)
+    os_log("%{public}@", log: oslog, p)
 }

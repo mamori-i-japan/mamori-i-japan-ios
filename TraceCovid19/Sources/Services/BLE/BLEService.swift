@@ -105,8 +105,7 @@ final class BLEService {
         let characteristic = CBMutableCharacteristic(type: Characteristic.contact.toCBUUID(), properties: [.read, .write, .writeWithoutResponse], value: nil, permissions: [.readable, .writeable])
         tracerService.characteristics = [characteristic]
 
-        // TODO: ペリフェラル名
-        peripheralManager = PeripheralManager(peripheralName: "TR", queue: queue, services: [tracerService])
+        peripheralManager = PeripheralManager(peripheralName: "mamori-i", queue: queue, services: [tracerService])
 
         _ = peripheralManager?
             // Central is trying to read from us
@@ -132,6 +131,11 @@ final class BLEService {
                         return false
                     }
                     self.coreData.save(traceDataRecord: TraceDataRecord(from: writeData))
+
+                    #if DEBUG
+                    debugNotify(message: "written=\(writeData.i)")
+                    #endif
+
                     return true
                 }
             }
@@ -186,6 +190,10 @@ final class BLEService {
 
                 log("save: \(record.tempId ?? "nil")")
                 self.coreData.save(traceDataRecord: record)
+
+                #if DEBUG
+                debugNotify(message: "read=\(readData.i)")
+                #endif
             }
             .appendCommand(
                 command: .cancel(callback: { [unowned self] peripheral in
@@ -257,3 +265,16 @@ final class BLEService {
         }
     }
 }
+
+#if DEBUG
+func debugNotify(message: String) {
+    let content = UNMutableNotificationContent()
+    content.title = message
+    let notification = UNNotificationRequest(identifier: NSUUID().uuidString, content: content, trigger: nil)
+    UNUserNotificationCenter.current().add(notification) { er in
+        if er != nil {
+            log("notification error: \(er!)")
+        }
+    }
+}
+#endif

@@ -83,6 +83,10 @@ final class APIClient {
 
             let statusCode = result.response?.statusCode
             guard request.acceptableStatusCode.contains(statusCode ?? -1) else {
+                if let data = result.data {
+                    let str = String(data: data, encoding: .utf8)
+                    log("statusCode=\(String(describing: statusCode)), data=\(String(describing: str))")
+                }
                 completionHandler(.failure(.statusCodeError(statusCode: statusCode, data: result.data, error: result.error)))
                 return
             }
