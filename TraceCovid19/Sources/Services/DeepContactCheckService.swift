@@ -37,6 +37,26 @@ final class DeepContactCheckService {
         return coreData.getDeepContactUsers()
     }
 
+    func getDeepContactUsersAtYesterday() -> [DeepContactUser] {
+        let deepContactUsers = getDeepContactUsers()
+        let yesterday = Date.yesterdayZeroOClock
+        let today = Date.todatyZeroOClock
+        return deepContactUsers.filter {
+            yesterday <= $0.startTime! && $0.startTime! < today
+        }
+    }
+
+    func getDeepContactUsersUniqCountAtYesterday() -> Int {
+        let yesterdayDeepContactUsers = getDeepContactUsersAtYesterday()
+        var tempIDs: [String] = []
+        yesterdayDeepContactUsers.forEach {
+            if tempIDs.contains($0.tempId!) == false {
+                tempIDs.append($0.tempId!)
+            }
+        }
+        return tempIDs.count
+    }
+
     private func check() {
         isChecking = true
 

@@ -20,4 +20,11 @@ extension Date {
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
+
+    func toStringWithAMPMInJapanese(format: String) -> String {
+        let dateFormatter = type(of: self).defaultJSTFormatter
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+         dateFormatter.setLocalizedDateFormatFromTemplate(format)
+        return dateFormatter.string(from: self)
+     }
 }

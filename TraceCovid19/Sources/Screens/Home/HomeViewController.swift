@@ -11,9 +11,9 @@ import NVActivityIndicatorView
 import SnapKit
 
 enum UserStatus {
-    case usual
-    case semiUsual
-    case attension
+    case usual(count: Int)
+    case semiUsual(count: Int)
+    case attension(latest: DeepContactUser)
     case positive
 
     static let usualUpperLimitCount = 25
@@ -117,26 +117,28 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         // ヘッダのSubviewを再描画
         headerBaseView.subviews.forEach { $0.removeFromSuperview() }
         switch status {
-        case .usual:
+        case .usual(let count):
             headerImageView.image = Asset.homeUsualHeader.image
             let header = HomeUsualHeaderView(frame: headerBaseView.frame)
-            header.set(contactCount: 10) // TODO: カウントセット
+            header.set(contactCount: count)
             headerBaseView.addSubview(header)
             header.snp.makeConstraints { make in
                 make.edges.equalToSuperview()
             }
-        case .semiUsual:
+        case .semiUsual(let count):
             headerImageView.image = Asset.homeSemiUsualHeader.image
             let header = HomeUsualHeaderView(frame: headerBaseView.frame)
-            header.set(contactCount: 1000) // TODO: カウントセット
+            header.set(contactCount: count)
             headerBaseView.addSubview(header)
             header.snp.makeConstraints { make in
                 make.edges.equalToSuperview()
             }
-        case .attension:
+        case .attension(let latestContactUser):
             headerImageView.image = Asset.homeAttensionHeader.image
             let header = HomeAttensionHeaderView(frame: headerBaseView.frame)
-            // header.set(contactCount: 1000) // TODO: 接触情報セット
+            header.set(positiveContactUser: latestContactUser) {
+                print("TODO: 詳細表示")
+            }
             headerBaseView.addSubview(header)
             header.snp.makeConstraints { make in
                 make.edges.equalToSuperview()
@@ -198,17 +200,15 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
 
 extension HomeViewController {
     private var status: UserStatus {
-        // TODO: DEBUG
-        return .positive
-
         if positiveContact.isPositiveMyself() {
             return .positive
         }
         if let latestPerson = positiveContact.getLatestContactedPositivePeople() {
-            return .attension //.contactedPositive(latest: latestPerson)
+            return .attension(latest: latestPerson)
         }
-        // TODO: カウント
-        return .usual
+
+        let count = deepContactCheck.getDeepContactUsersUniqCountAtYesterday()
+        return count >= UserStatus.usualUpperLimitCount ? .semiUsual(count: count) : .usual(count: count)
     }
 
     @objc
