@@ -19,29 +19,64 @@ final class APIClient {
         self.auth = auth
     }
 
-    func request<T: APIRequestProtocol>(request: T, completionHandler: @escaping (Result<T.Response, APIRequestError>) -> Void) {
+    func request<T: APIRequestProtocol>(
+        request: T,
+        completionHandler: @escaping (Result<T.Response, APIRequestError>) -> Void
+    ) where T.Response == EmpytResponse {
+        fetchAccessToken(request: request) { [weak self] accessToken in
+            guard let sSelf = self else { return }
+            let dataRequest = sSelf.makeDataRequest(request: request, accessToken: accessToken)
+            let handler = sSelf.makeEmptyHandler(request: request, completionHandler: completionHandler)
+
+            dataRequest.response(completionHandler: handler)
+        }
+    }
+
+    func request<T: APIRequestProtocol>(
+        request: T,
+        completionHandler: @escaping (Result<T.Response, APIRequestError>) -> Void
+    ) where T.Response: Decodable {
+        fetchAccessToken(request: request) { [weak self] accessToken in
+            guard let sSelf = self else { return }
+            let dataRequest = sSelf.makeDataRequest(request: request, accessToken: accessToken)
+            let handler = sSelf.makeDecodableHandler(request: request, completionHandler: completionHandler)
+
+            if let decoder = request.decoder {
+                // 指定のDecoderに切り替えてHandlerと接続
+                dataRequest.responseDecodable(of: T.Response.self, decoder: decoder, completionHandler: handler)
+            } else {
+                dataRequest.responseDecodable(of: T.Response.self, completionHandler: handler)
+            }
+        }
+    }
+
+    private func fetchAccessToken<T: APIRequestProtocol>(request: T, completion: @escaping (String?) -> Void) {
         if request.isNeedAuthentication && auth.instance.currentUser != nil {
             // NOTE: 10分でトークンが切れるらしいので、都度リフレッシュして取得する（負荷が高いなどの問題があったら変更する）
             auth.instance.currentUser!.getIDTokenForcingRefresh(true) { token, _ in
-                self._request(request: request, accessToken: token, completionHandler: completionHandler)
+                completion(token)
             }
             return
         }
 
-        _request(request: request, completionHandler: completionHandler)
+        completion(nil)
     }
 
-    private func _request<T: APIRequestProtocol>(request: T, accessToken: String? = nil, completionHandler: @escaping (Result<T.Response, APIRequestError>) -> Void) {
-        print("[APIClient] \(request)")
-        let response = session.request(
+    private func makeDataRequest<T: APIRequestProtocol>(request: T, accessToken: String?) -> DataRequest {
+        return session.request(
             request.urlString,
             method: Alamofire.HTTPMethod(rawValue: request.method.rawValue),
             parameters: request.parameters,
             encoding: request.encodingType.encoding,
             headers: HTTPHeaders(request.creaetHeaders(accessToken: accessToken))
         )
+    }
 
-        let handler: (DataResponse<T.Response, AFError>) -> Void = { result in
+    private func makeDecodableHandler<T: APIRequestProtocol>(
+        request: T,
+        completionHandler: @escaping (Result<T.Response, APIRequestError>) -> Void
+    ) -> (DataResponse<T.Response, AFError>) -> Void where T.Response: Decodable {
+        return { result in
             print("[APIClient] \(String(describing: String(data: result.data ?? Data(), encoding: .utf8)))")
 
             // TODO: ログアウトする判定どうする？
@@ -58,14 +93,30 @@ final class APIClient {
             }
             completionHandler(.success(value))
         }
-
-        if let decoder = request.decoder {
-            // 指定のDecoderに切り替えてHandlerと接続
-            response.responseDecodable(of: T.Response.self, decoder: decoder, completionHandler: handler)
-        } else {
-            response.responseDecodable(of: T.Response.self, completionHandler: handler)
-        }
     }
+
+    private func makeEmptyHandler<T: APIRequestProtocol>(
+         request: T,
+         completionHandler: @escaping (Result<T.Response, APIRequestError>) -> Void
+    ) -> (AFDataResponse<Data?>) -> Void where T.Response == EmpytResponse {
+         return { result in
+             print("[APIClient] \(String(describing: String(data: result.data ?? Data(), encoding: .utf8)))")
+
+             // TODO: ログアウトする判定どうする？
+
+             let statusCode = result.response?.statusCode
+             guard request.acceptableStatusCode.contains(statusCode ?? -1) else {
+                 completionHandler(.failure(.statusCodeError(statusCode: statusCode, data: result.data, error: result.error)))
+                 return
+             }
+
+             guard result.error == nil else {
+                 completionHandler(.failure(.error(detail: result.error)))
+                 return
+             }
+             completionHandler(.success(EmpytResponse()))
+         }
+     }
 }
 
 extension ParameterEncodingType {

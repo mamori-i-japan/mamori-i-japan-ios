@@ -33,8 +33,17 @@ enum ParameterEncodingType {
     }
 }
 
+protocol APIResponseType {
+}
+
+protocol DecodableAPIResponseType: APIResponseType, Decodable {
+}
+
+struct EmpytResponse: APIResponseType {
+}
+
 protocol APIRequestProtocol: CustomStringConvertible {
-    associatedtype Response: Decodable
+    associatedtype Response: APIResponseType
 
     var scheme: String { get }
     var method: APIRequestMethod { get }

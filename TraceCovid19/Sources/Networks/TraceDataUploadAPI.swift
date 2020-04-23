@@ -8,7 +8,7 @@
 import Foundation
 
 final class TraceDataUploadAPIRequest: APIRequestProtocol {
-    typealias Response = TraceDataUploadAPIResponse
+    typealias Response = EmpytResponse
 
     var method: APIRequestMethod {
         return .post
@@ -52,9 +52,6 @@ extension DeepContactUserModel {
     }
 }
 
-struct TraceDataUploadAPIResponse: Decodable {
-}
-
 final class TraceDataUploadAPI {
     private let apiClient: APIClient
 
@@ -62,7 +59,7 @@ final class TraceDataUploadAPI {
         self.apiClient = apiClient
     }
 
-    func upload(deepContactUsers: [DeepContactUserModel], completionHandler: @escaping (Result<TraceDataUploadAPIResponse, APIRequestError>) -> Void) {
+    func upload(deepContactUsers: [DeepContactUserModel], completionHandler: @escaping (Result<EmpytResponse, APIRequestError>) -> Void) {
         let request = TraceDataUploadAPIRequest(deepContactUsers: deepContactUsers)
         apiClient.request(request: request, completionHandler: completionHandler)
     }

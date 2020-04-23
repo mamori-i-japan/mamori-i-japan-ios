@@ -40,7 +40,7 @@ final class LoginAPIRequest: APIRequestProtocol {
     }
 }
 
-struct LoginAPIResponse: Decodable {
+struct LoginAPIResponse: DecodableAPIResponseType {
 }
 
 final class LoginAPI {

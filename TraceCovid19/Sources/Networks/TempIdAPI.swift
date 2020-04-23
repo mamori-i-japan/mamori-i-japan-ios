@@ -32,6 +32,12 @@ struct TempIdAPIResponse: Decodable {
     let validTo: Date
 }
 
+extension Array: APIResponseType where Element == TempIdAPIResponse {
+}
+
+extension Array: DecodableAPIResponseType where Element == TempIdAPIResponse {
+}
+
 final class TempIdAPI {
     private let apiClient: APIClient
 
