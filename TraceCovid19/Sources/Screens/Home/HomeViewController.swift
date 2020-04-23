@@ -20,10 +20,13 @@ enum UserStatus {
 }
 
 final class HomeViewController: UIViewController, NavigationBarHiddenApplicapable, NVActivityIndicatorViewable {
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var headerBaseView: UIView!
     @IBOutlet weak var topMarginConstraint: NSLayoutConstraint!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var homeActionContentsView: HomeActionContentsView!
 
     var keychain: KeychainService!
     var ble: BLEService!
@@ -55,6 +58,12 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
 
         getPositiveContacts()
         reloadViews()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        scrollView.flashScrollIndicators()
     }
 
     @IBAction func tappedMenuButton(_ sender: Any) {
@@ -96,6 +105,14 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         // SafeAreaを考慮したマージン設定
         topMarginConstraint.constant = topBarHeight
 
+        scrollView.contentInsetAdjustmentBehavior = .never
+//        print(scrollView.contentSize.height)
+//        var contentSize = scrollView.contentSize
+//        contentSize.height -= 64
+//        scrollView.contentSize = contentSize
+//        scrollView.adjustedContentInset
+//        print(scrollView.contentSize.height)
+
         // ドロップシャドー
         headerBaseView.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
         headerBaseView.layer.shadowRadius = 10.0
@@ -111,6 +128,7 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         // TODO: 時間
         dateLabel.text = "最終更新: \(Date().toString(format: "MM月dd日HH時"))"
         redrawHeaderView()
+        redrawActionContentView()
     }
 
     private func redrawHeaderView() {
@@ -150,6 +168,15 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
             header.snp.makeConstraints { make in
                 make.edges.equalToSuperview()
             }
+        }
+    }
+
+    func redrawActionContentView() {
+        switch status {
+        case .usual, .semiUsual, .attension:
+            homeActionContentsView.isHidden = false
+        case .positive:
+            homeActionContentsView.isHidden = true
         }
     }
 

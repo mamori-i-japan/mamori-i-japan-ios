@@ -52,6 +52,9 @@
 		F03FB97724517D9000158521 /* HomeAttensionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03FB97624517D9000158521 /* HomeAttensionHeaderView.xib */; };
 		F03FB979245182B700158521 /* HomePositiveHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03FB978245182B700158521 /* HomePositiveHeaderView.swift */; };
 		F03FB97B245182C400158521 /* HomePositiveHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03FB97A245182C400158521 /* HomePositiveHeaderView.xib */; };
+		F03FB97D2451A92100158521 /* HomeActionContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03FB97C2451A92100158521 /* HomeActionContentsView.swift */; };
+		F03FB97F2451A9CB00158521 /* HomeActionContentsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03FB97E2451A9CB00158521 /* HomeActionContentsView.xib */; };
+		F03FB9812451AA8A00158521 /* BorederButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03FB9802451AA8A00158521 /* BorederButton.swift */; };
 		F0475995243584850091059F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0475994243584850091059F /* SplashViewController.swift */; };
 		F0475996243585180091059F /* SplashViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0475998243585180091059F /* SplashViewController.storyboard */; };
 		F047599A243586C50091059F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F0475999243586C50091059F /* Settings.bundle */; };
@@ -231,6 +234,9 @@
 		F03FB97624517D9000158521 /* HomeAttensionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeAttensionHeaderView.xib; sourceTree = "<group>"; };
 		F03FB978245182B700158521 /* HomePositiveHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePositiveHeaderView.swift; sourceTree = "<group>"; };
 		F03FB97A245182C400158521 /* HomePositiveHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePositiveHeaderView.xib; sourceTree = "<group>"; };
+		F03FB97C2451A92100158521 /* HomeActionContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeActionContentsView.swift; sourceTree = "<group>"; };
+		F03FB97E2451A9CB00158521 /* HomeActionContentsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeActionContentsView.xib; sourceTree = "<group>"; };
+		F03FB9802451AA8A00158521 /* BorederButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorederButton.swift; sourceTree = "<group>"; };
 		F0475994243584850091059F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		F0475997243585180091059F /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/SplashViewController.storyboard; sourceTree = "<group>"; };
 		F0475999243586C50091059F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -718,9 +724,12 @@
 				F079FF8B244D3D0400202A91 /* BaseButton.swift */,
 				F079FF8F244D418400202A91 /* BaseLabel.swift */,
 				F079FF93244D431C00202A91 /* BaseTextField.swift */,
+				F03FB9802451AA8A00158521 /* BorederButton.swift */,
 				F0A28324244195A7008390AE /* CodeInputUnitView.swift */,
 				F0A2831E2441932B008390AE /* CodeInputUnitView.xib */,
 				F0A28320244194B4008390AE /* CodeInputView.swift */,
+				F03FB97C2451A92100158521 /* HomeActionContentsView.swift */,
+				F03FB97E2451A9CB00158521 /* HomeActionContentsView.xib */,
 				F03FB97424517D7E00158521 /* HomeAttensionHeaderView.swift */,
 				F03FB97624517D9000158521 /* HomeAttensionHeaderView.xib */,
 				F03FB978245182B700158521 /* HomePositiveHeaderView.swift */,
@@ -891,6 +900,7 @@
 				F0031D41243462AC009F9643 /* LaunchScreen.storyboard in Resources */,
 				F0A282FE24416BFE008390AE /* Tutorial3ViewController.storyboard in Resources */,
 				F0A282AB243EC371008390AE /* Tutorial1ViewController.storyboard in Resources */,
+				F03FB97F2451A9CB00158521 /* HomeActionContentsView.xib in Resources */,
 				F0A283112441755B008390AE /* Agreement2ViewController.storyboard in Resources */,
 				F0A282FC24416BE2008390AE /* Tutorial2ViewController.storyboard in Resources */,
 				F051ADC8244980A1007278A0 /* InputJobViewController.storyboard in Resources */,
@@ -1079,6 +1089,7 @@
 				F079FF7F244C1F0100202A91 /* DictionaryEncodable.swift in Sources */,
 				F051AD9424471D49007278A0 /* EncryptedStringTransformer.swift in Sources */,
 				F0A282ED2440056E008390AE /* CBPeripheralState+ToString.swift in Sources */,
+				F03FB97D2451A92100158521 /* HomeActionContentsView.swift in Sources */,
 				F079FF8A244D3C5200202A91 /* XibLocalizable.swift in Sources */,
 				F0A282A9243EC344008390AE /* Tutorial1ViewController.swift in Sources */,
 				F03FB97524517D7E00158521 /* HomeAttensionHeaderView.swift in Sources */,
@@ -1105,6 +1116,7 @@
 				F0A28321244194B4008390AE /* CodeInputView.swift in Sources */,
 				F0A282B1243EC6A9008390AE /* AuthSMSViewController.swift in Sources */,
 				F0A2830924416FC6008390AE /* UIColor+ToImage.swift in Sources */,
+				F03FB9812451AA8A00158521 /* BorederButton.swift in Sources */,
 				F0A2830724416FA5008390AE /* UIColor+Hex.swift in Sources */,
 				F04759BC2435B2CD0091059F /* PrintUtility.swift in Sources */,
 				F051ADA624481A7A007278A0 /* APIClient.swift in Sources */,

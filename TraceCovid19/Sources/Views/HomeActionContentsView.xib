@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeActionContentsView" customModule="TraceCovid19" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="430"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="iMD-gb-muq">
+                    <rect key="frame" x="36" y="12" width="303" height="220.66666666666666"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="lXg-Qd-KeZ">
+                            <rect key="frame" x="0.0" y="0.0" width="303" height="70.666666666666671"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6o-Rl-xLT" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                                    <rect key="frame" x="142.66666666666666" y="0.0" width="17.666666666666657" height="44.333333333333336"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="37"/>
+                                    <color key="textColor" red="0.61960784313725492" green="0.62352941176470589" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行動指針" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPR-M7-96r" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                                    <rect key="frame" x="117" y="50.333333333333336" width="69.333333333333314" height="20.333333333333336"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="textColor" red="0.61960784310000006" green="0.62352941179999999" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bru-L0-tkX">
+                            <rect key="frame" x="0.0" y="92.666666666666686" width="303" height="128"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAj-hw-g57" customClass="BorederButton" customModule="TraceCovid19" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="303" height="56"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="56" id="O3Q-eq-XgU"/>
+                                    </constraints>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" red="0.086274509803921567" green="0.46666666666666667" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="基本的に外出しない"/>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCV-5G-usH" customClass="BorederButton" customModule="TraceCovid19" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="71.999999999999986" width="303" height="56"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="56" id="nhW-Xw-hPX"/>
+                                    </constraints>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" red="0.086274509799999996" green="0.46666666670000001" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="マスクと手洗いをしてください"/>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Ea-Sa-Qle">
+                    <rect key="frame" x="36" y="248.66666666666663" width="303" height="173"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Na1-Om-AH4">
+                            <rect key="frame" x="0.0" y="0.0" width="303" height="95"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjA-pH-DFD" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                                    <rect key="frame" x="140.33333333333334" y="0.0" width="22.333333333333343" height="44.333333333333336"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="37"/>
+                                    <color key="textColor" red="0.61960784310000006" green="0.62352941179999999" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxD-rT-E8C" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                                    <rect key="frame" x="30.333333333333329" y="50.333333333333343" width="242.66666666666669" height="44.666666666666657"/>
+                                    <string key="text">医療機関に連絡するべきなのか
+確認しましょう</string>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="textColor" red="0.61960784310000006" green="0.62352941179999999" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                            <real key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3ZS-zy-yME">
+                            <rect key="frame" x="0.0" y="117.00000000000003" width="303" height="56"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSv-IY-4OQ" customClass="BorederButton" customModule="TraceCovid19" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="303" height="56"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="56" id="Fxp-ZA-Wma"/>
+                                    </constraints>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" red="0.086274509799999996" green="0.46666666670000001" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="不安、体調不良を相談したい"/>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="iMD-gb-muq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="NDR-vC-848"/>
+                <constraint firstItem="6Ea-Sa-Qle" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="36" id="YR6-Kl-oeP"/>
+                <constraint firstAttribute="trailing" secondItem="iMD-gb-muq" secondAttribute="trailing" constant="36" id="cxq-iB-yaM"/>
+                <constraint firstItem="iMD-gb-muq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="36" id="fiA-lR-uRR"/>
+                <constraint firstAttribute="trailing" secondItem="6Ea-Sa-Qle" secondAttribute="trailing" constant="36" id="rMs-q4-Y28"/>
+                <constraint firstItem="6Ea-Sa-Qle" firstAttribute="top" secondItem="iMD-gb-muq" secondAttribute="bottom" constant="16" id="wb0-BV-x9L"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="138.40000000000001" y="97.536945812807886"/>
+        </view>
+    </objects>
+</document>
