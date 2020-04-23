@@ -16,14 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeUsualHeader" translatesAutoresizingMaskIntoConstraints="NO" id="NgX-2e-DW3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                            </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57U-zj-zzS">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57U-zj-zzS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeUsualHeader" translatesAutoresizingMaskIntoConstraints="NO" id="NgX-2e-DW3">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mDV-p9-S2A">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="806"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="802"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q17-Gw-WfZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
@@ -61,14 +61,14 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJh-Kb-ust" customClass="HomeActionContentsView" customModule="TraceCovid19" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="332" width="375" height="430"/>
+                                                <rect key="frame" x="0.0" y="332" width="375" height="426"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="430" id="pVO-ih-lFy"/>
+                                                    <constraint firstAttribute="height" constant="426" id="pVO-ih-lFy"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bym-QJ-Gzc">
-                                                <rect key="frame" x="0.0" y="762" width="375" height="44"/>
+                                                <rect key="frame" x="0.0" y="758" width="375" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="huE-bV-I0e"/>
@@ -83,9 +83,12 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="NgX-2e-DW3" firstAttribute="trailing" secondItem="mDV-p9-S2A" secondAttribute="trailing" id="Rec-xf-UAz"/>
                                     <constraint firstItem="mDV-p9-S2A" firstAttribute="centerX" secondItem="57U-zj-zzS" secondAttribute="centerX" id="TGj-rf-vTM"/>
-                                    <constraint firstItem="mDV-p9-S2A" firstAttribute="bottom" secondItem="57U-zj-zzS" secondAttribute="bottom" constant="-16" id="UMs-5q-V8n"/>
+                                    <constraint firstItem="NgX-2e-DW3" firstAttribute="top" secondItem="mDV-p9-S2A" secondAttribute="top" id="UBo-TH-pjE"/>
+                                    <constraint firstItem="mDV-p9-S2A" firstAttribute="bottom" secondItem="57U-zj-zzS" secondAttribute="bottom" constant="-8" id="UMs-5q-V8n"/>
                                     <constraint firstItem="mDV-p9-S2A" firstAttribute="top" secondItem="57U-zj-zzS" secondAttribute="top" id="Uct-Yi-IFz"/>
+                                    <constraint firstItem="NgX-2e-DW3" firstAttribute="leading" secondItem="mDV-p9-S2A" secondAttribute="leading" id="aRf-b9-vM0"/>
                                     <constraint firstItem="mDV-p9-S2A" firstAttribute="trailing" secondItem="57U-zj-zzS" secondAttribute="trailing" id="f7F-Ii-5BL"/>
                                     <constraint firstItem="mDV-p9-S2A" firstAttribute="leading" secondItem="57U-zj-zzS" secondAttribute="leading" id="l7O-6i-tpw"/>
                                 </constraints>
@@ -93,16 +96,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yhX-3H-hRm" firstAttribute="trailing" secondItem="NgX-2e-DW3" secondAttribute="trailing" id="7wd-CP-CEF"/>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DVi-Yg-QjE"/>
-                            <constraint firstItem="NgX-2e-DW3" firstAttribute="leading" secondItem="yhX-3H-hRm" secondAttribute="leading" id="FuE-hg-Xjr"/>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="L25-Gi-C1G"/>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UXg-Iu-PuV"/>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="cdm-ra-wCR"/>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gzI-jW-A5x"/>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="i9d-3r-uHN"/>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="m4v-a8-ZI7"/>
-                            <constraint firstAttribute="topMargin" secondItem="NgX-2e-DW3" secondAttribute="top" id="oxe-wO-O2S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yhX-3H-hRm"/>
                     </view>
