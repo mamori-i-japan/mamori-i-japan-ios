@@ -21,6 +21,9 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeUsualHeader" translatesAutoresizingMaskIntoConstraints="NO" id="NgX-2e-DW3">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="NgX-2e-DW3" secondAttribute="height" multiplier="375:812" id="NCb-Rw-qOD"/>
+                                        </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mDV-p9-S2A">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1228"/>

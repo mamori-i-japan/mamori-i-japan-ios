@@ -16,27 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unnamed-5 1" translatesAutoresizingMaskIntoConstraints="NO" id="Kls-EI-hle">
-                                <rect key="frame" x="102.66666666666669" y="631" width="170" height="50"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="cKG-KY-44B">
-                                <rect key="frame" x="56.666666666666657" y="324.66666666666669" width="262" height="41"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COVID-19追跡調査サービス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZQ-VV-jyo">
-                                <rect key="frame" x="77" y="387.66666666666669" width="221" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開発協力AAAAA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GH-Is-m48">
+                                <rect key="frame" x="125" y="743" width="125" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="V1W-9I-R5j">
+                                <rect key="frame" x="95" y="178" width="185" height="298"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="V1W-9I-R5j" secondAttribute="height" multiplier="185:298" id="mHl-QS-GYC"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unnamed-5 1" translatesAutoresizingMaskIntoConstraints="NO" id="zx1-iC-Mvi">
+                                <rect key="frame" x="102.66666666666669" y="665" width="170" height="50"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Kls-EI-hle" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0sG-lP-s4w"/>
-                            <constraint firstItem="oZQ-VV-jyo" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2vx-0X-81s"/>
-                            <constraint firstItem="oZQ-VV-jyo" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-13" id="6jx-6g-n0h"/>
-                            <constraint firstItem="oZQ-VV-jyo" firstAttribute="top" secondItem="cKG-KY-44B" secondAttribute="bottom" constant="22" id="Ig8-zg-JbL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Kls-EI-hle" secondAttribute="bottom" constant="97" id="Nxa-hQ-1tK"/>
-                            <constraint firstItem="cKG-KY-44B" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YjK-kA-CrX"/>
+                            <constraint firstItem="zx1-iC-Mvi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="26b-WO-RaL"/>
+                            <constraint firstItem="8GH-Is-m48" firstAttribute="centerX" secondItem="zx1-iC-Mvi" secondAttribute="centerX" id="4xj-Hj-oBy"/>
+                            <constraint firstItem="8GH-Is-m48" firstAttribute="top" secondItem="zx1-iC-Mvi" secondAttribute="bottom" constant="28" id="FI1-hT-olZ"/>
+                            <constraint firstItem="V1W-9I-R5j" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.493333" id="OKN-np-SHd"/>
+                            <constraint firstItem="V1W-9I-R5j" firstAttribute="width" secondItem="V1W-9I-R5j" secondAttribute="height" multiplier="185:298" id="Tmt-aK-E9u"/>
+                            <constraint firstItem="V1W-9I-R5j" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-84" id="UUF-7c-GAf"/>
+                            <constraint firstItem="V1W-9I-R5j" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="izd-YE-fEb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zx1-iC-Mvi" secondAttribute="bottom" constant="63" id="yds-IG-WqD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -47,7 +52,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Group" width="262" height="41"/>
+        <image name="logo" width="185" height="298"/>
         <image name="unnamed-5 1" width="170" height="50"/>
     </resources>
 </document>
