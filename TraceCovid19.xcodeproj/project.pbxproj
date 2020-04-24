@@ -104,6 +104,7 @@
 		F051ADC8244980A1007278A0 /* InputJobViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F051ADC7244980A1007278A0 /* InputJobViewController.storyboard */; };
 		F051ADCA24498ED4007278A0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADC924498ED4007278A0 /* SettingViewController.swift */; };
 		F051ADCC24498EEA007278A0 /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F051ADCB24498EEA007278A0 /* SettingViewController.storyboard */; };
+		F065130E2452B15500CCCE91 /* UIColor+DesignGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = F065130D2452B15500CCCE91 /* UIColor+DesignGuide.swift */; };
 		F079FF79244C09B700202A91 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF78244C09B700202A91 /* Profile.swift */; };
 		F079FF7D244C168700202A91 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF7C244C168700202A91 /* ProfileService.swift */; };
 		F079FF7F244C1F0100202A91 /* DictionaryEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF7E244C1F0100202A91 /* DictionaryEncodable.swift */; };
@@ -291,6 +292,7 @@
 		F051ADC7244980A1007278A0 /* InputJobViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputJobViewController.storyboard; sourceTree = "<group>"; };
 		F051ADC924498ED4007278A0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		F051ADCB24498EEA007278A0 /* SettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
+		F065130D2452B15500CCCE91 /* UIColor+DesignGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+DesignGuide.swift"; sourceTree = "<group>"; };
 		F079FF78244C09B700202A91 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F079FF7C244C168700202A91 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		F079FF7E244C1F0100202A91 /* DictionaryEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEncodable.swift; sourceTree = "<group>"; };
@@ -574,8 +576,8 @@
 			children = (
 				F0A282CC243ED068008390AE /* AssociatedObjects.swift */,
 				F0A282EA244004C9008390AE /* CBManagerState+ToString.swift */,
-				F0A282EC2440056E008390AE /* CBPeripheralState+ToString.swift */,
 				C75FDCF7244FAAB40020FA1E /* CBPeripheral+ShortId.swift */,
+				F0A282EC2440056E008390AE /* CBPeripheralState+ToString.swift */,
 				F0A2832F2441F81A008390AE /* CustomNavigationController.swift */,
 				F0A282E0243F3DAB008390AE /* Date+ToString.swift */,
 				F0A282F324408BA8008390AE /* DeviceUtility.swift */,
@@ -593,6 +595,7 @@
 				F0A2831C24419234008390AE /* String+PhoneNumber.swift */,
 				F096D5C924506CEC00F7919B /* String+SHA256.swift */,
 				F051ADB92448924D007278A0 /* String+ToDate.swift */,
+				F065130D2452B15500CCCE91 /* UIColor+DesignGuide.swift */,
 				F0A2830624416FA5008390AE /* UIColor+Hex.swift */,
 				F0A2830824416FC6008390AE /* UIColor+ToImage.swift */,
 				F0A282CA243ED041008390AE /* UIGestureRecognizer+Closure.swift */,
@@ -1134,6 +1137,7 @@
 				F0A282D3243EF019008390AE /* KeychainService+Property.swift in Sources */,
 				F0A282DD243EF84C008390AE /* BootService.swift in Sources */,
 				F096D5C82450672D00F7919B /* TraceDataUploadAPI.swift in Sources */,
+				F065130E2452B15500CCCE91 /* UIColor+DesignGuide.swift in Sources */,
 				F0A282B7243EC785008390AE /* PermissionSettingViewController.swift in Sources */,
 				F051AD822446E7C5007278A0 /* PositiveContact.swift in Sources */,
 				F051ADB824487BC7007278A0 /* TempIdAPI.swift in Sources */,

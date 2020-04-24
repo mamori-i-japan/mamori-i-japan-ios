@@ -25,11 +25,11 @@ class ActionButton: BaseButton {
         layer.cornerRadius = 8.0
         clipsToBounds = true
 
-        setBackgroundImage(UIColor(hex: 0x003E9B).toImage, for: .normal)
-        setBackgroundImage(UIColor(hex: 0x0071FF, alpha: 0.25).toImage, for: .disabled)
+        setBackgroundImage(UIColor.primary1.toImage, for: .normal)
+        setBackgroundImage(UIColor.primary1.withAlphaComponent(0.3).toImage, for: .disabled)
 
-        setTitleColor(UIColor(hex: 0xFFFFFF), for: .normal)
-        setTitleColor(UIColor(hex: 0xFFFFFF, alpha: 0.25), for: .disabled)
+        setTitleColor(UIColor.systemWhite, for: .normal)
+        setTitleColor(UIColor.systemWhite.withAlphaComponent(0.3), for: .disabled)
 
         isExclusiveTouch = true
     }

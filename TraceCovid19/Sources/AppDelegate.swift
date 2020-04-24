@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        PrintUtility.shared.isHidden = true
+
         log("launchOptions=\(String(describing: launchOptions))")
 
         // If we're launched in background because of a Bluetooth event, we were in turnOn state before entering background
@@ -24,8 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             service?.turnOn()
         }
 
-        PrintUtility.shared.isHidden = true
         FirebaseApp.configure()
+
+        // NavigatinBarの色変更
+        UINavigationBar.appearance().tintColor = .primary1
+
         return true
     }
 
