@@ -7,6 +7,9 @@
 
 import Foundation
 
+/// 持っておくべき有効なTempID数
+private let shouldHasValidTempIdCount = 3
+
 final class TempIdService {
     private let tempIdAPI: TempIdAPI
     private let coreData: CoreDataService
@@ -17,7 +20,12 @@ final class TempIdService {
     }
 
     var currentTempId: TempIdStruct? {
-        return filterCurrent(tempIdDs: tempIDs)
+        let tempIDs = self.tempIDs
+        if filterIsValid(tempIDs: tempIDs).count < shouldHasValidTempIdCount {
+            // 一定数より有効なTempIDがなければ取得しておく(結果は見ない)
+            fetchTempIDs(completion: { _ in })
+        }
+        return filterCurrent(tempIDs: tempIDs)
     }
 
     var latestTempId: TempIdStruct? {
@@ -26,6 +34,10 @@ final class TempIdService {
 
     var tempIDs: [TempIdStruct] {
         return coreData.getTempUserIDs()
+    }
+
+    var validTempIDs: [TempIdStruct] {
+        return filterIsValid(tempIDs: tempIDs)
     }
 
     var hasTempIDs: Bool {
@@ -55,12 +67,19 @@ final class TempIdService {
         }
     }
 
-    private func filterCurrent(tempIdDs: [TempIdStruct]) -> TempIdStruct? {
+    private func filterCurrent(tempIDs: [TempIdStruct]) -> TempIdStruct? {
         let now = Date()
-        return tempIdDs.first { tempId -> Bool in
+        return tempIDs.first { tempId -> Bool in
             tempId.startTime <= now && now < tempId.endTime
         }
     }
+
+    private func filterIsValid(tempIDs: [TempIdStruct]) -> [TempIdStruct] {
+           let now = Date()
+           return tempIDs.filter { tempId -> Bool in
+               now < tempId.endTime
+           }
+       }
 }
 
 #if DEBUG
