@@ -206,7 +206,8 @@
 		F0031D50243468F0009F9643 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F0031D522434695B009F9643 /* debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = debug.entitlements; sourceTree = "<group>"; };
 		F0031D54243469A6009F9643 /* release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = release.entitlements; sourceTree = "<group>"; };
-		F02356842442E3B8001E72ED /* GoogleService-Info-Debug.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Debug.plist"; sourceTree = "<group>"; };
+		F0156AA1245305B5006CB28F /* GoogleService-Info-Stg.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Stg.plist"; sourceTree = "<group>"; };
+		F02356842442E3B8001E72ED /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
 		F02356862442EB69001E72ED /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = Carthage/Build/iOS/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
 		F02356872442EB69001E72ED /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransport.framework; path = Carthage/Build/iOS/GoogleDataTransport.framework; sourceTree = "<group>"; };
 		F02356882442EB69001E72ED /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = Carthage/Build/iOS/nanopb.framework; sourceTree = "<group>"; };
@@ -442,7 +443,8 @@
 				F0475999243586C50091059F /* Settings.bundle */,
 				F0031D522434695B009F9643 /* debug.entitlements */,
 				F0031D54243469A6009F9643 /* release.entitlements */,
-				F02356842442E3B8001E72ED /* GoogleService-Info-Debug.plist */,
+				F02356842442E3B8001E72ED /* GoogleService-Info-Dev.plist */,
+				F0156AA1245305B5006CB28F /* GoogleService-Info-Stg.plist */,
 				F0031D352434629F009F9643 /* Info-Debug.plist */,
 				F04759B92435B1560091059F /* Info-Release.plist */,
 				F0031D342434629F009F9643 /* Assets.xcassets */,
@@ -958,7 +960,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "base_path=\"${SRCROOT}/TraceCovid19/Resources\";\nif [ $CONFIGURATION != \"Prod\" ]; then\n  google_service_file=\"${base_path}/GoogleService-Info-Debug.plist\";\nelse\n  google_service_file=\"${base_path}/GoogleService-Info-Release.plist\";\nfi\n\ncp ${google_service_file} ${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/GoogleService-Info.plist;\n\n\n";
+			shellScript = "base_path=\"${SRCROOT}/TraceCovid19/Resources\";\nif [ $CONFIGURATION = \"Dev\" ]; then\n  google_service_file=\"${base_path}/GoogleService-Info-Dev.plist\";\nelif [ $CONFIGURATION = \"Stg\" ]; then\n  google_service_file=\"${base_path}/GoogleService-Info-Stg.plist\";\nelse\n  google_service_file=\"${base_path}/GoogleService-Info-Release.plist\";\nfi\n\ncp ${google_service_file} ${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/GoogleService-Info.plist;\n\n\n";
 		};
 		F047599D24358C1A0091059F /* Update License Plist Script */ = {
 			isa = PBXShellScriptBuildPhase;
