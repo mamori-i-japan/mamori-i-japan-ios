@@ -28,8 +28,8 @@ final class TempIdAPIRequest: APIRequestProtocol {
 
 struct TempIdAPIResponse: Decodable {
     let tempID: String
-    let validFrom: Date
-    let validTo: Date
+    let validFrom: TimeInterval
+    let validTo: TimeInterval
 }
 
 extension Array: APIResponseType where Element == TempIdAPIResponse {

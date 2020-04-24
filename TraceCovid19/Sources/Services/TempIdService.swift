@@ -80,7 +80,7 @@ struct TempIdStruct {
 extension TempIdStruct {
     init(response: TempIdAPIResponse) {
         tempId = response.tempID
-        startTime = response.validFrom
-        endTime = response.validTo
+        startTime = Date(timeIntervalSince1970: response.validFrom)
+        endTime = Date(timeIntervalSince1970: response.validTo)
     }
 }
