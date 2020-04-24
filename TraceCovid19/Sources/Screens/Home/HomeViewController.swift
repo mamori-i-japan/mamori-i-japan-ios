@@ -34,6 +34,7 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
     var deepContactCheck: DeepContactCheckService!
     var positiveContact: PositiveContactService!
     var tempId: TempIdService!
+    var loginService: LoginService!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,14 +86,18 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
             self?.stopAnimating()
 
             switch result {
-            case .failure:
+            case .success:
+                // 成功ならBLEを開始する
+                self?.ble.turnOn()
+            case .failure(.unauthorized):
+                // 強制ログアウト
+                self?.loginService.logout()
+                self?.backToSplash()
+            case .failure(.unknown):
                 // TODO: エラーの見せ方
                 self?.showAlert(message: "読み込みに失敗しました", buttonTitle: "再読み込み") { [weak self] _ in
                     self?.fetchTempIDIfNotHave()
                 }
-            case .success:
-                // 成功ならBLEを開始する
-                self?.ble.turnOn()
             }
         }
         return true

@@ -44,7 +44,12 @@ final class TempIdService {
         return tempIDs.count != 0
     }
 
-    func fetchTempIDs(completion: @escaping (Result<[TempIdStruct], Error>) -> Void) {
+    enum FetchTempIDsError: Error {
+        case unauthorized
+        case unknown(Error?)
+    }
+
+    func fetchTempIDs(completion: @escaping (Result<[TempIdStruct], FetchTempIDsError>) -> Void) {
         tempIdAPI.getTempIDs { [weak self] result in
             switch result {
             case .success(let response):
@@ -53,10 +58,9 @@ final class TempIdService {
                 completion(.success(tempIds))
             case .failure(.error(let error)),
                  .failure(.statusCodeError(_, _, let error)):
-                completion(.failure(error ?? NSError(domain: "unknown error", code: 0, userInfo: nil)))
+                completion(.failure(.unknown(error)))
             case .failure(.authzError):
-                // TODO: 画面外からの呼び出しでログアウトするには？
-                completion(.failure(NSError(domain: "unauthorized error", code: 0, userInfo: nil)))
+                completion(.failure(.unauthorized))
             }
         }
     }

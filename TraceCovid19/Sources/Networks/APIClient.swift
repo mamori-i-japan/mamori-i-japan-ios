@@ -81,7 +81,6 @@ final class APIClient {
         return { result in
             print("[APIClient] \(String(describing: String(data: result.data ?? Data(), encoding: .utf8)))")
 
-
             let statusCode = result.response?.statusCode
 
             guard statusCode != 401 else {
