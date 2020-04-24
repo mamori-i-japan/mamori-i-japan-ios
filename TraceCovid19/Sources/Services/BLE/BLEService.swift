@@ -70,13 +70,33 @@ typealias CharacteristicDidUpdateValue = (Peripheral, Characteristic, Data?, Err
 typealias DidReadRSSI = (Peripheral, NSNumber, Error?) -> Void
 
 class Beacon {
-    static var shared: CLBeaconRegion {
-        // from `uuidgen`
-        let region = CLBeaconRegion(proximityUUID: UUID(uuidString: "896F239B-6906-44FC-A9E6-14B6E7A5CD17")!, identifier: "com.decurret.TraceCovid19JP.Beacon")
+    let uuids = ["D73D3920-1711-4F41-88D6-39BF383C4D7F", "0D712E02-7D43-4014-9404-2E6E13663B23", "8830D5FA-54C2-4D19-BD67-CA63C24BF751", "D66B66E2-8C9C-4BE5-90BC-6853F4C9869B", "D3E5EC73-3E45-4A6B-8159-CD32BD2F98EA", "BB109B2B-AF2E-49D3-B7FF-776F238C77EA"]
+    var index: Int = 0
+    static var shared = Beacon()
+
+    func all() -> [CLBeaconRegion] {
+        return uuids.map { str in region(uuid: UUID(uuidString: str)!) }
+    }
+
+    func next() -> CLBeaconRegion {
+        index = (index + 1) % uuids.count
+        return region(uuid: UUID(uuidString: uuids[index])!)
+    }
+
+    func region(uuid: UUID) -> CLBeaconRegion {
+        let region = CLBeaconRegion(proximityUUID: uuid, identifier: "com.decurret.TraceCovid19JP.Beacon")
         region.notifyOnEntry = true
         region.notifyOnExit = true
         region.notifyEntryStateOnDisplay = true
         return region
+    }
+
+    func index(for region: CLBeaconRegion) -> Int? {
+        if #available(iOS 13.0, *) {
+            return uuids.firstIndex(of: region.uuid.uuidString)
+        } else {
+            return uuids.firstIndex(of: region.proximityUUID.uuidString)
+        }
     }
 }
 
@@ -96,12 +116,33 @@ class BeaconReceiver: NSObject, CLLocationManagerDelegate {
             self.locationManager.stopMonitoring(for: $0)
         }
 
-        locationManager.startMonitoring(for: Beacon.shared)
-        locationManager.startUpdatingLocation()
+        Beacon.shared.all().forEach { beacon in
+            locationManager.startMonitoring(for: beacon)
+        }
+        // locationManager.startUpdatingLocation()
     }
 
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        log("enter region: \(region)")
+        guard let beacon = region as? CLBeaconRegion else {
+            return
+        }
+        let index = Beacon.shared.index(for: beacon) ?? -1
+        log("enter region: \(index)")
+
+        #if DEBUG
+        debugNotify(message: "enter region \(index)")
+        #endif
+    }
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        guard let beacon = region as? CLBeaconRegion else {
+            return
+        }
+        let index = Beacon.shared.index(for: beacon) ?? -1
+        log("exit region: \(index)")
+
+        #if DEBUG
+        debugNotify(message: "exit region \(index)")
+        #endif
     }
 }
 

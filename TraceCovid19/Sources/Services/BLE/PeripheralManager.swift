@@ -34,6 +34,8 @@ class PeripheralManager: NSObject {
     private let peripheralName: String
     private let services: [CBMutableService]
 
+    private var timer: Timer?
+
     init(peripheralName: String, queue: DispatchQueue, services: [CBMutableService]) {
         let options = [CBPeripheralManagerOptionRestoreIdentifierKey: "jp.mamori-i.app.PeripheralManager"]
         self.peripheralName = peripheralName
@@ -60,27 +62,34 @@ class PeripheralManager: NSObject {
     private func startAdvertising() {
         guard peripheralManager.state == .poweredOn else { return }
 
-        if peripheralManager.isAdvertising {
-            log("Already advertising")
-            return
-        }
-
         peripheralManager.removeAllServices()
 
-        services.forEach { service in
-            peripheralManager.add(service)
-        }
-        let uuids = services.map { service in service.uuid }
-        let advertisementData: [String: Any] = [
-            CBAdvertisementDataLocalNameKey: peripheralName,
-            CBAdvertisementDataServiceUUIDsKey: uuids
-        ]
+//        services.forEach { service in
+//            peripheralManager.add(service)
+//        }
+//        let uuids = services.map { service in service.uuid }
+//        let advertisementData: [String: Any] = [
+//            CBAdvertisementDataLocalNameKey: peripheralName,
+//            CBAdvertisementDataServiceUUIDsKey: uuids
+//        ]
 
-        let region = Beacon.shared
+        let region = Beacon.shared.next()
+        let index = Beacon.shared.index(for: region) ?? -1
         let advertisementData2 = region.peripheralData(withMeasuredPower: nil) as? [String: Any]
-        log("advertisementData2=\(advertisementData2)")
+        log("start advertising region \(index)")
 
         peripheralManager.startAdvertising(advertisementData2)
+        let refreshRate = 10.0
+        DispatchQueue.main.async { [weak self] in
+            self?.timer = Timer.scheduledTimer(withTimeInterval: refreshRate, repeats: false) { _ in
+                log("timer fired")
+                DispatchQueue.main.async {
+                    log("restarting advertising")
+                    self?.peripheralManager?.stopAdvertising()
+                    self?.startAdvertising()
+                }
+            }
+        }
     }
 
     private func stopAdvertising() {
