@@ -54,6 +54,9 @@ final class TempIdService {
             case .failure(.error(let error)),
                  .failure(.statusCodeError(_, _, let error)):
                 completion(.failure(error ?? NSError(domain: "unknown error", code: 0, userInfo: nil)))
+            case .failure(.authzError):
+                // TODO: 画面外からの呼び出しでログアウトするには？
+                completion(.failure(NSError(domain: "unauthorized error", code: 0, userInfo: nil)))
             }
         }
     }

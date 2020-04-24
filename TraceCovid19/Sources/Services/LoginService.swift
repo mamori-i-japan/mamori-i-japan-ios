@@ -80,8 +80,8 @@ final class LoginService {
                 // 非同期で、とりあえず投げておく（結果は見ない）
                 self?.forceRefreshToken(profile: profile)
                 completion(.success(()))
-
             case .failure(.error(let error)),
+                 .failure(.authzError), // ログインには認証エラーは返ってこないので汎用に丸める
                  .failure(.statusCodeError(_, _, let error)):
                 completion(.failure(.unknown(error ?? NSError(domain: "unknown", code: 0, userInfo: nil))))
             }

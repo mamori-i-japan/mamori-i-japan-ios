@@ -81,9 +81,15 @@ final class APIClient {
         return { result in
             print("[APIClient] \(String(describing: String(data: result.data ?? Data(), encoding: .utf8)))")
 
-            // TODO: ログアウトする判定どうする？
 
             let statusCode = result.response?.statusCode
+
+            guard statusCode != 401 else {
+                // 401の場合は認証エラー
+                completionHandler(.failure(.authzError))
+                return
+            }
+
             guard request.acceptableStatusCode.contains(statusCode ?? -1) else {
                 if let data = result.data {
                     let str = String(data: data, encoding: .utf8)

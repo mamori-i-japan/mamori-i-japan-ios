@@ -9,6 +9,7 @@ import Foundation
 
 enum APIRequestError: Error {
     case statusCodeError(statusCode: Int?, data: Data?, error: Error?)
+    case authzError
     case error(detail: Error?)
 }
 
