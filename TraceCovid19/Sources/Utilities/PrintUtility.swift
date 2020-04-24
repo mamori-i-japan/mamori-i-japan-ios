@@ -139,4 +139,6 @@ func log(_ vars: Any..., filename: String = #file, line: Int = #line, funcname: 
     let p = "\(isMain ? "M" : "?")#\(line) \(funcname)|" + vars.map { v in "\(v)" }.joined()
     let oslog = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: file)
     os_log("%{public}@", log: oslog, p)
+    // NOTE: デバッグメニューのログでもみれるようにprintにも流す
+    print(p)
 }
