@@ -281,7 +281,8 @@ extension SwinjectStoryboard {
 
         defaultContainer.register([SSLPinningCondition].self) { _ in
             // TODO: 環境
-            #if DEV
+            #if DEV || STG
+            // DevとStgは共通
             return [
                 SSLPinningCondition(
                     host: "api-dev.mamori-i.jp",
