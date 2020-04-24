@@ -32,6 +32,8 @@ class CentralManager: NSObject {
 
     private var didUpdateValue: CharacteristicDidUpdateValue!
     private var didReadRSSI: DidReadRSSI!
+    private var didDiscoverTxPower: DidDiscoverTxPower!
+
     var centralDidUpdateStateCallback: ((CBManagerState) -> Void)?
 
     init(queue: DispatchQueue, services: [Service]) {
@@ -99,6 +101,11 @@ class CentralManager: NSObject {
         return self
     }
 
+    func didDiscoverTxPower(_ callback: @escaping DidDiscoverTxPower) -> CentralManager {
+        didDiscoverTxPower = callback
+        return self
+    }
+
     func disconnect(_ peripheral: Peripheral) {
         centralManager.cancelPeripheralConnection(peripheral.peripheral)
     }
@@ -135,6 +142,13 @@ extension CentralManager: CBCentralManagerDelegate {
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
         log("peripheral=\(peripheral.shortId), rssi=\(RSSI)")
 
+        if let p = peripherals[peripheral.identifier] {
+            if let txPower = advertisementData[CBAdvertisementDataTxPowerLevelKey] as? Double {
+                didDiscoverTxPower(p, txPower)
+            }
+            didReadRSSI(p, RSSI, nil)
+        }
+
         // Android
         // iphones will "mask" the peripheral's identifier for android devices, resulting in the same android device being discovered multiple times with different peripheral identifier. Hence android is using CBAdvertisementDataServiceDataKey data for identifying an android pheripheral
         if let manuData = advertisementData[CBAdvertisementDataManufacturerDataKey] as? Data {
@@ -146,7 +160,6 @@ extension CentralManager: CBCentralManagerDelegate {
             androidIdentifiers.append(androidIdentifierData)
             addPeripheral(peripheral)
             central.connect(peripheral, options: nil)
-//                scannedPeripherals.updateValue((peripheral, TraceDataRecord(rssi: RSSI.doubleValue, txPower: advertisementData[CBAdvertisementDataTxPowerLevelKey] as? Double)), forKey: peripheral.identifier)
             return
         }
 
