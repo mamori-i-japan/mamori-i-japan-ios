@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreBluetooth
+import CoreLocation
 
 enum Service: String, CustomStringConvertible {
     // TODO currently from https://github.com/TCNCoalition/TCN
@@ -68,6 +69,42 @@ enum Command: CustomStringConvertible {
 typealias CharacteristicDidUpdateValue = (Peripheral, Characteristic, Data?, Error?) -> Void
 typealias DidReadRSSI = (Peripheral, NSNumber, Error?) -> Void
 
+class Beacon {
+    static var shared: CLBeaconRegion {
+        // from `uuidgen`
+        let region = CLBeaconRegion(proximityUUID: UUID(uuidString: "896F239B-6906-44FC-A9E6-14B6E7A5CD17")!, identifier: "com.decurret.TraceCovid19JP.Beacon")
+        region.notifyOnEntry = true
+        region.notifyOnExit = true
+        region.notifyEntryStateOnDisplay = true
+        return region
+    }
+}
+
+class BeaconReceiver: NSObject, CLLocationManagerDelegate {
+    var locationManager = CLLocationManager()
+
+    func start() {
+        if #available(iOS 11.0, *) {
+            locationManager.showsBackgroundLocationIndicator = false
+        }
+
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.monitoredRegions.forEach {
+            self.locationManager.stopMonitoring(for: $0)
+        }
+
+        locationManager.startMonitoring(for: Beacon.shared)
+        locationManager.startUpdatingLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        log("enter region: \(region)")
+    }
+}
+
 // BLEService holds all the business logic related to BLE.
 final class BLEService {
     private var peripheralManager: PeripheralManager?
@@ -76,6 +113,7 @@ final class BLEService {
     private var tempId: TempIdService!
     private var timerForScanning: Timer?
     private var traceData: [UUID: TraceDataRecord]!
+    private var beaconReceiver: BeaconReceiver?
 
     private let queue: DispatchQueue!
     var bluetoothDidUpdateStateCallback: ((CBManagerState) -> Void)?
@@ -91,6 +129,7 @@ final class BLEService {
         self.coreData = coreData
         self.tempId = tempId
         self.traceData = [:]
+        self.beaconReceiver = nil
     }
 
     func setupBluetooth() {
@@ -206,12 +245,15 @@ final class BLEService {
         setupBluetooth()
         peripheralManager?.turnOn()
         centralManager?.turnOn()
+        beaconReceiver = BeaconReceiver()
+        beaconReceiver?.start()
     }
 
     func turnOff() {
         peripheralManager?.turnOff()
         centralManager?.turnOff()
         timerForScanning?.invalidate()
+        // beaconReceiver.stop()
     }
 
     func isBluetoothAuthorized() -> Bool {

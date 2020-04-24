@@ -20,6 +20,7 @@
 
 import Foundation
 import CoreBluetooth
+import CoreLocation
 
 class PeripheralManager: NSObject {
     typealias OnRead = (CBCentral, Characteristic) -> (Data?)
@@ -74,7 +75,12 @@ class PeripheralManager: NSObject {
             CBAdvertisementDataLocalNameKey: peripheralName,
             CBAdvertisementDataServiceUUIDsKey: uuids
         ]
-        peripheralManager.startAdvertising(advertisementData)
+
+        let region = Beacon.shared
+        let advertisementData2 = region.peripheralData(withMeasuredPower: nil) as? [String: Any]
+        log("advertisementData2=\(advertisementData2)")
+
+        peripheralManager.startAdvertising(advertisementData2)
     }
 
     private func stopAdvertising() {
