@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol CodeInputViewDelegate: class {
     func didInput(code: String)
@@ -52,6 +53,9 @@ final class CodeInputView: UIView {
         stackView.distribution = .fillEqually
         stackView.spacing = 8.0
         addSubview(stackView)
+        stackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
 
         // テキストフィールドの実態は隠す
         textField.alpha = 0.0

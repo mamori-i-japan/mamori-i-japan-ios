@@ -16,19 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orZ-M0-oOc" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="359" width="343" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="7JH-1C-TT6"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iqF-eh-wRB" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                                <rect key="frame" x="16" y="152" width="343" height="44.666666666666657"/>
+                                <string key="text">連絡する保健所を定めるため
+お住いの都道府県のみ入力してください</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="next"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="tappedNextButton:" destination="lmi-Rv-2UM" eventType="touchUpInside" id="HT6-NT-PRg"/>
-                                </connections>
-                            </button>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxU-oe-ZHd" customClass="NoPerformActionTextField" customModule="TraceCovid19" customModuleProvider="target">
                                 <rect key="frame" x="16" y="267" width="343" height="60"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -49,34 +49,49 @@
                                     <constraint firstAttribute="height" constant="1" id="IPp-q6-pxT"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iqF-eh-wRB" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="152" width="343" height="44.666666666666657"/>
-                                <string key="text">連絡する保健所を定めるため
-お住いの都道府県のみ入力してください</string>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Umm-aI-Hl6">
+                                <rect key="frame" x="16" y="342" width="343" height="28.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="erroraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbfe" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHj-Xw-Ehm" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                                        <rect key="frame" x="0.33333333333334281" y="0.0" width="342.66666666666663" height="28.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" red="0.96470588239999999" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orZ-M0-oOc" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
+                                <rect key="frame" x="16" y="388.66666666666669" width="343" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="7JH-1C-TT6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="next"/>
                                 </userDefinedRuntimeAttributes>
-                            </label>
+                                <connections>
+                                    <action selector="tappedNextButton:" destination="lmi-Rv-2UM" eventType="touchUpInside" id="HT6-NT-PRg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="CEY-Do-0FW" firstAttribute="trailing" secondItem="iqF-eh-wRB" secondAttribute="trailing" constant="16" id="7LC-iW-Z89"/>
-                            <constraint firstItem="orZ-M0-oOc" firstAttribute="top" secondItem="CxU-oe-ZHd" secondAttribute="bottom" constant="32" id="Fh5-yX-0SI"/>
                             <constraint firstItem="CxU-oe-ZHd" firstAttribute="leading" secondItem="CEY-Do-0FW" secondAttribute="leading" constant="16" id="IdP-hG-kU5"/>
                             <constraint firstItem="dvF-6X-usE" firstAttribute="centerX" secondItem="CxU-oe-ZHd" secondAttribute="centerX" id="Nd6-45-yyy"/>
+                            <constraint firstItem="Umm-aI-Hl6" firstAttribute="top" secondItem="dvF-6X-usE" secondAttribute="bottom" constant="14" id="O27-F1-HY9"/>
                             <constraint firstItem="dvF-6X-usE" firstAttribute="width" secondItem="CxU-oe-ZHd" secondAttribute="width" id="QrI-7L-41q"/>
                             <constraint firstItem="CEY-Do-0FW" firstAttribute="trailing" secondItem="CxU-oe-ZHd" secondAttribute="trailing" constant="16" id="Vyg-Pd-f5g"/>
                             <constraint firstItem="orZ-M0-oOc" firstAttribute="leading" secondItem="CEY-Do-0FW" secondAttribute="leading" constant="16" id="Ydf-zj-ahZ"/>
                             <constraint firstItem="dvF-6X-usE" firstAttribute="top" secondItem="CxU-oe-ZHd" secondAttribute="bottom" id="ZMJ-1r-wGr"/>
+                            <constraint firstItem="Umm-aI-Hl6" firstAttribute="leading" secondItem="CEY-Do-0FW" secondAttribute="leading" constant="16" id="ZhS-sL-aSR"/>
+                            <constraint firstItem="orZ-M0-oOc" firstAttribute="top" secondItem="Umm-aI-Hl6" secondAttribute="bottom" constant="18" id="a4l-Iw-YjY"/>
                             <constraint firstItem="CEY-Do-0FW" firstAttribute="trailing" secondItem="orZ-M0-oOc" secondAttribute="trailing" constant="16" id="cfs-9w-pFW"/>
                             <constraint firstItem="iqF-eh-wRB" firstAttribute="top" secondItem="CEY-Do-0FW" secondAttribute="top" constant="64" id="daH-Gg-b4s"/>
                             <constraint firstItem="iqF-eh-wRB" firstAttribute="leading" secondItem="CEY-Do-0FW" secondAttribute="leading" constant="16" id="hR1-19-8F4"/>
                             <constraint firstItem="CxU-oe-ZHd" firstAttribute="top" secondItem="CEY-Do-0FW" secondAttribute="top" constant="179" id="huW-KE-PBV"/>
+                            <constraint firstItem="CEY-Do-0FW" firstAttribute="trailing" secondItem="Umm-aI-Hl6" secondAttribute="trailing" constant="16" id="pL1-lj-l1d"/>
+                            <constraint firstItem="CEY-Do-0FW" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="orZ-M0-oOc" secondAttribute="bottom" constant="8" id="url-fa-NBb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CEY-Do-0FW"/>
                     </view>
@@ -85,6 +100,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="errorLabel" destination="nHj-Xw-Ehm" id="Lgg-Lg-DxM"/>
                         <outlet property="nextButton" destination="orZ-M0-oOc" id="7Wh-mx-3Mq"/>
                         <outlet property="prefectureTextField" destination="CxU-oe-ZHd" id="B3m-kr-mYJ"/>
                     </connections>

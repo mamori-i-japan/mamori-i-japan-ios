@@ -10,6 +10,7 @@ import NVActivityIndicatorView
 
 final class InputPrefectureViewController: UIViewController, NVActivityIndicatorViewable, ProfileChangeable {
     @IBOutlet weak var prefectureTextField: UITextField!
+    @IBOutlet weak var errorLabel: BaseLabel!
     @IBOutlet weak var nextButton: ActionButton!
 
     var profileService: ProfileService!
@@ -35,6 +36,7 @@ final class InputPrefectureViewController: UIViewController, NVActivityIndicator
         }
 
         prefectureTextField.delegate = self
+        setupErrorText(text: nil)
         setupPickerView()
         setupKeyboardClose()
         setupKVO()
@@ -74,6 +76,16 @@ final class InputPrefectureViewController: UIViewController, NVActivityIndicator
                 }
             }
         )
+    }
+
+    private func setupErrorText(text: String?) {
+        if let text = text, !text.isEmpty {
+            errorLabel.text = text
+            errorLabel.isHidden = false
+        } else {
+            errorLabel.text = nil
+            errorLabel.isHidden = true
+        }
     }
 
     @IBAction func tappedNextButton(_ sender: Any) {

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9Y-UD-n8W" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="395" width="343" height="56"/>
+                                <rect key="frame" x="16" y="359" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="uze-uH-QMO"/>
                                 </constraints>
@@ -76,7 +76,7 @@
                             <constraint firstItem="LvV-La-nKK" firstAttribute="top" secondItem="lPb-68-SSA" secondAttribute="top" constant="64" id="HQ0-8q-x1N"/>
                             <constraint firstItem="lPb-68-SSA" firstAttribute="trailing" secondItem="LvV-La-nKK" secondAttribute="trailing" constant="16" id="LRy-eD-siS"/>
                             <constraint firstItem="hNZ-BS-5KM" firstAttribute="width" secondItem="Y59-T9-4Ul" secondAttribute="width" id="SDv-mB-YAu"/>
-                            <constraint firstItem="R9Y-UD-n8W" firstAttribute="top" secondItem="Y59-T9-4Ul" secondAttribute="bottom" constant="68" id="T3f-V1-Qic"/>
+                            <constraint firstItem="R9Y-UD-n8W" firstAttribute="top" secondItem="Y59-T9-4Ul" secondAttribute="bottom" constant="32" id="T3f-V1-Qic"/>
                             <constraint firstItem="Y59-T9-4Ul" firstAttribute="top" secondItem="lPb-68-SSA" secondAttribute="top" constant="179" id="YJ4-DO-4fH"/>
                             <constraint firstItem="LvV-La-nKK" firstAttribute="leading" secondItem="lPb-68-SSA" secondAttribute="leading" constant="16" id="ZZ7-S9-cjP"/>
                             <constraint firstItem="Y59-T9-4Ul" firstAttribute="leading" secondItem="lPb-68-SSA" secondAttribute="leading" constant="16" id="mmU-0j-SK1"/>

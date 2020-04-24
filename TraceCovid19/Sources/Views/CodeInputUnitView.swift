@@ -41,14 +41,9 @@ final class CodeInputUnitView: UIView, NibInstantiatable {
 
     func changeFocus(isCurrent: Bool) {
         if isCurrent {
-            underBarView.backgroundColor = .highlightedColor
+            underBarView.backgroundColor = .primary1
         } else {
-            underBarView.backgroundColor = .normalColor
+            underBarView.backgroundColor = .separator
         }
     }
-}
-
-private extension UIColor {
-    static var normalColor = { UIColor(hex: 0xE6E7EC) }()
-    static var highlightedColor = { UIColor(hex: 0x007AFF) }()
 }

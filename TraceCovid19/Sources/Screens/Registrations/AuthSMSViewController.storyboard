@@ -17,9 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="確認番号を入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udb-BZ-Stv">
-                                <rect key="frame" x="55" y="165" width="265" height="24"/>
+                                <rect key="frame" x="55" y="150" width="265" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNi-sC-LZ2" customClass="CodeInputView" customModule="TraceCovid19" customModuleProvider="target">
@@ -30,10 +30,14 @@
                                     <constraint firstAttribute="height" constant="48" id="xAK-WO-l3e"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-gT-zEB">
-                                <rect key="frame" x="22.666666666666657" y="325" width="330" height="14.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.96862745098039216" green="0.28235294117647058" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-gT-zEB" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                                <rect key="frame" x="22.666666666666657" y="325" width="330" height="54"/>
+                                <string key="text">error
+a
+b
+c</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" red="0.96470588235294119" green="0.28235294117647058" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72S-u2-4bO" customClass="BaseButton" customModule="TraceCovid19" customModuleProvider="target">
@@ -41,9 +45,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Sr0-Am-icg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal">
-                                    <color key="titleColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.5607843137254902" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="change_phone_number"/>
@@ -62,7 +66,7 @@
                             <constraint firstItem="72S-u2-4bO" firstAttribute="centerX" secondItem="hNi-sC-LZ2" secondAttribute="centerX" id="DpM-Lg-zV6"/>
                             <constraint firstItem="hNi-sC-LZ2" firstAttribute="centerX" secondItem="ESJ-h6-K1y" secondAttribute="centerX" id="Gyd-92-5Fm"/>
                             <constraint firstItem="72S-u2-4bO" firstAttribute="trailing" secondItem="hNi-sC-LZ2" secondAttribute="trailing" id="Rzy-Kz-2EP"/>
-                            <constraint firstItem="udb-BZ-Stv" firstAttribute="top" secondItem="ESJ-h6-K1y" secondAttribute="top" constant="77" id="UgC-bA-5hi"/>
+                            <constraint firstItem="udb-BZ-Stv" firstAttribute="top" secondItem="ESJ-h6-K1y" secondAttribute="top" constant="62" id="UgC-bA-5hi"/>
                             <constraint firstItem="72S-u2-4bO" firstAttribute="top" secondItem="hNi-sC-LZ2" secondAttribute="bottom" constant="85" id="WQP-gb-oa6"/>
                             <constraint firstItem="hNi-sC-LZ2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ESJ-h6-K1y" secondAttribute="leading" constant="16" id="bbr-nt-26R"/>
                             <constraint firstItem="3eD-gT-zEB" firstAttribute="top" secondItem="hNi-sC-LZ2" secondAttribute="bottom" constant="23" id="eQw-9u-Cfh"/>
