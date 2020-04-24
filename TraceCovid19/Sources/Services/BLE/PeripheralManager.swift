@@ -34,7 +34,7 @@ class PeripheralManager: NSObject {
     private let services: [CBMutableService]
 
     init(peripheralName: String, queue: DispatchQueue, services: [CBMutableService]) {
-        let options = [CBPeripheralManagerOptionRestoreIdentifierKey: "com.decurret.TraceCovid19JP.PeripheralManager"]
+        let options = [CBPeripheralManagerOptionRestoreIdentifierKey: "jp.mamori-i.app.PeripheralManager"]
         self.peripheralName = peripheralName
         self.services = services
         super.init()

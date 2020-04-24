@@ -17,7 +17,7 @@ default_platform(:ios)
 
 workspace="TraceCovid19.xcworkspace"
 target_name="TraceCovid19"
-team_id="P8U5TV4K87"
+team_id="HMSBNA6XJL"
 scheme="TraceCovid19"
 
 platform :ios do
@@ -27,7 +27,7 @@ platform :ios do
       configuration: "Dev",
       export_method: "development",
       code_sign_identity: "iPhone Developer",
-      provisioning: "App WC"
+      provisioning: "mamori-i WildCard Profile"
     )
   end
 
@@ -36,7 +36,7 @@ platform :ios do
       configuration: "Stg",
       export_method: "development",
       code_sign_identity: "iPhone Developer",
-      provisioning: "App WC"
+      provisioning: "mamori-i WildCard Profile"
     )
   end
 

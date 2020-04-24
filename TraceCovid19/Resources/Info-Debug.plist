@@ -23,7 +23,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.776506470916-3ttn6744j1hcqlj8bt10fs87lb5m3kq0</string>
+				<string>$(FIREBASE_CUSTOM_URL_SCHEME)</string>
 			</array>
 		</dict>
 	</array>
