@@ -36,7 +36,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="es9-cT-KLX" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="45" y="125.66666666666669" width="285" height="24"/>
+                                <rect key="frame" x="45" y="125.66666666666669" width="285.33333333333331" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="textLocalizedKey" value="tutorial3.main_description2"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OK8-6n-18g" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OK8-6n-18g" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
                                 <rect key="frame" x="16" y="618" width="343" height="42.333333333333371"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -74,19 +74,22 @@
                             <constraint firstItem="f1Y-hd-R42" firstAttribute="leading" secondItem="PjP-FX-ZXc" secondAttribute="leading" constant="16" id="1zI-8a-HqR"/>
                             <constraint firstItem="PjP-FX-ZXc" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="f1Y-hd-R42" secondAttribute="bottom" constant="8" id="4yY-Qv-vOg"/>
                             <constraint firstItem="PjP-FX-ZXc" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="es9-cT-KLX" secondAttribute="trailing" constant="40" id="7Yh-Sv-YpO"/>
+                            <constraint firstItem="Wrg-qz-bas" firstAttribute="top" secondItem="A2L-4R-YJj" secondAttribute="bottom" priority="250" constant="11" id="AvS-m7-O5t"/>
                             <constraint firstItem="es9-cT-KLX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PjP-FX-ZXc" secondAttribute="leading" constant="40" id="Bc8-Km-h2Q"/>
                             <constraint firstItem="Wrg-qz-bas" firstAttribute="centerX" secondItem="PjP-FX-ZXc" secondAttribute="centerX" id="Bic-5Z-aSv"/>
                             <constraint firstItem="f1Y-hd-R42" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OK8-6n-18g" secondAttribute="bottom" constant="8" id="CtN-CF-2I3"/>
-                            <constraint firstItem="Wrg-qz-bas" firstAttribute="centerY" secondItem="PjP-FX-ZXc" secondAttribute="centerY" constant="-18" id="Kg0-a2-k2B"/>
+                            <constraint firstItem="Wrg-qz-bas" firstAttribute="centerY" secondItem="PjP-FX-ZXc" secondAttribute="centerY" priority="749" constant="-18" id="Kg0-a2-k2B"/>
                             <constraint firstItem="PjP-FX-ZXc" firstAttribute="trailing" secondItem="f1Y-hd-R42" secondAttribute="trailing" constant="16" id="OQ6-ik-pck"/>
-                            <constraint firstItem="A2L-4R-YJj" firstAttribute="top" secondItem="es9-cT-KLX" secondAttribute="bottom" constant="11" id="OgO-KC-HB9"/>
-                            <constraint firstItem="Wrg-qz-bas" firstAttribute="top" secondItem="A2L-4R-YJj" secondAttribute="bottom" constant="11" id="Uuh-TQ-2tp"/>
+                            <constraint firstItem="A2L-4R-YJj" firstAttribute="top" secondItem="es9-cT-KLX" secondAttribute="bottom" priority="251" constant="11" id="OgO-KC-HB9"/>
+                            <constraint firstItem="A2L-4R-YJj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="es9-cT-KLX" secondAttribute="bottom" id="U9J-JQ-a2c"/>
+                            <constraint firstItem="Wrg-qz-bas" firstAttribute="top" relation="greaterThanOrEqual" secondItem="A2L-4R-YJj" secondAttribute="bottom" constant="-15" id="Uuh-TQ-2tp"/>
                             <constraint firstItem="es9-cT-KLX" firstAttribute="centerX" secondItem="A2L-4R-YJj" secondAttribute="centerX" id="XUN-fS-tqH"/>
                             <constraint firstItem="PjP-FX-ZXc" firstAttribute="bottom" secondItem="f1Y-hd-R42" secondAttribute="bottom" priority="250" constant="24" id="Xwk-cN-OI7"/>
                             <constraint firstItem="OK8-6n-18g" firstAttribute="top" secondItem="Wrg-qz-bas" secondAttribute="bottom" priority="750" constant="28" id="ZyT-R3-Zyk"/>
                             <constraint firstItem="A2L-4R-YJj" firstAttribute="trailing" secondItem="PjP-FX-ZXc" secondAttribute="trailing" constant="-16" id="aox-Hy-u8Q"/>
                             <constraint firstItem="Wrg-qz-bas" firstAttribute="width" secondItem="NxB-6Y-DSg" secondAttribute="width" id="aqu-KN-ntn"/>
                             <constraint firstItem="PjP-FX-ZXc" firstAttribute="leading" secondItem="A2L-4R-YJj" secondAttribute="leading" constant="-16" id="bv8-98-KmN"/>
+                            <constraint firstItem="es9-cT-KLX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PjP-FX-ZXc" secondAttribute="top" id="epa-JZ-CrL"/>
                             <constraint firstItem="OK8-6n-18g" firstAttribute="leading" secondItem="PjP-FX-ZXc" secondAttribute="leading" constant="16" id="kae-HK-2Wl"/>
                             <constraint firstItem="PjP-FX-ZXc" firstAttribute="trailing" secondItem="OK8-6n-18g" secondAttribute="trailing" constant="16" id="vcm-CH-Cgl"/>
                         </constraints>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class Agreement1ViewController: UIViewController {
+final class Agreement1ViewController: UIViewController, NavigationBarHiddenApplicapable {
     @IBAction func tappedNextButton(_ sender: Any) {
         gotoAgreement2()
     }

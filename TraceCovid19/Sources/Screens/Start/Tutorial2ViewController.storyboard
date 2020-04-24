@@ -47,7 +47,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="textLocalizedKey" value="tutorial2.main_description"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="C7T-7b-4ec" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="C7T-7b-4ec" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
                                 <rect key="frame" x="16" y="618" width="343" height="42.333333333333371"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -64,13 +64,15 @@
                         <constraints>
                             <constraint firstItem="cqm-Sf-ykc" firstAttribute="leading" secondItem="o83-eE-7EL" secondAttribute="leading" constant="16" id="0BM-MR-TSN"/>
                             <constraint firstItem="o83-eE-7EL" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cqm-Sf-ykc" secondAttribute="bottom" constant="8" id="6Ph-vX-wrf"/>
-                            <constraint firstItem="97V-C2-ZAb" firstAttribute="top" secondItem="fuf-iq-28P" secondAttribute="bottom" constant="20" id="DaE-8k-JDY"/>
+                            <constraint firstItem="97V-C2-ZAb" firstAttribute="top" secondItem="fuf-iq-28P" secondAttribute="bottom" priority="250" constant="20" id="DaE-8k-JDY"/>
                             <constraint firstItem="o83-eE-7EL" firstAttribute="trailing" secondItem="cqm-Sf-ykc" secondAttribute="trailing" constant="16" id="EY9-ge-fi0"/>
                             <constraint firstItem="o83-eE-7EL" firstAttribute="trailing" secondItem="C7T-7b-4ec" secondAttribute="trailing" constant="16" id="L7w-DP-tAf"/>
                             <constraint firstItem="fuf-iq-28P" firstAttribute="leading" secondItem="o83-eE-7EL" secondAttribute="leading" constant="16" id="Lcj-nT-yIU"/>
                             <constraint firstItem="cqm-Sf-ykc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="C7T-7b-4ec" secondAttribute="bottom" constant="8" id="Rc1-6g-fjw"/>
-                            <constraint firstItem="97V-C2-ZAb" firstAttribute="centerY" secondItem="o83-eE-7EL" secondAttribute="centerY" constant="-18" id="aP6-FX-dFx"/>
+                            <constraint firstItem="fuf-iq-28P" firstAttribute="top" relation="greaterThanOrEqual" secondItem="o83-eE-7EL" secondAttribute="top" id="Xhj-jr-gC8"/>
+                            <constraint firstItem="97V-C2-ZAb" firstAttribute="centerY" secondItem="o83-eE-7EL" secondAttribute="centerY" priority="749" constant="-18" id="aP6-FX-dFx"/>
                             <constraint firstItem="97V-C2-ZAb" firstAttribute="width" secondItem="12H-Vs-VSb" secondAttribute="width" id="d3d-eq-v5q"/>
+                            <constraint firstItem="97V-C2-ZAb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fuf-iq-28P" secondAttribute="bottom" id="esn-mA-JHc"/>
                             <constraint firstItem="o83-eE-7EL" firstAttribute="trailing" secondItem="fuf-iq-28P" secondAttribute="trailing" constant="16" id="fpZ-d5-qcj"/>
                             <constraint firstItem="o83-eE-7EL" firstAttribute="bottom" secondItem="cqm-Sf-ykc" secondAttribute="bottom" priority="250" constant="24" id="jmT-y8-BLL"/>
                             <constraint firstItem="C7T-7b-4ec" firstAttribute="leading" secondItem="o83-eE-7EL" secondAttribute="leading" constant="16" id="kk9-8y-Cfg"/>

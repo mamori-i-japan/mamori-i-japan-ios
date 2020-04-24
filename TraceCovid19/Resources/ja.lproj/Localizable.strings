@@ -29,6 +29,7 @@
 "tutorial3.main_description1" = "ご自身が陽性と判定された場合";
 "tutorial3.main_description2" = "あなたの行動データが追跡\n調査に役立てられます";
 "tutorial3.sub_description" = "行動データの共有は、保健所からの要請があり、ご本人の了承を得た場合に限ります。";
+"agreement1.main_description" = "以下の利用規約に同意した上で登録に進んでください";
 "home.header.contact_description" = "昨日の他のユーザーとの濃厚接触回数";
 "home.header.usual_message" = "一緒に日本を守ってくれて\nありがとうございます\n引き続き接触を控えましょう";
 "home.header.semi_usual_message" = "接触を減らすために\n周りに協力してもらえることは\nありませんか";

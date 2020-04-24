@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class Agreement2ViewController: UIViewController {
+final class Agreement2ViewController: UIViewController, NavigationBarHiddenApplicapable {
     @IBAction func tappedNextButton(_ sender: Any) {
         gotoInputPrefecture()
     }
