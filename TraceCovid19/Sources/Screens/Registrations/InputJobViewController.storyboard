@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDd-21-ATt" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="385" width="343" height="56"/>
+                                <rect key="frame" x="16" y="359" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="3XD-bc-Pht"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="next"/>
                                 </userDefinedRuntimeAttributes>
@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3bk-YR-kaD" customClass="NoPerformActionTextField" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="257" width="343" height="60"/>
+                                <rect key="frame" x="16" y="267" width="343" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="j8a-JB-Ehf"/>
                                 </constraints>
@@ -42,19 +42,24 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kjs-be-RnK">
-                                <rect key="frame" x="16" y="317" width="343" height="1"/>
+                                <rect key="frame" x="16" y="327" width="343" height="1"/>
                                 <color key="backgroundColor" white="0.02" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Oc4-FU-cZa"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phg-vg-kX2">
-                                <rect key="frame" x="16" y="147" width="343" height="38.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phg-vg-kX2" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                                <rect key="frame" x="16" y="152" width="343" height="44.666666666666657"/>
                                 <string key="text">あなたの職業を入力していください
 入力は任意です。</string>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -65,9 +70,9 @@
                             <constraint firstItem="phg-vg-kX2" firstAttribute="leading" secondItem="5fL-Ek-w2U" secondAttribute="leading" constant="16" id="4Km-QC-RdG"/>
                             <constraint firstItem="5fL-Ek-w2U" firstAttribute="trailing" secondItem="phg-vg-kX2" secondAttribute="trailing" constant="16" id="I3N-7h-XVF"/>
                             <constraint firstItem="Kjs-be-RnK" firstAttribute="centerX" secondItem="3bk-YR-kaD" secondAttribute="centerX" id="UdQ-hs-II7"/>
-                            <constraint firstItem="3bk-YR-kaD" firstAttribute="top" secondItem="5fL-Ek-w2U" secondAttribute="top" constant="169" id="Zz9-pD-uKC"/>
-                            <constraint firstItem="phg-vg-kX2" firstAttribute="top" secondItem="5fL-Ek-w2U" secondAttribute="top" constant="59" id="c6K-hn-Cpm"/>
-                            <constraint firstItem="aDd-21-ATt" firstAttribute="top" secondItem="3bk-YR-kaD" secondAttribute="bottom" constant="68" id="cqQ-lM-pJX"/>
+                            <constraint firstItem="phg-vg-kX2" firstAttribute="top" secondItem="5fL-Ek-w2U" secondAttribute="top" constant="64" id="c6K-hn-Cpm"/>
+                            <constraint firstItem="aDd-21-ATt" firstAttribute="top" secondItem="3bk-YR-kaD" secondAttribute="bottom" constant="32" id="cqQ-lM-pJX"/>
+                            <constraint firstItem="3bk-YR-kaD" firstAttribute="top" secondItem="5fL-Ek-w2U" secondAttribute="top" constant="179" id="i5f-GS-RZ2"/>
                             <constraint firstItem="3bk-YR-kaD" firstAttribute="leading" secondItem="5fL-Ek-w2U" secondAttribute="leading" constant="16" id="izI-xB-nz4"/>
                             <constraint firstItem="5fL-Ek-w2U" firstAttribute="trailing" secondItem="3bk-YR-kaD" secondAttribute="trailing" constant="16" id="rcq-sB-i7i"/>
                             <constraint firstItem="Kjs-be-RnK" firstAttribute="width" secondItem="3bk-YR-kaD" secondAttribute="width" id="tv1-Cv-oLI"/>

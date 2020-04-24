@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lmi-Rv-2UM">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -13,15 +13,15 @@
             <objects>
                 <viewController id="lmi-Rv-2UM" customClass="InputPrefectureViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pNk-SU-aeV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orZ-M0-oOc" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="385" width="382" height="56"/>
+                                <rect key="frame" x="16" y="359" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="7JH-1C-TT6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="next"/>
                                 </userDefinedRuntimeAttributes>
@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxU-oe-ZHd" customClass="NoPerformActionTextField" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="257" width="382" height="60"/>
+                                <rect key="frame" x="16" y="267" width="343" height="60"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="2nb-On-noa"/>
@@ -43,36 +43,40 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvF-6X-usE">
-                                <rect key="frame" x="16" y="317" width="382" height="1"/>
+                                <rect key="frame" x="16" y="327" width="343" height="1"/>
                                 <color key="backgroundColor" white="0.02" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="IPp-q6-pxT"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iqF-eh-wRB">
-                                <rect key="frame" x="16" y="147" width="382" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iqF-eh-wRB" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                                <rect key="frame" x="16" y="152" width="343" height="44.666666666666657"/>
                                 <string key="text">連絡する保健所を定めるため
 お住いの都道府県のみ入力してください</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="CEY-Do-0FW" firstAttribute="trailing" secondItem="iqF-eh-wRB" secondAttribute="trailing" constant="16" id="7LC-iW-Z89"/>
-                            <constraint firstItem="orZ-M0-oOc" firstAttribute="top" secondItem="CxU-oe-ZHd" secondAttribute="bottom" constant="68" id="Fh5-yX-0SI"/>
+                            <constraint firstItem="orZ-M0-oOc" firstAttribute="top" secondItem="CxU-oe-ZHd" secondAttribute="bottom" constant="32" id="Fh5-yX-0SI"/>
                             <constraint firstItem="CxU-oe-ZHd" firstAttribute="leading" secondItem="CEY-Do-0FW" secondAttribute="leading" constant="16" id="IdP-hG-kU5"/>
                             <constraint firstItem="dvF-6X-usE" firstAttribute="centerX" secondItem="CxU-oe-ZHd" secondAttribute="centerX" id="Nd6-45-yyy"/>
                             <constraint firstItem="dvF-6X-usE" firstAttribute="width" secondItem="CxU-oe-ZHd" secondAttribute="width" id="QrI-7L-41q"/>
-                            <constraint firstItem="CxU-oe-ZHd" firstAttribute="top" secondItem="iqF-eh-wRB" secondAttribute="bottom" constant="71" id="TD7-35-pzj"/>
                             <constraint firstItem="CEY-Do-0FW" firstAttribute="trailing" secondItem="CxU-oe-ZHd" secondAttribute="trailing" constant="16" id="Vyg-Pd-f5g"/>
                             <constraint firstItem="orZ-M0-oOc" firstAttribute="leading" secondItem="CEY-Do-0FW" secondAttribute="leading" constant="16" id="Ydf-zj-ahZ"/>
                             <constraint firstItem="dvF-6X-usE" firstAttribute="top" secondItem="CxU-oe-ZHd" secondAttribute="bottom" id="ZMJ-1r-wGr"/>
                             <constraint firstItem="CEY-Do-0FW" firstAttribute="trailing" secondItem="orZ-M0-oOc" secondAttribute="trailing" constant="16" id="cfs-9w-pFW"/>
-                            <constraint firstItem="iqF-eh-wRB" firstAttribute="top" secondItem="CEY-Do-0FW" secondAttribute="top" constant="59" id="daH-Gg-b4s"/>
+                            <constraint firstItem="iqF-eh-wRB" firstAttribute="top" secondItem="CEY-Do-0FW" secondAttribute="top" constant="64" id="daH-Gg-b4s"/>
                             <constraint firstItem="iqF-eh-wRB" firstAttribute="leading" secondItem="CEY-Do-0FW" secondAttribute="leading" constant="16" id="hR1-19-8F4"/>
-                            <constraint firstItem="CxU-oe-ZHd" firstAttribute="top" secondItem="CEY-Do-0FW" secondAttribute="top" constant="169" id="oLh-QP-9JR"/>
+                            <constraint firstItem="CxU-oe-ZHd" firstAttribute="top" secondItem="CEY-Do-0FW" secondAttribute="top" constant="179" id="huW-KE-PBV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CEY-Do-0FW"/>
                     </view>
