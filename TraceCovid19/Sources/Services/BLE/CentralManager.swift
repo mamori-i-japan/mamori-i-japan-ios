@@ -142,10 +142,14 @@ extension CentralManager: CBCentralManagerDelegate {
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
         log("peripheral=\(peripheral.shortId), rssi=\(RSSI)")
 
+        if let txPower = advertisementData[CBAdvertisementDataTxPowerLevelKey] as? Double {
+            // It seems iOS13.3.1 also sends TxPower, eg. 12. But iOS12.4.5 does not...
+            // and we can't "read" TxPower afterwards, so this is the time we should save it.
+            didDiscoverTxPower(peripheral.identifier, txPower)
+        }
         if let p = peripherals[peripheral.identifier] {
-            if let txPower = advertisementData[CBAdvertisementDataTxPowerLevelKey] as? Double {
-                didDiscoverTxPower(p, txPower)
-            }
+            // We read RSSI after connect, and didDiscover shouldn't be called again because of "CBCentralManagerScanOptionAllowDuplicatesKey: false",
+            // but still sometimes this is called, and since we know RSSI fluctuates, it's better to measure many times.
             didReadRSSI(p, RSSI, nil)
         }
 
@@ -162,8 +166,6 @@ extension CentralManager: CBCentralManagerDelegate {
             central.connect(peripheral, options: nil)
             return
         }
-
-//                scannedPeripherals.updateValue((peripheral, TraceDataRecord(rssi: RSSI.doubleValue, txPower: advertisementData[CBAdvertisementDataTxPowerLevelKey] as? Double)), forKey: peripheral.identifier)
 
         if peripherals[peripheral.identifier] != nil {
             log("iOS Peripheral \(peripheral.shortId) has been discovered already")

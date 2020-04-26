@@ -67,7 +67,7 @@ enum Command: CustomStringConvertible {
 
 typealias CharacteristicDidUpdateValue = (Peripheral, Characteristic, Data?, Error?) -> Void
 typealias DidReadRSSI = (Peripheral, NSNumber, Error?) -> Void
-typealias DidDiscoverTxPower = (Peripheral, Double) -> Void
+typealias DidDiscoverTxPower = (UUID, Double) -> Void
 
 // BLEService holds all the business logic related to BLE.
 final class BLEService {
@@ -143,10 +143,10 @@ final class BLEService {
 
         // Commands and callbacks should happen in this order
         _ = centralManager?
-            .didDiscoverTxPower { [unowned self] peripheral, txPower in
-                var record = self.traceData[peripheral.id] ?? TraceDataRecord()
+            .didDiscoverTxPower { [unowned self] uuid, txPower in
+                var record = self.traceData[uuid] ?? TraceDataRecord()
                 record.txPower = txPower
-                self.traceData[peripheral.id] = record
+                self.traceData[uuid] = record
             }
             .appendCommand(
                 command: .readRSSI
