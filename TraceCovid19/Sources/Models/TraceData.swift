@@ -39,6 +39,7 @@ extension String {
     var isValidTempId: Bool {
         return self != CoreDataService.Event.scanningStarted.rawValue
             && self != CoreDataService.Event.scanningStopped.rawValue
+            && self != CoreDataService.Event.scanningRestarted.rawValue
             && self != BluetraceConfig.initialMsg
     }
 }

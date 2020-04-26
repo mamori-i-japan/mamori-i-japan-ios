@@ -290,8 +290,7 @@ final class BLEService {
             DispatchQueue.main.async { [unowned self] in
                 self.timerForScanning = Timer.scheduledTimer(withTimeInterval: TimeInterval(BluetraceConfig.CentralScanInterval), repeats: true) { [weak self] _ in
                     log("Restarting a scan")
-                    self?.coreData.saveTraceDataWithCurrentTime(for: .scanningStopped)
-                    self?.coreData.saveTraceDataWithCurrentTime(for: .scanningStarted)
+                    self?.coreData.saveTraceDataWithCurrentTime(for: .scanningRestarted)
 
                     self?.queue.async {
                         self?.traceData = [:]

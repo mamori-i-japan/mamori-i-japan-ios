@@ -68,8 +68,12 @@ extension CoreDataService {
     }
 
     enum Event: String {
+        // Deprecated
         case scanningStarted = "Scanning started"
+        // Deprecated
         case scanningStopped = "Scanning stopped"
+
+        case scanningRestarted = "Scanning restarted"
     }
 
     func saveTraceDataWithCurrentTime(for event: Event) {
