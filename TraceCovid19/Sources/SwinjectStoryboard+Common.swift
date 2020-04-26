@@ -94,6 +94,10 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(TraceNotificationViewController.self) { _, _ in
         }
 
+        defaultContainer.storyboardInitCompleted(TraceHistoryViewController.self) { r, vc in
+            vc.deepContactCheck = r.resolve(DeepContactCheckService.self)
+        }
+
         #if DEBUG
         defaultContainer.storyboardInitCompleted(DebugViewController.self) { r, vc in
             vc.keychain = r.resolve(KeychainService.self)

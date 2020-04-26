@@ -18,6 +18,8 @@
 		F0031D42243462AC009F9643 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0031D3D243462AC009F9643 /* HomeViewController.storyboard */; };
 		F0031D43243462AC009F9643 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0031D3F243462AC009F9643 /* AppDelegate.swift */; };
 		F0031D4F243468F0009F9643 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0031D51243468F0009F9643 /* Localizable.strings */; };
+		F0156AA3245589AB006CB28F /* TraceHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0156AA2245589AB006CB28F /* TraceHistoryViewController.swift */; };
+		F0156AA5245589C4006CB28F /* TraceHistoryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0156AA4245589C4006CB28F /* TraceHistoryViewController.storyboard */; };
 		F01EA9042449C95D00B81DB6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F01EA9032449C95D00B81DB6 /* Alamofire */; };
 		F01EA9072449C97400B81DB6 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F01EA9062449C97400B81DB6 /* KeychainAccess */; };
 		F02356A92442EDCC001E72ED /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04759A5243592840091059F /* Swinject.framework */; };
@@ -207,6 +209,8 @@
 		F0031D522434695B009F9643 /* debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = debug.entitlements; sourceTree = "<group>"; };
 		F0031D54243469A6009F9643 /* release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = release.entitlements; sourceTree = "<group>"; };
 		F0156AA1245305B5006CB28F /* GoogleService-Info-Stg.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Stg.plist"; sourceTree = "<group>"; };
+		F0156AA2245589AB006CB28F /* TraceHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceHistoryViewController.swift; sourceTree = "<group>"; };
+		F0156AA4245589C4006CB28F /* TraceHistoryViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TraceHistoryViewController.storyboard; sourceTree = "<group>"; };
 		F02356842442E3B8001E72ED /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
 		F02356862442EB69001E72ED /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = Carthage/Build/iOS/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
 		F02356872442EB69001E72ED /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransport.framework; path = Carthage/Build/iOS/GoogleDataTransport.framework; sourceTree = "<group>"; };
@@ -701,6 +705,8 @@
 			children = (
 				F0A282BA243EC826008390AE /* TraceDataUploadViewController.storyboard */,
 				F0A282B8243EC812008390AE /* TraceDataUploadViewController.swift */,
+				F0156AA4245589C4006CB28F /* TraceHistoryViewController.storyboard */,
+				F0156AA2245589AB006CB28F /* TraceHistoryViewController.swift */,
 				F0A282BD243EC913008390AE /* TraceNotificationViewController.storyboard */,
 				F0A282BF243EC957008390AE /* TraceNotificationViewController.swift */,
 			);
@@ -916,6 +922,7 @@
 				F0A283112441755B008390AE /* Agreement2ViewController.storyboard in Resources */,
 				F0A282FC24416BE2008390AE /* Tutorial2ViewController.storyboard in Resources */,
 				F051ADC8244980A1007278A0 /* InputJobViewController.storyboard in Resources */,
+				F0156AA5245589C4006CB28F /* TraceHistoryViewController.storyboard in Resources */,
 				F0A282C4243EC9CF008390AE /* MenuViewController.storyboard in Resources */,
 				F051AD9E2447769B007278A0 /* Debug2ViewController.storyboard in Resources */,
 				F0A282C7243ECA55008390AE /* AboutViewController.storyboard in Resources */,
@@ -1094,6 +1101,7 @@
 				F0A282CF243ED0C5008390AE /* KeyboardCloseProtocol.swift in Sources */,
 				F0A2831B24418AAD008390AE /* PrefectureModel.swift in Sources */,
 				F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */,
+				F0156AA3245589AB006CB28F /* TraceHistoryViewController.swift in Sources */,
 				F02356C02442F83E001E72ED /* TraceDataRecord.swift in Sources */,
 				F096D5CA24506CEC00F7919B /* String+SHA256.swift in Sources */,
 				F04759B624359AC20091059F /* UIViewController+Instantiate.swift in Sources */,

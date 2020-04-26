@@ -155,8 +155,8 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         case .attension(let latestContactUser):
             headerImageView.image = Asset.homeAttensionHeader.image
             let header = HomeAttensionHeaderView(frame: headerBaseView.frame)
-            header.set(positiveContactUser: latestContactUser) {
-                print("TODO: 詳細表示")
+            header.set(positiveContactUser: latestContactUser) { [weak self] in
+                self?.gotoHistory()
             }
             headerBaseView.addSubview(header)
             header.snp.makeConstraints { make in
@@ -216,6 +216,10 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         let navigationController = CustomNavigationController(rootViewController: TraceDataUploadViewController.instantiate())
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true, completion: nil)
+    }
+
+    func gotoHistory() {
+        navigationController?.pushViewController(TraceHistoryViewController.instantiate(), animated: true)
     }
 
     #if DEBUG

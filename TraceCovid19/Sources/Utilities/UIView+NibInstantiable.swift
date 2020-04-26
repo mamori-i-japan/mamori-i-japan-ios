@@ -28,3 +28,12 @@ extension NibInstantiatable where Self: UIView {
         return UINib(nibName: nibName, bundle: nibBundle).instantiate(withOwner: nibOwner, options: nibOptions)[instantiateIndex] as? UIView
     }
 }
+
+extension UITableView {
+    func dequeue<T: NibInstantiatable & NSObject>(indexPath: IndexPath) -> T {
+        guard let cell = dequeueReusableCell(withIdentifier: T.className, for: indexPath) as? T else {
+            fatalError("\(self)のDequeに失敗")
+        }
+        return cell
+    }
+}
