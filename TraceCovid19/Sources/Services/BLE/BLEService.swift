@@ -8,6 +8,8 @@
 import UIKit
 import CoreBluetooth
 
+let traceDataRecordThrottleInterval: TimeInterval = 30
+
 enum Service: String, CustomStringConvertible {
     // TODO currently from https://github.com/TCNCoalition/TCN
     case trace = "0000C019-0000-1000-8000-00805F9B34FB"
@@ -76,6 +78,8 @@ final class BLEService {
     private var coreData: CoreDataService!
     private var tempId: TempIdService!
     private var timerForScanning: Timer?
+
+    // Access traceData from the queue only, except in init, otherwise race can happen
     private var traceData: [UUID: TraceDataRecord]!
 
     private let queue: DispatchQueue!
@@ -123,7 +127,7 @@ final class BLEService {
                 }
             }
             // Central is trying to write into us
-            .onWrite { [unowned self] _, ch, data in
+            .onWrite { [unowned self] central, ch, data in
                 switch ch {
                 case .contact:
                     guard let writeData = WriteData(from: data) else {
@@ -131,7 +135,12 @@ final class BLEService {
                         log("failed to deserialize data=\(String(describing: str))")
                         return false
                     }
-                    self.coreData.save(traceDataRecord: TraceDataRecord(from: writeData))
+                    let record = TraceDataRecord(from: writeData)
+                    if self.shouldSave(record: record, about: central.identifier) {
+                        log("save: \(record.tempId ?? "nil")")
+                        self.coreData.save(traceDataRecord: record)
+                        self.traceData[central.identifier] = record
+                    }
 
                     #if DEBUG
                     debugNotify(message: "written=\(writeData.i)")
@@ -171,7 +180,6 @@ final class BLEService {
                         return nil
                     }
 
-                    // TODO txPower
                     let writeData = WriteData(RSSI: record.rssi ?? 0, tempID: userId.tempId)
                     return writeData.data
                 })
@@ -194,10 +202,12 @@ final class BLEService {
                 var record = self.traceData[peripheral.id] ?? TraceDataRecord()
                 record.tempId = readData.i
                 record.timestamp = Date()
-                self.traceData[peripheral.id] = record
 
-                log("save: \(record.tempId ?? "nil")")
-                self.coreData.save(traceDataRecord: record)
+                if self.shouldSave(record: record, about: peripheral.id) {
+                    log("save: \(record.tempId ?? "nil")")
+                    self.coreData.save(traceDataRecord: record)
+                    self.traceData[peripheral.id] = record
+                }
 
                 #if DEBUG
                 debugNotify(message: "read=\(readData.i)")
@@ -220,6 +230,26 @@ final class BLEService {
         peripheralManager?.turnOff()
         centralManager?.turnOff()
         timerForScanning?.invalidate()
+    }
+
+    // shouldSave throttles the records and saves a new record only after 30seconds has passed since the last record from the same peer, identified by the UUID.
+    // Caller should update the timestamp only when shouldSave returns true.
+    // record parameter should include a non nil timestamp.
+    func shouldSave(record: TraceDataRecord, about peerUUID: UUID) -> Bool {
+        guard let lastRecord = traceData[peerUUID] else {
+            return true
+        }
+        guard lastRecord.timestamp != nil else {
+            return true
+        }
+        guard record.timestamp != nil else {
+            // warning, a record without a timestamp will not be saved.
+            return false
+        }
+        if record.timestamp!.timeIntervalSince(lastRecord.timestamp!) > traceDataRecordThrottleInterval {
+            return true
+        }
+        return false
     }
 
     func isBluetoothAuthorized() -> Bool {
@@ -263,7 +293,9 @@ final class BLEService {
                     self?.coreData.saveTraceDataWithCurrentTime(for: .scanningStopped)
                     self?.coreData.saveTraceDataWithCurrentTime(for: .scanningStarted)
 
-                    self?.traceData = [:]
+                    self?.queue.async {
+                        self?.traceData = [:]
+                    }
                     self?.centralManager?.restartScan()
                 }
                 self.timerForScanning?.fire()
