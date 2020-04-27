@@ -97,8 +97,8 @@ final class DebugViewController: UIViewController {
 
     @objc
     func refreshData() {
-        keepContactTextField.text = String(Int(deepContactCheck.deepContactSequenceDudation))
-        deepContactJudgedTextField.text = String(Int(deepContactCheck.deepContactJudgedDudation))
+        keepContactTextField.text = String(Int(deepContactCheck.deepContactSequenceDuration))
+        deepContactJudgedTextField.text = String(Int(deepContactCheck.deepContactJudgedDuration))
         DispatchQueue.global(qos: .userInitiated).async {
             // CoreData直接参照について、処理が重いので別スレッドで反映
             self.traceData = self.coreData.getTraceDataList().filter { $0.isValidConnection }
@@ -120,10 +120,10 @@ final class DebugViewController: UIViewController {
         if keepContactTextField.isFirstResponder || deepContactJudgedTextField.isFirstResponder {
             view.endEditing(true)
             if let duration = TimeInterval(deepContactJudgedTextField.text ?? "") {
-                deepContactCheck.setDeepContactJudgedDudation(duration)
+                deepContactCheck.setDeepContactJudgedDuration(duration)
             }
             if let duration = TimeInterval(keepContactTextField.text ?? "") {
-                deepContactCheck.setDeepContactSequenceDudation(duration)
+                deepContactCheck.setDeepContactSequenceDuration(duration)
             }
             refreshData()
         }
