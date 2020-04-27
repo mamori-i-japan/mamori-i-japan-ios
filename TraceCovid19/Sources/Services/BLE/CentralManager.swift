@@ -20,15 +20,26 @@
 
 import Foundation
 import CoreBluetooth
+import UIKit
+
+// Magic number to keep the apps talking in background for a long time
+let longSessionBackgroundTaskInterval: TimeInterval = 15
 
 class CentralManager: NSObject {
     private var started: Bool = false
     private var centralManager: CBCentralManager!
+    private var queue: DispatchQueue
     private let services: [Service]
     private var commands: [Command] = []
 
     private var peripherals: [UUID: Peripheral] = [:]
     private var androidIdentifiers: [Data] = []
+
+    struct LongSession {
+        var backgroundTask: UIBackgroundTaskIdentifier
+        weak var timer: Timer? // RunLoop retains the timer
+    }
+    private var longSessions: [CBPeripheral: LongSession] = [:]
 
     private var didUpdateValue: CharacteristicDidUpdateValue!
     private var didReadRSSI: DidReadRSSI!
@@ -38,6 +49,7 @@ class CentralManager: NSObject {
 
     init(queue: DispatchQueue, services: [Service]) {
         self.services = services
+        self.queue = queue
         super.init()
         let options = [
             // CBCentralManagerOptionShowPowerAlertKey: 1,
@@ -110,8 +122,14 @@ class CentralManager: NSObject {
         centralManager.cancelPeripheralConnection(peripheral.peripheral)
     }
 
+    func disconnectAllPeripherals() {
+        peripherals.forEach { _, peripheral in
+            centralManager.cancelPeripheralConnection(peripheral.peripheral)
+        }
+    }
+
     func addPeripheral(_ peripheral: CBPeripheral) {
-        let p = Peripheral(peripheral: peripheral, services: services, commands: commands, didUpdateValue: didUpdateValue, didReadRSSI: didReadRSSI)
+        let p = Peripheral(peripheral: peripheral, queue: queue, services: services, commands: commands, didUpdateValue: didUpdateValue, didReadRSSI: didReadRSSI)
         peripherals[peripheral.identifier] = p
     }
 }
@@ -137,6 +155,8 @@ extension CentralManager: CBCentralManagerDelegate {
     public func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         log("peripheral=\(peripheral.shortId), error=\(String(describing: error))")
         peripherals.removeValue(forKey: peripheral.identifier)
+
+        startLongSession(peripheral)
     }
 
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
@@ -177,6 +197,8 @@ extension CentralManager: CBCentralManagerDelegate {
 
     public func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         log("peripheral=\(peripheral.shortId), error=\(String(describing: error))")
+
+        endLongSession(peripheral)
     }
 
     func centralManager(_ central: CBCentralManager, willRestoreState dict: [String: Any]) {
@@ -188,5 +210,38 @@ extension CentralManager: CBCentralManagerDelegate {
 //                addPeripheral(peripheral)
 //            }
 //        }
+    }
+}
+
+extension CentralManager {
+    private func startLongSession(_ peripheral: CBPeripheral) {
+        let backgroundTask = UIApplication.shared.beginBackgroundTask(withName: "CentralManager-\(peripheral.identifier)") { [weak self] in
+            log("background task[peripheral=\(peripheral.shortId)] expired")
+            self?.queue.async {
+                self?.centralManager?.cancelPeripheralConnection(peripheral)
+            }
+        }
+        let timer = Timer(timeInterval: longSessionBackgroundTaskInterval, repeats: false) { [weak self] _ in
+            log("timer fired for peripheral=\(peripheral.shortId), connecting again")
+            self?.queue.async {
+                self?.endLongSession(peripheral)
+                self?.addPeripheral(peripheral)
+                self?.centralManager.connect(peripheral, options: nil)
+            }
+        }
+        DispatchQueue.main.async {
+            log("begin background task[peripheral=\(peripheral.shortId)] time remaining=\(UIApplication.shared.backgroundTimeRemaining)")
+            RunLoop.current.add(timer, forMode: .common)
+        }
+        longSessions[peripheral] = LongSession(backgroundTask: backgroundTask, timer: timer)
+    }
+
+    private func endLongSession(_ peripheral: CBPeripheral) {
+        if let longConnection = longSessions.removeValue(forKey: peripheral) {
+            UIApplication.shared.endBackgroundTask(longConnection.backgroundTask)
+            DispatchQueue.main.async {
+                longConnection.timer?.invalidate()
+            }
+        }
     }
 }

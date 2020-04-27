@@ -25,11 +25,14 @@ let PeripheralCharactersticUserInfoKey = "PeripheralCharactersticUserInfoKey"
 
 class Peripheral: NSObject {
     let peripheral: CBPeripheral!
+
+    private var queue: DispatchQueue
     private let services: [Service]
     private var commands: [Command]
     private var currentCommand: Command?
     private var didUpdateValue: CharacteristicDidUpdateValue?
     private var didReadRSSI: DidReadRSSI?
+    private var timer: Timer?
 
     var id: UUID {
         return peripheral.identifier
@@ -38,8 +41,9 @@ class Peripheral: NSObject {
         return peripheral.shortId
     }
 
-    init(peripheral: CBPeripheral, services: [Service], commands: [Command], didUpdateValue: CharacteristicDidUpdateValue?, didReadRSSI: DidReadRSSI?) {
+    init(peripheral: CBPeripheral, queue: DispatchQueue, services: [Service], commands: [Command], didUpdateValue: CharacteristicDidUpdateValue?, didReadRSSI: DidReadRSSI?) {
         self.peripheral = peripheral
+        self.queue = queue
         self.commands = commands
         self.services = services
         self.didUpdateValue = didUpdateValue
@@ -77,7 +81,28 @@ class Peripheral: NSObject {
             nextCommand()
         case .readRSSI:
             peripheral.readRSSI()
+        case .scheduleCommands(let newCommands, let withTimeInterval, let repeatCount):
+            if repeatCount == 0 {
+                // Schedule finished
+                nextCommand()
+                return
+            }
+            timer = Timer(timeInterval: withTimeInterval, repeats: false) { [weak self] _ in
+                self?.queue.async {
+                    // Scheduled commands get executed first,
+                    var nextCommands = newCommands
+                    // and then continue the schedule,
+                    nextCommands.append(.scheduleCommands(commands: newCommands, withTimeInterval: withTimeInterval, repeatCount: repeatCount - 1))
+                    // and then continue the rest.
+                    nextCommands.append(contentsOf: self?.commands ?? [])
+                    self?.commands = nextCommands
+                    self?.nextCommand()
+                }
+            }
+            RunLoop.current.add(timer!, forMode: .common)
+
         case .cancel(let callback):
+            timer?.invalidate()
             callback(self)
         }
     }

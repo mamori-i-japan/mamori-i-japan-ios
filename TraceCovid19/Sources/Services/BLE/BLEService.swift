@@ -48,10 +48,11 @@ enum Characteristic: String, CustomStringConvertible {
     }
 }
 
-enum Command: CustomStringConvertible {
+indirect enum Command: CustomStringConvertible {
     case read(from: Characteristic)
     case write(to: Characteristic, value: (Peripheral) -> (Data?))
     case readRSSI
+    case scheduleCommands(commands: [Command], withTimeInterval: TimeInterval, repeatCount: Int)
     case cancel(callback: (Peripheral) -> Void)
     var description: String {
         switch self {
@@ -61,6 +62,8 @@ enum Command: CustomStringConvertible {
             return "write"
         case .readRSSI:
             return "readRSSI"
+        case .scheduleCommands:
+            return "schedule"
         case .cancel:
             return "cancel"
         }
@@ -77,12 +80,12 @@ final class BLEService {
     private var centralManager: CentralManager?
     private var coreData: CoreDataService!
     private var tempId: TempIdService!
-    private var timerForScanning: Timer?
 
     // Access traceData from the queue only, except in init, otherwise race can happen
     private var traceData: [UUID: TraceDataRecord]!
 
     private let queue: DispatchQueue!
+    private var backgroundTaskId: UIBackgroundTaskIdentifier?
     var bluetoothDidUpdateStateCallback: ((CBManagerState) -> Void)?
 
     init(
@@ -140,15 +143,25 @@ final class BLEService {
                         log("save: \(record.tempId ?? "nil")")
                         self.coreData.save(traceDataRecord: record)
                         self.traceData[central.identifier] = record
+
+                        #if DEBUG
+                        debugNotify(message: "written=\(writeData.i)")
+                        #endif
+                    } else {
+                        log("not saving now")
                     }
-
-                    #if DEBUG
-                    debugNotify(message: "written=\(writeData.i)")
-                    #endif
-
                     return true
                 }
             }
+
+        let writeCommand: Command = .write(to: .contact, value: { [unowned self] peripheral in
+            let record = self.traceData[peripheral.id] ?? TraceDataRecord()
+            guard let userId = self.tempId.currentTempId ?? self.tempId.latestTempId else {
+                return nil
+            }
+            let writeData = WriteData(RSSI: record.rssi ?? 0, tempID: userId.tempId)
+            return writeData.data
+        })
 
         // Commands and callbacks should happen in this order
         _ = centralManager?
@@ -174,15 +187,7 @@ final class BLEService {
                 }
             }
             .appendCommand(
-                command: .write(to: .contact, value: { [unowned self] peripheral in
-                    let record = self.traceData[peripheral.id] ?? TraceDataRecord()
-                    guard let userId = self.tempId.currentTempId ?? self.tempId.latestTempId else {
-                        return nil
-                    }
-
-                    let writeData = WriteData(RSSI: record.rssi ?? 0, tempID: userId.tempId)
-                    return writeData.data
-                })
+                command: writeCommand
             )
             .appendCommand(
                 command: .read(from: .contact)
@@ -207,11 +212,13 @@ final class BLEService {
                     log("save: \(record.tempId ?? "nil")")
                     self.coreData.save(traceDataRecord: record)
                     self.traceData[peripheral.id] = record
-                }
 
-                #if DEBUG
-                debugNotify(message: "read=\(readData.i)")
-                #endif
+                    #if DEBUG
+                    debugNotify(message: "read=\(readData.i)")
+                    #endif
+                } else {
+                    log("not saving now")
+                }
             }
             .appendCommand(
                 command: .cancel(callback: { [unowned self] peripheral in
@@ -229,7 +236,6 @@ final class BLEService {
     func turnOff() {
         peripheralManager?.turnOff()
         centralManager?.turnOff()
-        timerForScanning?.invalidate()
     }
 
     // shouldSave throttles the records and saves a new record only after 30seconds has passed since the last record from the same peer, identified by the UUID.
@@ -285,23 +291,6 @@ final class BLEService {
 
     func centralDidUpdateStateCallback(_ state: CBManagerState) {
         bluetoothDidUpdateStateCallback?(state)
-        switch state {
-        case .poweredOn:
-            DispatchQueue.main.async { [unowned self] in
-                self.timerForScanning = Timer.scheduledTimer(withTimeInterval: TimeInterval(BluetraceConfig.CentralScanInterval), repeats: true) { [weak self] _ in
-                    log("Restarting a scan")
-                    self?.coreData.saveTraceDataWithCurrentTime(for: .scanningRestarted)
-
-                    self?.queue.async {
-                        self?.traceData = [:]
-                    }
-                    self?.centralManager?.restartScan()
-                }
-                self.timerForScanning?.fire()
-            }
-        default:
-            timerForScanning?.invalidate()
-        }
     }
 }
 
