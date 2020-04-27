@@ -27,7 +27,7 @@ platform :ios do
       configuration: "Dev",
       export_method: "development",
       code_sign_identity: "iPhone Developer",
-      provisioning: "mamori-i WildCard Profile"
+      provisioning: "mamori-i wild card profile"
     )
   end
 
@@ -36,7 +36,7 @@ platform :ios do
       configuration: "Stg",
       export_method: "development",
       code_sign_identity: "iPhone Developer",
-      provisioning: "mamori-i WildCard Profile"
+      provisioning: "mamori-i wild card profile"
     )
   end
 
