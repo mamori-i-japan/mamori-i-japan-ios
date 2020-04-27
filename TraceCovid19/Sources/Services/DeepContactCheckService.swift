@@ -10,8 +10,8 @@ import Foundation
 final class DeepContactCheckService {
     private let coreData: CoreDataService
 
-    private(set) var deepContactSequenceDudation: TimeInterval = 60 * 3 // 3分間以内=>連続データ
-    private(set) var deepContactJudgedDudation: TimeInterval = 60 * 30 // 30分間継続=>濃厚接触
+    private(set) var deepContactSequenceDuration: TimeInterval = 60 * 3 // 3分間以内=>連続データ
+    private(set) var deepContactJudgedDuration: TimeInterval = 60 * 30 // 30分間継続=>濃厚接触
 
     private var isChecking: Bool = false
 
@@ -76,7 +76,7 @@ final class DeepContactCheckService {
         guard traceData.count >= 2 else { return }
         // NOTE: インデックスが0の方が新しい
         // 直近の閾値以内かどうか
-        guard Date().timeIntervalSince1970 - traceData.first!.timestamp!.timeIntervalSince1970 > deepContactSequenceDudation else {
+        guard Date().timeIntervalSince1970 - traceData.first!.timestamp!.timeIntervalSince1970 > deepContactSequenceDuration else {
             // まだ動いているとみなす
             return
         }
@@ -95,7 +95,7 @@ final class DeepContactCheckService {
         tempTraceDataList[tempID] = []
 
         (index..<traceData.count - 1).forEach { index in
-            if traceData[index].timestamp!.timeIntervalSince1970 - traceData[index + 1].timestamp!.timeIntervalSince1970 > deepContactSequenceDudation {
+            if traceData[index].timestamp!.timeIntervalSince1970 - traceData[index + 1].timestamp!.timeIntervalSince1970 > deepContactSequenceDuration {
                 // 閾値外だったらそれまでの配列を退避させる
                 tempTraceDataList[tempID]?.append(tempRecord)
                 tempRecord.removeAll()
@@ -120,7 +120,7 @@ final class DeepContactCheckService {
                 // 最新と最古の時間をチェック
                 let startTime = traceData.last!.timestamp!
                 let endTime = traceData.first!.timestamp!
-                if endTime.timeIntervalSince1970 - startTime.timeIntervalSince1970 > deepContactJudgedDudation {
+                if endTime.timeIntervalSince1970 - startTime.timeIntervalSince1970 > deepContactJudgedDuration {
                     // 濃厚接触とみなす
                     coreData.saveAsDeepContactUser(tempId: tempID, traceData: traceData)
                     // 該当したデータはCoreDataから削除
@@ -133,12 +133,12 @@ final class DeepContactCheckService {
 
 #if DEBUG
 extension DeepContactCheckService {
-    func setDeepContactSequenceDudation(_ duration: TimeInterval) {
-        deepContactSequenceDudation = duration
+    func setDeepContactSequenceDuration(_ duration: TimeInterval) {
+        deepContactSequenceDuration = duration
     }
 
-    func setDeepContactJudgedDudation(_ duration: TimeInterval) {
-        deepContactJudgedDudation = duration
+    func setDeepContactJudgedDuration(_ duration: TimeInterval) {
+        deepContactJudgedDuration = duration
     }
 }
 #endif
