@@ -1293,7 +1293,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.mamori-i.app";
 				PRODUCT_NAME = "まもりあい";
-				PROVISIONING_PROFILE_SPECIFIER = "mamori-i WildCard Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "mamori-i wild card profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1438,7 +1438,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.mamori-i.app";
 				PRODUCT_NAME = "まもりあい";
-				PROVISIONING_PROFILE_SPECIFIER = "mamori-i WildCard Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "mamori-i wild card profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1465,7 +1465,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.mamori-i.app";
 				PRODUCT_NAME = "まもりあい";
-				PROVISIONING_PROFILE_SPECIFIER = "mamori-i WildCard Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "mamori-i wild card profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
