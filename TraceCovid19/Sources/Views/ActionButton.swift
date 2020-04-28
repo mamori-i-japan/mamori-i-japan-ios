@@ -22,7 +22,7 @@ class ActionButton: BaseButton {
     }
 
     func initialize() {
-        layer.cornerRadius = 8.0
+        layer.cornerRadius = bounds.height / 2.0
         clipsToBounds = true
 
         setBackgroundImage(UIColor.primary1.toImage, for: .normal)

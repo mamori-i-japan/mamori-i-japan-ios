@@ -11,15 +11,15 @@
         <!--都道府県入力-->
         <scene sceneID="MME-NH-2RS">
             <objects>
-                <viewController id="lmi-Rv-2UM" customClass="InputPrefectureViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lmi-Rv-2UM" customClass="InputPrefectureViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pNk-SU-aeV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iqF-eh-wRB" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="152" width="343" height="44.666666666666657"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iqF-eh-wRB" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                <rect key="frame" x="16" y="152" width="343" height="40.666666666666657"/>
                                 <string key="text">連絡する保健所を定めるため
-お住いの都道府県のみ入力してください</string>
+お住いの都道府県を選択してください</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -29,7 +29,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxU-oe-ZHd" customClass="NoPerformActionTextField" customModule="TraceCovid19" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxU-oe-ZHd" customClass="NoPerformActionTextField" customModule="まもりあい" customModuleProvider="target">
                                 <rect key="frame" x="16" y="267" width="343" height="60"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -52,7 +52,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Umm-aI-Hl6">
                                 <rect key="frame" x="16" y="342" width="343" height="28.666666666666686"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="erroraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbfe" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHj-Xw-Ehm" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="erroraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbfe" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHj-Xw-Ehm" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
                                         <rect key="frame" x="0.33333333333334281" y="0.0" width="342.66666666666663" height="28.666666666666668"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                         <color key="textColor" red="0.96470588239999999" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -60,7 +60,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orZ-M0-oOc" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orZ-M0-oOc" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
                                 <rect key="frame" x="16" y="388.66666666666669" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="7JH-1C-TT6"/>
