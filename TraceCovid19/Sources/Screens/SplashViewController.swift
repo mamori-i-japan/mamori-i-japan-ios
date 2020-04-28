@@ -12,7 +12,7 @@ extension NSNotification.Name {
     static let splashStartNotirication = NSNotification.Name("splashStartNotirication")
 }
 
-final class SplashViewController: UIViewController, NVActivityIndicatorViewable {
+final class SplashViewController: UIViewController, NVActivityIndicatorViewable, Tutorial1Accessable, HomeAccessable {
     var loginService: LoginService!
     var bootService: BootService!
 
@@ -80,26 +80,12 @@ final class SplashViewController: UIViewController, NVActivityIndicatorViewable 
     func handleNavigation() {
         if loginService.isLogin {
             DispatchQueue.main.async { [weak self] in
-                self?.gotoHome()
+                self?.modalToHome()
             }
         } else {
             DispatchQueue.main.async { [weak self] in
-                self?.gotoRegistration()
+                self?.modalToTutorial1()
             }
         }
-    }
-
-    private func gotoHome() {
-        // TODO: Routerは別で切り出す
-
-        let navigationController = CustomNavigationController(rootViewController: HomeViewController.instantiate())
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: false, completion: nil)
-    }
-
-    private func gotoRegistration() {
-        let navigationController = CustomNavigationController(rootViewController: Tutorial1ViewController.instantiate())
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: false, completion: nil)
     }
 }

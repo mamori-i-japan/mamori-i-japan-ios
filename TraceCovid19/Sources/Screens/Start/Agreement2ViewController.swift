@@ -6,15 +6,16 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-final class Agreement2ViewController: UIViewController, NavigationBarHiddenApplicapable {
+final class Agreement2ViewController: UIViewController, NavigationBarHiddenApplicapable, NVActivityIndicatorViewable, PermissionSettingAccessable {
+    var profile: Profile!
+
     @IBAction func tappedNextButton(_ sender: Any) {
-        gotoInputPrefecture()
+        login()
     }
 
-    func gotoInputPrefecture() {
-        let vc = InputPrefectureViewController.instantiate()
-        vc.flow = .start
-        navigationController?.pushViewController(vc, animated: true)
+    func login() {
+        // TODO:
     }
 }

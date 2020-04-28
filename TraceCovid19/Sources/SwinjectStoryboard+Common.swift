@@ -74,6 +74,7 @@ extension SwinjectStoryboard {
             vc.deepContactCheck = r.resolve(DeepContactCheckService.self)
             vc.positiveContact = r.resolve(PositiveContactService.self)
             vc.tempId = r.resolve(TempIdService.self)
+            vc.loginService = r.resolve(LoginService.self)
         }
 
         defaultContainer.storyboardInitCompleted(MenuViewController.self) { _, _ in

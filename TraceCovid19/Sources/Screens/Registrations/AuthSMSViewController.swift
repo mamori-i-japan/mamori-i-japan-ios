@@ -9,6 +9,8 @@ import UIKit
 import NVActivityIndicatorView
 import FirebaseAuth
 
+// TODO: 廃止予定
+
 final class AuthSMSViewController: UIViewController, KeyboardCloseProtocol, NVActivityIndicatorViewable {
     @IBOutlet weak var codeInputView: CodeInputView!
     @IBOutlet weak var errorLabel: UILabel!

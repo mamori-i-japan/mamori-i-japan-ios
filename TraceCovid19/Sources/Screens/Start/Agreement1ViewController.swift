@@ -7,12 +7,10 @@
 
 import UIKit
 
-final class Agreement1ViewController: UIViewController, NavigationBarHiddenApplicapable {
-    @IBAction func tappedNextButton(_ sender: Any) {
-        gotoAgreement2()
-    }
+final class Agreement1ViewController: UIViewController, NavigationBarHiddenApplicapable, Agreement2Accessable {
+    var profile: Profile!
 
-    func gotoAgreement2() {
-        navigationController?.pushViewController(Agreement2ViewController.instantiate(), animated: true)
+    @IBAction func tappedNextButton(_ sender: Any) {
+        pushToAgreement2(profile: profile)
     }
 }

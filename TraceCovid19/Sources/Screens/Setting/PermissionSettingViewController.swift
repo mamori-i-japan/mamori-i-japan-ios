@@ -8,7 +8,7 @@
 import UIKit
 import KeychainAccess
 
-final class PermissionSettingViewController: UIViewController {
+final class PermissionSettingViewController: UIViewController, HomeAccessable {
     var bleService: BLEService!
     var notificationService: PushNotificationService!
 
@@ -58,6 +58,6 @@ final class PermissionSettingViewController: UIViewController {
     }
 
     func finishRegistration() {
-        navigationController?.setViewControllers([HomeViewController.instantiate()], animated: true)
+        setViewControllersWithHome()
     }
 }

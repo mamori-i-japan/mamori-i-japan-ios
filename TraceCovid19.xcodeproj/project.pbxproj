@@ -20,6 +20,11 @@
 		F0031D4F243468F0009F9643 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F0031D51243468F0009F9643 /* Localizable.strings */; };
 		F0156AA3245589AB006CB28F /* TraceHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0156AA2245589AB006CB28F /* TraceHistoryViewController.swift */; };
 		F0156AA5245589C4006CB28F /* TraceHistoryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0156AA4245589C4006CB28F /* TraceHistoryViewController.storyboard */; };
+		F0156AAA2457DC4D006CB28F /* NavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0156AA92457DC4D006CB28F /* NavigationProtocol.swift */; };
+		F0156AAC2457DC7C006CB28F /* NavigationProtocol+Registerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0156AAB2457DC7C006CB28F /* NavigationProtocol+Registerations.swift */; };
+		F0156AAE2457DC95006CB28F /* NavigationProtocol+Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0156AAD2457DC95006CB28F /* NavigationProtocol+Start.swift */; };
+		F0156AB02457DFA8006CB28F /* NavigationProtocol+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0156AAF2457DFA8006CB28F /* NavigationProtocol+Setting.swift */; };
+		F0156AB224580C98006CB28F /* NavigationProtocol+Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0156AB124580C98006CB28F /* NavigationProtocol+Home.swift */; };
 		F01EA9042449C95D00B81DB6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F01EA9032449C95D00B81DB6 /* Alamofire */; };
 		F01EA9072449C97400B81DB6 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F01EA9062449C97400B81DB6 /* KeychainAccess */; };
 		F02356A92442EDCC001E72ED /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04759A5243592840091059F /* Swinject.framework */; };
@@ -211,6 +216,11 @@
 		F0156AA1245305B5006CB28F /* GoogleService-Info-Stg.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Stg.plist"; sourceTree = "<group>"; };
 		F0156AA2245589AB006CB28F /* TraceHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceHistoryViewController.swift; sourceTree = "<group>"; };
 		F0156AA4245589C4006CB28F /* TraceHistoryViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TraceHistoryViewController.storyboard; sourceTree = "<group>"; };
+		F0156AA92457DC4D006CB28F /* NavigationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationProtocol.swift; sourceTree = "<group>"; };
+		F0156AAB2457DC7C006CB28F /* NavigationProtocol+Registerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Registerations.swift"; sourceTree = "<group>"; };
+		F0156AAD2457DC95006CB28F /* NavigationProtocol+Start.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Start.swift"; sourceTree = "<group>"; };
+		F0156AAF2457DFA8006CB28F /* NavigationProtocol+Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Setting.swift"; sourceTree = "<group>"; };
+		F0156AB124580C98006CB28F /* NavigationProtocol+Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Home.swift"; sourceTree = "<group>"; };
 		F02356842442E3B8001E72ED /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
 		F02356862442EB69001E72ED /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = Carthage/Build/iOS/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
 		F02356872442EB69001E72ED /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransport.framework; path = Carthage/Build/iOS/GoogleDataTransport.framework; sourceTree = "<group>"; };
@@ -465,6 +475,7 @@
 				F0031D3F243462AC009F9643 /* AppDelegate.swift */,
 				F04759AC243595D90091059F /* SwinjectStoryboard+Common.swift */,
 				F04759B0243599DC0091059F /* Models */,
+				F0156AA82457DC37006CB28F /* Navigations */,
 				F0A2829A243EBF71008390AE /* Networks */,
 				F0031D39243462AC009F9643 /* Screens */,
 				F0A28291243EB2CA008390AE /* Services */,
@@ -500,6 +511,18 @@
 				F096D5C424504D3700F7919B /* Stg.xcconfig */,
 			);
 			path = Configs;
+			sourceTree = "<group>";
+		};
+		F0156AA82457DC37006CB28F /* Navigations */ = {
+			isa = PBXGroup;
+			children = (
+				F0156AA92457DC4D006CB28F /* NavigationProtocol.swift */,
+				F0156AB124580C98006CB28F /* NavigationProtocol+Home.swift */,
+				F0156AAB2457DC7C006CB28F /* NavigationProtocol+Registerations.swift */,
+				F0156AAF2457DFA8006CB28F /* NavigationProtocol+Setting.swift */,
+				F0156AAD2457DC95006CB28F /* NavigationProtocol+Start.swift */,
+			);
+			path = Navigations;
 			sourceTree = "<group>";
 		};
 		F04759A3243592830091059F /* Frameworks */ = {
@@ -1070,15 +1093,18 @@
 				F096D5CC24512F5000F7919B /* TraceDataUploadService.swift in Sources */,
 				F0A282A6243EC17E008390AE /* KeychainAccess+KeychainClient.swift in Sources */,
 				C75FDCF6244F82BD0020FA1E /* Protocol.swift in Sources */,
+				F0156AAC2457DC7C006CB28F /* NavigationProtocol+Registerations.swift in Sources */,
 				F0031D43243462AC009F9643 /* AppDelegate.swift in Sources */,
 				F079FF81244C1F1300202A91 /* DictionaryDecodable.swift in Sources */,
 				F0A282E9244002BC008390AE /* BluetoothConfig.swift in Sources */,
 				F02356D424444C59001E72ED /* SMSService.swift in Sources */,
 				F0A282D1243EEFCC008390AE /* KeychainService.swift in Sources */,
+				F0156AB02457DFA8006CB28F /* NavigationProtocol+Setting.swift in Sources */,
 				F051AD7E2446D790007278A0 /* PositiveContactService.swift in Sources */,
 				F051ADA02447F2EB007278A0 /* TempIdService.swift in Sources */,
 				F03FB979245182B700158521 /* HomePositiveHeaderView.swift in Sources */,
 				F096D5BA24501DE000F7919B /* UIViewController+Navigation.swift in Sources */,
+				F0156AAA2457DC4D006CB28F /* NavigationProtocol.swift in Sources */,
 				F0A283302441F81A008390AE /* CustomNavigationController.swift in Sources */,
 				F0A283232441956F008390AE /* UIView+NibInstantiable.swift in Sources */,
 				F0A282C9243ECA6B008390AE /* AboutViewController.swift in Sources */,
@@ -1105,6 +1131,7 @@
 				F02356C02442F83E001E72ED /* TraceDataRecord.swift in Sources */,
 				F096D5CA24506CEC00F7919B /* String+SHA256.swift in Sources */,
 				F04759B624359AC20091059F /* UIViewController+Instantiate.swift in Sources */,
+				F0156AB224580C98006CB28F /* NavigationProtocol+Home.swift in Sources */,
 				F0A282C0243EC957008390AE /* TraceNotificationViewController.swift in Sources */,
 				F0A2833224421142008390AE /* DebugViewController.swift in Sources */,
 				F079FF7F244C1F0100202A91 /* DictionaryEncodable.swift in Sources */,
@@ -1120,6 +1147,7 @@
 				F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */,
 				C75FDCF8244FAAB40020FA1E /* CBPeripheral+ShortId.swift in Sources */,
 				F079FF90244D418400202A91 /* BaseLabel.swift in Sources */,
+				F0156AAE2457DC95006CB28F /* NavigationProtocol+Start.swift in Sources */,
 				F051ADCA24498ED4007278A0 /* SettingViewController.swift in Sources */,
 				F0A28325244195A7008390AE /* CodeInputUnitView.swift in Sources */,
 				F0A282D5243EF589008390AE /* UserDefaultsService.swift in Sources */,
