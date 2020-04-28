@@ -11,7 +11,7 @@ final class DeepContactCheckService {
     private let coreData: CoreDataService
 
     private(set) var deepContactSequenceDuration: TimeInterval = 60 * 3 // 3分間以内=>連続データ
-    private(set) var deepContactJudgedDuration: TimeInterval = 60 * 30 // 30分間継続=>濃厚接触
+    private(set) var deepContactJudgedDuration: TimeInterval = 60 * 15 // 15分間継続=>濃厚接触
 
     private var isChecking: Bool = false
 
