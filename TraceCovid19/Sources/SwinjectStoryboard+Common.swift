@@ -41,7 +41,8 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(Agreement1ViewController.self) { _, _ in
         }
 
-        defaultContainer.storyboardInitCompleted(Agreement2ViewController.self) { _, _ in
+        defaultContainer.storyboardInitCompleted(Agreement2ViewController.self) { r, vc in
+            vc.loginService = r.resolve(LoginService.self)
         }
 
         defaultContainer.storyboardInitCompleted(InputPhoneNumberViewController.self) { r, vc in

@@ -48,6 +48,23 @@ final class LoginService {
         case unknown(Error)
     }
 
+    func signInAnonymously(profile: Profile, completion: @escaping (Result<Void, SignInError>) -> Void) {
+        auth.instance.signInAnonymously { [weak self] _, error in
+            if let error = error {
+                switch AuthErrorCode(rawValue: (error as NSError).code) {
+                case .some(.networkError):
+                    print("[LoginService] singIn ローカル通信エラー")
+                    completion(.failure(.networkError))
+                default:
+                    print("[LoginService] singIn その他エラー: code=\((error as NSError).code)")
+                    completion(.failure(.unknown(error)))
+                }
+            } else {
+                self?.requestLogin(profile: profile, completion: completion)
+            }
+        }
+    }
+
     func signIn(verificationID: String, code: String, profile: Profile, completion: @escaping (Result<Void, SignInError>) -> Void) {
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: code)
 

@@ -21,7 +21,7 @@ extension HomeAccessable where Self: UIViewController {
 
 extension HomeAccessable {
     func modalToHome() {
-        let navigationController = CustomNavigationController(rootViewController: Tutorial1ViewController.instantiate())
+        let navigationController = CustomNavigationController(rootViewController: HomeViewController.instantiate())
         navigationController.modalPresentationStyle = .fullScreen
         homePresenter.present(navigationController, animated: false, completion: nil)
     }
