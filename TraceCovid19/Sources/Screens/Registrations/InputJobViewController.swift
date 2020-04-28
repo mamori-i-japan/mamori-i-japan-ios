@@ -8,7 +8,9 @@
 import UIKit
 import NVActivityIndicatorView
 
-final class InputJobViewController: UIViewController, ProfileChangeable, NVActivityIndicatorViewable, KeyboardCloseProtocol {
+// TODO: 廃止予定
+
+final class InputJobViewController: UIViewController, ProfileChangeable, NVActivityIndicatorViewable, KeyboardCloseProtocol, InputPhoneNumberAccessable {
     @IBOutlet weak var jobTextField: UITextField!
     @IBOutlet weak var nextButton: ActionButton!
 
@@ -55,18 +57,12 @@ final class InputJobViewController: UIViewController, ProfileChangeable, NVActiv
     @IBAction func tappedNextButton(_ sender: Any) {
         switch flow {
         case .start(let prefecture):
-            gotoInputPhoneNumber(profile: Profile(prefecture: prefecture, job: jobTextField.text))
+            pushToInputPhoneNumber(profile: Profile(prefecture: prefecture, job: jobTextField.text))
         case .change(var profile):
             requestProfile(profile: profile.update(job: jobTextField.text))
         case .none:
             break
         }
-    }
-
-    func gotoInputPhoneNumber(profile: Profile) {
-        let vc = InputPhoneNumberViewController.instantiate()
-        vc.profile = profile
-        navigationController?.pushViewController(vc, animated: true)
     }
 
     func forceLogout() {

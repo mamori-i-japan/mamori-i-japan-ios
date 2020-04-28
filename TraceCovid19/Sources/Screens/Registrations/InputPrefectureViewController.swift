@@ -8,7 +8,7 @@
 import UIKit
 import NVActivityIndicatorView
 
-final class InputPrefectureViewController: UIViewController, NVActivityIndicatorViewable, ProfileChangeable {
+final class InputPrefectureViewController: UIViewController, NVActivityIndicatorViewable, ProfileChangeable, Agreement1Accessable {
     @IBOutlet weak var prefectureTextField: UITextField!
     @IBOutlet weak var errorLabel: BaseLabel!
     @IBOutlet weak var nextButton: ActionButton!
@@ -93,18 +93,12 @@ final class InputPrefectureViewController: UIViewController, NVActivityIndicator
 
         switch flow {
         case .start:
-            gotoInputJob(prefecture: prefecture)
+            pushToAgreement1(profile: Profile(prefecture: prefecture, job: nil))
         case .change(var profile):
             requestProfile(profile: profile.update(prefecture: prefecture))
         case .none:
             break
         }
-    }
-
-    func gotoInputJob(prefecture: PrefectureModel) {
-        let vc = InputJobViewController.instantiate()
-        vc.flow = .start(prefecture)
-        navigationController?.pushViewController(vc, animated: true)
     }
 
     func forceLogout() {

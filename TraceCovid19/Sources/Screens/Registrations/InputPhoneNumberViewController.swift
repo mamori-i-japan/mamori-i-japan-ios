@@ -9,7 +9,9 @@ import UIKit
 import NVActivityIndicatorView
 import FirebaseAuth
 
-final class InputPhoneNumberViewController: UIViewController, KeyboardCloseProtocol, NVActivityIndicatorViewable {
+// TODO: 廃止予定
+
+final class InputPhoneNumberViewController: UIViewController, KeyboardCloseProtocol, NVActivityIndicatorViewable, AuthSMSAccessable {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var nextButton: ActionButton!
 
@@ -74,7 +76,7 @@ final class InputPhoneNumberViewController: UIViewController, KeyboardCloseProto
             self?.isRequesting = false
             switch result {
             case .success(let verificationID):
-                self?.gotoAuthSMS(verificationID: verificationID)
+                self?.pushToAuthSMS(verificationID: verificationID, profile: self!.profile)
             case .failure(.upperLimit):
                 // TODO: 送信上限
                 self?.showAlert(message: "TODO: 送信が制限されました。時間を置いてから実行してください")
@@ -86,13 +88,6 @@ final class InputPhoneNumberViewController: UIViewController, KeyboardCloseProto
                 self?.showAlert(message: error?.localizedDescription ?? "nil")
             }
         }
-    }
-
-    func gotoAuthSMS(verificationID: String) {
-        let authVC = AuthSMSViewController.instantiate()
-        authVC.verificationID = verificationID
-        authVC.profile = profile
-        navigationController?.pushViewController(authVC, animated: true)
     }
 }
 

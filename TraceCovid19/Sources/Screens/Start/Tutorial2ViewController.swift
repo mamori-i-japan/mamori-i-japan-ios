@@ -7,12 +7,8 @@
 
 import UIKit
 
-final class Tutorial2ViewController: UIViewController, NavigationBarHiddenApplicapable {
+final class Tutorial2ViewController: UIViewController, NavigationBarHiddenApplicapable, Tutorial3Accessable {
     @IBAction func tappedNextButton(_ sender: Any) {
-        gotoTutorial3()
-    }
-
-    func gotoTutorial3() {
-        navigationController?.pushViewController(Tutorial3ViewController.instantiate(), animated: true)
+        pushToTutorial3()
     }
 }

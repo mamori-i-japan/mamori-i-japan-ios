@@ -7,12 +7,8 @@
 
 import UIKit
 
-final class Tutorial3ViewController: UIViewController, NavigationBarHiddenApplicapable {
+final class Tutorial3ViewController: UIViewController, NavigationBarHiddenApplicapable, InputPrefectureAccessable {
     @IBAction func tappedNextButton(_ sender: Any) {
-        gotoAgreement1()
-    }
-
-    func gotoAgreement1() {
-        navigationController?.pushViewController(Agreement1ViewController.instantiate(), animated: true)
+        pushToInputPrefecture()
     }
 }
