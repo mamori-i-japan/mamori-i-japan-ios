@@ -34,8 +34,8 @@ final class HomeAttensionHeaderView: UIView, NibInstantiatable {
     }
 
     func set(positiveContactUser: DeepContactUser, showDetailAction: @escaping (() -> Void)) {
-        let ampm = positiveContactUser.startTime!.toStringWithAMPMInJapanese(format: "h") // 例: 午前1
-        let contactDateString = positiveContactUser.startTime!.toString(format: "yyyy年M月d日") + ampm + "頃"
+        let ampm = positiveContactUser.startTime.toStringWithAMPMInJapanese(format: "h") // 例: 午前1
+        let contactDateString = positiveContactUser.startTime.toString(format: "yyyy年M月d日") + ampm + "頃"
         messageLabel.text = L10n.Home.Header.attensionMessage(contactDateString)
         self.showDetailAction = showDetailAction
     }

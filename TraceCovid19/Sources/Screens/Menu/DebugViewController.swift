@@ -184,7 +184,7 @@ extension DebugViewController: UITableViewDelegate {
         case 0:
             if indexPath.row < deepContactUsers.count {
                 let deepContactUser = deepContactUsers[indexPath.row]
-                let uuid = deepContactUser.tempId!
+                let uuid = deepContactUser.tempId
                 showAlertWithCancel(
                     message: "\(uuid) \n上記を一時的に陽性者として扱いますか？",
                     okAction: { _ in
@@ -229,7 +229,7 @@ extension DebugViewController: UITableViewDataSource {
                 let deepContactUser = deepContactUsers[indexPath.row]
                 cell.update(deepContactUser: deepContactUser)
 
-                if (positiveContact.positiveContacts.compactMap { $0.tempID }).contains(deepContactUser.tempId!) {
+                if (positiveContact.positiveContacts.compactMap { $0.tempID }).contains(deepContactUser.tempId) {
                     cell.tempIDLabel.textColor = .red // 陽性者だった場合は赤にする
                 } else {
                     cell.tempIDLabel.textColor = .black
@@ -279,7 +279,7 @@ final class DebugDeepContactUserCell: UITableViewCell {
     func update(deepContactUser: DeepContactUser) {
         tempIDLabel.text = deepContactUser.tempId
         timeLabel.isHidden = false
-        timeLabel.text = "\(deepContactUser.startTime!.toString(format: "yyyy/MM/dd HH:mm:ss.SSS"))~\(deepContactUser.endTime!.toString(format: "yyyy/MM/dd HH:mm:ss.SSS"))"
+        timeLabel.text = "\(deepContactUser.startTime.toString(format: "yyyy/MM/dd HH:mm:ss.SSS"))~\(deepContactUser.endTime.toString(format: "yyyy/MM/dd HH:mm:ss.SSS"))"
         accessoryType = .disclosureIndicator
         selectionStyle = .default
         backgroundColor = .init(hex: 0xFF0000, alpha: 0.5)

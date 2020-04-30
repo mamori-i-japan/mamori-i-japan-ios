@@ -66,8 +66,8 @@ final class TraceHistoryTableViewCell: UITableViewCell, NibInstantiatable {
     @IBOutlet weak var label: BaseLabel!
 
     func update(deepContactUser: DeepContactUser) {
-        let date = "\(deepContactUser.startTime!.toString(format: "yyyy年M月d日"))"
-        let timeDuration = "\(deepContactUser.startTime!.toString(format: "HH:mm"))〜\(deepContactUser.endTime!.toString(format: "HH:mm"))"
+        let date = "\(deepContactUser.startTime.toString(format: "yyyy年M月d日"))"
+        let timeDuration = "\(deepContactUser.startTime.toString(format: "HH:mm"))〜\(deepContactUser.endTime.toString(format: "HH:mm"))"
         label.text = "\(date)\n\(timeDuration)"
     }
 }

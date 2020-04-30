@@ -6,23 +6,17 @@
 //
 
 import Foundation
-import CoreData
 
-@objc(DeepContactUser)
-final class DeepContactUser: NSManagedObject, Encodable {
+struct DeepContactUser {
+    var tempId: String
+    var startTime: Date
+    var endTime: Date
 }
 
 extension DeepContactUser {
-    @NSManaged var tempId: String?
-    @NSManaged var startTime: Date?
-    @NSManaged var endTime: Date?
-
-    @discardableResult
-    func set(tempId: String, traceData: [TraceData]) -> Bool {
-        guard traceData.count >= 2 else { return false }
-        self.tempId = tempId
-        startTime = traceData.last!.timestamp
-        endTime = traceData.first!.timestamp
-        return true
+    init(entity: DeepContactUserEntity) {
+        self.tempId = entity.tempId
+        self.startTime = entity.startTime
+        self.endTime = entity.endTime
     }
 }
