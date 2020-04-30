@@ -8,7 +8,7 @@
 import UIKit
 import NVActivityIndicatorView
 
-final class SettingViewController: UITableViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable {
+final class SettingViewController: UITableViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable, InputJobAccessable, InputPrefectureAccessable {
     @IBOutlet weak var prefectureLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
     @IBOutlet weak var prefectureTableViewCell: UITableViewCell!
@@ -78,20 +78,6 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
         }
     }
 
-    func gotoChangePrefecture() {
-        guard let profile = profile else { return }
-          let vc = InputPrefectureViewController.instantiate()
-          vc.flow = .change(profile)
-          navigationController?.pushViewController(vc, animated: true)
-    }
-
-    func gotoChangeJob() {
-        guard let profile = profile else { return }
-        let vc = InputJobViewController.instantiate()
-        vc.flow = .change(profile)
-        navigationController?.pushViewController(vc, animated: true)
-    }
-
     func forceLogout() {
         loginService.logout()
         backToSplash()
@@ -100,11 +86,12 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
+        guard let profile = profile else { return }
         switch tableView.cellForRow(at: indexPath) {
         case prefectureTableViewCell:
-            gotoChangePrefecture()
+            pushToInputPrefecture(flow: .change(profile))
         case jobTableViewCell:
-            gotoChangeJob()
+            pushToInputJob(flow: .change(profile))
         default:
             break
         }

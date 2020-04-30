@@ -194,6 +194,7 @@
 		F0A283302441F81A008390AE /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2832F2441F81A008390AE /* CustomNavigationController.swift */; };
 		F0A2833224421142008390AE /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2833124421142008390AE /* DebugViewController.swift */; };
 		F0A2833424421161008390AE /* DebugViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A2833324421161008390AE /* DebugViewController.storyboard */; };
+		F0B9F37C245A6509006FA28D /* NavigationProtocol+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F37B245A6509006FA28D /* NavigationProtocol+Menu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -398,6 +399,7 @@
 		F0A2832F2441F81A008390AE /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		F0A2833124421142008390AE /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		F0A2833324421161008390AE /* DebugViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DebugViewController.storyboard; sourceTree = "<group>"; };
+		F0B9F37B245A6509006FA28D /* NavigationProtocol+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Menu.swift"; sourceTree = "<group>"; };
 		F0C6AD7C243461A600F863FC /* まもりあい.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "まもりあい.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -518,6 +520,7 @@
 			children = (
 				F0156AA92457DC4D006CB28F /* NavigationProtocol.swift */,
 				F0156AB124580C98006CB28F /* NavigationProtocol+Home.swift */,
+				F0B9F37B245A6509006FA28D /* NavigationProtocol+Menu.swift */,
 				F0156AAB2457DC7C006CB28F /* NavigationProtocol+Registerations.swift */,
 				F0156AAF2457DFA8006CB28F /* NavigationProtocol+Setting.swift */,
 				F0156AAD2457DC95006CB28F /* NavigationProtocol+Start.swift */,
@@ -1191,6 +1194,7 @@
 				F079FF85244C3EBC00202A91 /* AppStatus.swift in Sources */,
 				F04759B824359BC90091059F /* NSObject+ClassName.swift in Sources */,
 				F0A2829C243EBF7F008390AE /* LoginAPI.swift in Sources */,
+				F0B9F37C245A6509006FA28D /* NavigationProtocol+Menu.swift in Sources */,
 				F051ADBA2448924D007278A0 /* String+ToDate.swift in Sources */,
 				F02356CA2442FCEE001E72ED /* CoreDataService+TraceData.swift in Sources */,
 				F0A2831324417C41008390AE /* InputPrefectureViewController.swift in Sources */,

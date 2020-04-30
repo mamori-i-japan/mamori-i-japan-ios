@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MenuViewController: UITableViewController, NavigationBarHiddenApplicapable {
+final class MenuViewController: UITableViewController, NavigationBarHiddenApplicapable, AboutAccessable, SettingAccessable {
     @IBOutlet weak var settingTableViewCell: UITableViewCell!
     @IBOutlet weak var aboutTableViewCell: UITableViewCell!
 
@@ -17,22 +17,14 @@ final class MenuViewController: UITableViewController, NavigationBarHiddenApplic
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DebugTableViewCell")
     }
 
-    private func gotoAbout() {
-        navigationController?.pushViewController(AboutViewController.instantiate(), animated: true)
-    }
-
-    private func gotoSetting() {
-        navigationController?.pushViewController(SettingViewController.instantiate(), animated: true)
-    }
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
         switch tableView.cellForRow(at: indexPath) {
         case aboutTableViewCell:
-            gotoAbout()
+            pushToAbout()
         case settingTableViewCell:
-            gotoSetting()
+            pushToSetting()
         default:
             break
         }

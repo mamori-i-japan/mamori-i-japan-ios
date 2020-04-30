@@ -19,7 +19,7 @@ enum UserStatus {
     static let usualUpperLimitCount = 25
 }
 
-final class HomeViewController: UIViewController, NavigationBarHiddenApplicapable, NVActivityIndicatorViewable {
+final class HomeViewController: UIViewController, NavigationBarHiddenApplicapable, NVActivityIndicatorViewable, MenuAccessable {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var headerBaseView: UIView!
@@ -69,7 +69,7 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
     }
 
     @IBAction func tappedMenuButton(_ sender: Any) {
-        gotoMenu()
+        pushToMenu()
     }
 
     @IBAction func tappedShareButton(_ sender: Any) {
@@ -183,14 +183,10 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         }
     }
 
-    func gotoMenu() {
-        navigationController?.pushViewController(MenuViewController.instantiate(), animated: true)
-    }
-
     func shareApp() {
-        let shareText = "シェア文言"
-        let shareURL = NSURL(string: "https://corona.go.jp/")!
-        let shareImage = UIImage(named: "Group")!
+        let shareText = "TODO: シェア文言・リンク先・画像"
+        let shareURL = URL(string: "https://corona.go.jp/")!
+        let shareImage: UIImage = Asset.logo.image
 
         let activityViewController = UIActivityViewController(activityItems: [shareText, shareURL, shareImage], applicationActivities: nil)
 
