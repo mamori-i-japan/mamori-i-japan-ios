@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // NavigatinBarの色変更
         UINavigationBar.appearance().tintColor = .primary1
+        UINavigationBar.appearance().barTintColor = .systemWhite
 
         return true
     }

@@ -7,13 +7,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomePositiveContentsView" customModule="TraceCovid19" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomePositiveContentsView" customModule="まもりあい" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vR6-id-rlz">
             <rect key="frame" x="0.0" y="0.0" width="375" height="426"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eg-qU-RsP" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eg-qU-RsP" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
                     <rect key="frame" x="36" y="95" width="303" height="45"/>
                     <string key="text">濃厚接触をされた方の追跡に
 ご協力ください</string>
@@ -26,11 +26,12 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Noo-Vy-Ih6" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Noo-Vy-Ih6" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
                     <rect key="frame" x="36" y="156" width="303" height="56"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="Tr6-u7-4V8"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <state key="normal" title="Button"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="行動履歴を保健所に共有する"/>
@@ -39,7 +40,7 @@
                         <action selector="tappedUploadButton:" destination="-1" eventType="touchUpInside" id="ptF-TA-7pE"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hs0-Ga-HOn" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hs0-Ga-HOn" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
                     <rect key="frame" x="36" y="256" width="303" height="42.5"/>
                     <string key="text">保健所に共有される
 データは以下のデータです</string>

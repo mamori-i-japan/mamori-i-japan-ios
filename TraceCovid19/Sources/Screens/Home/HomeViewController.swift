@@ -19,7 +19,7 @@ enum UserStatus {
     static let usualUpperLimitCount = 25
 }
 
-final class HomeViewController: UIViewController, NavigationBarHiddenApplicapable, NVActivityIndicatorViewable, MenuAccessable, TraceDataUploadAccessable {
+final class HomeViewController: UIViewController, NVActivityIndicatorViewable, MenuAccessable, TraceDataUploadAccessable {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var headerBaseView: UIView!
@@ -224,6 +224,13 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
         present(navigationController, animated: true, completion: nil)
     }
     #endif
+}
+
+extension HomeViewController: NavigationBarHiddenApplicapable {
+    var navigationBackgroundImage: UIImage? {
+        // シャドウ部分は消すが、ナビゲーション部分はデフォルトままにする
+        return nil
+    }
 }
 
 extension HomeViewController {

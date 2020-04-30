@@ -9,6 +9,8 @@ import UIKit
 
 @IBDesignable
 class BorederButton: BaseButton {
+    private var observers = [NSKeyValueObservation]()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -26,8 +28,14 @@ class BorederButton: BaseButton {
         clipsToBounds = true
 
         layer.borderWidth = 2.0
-        layer.borderColor = titleColor(for: state)?.cgColor
 
         isExclusiveTouch = true
+
+        observers.append(
+            observe(\.state, options: [.initial, .new]) { [weak self] _, change in
+                guard let state = change.newValue ?? self?.state else { return }
+                self?.layer.borderColor = self?.titleColor(for: state)?.cgColor
+            }
+        )
     }
 }

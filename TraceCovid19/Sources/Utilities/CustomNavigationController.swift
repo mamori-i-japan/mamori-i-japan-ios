@@ -18,7 +18,7 @@ extension CustomNavigationController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController is NavigationBarHiddenApplicapable {
             // NavigationBar透明化
-            (viewController as? NavigationBarHiddenApplicapable)?.clearNavigationBar()
+            (viewController as? NavigationBarHiddenApplicapable)?.setDesignedNavigationBar()
         } else {
             navigationBar.setBackgroundImage(nil, for: .default)
             navigationBar.shadowImage = nil
@@ -28,18 +28,28 @@ extension CustomNavigationController: UINavigationControllerDelegate {
 
 /// ナビゲーションバーを非表示(透明)に適応させるプロトコル
 protocol NavigationBarHiddenApplicapable: UIViewController {
-    func clearNavigationBar()
-    func undoClearNavigationBar()
+    func setDesignedNavigationBar()
+    func undoDesignedNavigationBar()
+    var navigationBackgroundImage: UIImage? { get }
+    var navigationShadowImage: UIImage { get }
 }
 
 extension NavigationBarHiddenApplicapable {
-    func clearNavigationBar() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+    func setDesignedNavigationBar() {
+        navigationController?.navigationBar.setBackgroundImage(navigationBackgroundImage, for: .default)
+        navigationController?.navigationBar.shadowImage = navigationShadowImage
     }
 
-    func undoClearNavigationBar() {
+    func undoDesignedNavigationBar() {
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
         navigationController?.navigationBar.shadowImage = nil
+    }
+
+    var navigationBackgroundImage: UIImage? {
+        return UIImage()
+    }
+
+    var navigationShadowImage: UIImage {
+        return UIImage()
     }
 }

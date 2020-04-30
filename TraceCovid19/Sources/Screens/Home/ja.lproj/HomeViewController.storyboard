@@ -26,7 +26,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mDV-p9-S2A">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1228"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1244"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q17-Gw-WfZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
@@ -77,19 +77,40 @@
                                                     <constraint firstAttribute="height" constant="426" id="dXY-lh-vpE"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bym-QJ-Gzc">
-                                                <rect key="frame" x="0.0" y="1184" width="375" height="44"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twh-SS-Nq5">
+                                                <rect key="frame" x="0.0" y="1184" width="375" height="60"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bym-QJ-Gzc">
+                                                        <rect key="frame" x="0.0" y="8" width="375" height="44"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="huE-bV-I0e"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" title="このアプリをシェア">
+                                                            <color key="titleColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tappedShareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m9h-mt-Dxe"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="huE-bV-I0e"/>
+                                                    <constraint firstItem="Bym-QJ-Gzc" firstAttribute="top" secondItem="twh-SS-Nq5" secondAttribute="top" constant="8" id="Cx9-Id-DUg"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Bym-QJ-Gzc" secondAttribute="bottom" constant="8" id="EjK-p1-NXO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Bym-QJ-Gzc" secondAttribute="trailing" id="t0E-xI-2jG"/>
+                                                    <constraint firstItem="Bym-QJ-Gzc" firstAttribute="leading" secondItem="twh-SS-Nq5" secondAttribute="leading" id="vUz-tc-QqW"/>
                                                 </constraints>
-                                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="このアプリをシェア"/>
-                                                <connections>
-                                                    <action selector="tappedShareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m9h-mt-Dxe"/>
-                                                </connections>
-                                            </button>
+                                            </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="twh-SS-Nq5" firstAttribute="top" secondItem="o99-VN-4rq" secondAttribute="bottom" id="0Lb-a3-RFP"/>
+                                            <constraint firstAttribute="bottom" secondItem="twh-SS-Nq5" secondAttribute="bottom" id="Aw5-fx-0gk"/>
+                                            <constraint firstItem="twh-SS-Nq5" firstAttribute="leading" secondItem="mDV-p9-S2A" secondAttribute="leading" id="flq-ov-k3E"/>
+                                            <constraint firstAttribute="trailing" secondItem="twh-SS-Nq5" secondAttribute="trailing" id="zoa-xY-ZnF"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -103,16 +124,24 @@
                                     <constraint firstItem="mDV-p9-S2A" firstAttribute="leading" secondItem="57U-zj-zzS" secondAttribute="leading" id="l7O-6i-tpw"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhJ-VV-CZP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DVi-Yg-QjE"/>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="L25-Gi-C1G"/>
+                            <constraint firstItem="xhJ-VV-CZP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OyF-me-Abm"/>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UXg-Iu-PuV"/>
+                            <constraint firstItem="xhJ-VV-CZP" firstAttribute="leading" secondItem="yhX-3H-hRm" secondAttribute="leading" id="cTw-NE-lqk"/>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="cdm-ra-wCR"/>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gzI-jW-A5x"/>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="i9d-3r-uHN"/>
                             <constraint firstItem="57U-zj-zzS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="m4v-a8-ZI7"/>
+                            <constraint firstItem="Q17-Gw-WfZ" firstAttribute="height" secondItem="xhJ-VV-CZP" secondAttribute="height" id="pco-BA-84g"/>
+                            <constraint firstItem="yhX-3H-hRm" firstAttribute="trailing" secondItem="xhJ-VV-CZP" secondAttribute="trailing" id="pdQ-MU-0I0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yhX-3H-hRm"/>
                     </view>
