@@ -26,25 +26,25 @@ final class TraceDataUploadAPIRequest: APIRequestProtocol {
         return result
     }
 
-    private let deepContactUsers: [DeepContactUserModel]
+    private let deepContactUsers: [DeepContactUserUploadModel]
 
-    init(deepContactUsers: [DeepContactUserModel]) {
+    init(deepContactUsers: [DeepContactUserUploadModel]) {
         self.deepContactUsers = deepContactUsers
     }
 }
 
-struct DeepContactUserModel: DictionaryEncodable {
+struct DeepContactUserUploadModel: DictionaryEncodable {
     let uniqueInsertKey: String
     let externalTempId: String
     let contactStartTime: Int
     let contactEndTime: Int
 }
 
-extension DeepContactUserModel {
-    init?(deepContactUser: DeepContactUser) {
-        guard let tempId = deepContactUser.tempId,
-            let startDate = deepContactUser.startTime,
-            let endDate = deepContactUser.endTime else { return nil }
+extension DeepContactUserUploadModel {
+    init(deepContactUser: DeepContactUser) {
+        let tempId = deepContactUser.tempId
+        let startDate = deepContactUser.startTime
+        let endDate = deepContactUser.endTime
         externalTempId = tempId
         contactStartTime = Int(startDate.timeIntervalSince1970)
         contactEndTime = Int(endDate.timeIntervalSince1970)
@@ -59,7 +59,7 @@ final class TraceDataUploadAPI {
         self.apiClient = apiClient
     }
 
-    func upload(deepContactUsers: [DeepContactUserModel], completionHandler: @escaping (Result<EmpytResponse, APIRequestError>) -> Void) {
+    func upload(deepContactUsers: [DeepContactUserUploadModel], completionHandler: @escaping (Result<EmpytResponse, APIRequestError>) -> Void) {
         let request = TraceDataUploadAPIRequest(deepContactUsers: deepContactUsers)
         apiClient.request(request: request, completionHandler: completionHandler)
     }

@@ -42,7 +42,7 @@
 		F02356B82442F046001E72ED /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02356882442EB69001E72ED /* nanopb.framework */; };
 		F02356B92442F046001E72ED /* PromisesObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F023569C2442EBD1001E72ED /* PromisesObjC.framework */; };
 		F02356BC2442F5F4001E72ED /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F02356BA2442F5F4001E72ED /* Model.xcdatamodeld */; };
-		F02356BE2442F7B1001E72ED /* TraceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02356BD2442F7B1001E72ED /* TraceData.swift */; };
+		F02356BE2442F7B1001E72ED /* TraceDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02356BD2442F7B1001E72ED /* TraceDataEntity.swift */; };
 		F02356C02442F83E001E72ED /* TraceDataRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02356BF2442F83E001E72ED /* TraceDataRecord.swift */; };
 		F02356C22442F87B001E72ED /* CoreDataService+SaveTraceDataRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02356C12442F87B001E72ED /* CoreDataService+SaveTraceDataRecord.swift */; };
 		F02356C62442FC57001E72ED /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02356C52442FC57001E72ED /* CoreDataService.swift */; };
@@ -198,6 +198,8 @@
 		F0B9F37E245A843E006FA28D /* TraceDataUploadCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F37D245A843E006FA28D /* TraceDataUploadCompleteViewController.swift */; };
 		F0B9F380245A8453006FA28D /* TraceDataUploadCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0B9F37F245A8453006FA28D /* TraceDataUploadCompleteViewController.storyboard */; };
 		F0B9F382245A8682006FA28D /* NavigationProtocol+Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F381245A8682006FA28D /* NavigationProtocol+Trace.swift */; };
+		F0B9F385245ACD3E006FA28D /* DeepContactUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F384245ACD3E006FA28D /* DeepContactUserEntity.swift */; };
+		F0B9F387245AD02E006FA28D /* TempUserIdEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -239,7 +241,7 @@
 		F023569C2442EBD1001E72ED /* PromisesObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromisesObjC.framework; path = Carthage/Build/iOS/PromisesObjC.framework; sourceTree = "<group>"; };
 		F02356AB2442EDCC001E72ED /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Carthage/Build/iOS/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
 		F02356BB2442F5F4001E72ED /* Encounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Encounter.xcdatamodel; sourceTree = "<group>"; };
-		F02356BD2442F7B1001E72ED /* TraceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceData.swift; sourceTree = "<group>"; };
+		F02356BD2442F7B1001E72ED /* TraceDataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceDataEntity.swift; sourceTree = "<group>"; };
 		F02356BF2442F83E001E72ED /* TraceDataRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceDataRecord.swift; sourceTree = "<group>"; };
 		F02356C12442F87B001E72ED /* CoreDataService+SaveTraceDataRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataService+SaveTraceDataRecord.swift"; sourceTree = "<group>"; };
 		F02356C52442FC57001E72ED /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
@@ -406,6 +408,8 @@
 		F0B9F37D245A843E006FA28D /* TraceDataUploadCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceDataUploadCompleteViewController.swift; sourceTree = "<group>"; };
 		F0B9F37F245A8453006FA28D /* TraceDataUploadCompleteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TraceDataUploadCompleteViewController.storyboard; sourceTree = "<group>"; };
 		F0B9F381245A8682006FA28D /* NavigationProtocol+Trace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Trace.swift"; sourceTree = "<group>"; };
+		F0B9F384245ACD3E006FA28D /* DeepContactUserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepContactUserEntity.swift; sourceTree = "<group>"; };
+		F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUserIdEntity.swift; sourceTree = "<group>"; };
 		F0C6AD7C243461A600F863FC /* まもりあい.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "まもりあい.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -581,6 +585,7 @@
 		F04759B0243599DC0091059F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F0B9F383245ACD2D006FA28D /* CoreData */,
 				F079FF84244C3EBC00202A91 /* AppStatus.swift */,
 				F0A282D8243EF600008390AE /* AppVersion.swift */,
 				F051AD62244699FA007278A0 /* DeepContactUser.swift */,
@@ -590,9 +595,7 @@
 				F079FF78244C09B700202A91 /* Profile.swift */,
 				F051ADBF2449476C007278A0 /* TempUserId.swift */,
 				F0A2829D243EC06E008390AE /* TokenResponse.swift */,
-				F02356BD2442F7B1001E72ED /* TraceData.swift */,
 				F02356BF2442F83E001E72ED /* TraceDataRecord.swift */,
-				F02356BA2442F5F4001E72ED /* Model.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -826,6 +829,17 @@
 				F0A282B6243EC785008390AE /* PermissionSettingViewController.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		F0B9F383245ACD2D006FA28D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F0B9F384245ACD3E006FA28D /* DeepContactUserEntity.swift */,
+				F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */,
+				F02356BD2442F7B1001E72ED /* TraceDataEntity.swift */,
+				F02356BA2442F5F4001E72ED /* Model.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		F0C6AD73243461A600F863FC = {
@@ -1114,6 +1128,7 @@
 				F0A282D1243EEFCC008390AE /* KeychainService.swift in Sources */,
 				F0156AB02457DFA8006CB28F /* NavigationProtocol+Setting.swift in Sources */,
 				F051AD7E2446D790007278A0 /* PositiveContactService.swift in Sources */,
+				F0B9F385245ACD3E006FA28D /* DeepContactUserEntity.swift in Sources */,
 				F051ADA02447F2EB007278A0 /* TempIdService.swift in Sources */,
 				F03FB979245182B700158521 /* HomePositiveHeaderView.swift in Sources */,
 				F096D5BA24501DE000F7919B /* UIViewController+Navigation.swift in Sources */,
@@ -1130,7 +1145,7 @@
 				F051ADBE24494688007278A0 /* CoreDataService+TempId.swift in Sources */,
 				F02356BC2442F5F4001E72ED /* Model.xcdatamodeld in Sources */,
 				F0A282CD243ED068008390AE /* AssociatedObjects.swift in Sources */,
-				F02356BE2442F7B1001E72ED /* TraceData.swift in Sources */,
+				F02356BE2442F7B1001E72ED /* TraceDataEntity.swift in Sources */,
 				F051ADC624498085007278A0 /* InputJobViewController.swift in Sources */,
 				F0031D40243462AC009F9643 /* HomeViewController.swift in Sources */,
 				F096D5AD244ED70F00F7919B /* SSLPinningManager.swift in Sources */,
@@ -1187,6 +1202,7 @@
 				F0A282AF243EC5D5008390AE /* InputPhoneNumberViewController.swift in Sources */,
 				F096D5AF244EED5A00F7919B /* SSLPinningManager+Alamofire.swift in Sources */,
 				F0A282D3243EF019008390AE /* KeychainService+Property.swift in Sources */,
+				F0B9F387245AD02E006FA28D /* TempUserIdEntity.swift in Sources */,
 				F0A282DD243EF84C008390AE /* BootService.swift in Sources */,
 				F096D5C82450672D00F7919B /* TraceDataUploadAPI.swift in Sources */,
 				F065130E2452B15500CCCE91 /* UIColor+DesignGuide.swift in Sources */,

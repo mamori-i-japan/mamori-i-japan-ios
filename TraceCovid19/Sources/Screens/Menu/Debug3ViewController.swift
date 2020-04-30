@@ -18,7 +18,7 @@ final class Debug3ViewController: UIViewController, NVActivityIndicatorViewable 
 
     private let refreshControl = UIRefreshControl()
 
-    private var tempUserIDs: [TempIdStruct] = []
+    private var tempUserIDs: [TempUserId] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,7 +89,7 @@ final class DebugTempUserIdCell: UITableViewCell {
     @IBOutlet weak var startLabel: UILabel!
     @IBOutlet weak var endLabel: UILabel!
 
-    func update(tempId: TempIdStruct) {
+    func update(tempId: TempUserId) {
         uuidLabel.text = tempId.tempId
         let startDate = tempId.startTime
         startLabel.text = startDate.toString(format: "yyyy/MM/dd HH:mm:ss.SSS")

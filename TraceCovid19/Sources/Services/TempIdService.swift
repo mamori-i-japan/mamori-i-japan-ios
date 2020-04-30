@@ -19,7 +19,7 @@ final class TempIdService {
         self.coreData = coreData
     }
 
-    var currentTempId: TempIdStruct? {
+    var currentTempId: TempUserId? {
         let tempIDs = self.tempIDs
         if filterIsValid(tempIDs: tempIDs).count < shouldHasValidTempIdCount {
             // 一定数より有効なTempIDがなければ取得しておく(結果は見ない)
@@ -28,15 +28,15 @@ final class TempIdService {
         return filterCurrent(tempIDs: tempIDs)
     }
 
-    var latestTempId: TempIdStruct? {
+    var latestTempId: TempUserId? {
         return tempIDs.first
     }
 
-    var tempIDs: [TempIdStruct] {
+    var tempIDs: [TempUserId] {
         return coreData.getTempUserIDs()
     }
 
-    var validTempIDs: [TempIdStruct] {
+    var validTempIDs: [TempUserId] {
         return filterIsValid(tempIDs: tempIDs)
     }
 
@@ -49,11 +49,11 @@ final class TempIdService {
         case unknown(Error?)
     }
 
-    func fetchTempIDs(completion: @escaping (Result<[TempIdStruct], FetchTempIDsError>) -> Void) {
+    func fetchTempIDs(completion: @escaping (Result<[TempUserId], FetchTempIDsError>) -> Void) {
         tempIdAPI.getTempIDs { [weak self] result in
             switch result {
             case .success(let response):
-                let tempIds = response.compactMap { TempIdStruct(response: $0) }
+                let tempIds = response.compactMap { TempUserId(response: $0) }
                 self?.save(tempIds: tempIds)
                 completion(.success(tempIds))
             case .failure(.error(let error)),
@@ -65,23 +65,23 @@ final class TempIdService {
         }
     }
 
-    private func save(tempIds: [TempIdStruct]) {
+    private func save(tempIds: [TempUserId]) {
         // 重複排除してから保存する
         let localTempIDs = tempIDs.compactMap { $0.tempId }
         let newTempIDs = tempIds.filter { !localTempIDs.contains($0.tempId) }
         newTempIDs.forEach { [weak self] in
-            self?.coreData.save(tempID: $0)
+            self?.coreData.save(tempUserId: $0)
         }
     }
 
-    private func filterCurrent(tempIDs: [TempIdStruct]) -> TempIdStruct? {
+    private func filterCurrent(tempIDs: [TempUserId]) -> TempUserId? {
         let now = Date()
         return tempIDs.first { tempId -> Bool in
             tempId.startTime <= now && now < tempId.endTime
         }
     }
 
-    private func filterIsValid(tempIDs: [TempIdStruct]) -> [TempIdStruct] {
+    private func filterIsValid(tempIDs: [TempUserId]) -> [TempUserId] {
            let now = Date()
            return tempIDs.filter { tempId -> Bool in
                now < tempId.endTime
@@ -96,17 +96,3 @@ extension TempIdService {
     }
 }
 #endif
-
-struct TempIdStruct {
-    let tempId: String
-    let startTime: Date
-    let endTime: Date
-}
-
-extension TempIdStruct {
-    init(response: TempIdAPIResponse) {
-        tempId = response.tempID
-        startTime = Date(timeIntervalSince1970: response.validFrom)
-        endTime = Date(timeIntervalSince1970: response.validTo)
-    }
-}

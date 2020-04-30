@@ -34,7 +34,7 @@ final class DeepContactCheckService {
     }
 
     func getDeepContactUsers() -> [DeepContactUser] {
-        return coreData.getDeepContactUsers()
+        return coreData.getDeepContactUsers().compactMap { $0.toDeepContactUser() }
     }
 
     func getDeepContactUsersAtYesterday() -> [DeepContactUser] {
@@ -42,7 +42,7 @@ final class DeepContactCheckService {
         let yesterday = Date.yesterdayZeroOClock
         let today = Date.todatyZeroOClock
         return deepContactUsers.filter {
-            yesterday <= $0.startTime! && $0.startTime! < today
+            yesterday <= $0.startTime && $0.startTime < today
         }
     }
 
@@ -50,8 +50,8 @@ final class DeepContactCheckService {
         let yesterdayDeepContactUsers = getDeepContactUsersAtYesterday()
         var tempIDs: [String] = []
         yesterdayDeepContactUsers.forEach {
-            if tempIDs.contains($0.tempId!) == false {
-                tempIDs.append($0.tempId!)
+            if tempIDs.contains($0.tempId) == false {
+                tempIDs.append($0.tempId)
             }
         }
         return tempIDs.count
@@ -63,7 +63,7 @@ final class DeepContactCheckService {
         tempTraceDataList.removeAll()
         let tempIDs = coreData.getAllTempIDsOfTraceData()
         tempIDs.forEach { tempID in
-            let traceData = coreData.getTraceDataList(tempID: tempID)
+            let traceData = coreData.getTraceDataList(tempID: tempID).compactMap { $0.toTraceDataRecord() }
             check(traceData: traceData)
         }
 
@@ -72,7 +72,7 @@ final class DeepContactCheckService {
         isChecking = false
     }
 
-    private func check(traceData: [TraceData]) {
+    private func check(traceData: [TraceDataRecord]) {
         guard traceData.count >= 2 else { return }
         // NOTE: インデックスが0の方が新しい
         // 直近の閾値以内かどうか
@@ -86,10 +86,10 @@ final class DeepContactCheckService {
         makeTemporaryTraceDataList(traceData: traceData)
     }
 
-    private var tempTraceDataList: [String: [[TraceData]]] = [:]
-    private var tempRecord: [TraceData] = []
+    private var tempTraceDataList: [String: [[TraceDataRecord]]] = [:]
+    private var tempRecord: [TraceDataRecord] = []
 
-    private func makeTemporaryTraceDataList(traceData: [TraceData], index: Int = 0) {
+    private func makeTemporaryTraceDataList(traceData: [TraceDataRecord], index: Int = 0) {
         let tempID = traceData[index].tempId!
         tempRecord.append(traceData[index])
         tempTraceDataList[tempID] = []

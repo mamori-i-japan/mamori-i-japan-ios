@@ -101,7 +101,7 @@ final class DebugViewController: UIViewController {
         deepContactJudgedTextField.text = String(Int(deepContactCheck.deepContactJudgedDuration))
         DispatchQueue.global(qos: .userInitiated).async {
             // CoreData直接参照について、処理が重いので別スレッドで反映
-            self.traceData = self.coreData.getTraceDataList().filter { $0.isValidConnection }
+            self.traceData = self.coreData.getTraceDataList().filter { $0.isValidConnection }.compactMap { $0.toTraceDataRecord() }
         }
         deepContactCheck.checkStart { [weak self] _ in
             guard let sSelf = self else { return }
@@ -129,7 +129,7 @@ final class DebugViewController: UIViewController {
         }
     }
 
-    private var traceData: [TraceData] = []
+    private var traceData: [TraceDataRecord] = []
     private var deepContactUsers: [DeepContactUser] = []
 
     @IBAction func tappedCloseButton(_ sender: Any) {
@@ -184,7 +184,7 @@ extension DebugViewController: UITableViewDelegate {
         case 0:
             if indexPath.row < deepContactUsers.count {
                 let deepContactUser = deepContactUsers[indexPath.row]
-                let uuid = deepContactUser.tempId!
+                let uuid = deepContactUser.tempId
                 showAlertWithCancel(
                     message: "\(uuid) \n上記を一時的に陽性者として扱いますか？",
                     okAction: { _ in
@@ -229,7 +229,7 @@ extension DebugViewController: UITableViewDataSource {
                 let deepContactUser = deepContactUsers[indexPath.row]
                 cell.update(deepContactUser: deepContactUser)
 
-                if (positiveContact.positiveContacts.compactMap { $0.tempID }).contains(deepContactUser.tempId!) {
+                if (positiveContact.positiveContacts.compactMap { $0.tempID }).contains(deepContactUser.tempId) {
                     cell.tempIDLabel.textColor = .red // 陽性者だった場合は赤にする
                 } else {
                     cell.tempIDLabel.textColor = .black
@@ -254,11 +254,11 @@ final class DebugBLECell: UITableViewCell {
     @IBOutlet weak var txPowerLabel: UILabel!
     @IBOutlet weak var tempIDLabel: UILabel!
 
-    func update(traceData: TraceData) {
+    func update(traceData: TraceDataRecord) {
         tempIDLabel.text = traceData.tempId
         dataLabel.text = traceData.timestamp?.toString(format: "yyyy/MM/dd HH:mm:ss.SSS") ?? "Unknown Date"
-        rssiLabel.text = traceData.rssi?.stringValue ?? "-"
-        txPowerLabel.text = traceData.txPower?.stringValue ?? "-"
+        rssiLabel.text = traceData.rssi?.description ?? "-"
+        txPowerLabel.text = traceData.txPower?.description ?? "-"
         selectionStyle = .none
     }
 }
@@ -279,7 +279,7 @@ final class DebugDeepContactUserCell: UITableViewCell {
     func update(deepContactUser: DeepContactUser) {
         tempIDLabel.text = deepContactUser.tempId
         timeLabel.isHidden = false
-        timeLabel.text = "\(deepContactUser.startTime!.toString(format: "yyyy/MM/dd HH:mm:ss.SSS"))~\(deepContactUser.endTime!.toString(format: "yyyy/MM/dd HH:mm:ss.SSS"))"
+        timeLabel.text = "\(deepContactUser.startTime.toString(format: "yyyy/MM/dd HH:mm:ss.SSS"))~\(deepContactUser.endTime.toString(format: "yyyy/MM/dd HH:mm:ss.SSS"))"
         accessoryType = .disclosureIndicator
         selectionStyle = .default
         backgroundColor = .init(hex: 0xFF0000, alpha: 0.5)

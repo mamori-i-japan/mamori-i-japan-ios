@@ -9,12 +9,12 @@ import Foundation
 import CoreData
 
 extension CoreDataService {
-    func save(tempID: TempIdStruct) {
+    func save(tempUserId: TempUserId) {
         // NOTE: 同じTempIDだったとしてもCoreData上では重複するので、排除してからsaveを実行すること
         let managedContext = persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "TempUserId", in: managedContext)!
-        let tempUserId = TempUserId(entity: entity, insertInto: managedContext)
-        tempUserId.set(tempIdStruct: tempID)
+        let tempUserIdEntity = TempUserIdEntity(entity: entity, insertInto: managedContext)
+        tempUserIdEntity.set(tempUserId: tempUserId)
         print("[CoreData] save: \(tempUserId)")
         do {
             try managedContext.save()
@@ -23,13 +23,13 @@ extension CoreDataService {
         }
     }
 
-    func getTempUserIDs() -> [TempIdStruct] {
+    func getTempUserIDs() -> [TempUserId] {
         let managedContext = persistentContainer.viewContext
-        let request = getFetchRequestFor(TempUserId.self, context: managedContext, with: nil, with: NSSortDescriptor(key: "startTime", ascending: false), prefetchKeyPaths: nil)
+        let request = getFetchRequestFor(TempUserIdEntity.self, context: managedContext, with: nil, with: NSSortDescriptor(key: "startTime", ascending: false), prefetchKeyPaths: nil)
 
         do {
             let result = try managedContext.fetch(request)
-            return result.compactMap { $0.toTempIdStruct() }
+            return result.compactMap { $0.toTempUserId() }
         } catch {
             print("[CoreData] error occured: \(error)")
             return []
@@ -37,6 +37,6 @@ extension CoreDataService {
     }
 
     func deleteAllTempUserIDs() {
-        deleteObjectsOf(TempUserId.self, with: nil)
+        deleteObjectsOf(TempUserIdEntity.self, with: nil)
     }
 }
