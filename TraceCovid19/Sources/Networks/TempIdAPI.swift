@@ -32,6 +32,14 @@ struct TempIdAPIResponse: Decodable {
     let validTo: TimeInterval
 }
 
+extension TempUserId {
+    init(response: TempIdAPIResponse) {
+        tempId = response.tempID
+        startTime = Date(timeIntervalSince1970: response.validFrom)
+        endTime = Date(timeIntervalSince1970: response.validTo)
+    }
+}
+
 extension Array: APIResponseType where Element == TempIdAPIResponse {
 }
 

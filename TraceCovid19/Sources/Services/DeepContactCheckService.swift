@@ -34,7 +34,7 @@ final class DeepContactCheckService {
     }
 
     func getDeepContactUsers() -> [DeepContactUser] {
-        return coreData.getDeepContactUsers().compactMap { DeepContactUser(entity: $0) }
+        return coreData.getDeepContactUsers().compactMap { $0.toDeepContactUser() }
     }
 
     func getDeepContactUsersAtYesterday() -> [DeepContactUser] {

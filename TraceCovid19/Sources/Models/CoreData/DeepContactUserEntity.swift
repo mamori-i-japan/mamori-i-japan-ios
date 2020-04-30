@@ -25,4 +25,8 @@ extension DeepContactUserEntity {
         endTime = traceData.first!.timestamp
         return true
     }
+
+    func toDeepContactUser() -> DeepContactUser {
+         return DeepContactUser(tempId: tempId, startTime: startTime, endTime: endTime)
+     }
 }

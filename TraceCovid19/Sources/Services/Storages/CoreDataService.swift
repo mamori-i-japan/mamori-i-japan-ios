@@ -12,7 +12,7 @@ final class CoreDataService {
     private(set) var persistentContainer: NSPersistentContainer
 
     /// CoreDataで管理する全クラス **＊全削除に使用するため必ずクラスが増える場合は定義すること**
-    private let managedClasses: [NSManagedObject.Type] = [TraceData.self, DeepContactUserEntity.self, TempUserId.self]
+    private let managedClasses: [NSManagedObject.Type] = [TraceData.self, DeepContactUserEntity.self, TempUserIdEntity.self]
 
     init(persistentContainer: NSPersistentContainer) {
         self.persistentContainer = persistentContainer

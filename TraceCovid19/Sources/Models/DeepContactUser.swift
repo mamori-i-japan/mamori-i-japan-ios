@@ -12,11 +12,3 @@ struct DeepContactUser {
     var startTime: Date
     var endTime: Date
 }
-
-extension DeepContactUser {
-    init(entity: DeepContactUserEntity) {
-        self.tempId = entity.tempId
-        self.startTime = entity.startTime
-        self.endTime = entity.endTime
-    }
-}

@@ -13,7 +13,10 @@ extension CoreDataService {
         let managedContext = persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "DeepContactUser", in: managedContext)!
         let deepContactUser = DeepContactUserEntity(entity: entity, insertInto: managedContext)
-        deepContactUser.set(tempId: tempId, traceData: traceData)
+        guard deepContactUser.set(tempId: tempId, traceData: traceData) else {
+            print("[CoreData] Could not set to deep contact user entity: \(tempId)")
+            return
+        }
         print("[CoreData] save: \(deepContactUser)")
         do {
             try managedContext.save()

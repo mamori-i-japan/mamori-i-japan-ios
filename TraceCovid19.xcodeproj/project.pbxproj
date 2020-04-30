@@ -199,6 +199,7 @@
 		F0B9F380245A8453006FA28D /* TraceDataUploadCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0B9F37F245A8453006FA28D /* TraceDataUploadCompleteViewController.storyboard */; };
 		F0B9F382245A8682006FA28D /* NavigationProtocol+Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F381245A8682006FA28D /* NavigationProtocol+Trace.swift */; };
 		F0B9F385245ACD3E006FA28D /* DeepContactUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F384245ACD3E006FA28D /* DeepContactUserEntity.swift */; };
+		F0B9F387245AD02E006FA28D /* TempUserIdEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -408,6 +409,7 @@
 		F0B9F37F245A8453006FA28D /* TraceDataUploadCompleteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TraceDataUploadCompleteViewController.storyboard; sourceTree = "<group>"; };
 		F0B9F381245A8682006FA28D /* NavigationProtocol+Trace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Trace.swift"; sourceTree = "<group>"; };
 		F0B9F384245ACD3E006FA28D /* DeepContactUserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepContactUserEntity.swift; sourceTree = "<group>"; };
+		F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUserIdEntity.swift; sourceTree = "<group>"; };
 		F0C6AD7C243461A600F863FC /* まもりあい.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "まもりあい.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -835,6 +837,7 @@
 			children = (
 				F02356BA2442F5F4001E72ED /* Model.xcdatamodeld */,
 				F0B9F384245ACD3E006FA28D /* DeepContactUserEntity.swift */,
+				F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1199,6 +1202,7 @@
 				F0A282AF243EC5D5008390AE /* InputPhoneNumberViewController.swift in Sources */,
 				F096D5AF244EED5A00F7919B /* SSLPinningManager+Alamofire.swift in Sources */,
 				F0A282D3243EF019008390AE /* KeychainService+Property.swift in Sources */,
+				F0B9F387245AD02E006FA28D /* TempUserIdEntity.swift in Sources */,
 				F0A282DD243EF84C008390AE /* BootService.swift in Sources */,
 				F096D5C82450672D00F7919B /* TraceDataUploadAPI.swift in Sources */,
 				F065130E2452B15500CCCE91 /* UIColor+DesignGuide.swift in Sources */,

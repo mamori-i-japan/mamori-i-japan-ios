@@ -40,6 +40,6 @@ final class TraceDataUploadService {
     }
 
     private func getDeepContactUsers() -> [DeepContactUserUploadModel] {
-        return coreData.getDeepContactUsers().compactMap { DeepContactUserUploadModel(deepContactUser: DeepContactUser(entity: $0)) }
+        return coreData.getDeepContactUsers().compactMap { DeepContactUserUploadModel(deepContactUser: $0.toDeepContactUser()) }
     }
 }
