@@ -1,5 +1,5 @@
 //
-//  TraceData.swift
+//  TraceDataEntity.swift
 //  TraceCovid19
 //
 //  Created by yosawa on 2020/04/12.
@@ -9,10 +9,10 @@ import UIKit
 import CoreData
 
 @objc(TraceData)
-final class TraceData: NSManagedObject, Encodable {
+final class TraceDataEntity: NSManagedObject, Encodable {
 }
 
-extension TraceData {
+extension TraceDataEntity {
     @NSManaged var tempId: String?
     @NSManaged var timestamp: Date?
     @NSManaged var rssi: NSNumber?
@@ -24,9 +24,13 @@ extension TraceData {
         setValue(traceDataRecord.rssi, forKeyPath: "rssi")
         setValue(traceDataRecord.txPower, forKeyPath: "txPower")
     }
+
+    func toTraceDataRecord() -> TraceDataRecord {
+        return TraceDataRecord(timestamp: timestamp, tempId: tempId, rssi: rssi?.doubleValue, txPower: txPower?.doubleValue)
+    }
 }
 
-extension TraceData {
+extension TraceDataEntity {
     var isValidConnection: Bool {
         return timestamp != nil
             && tempId != nil

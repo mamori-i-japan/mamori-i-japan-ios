@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 extension CoreDataService {
-    func saveAsDeepContactUser(tempId: String, traceData: [TraceData]) {
+    func saveAsDeepContactUser(tempId: String, traceData: [TraceDataRecord]) {
         let managedContext = persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "DeepContactUser", in: managedContext)!
         let deepContactUser = DeepContactUserEntity(entity: entity, insertInto: managedContext)

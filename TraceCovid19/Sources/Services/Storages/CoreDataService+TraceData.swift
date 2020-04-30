@@ -9,9 +9,9 @@ import UIKit
 import CoreData
 
 extension CoreDataService {
-    func getTraceDataList() -> [TraceData] {
+    func getTraceDataList() -> [TraceDataEntity] {
         let managedContext = persistentContainer.viewContext
-        let request = getFetchRequestFor(TraceData.self, context: managedContext, with: nil, with: NSSortDescriptor(key: "timestamp", ascending: false), prefetchKeyPaths: nil)
+        let request = getFetchRequestFor(TraceDataEntity.self, context: managedContext, with: nil, with: NSSortDescriptor(key: "timestamp", ascending: false), prefetchKeyPaths: nil)
 
         do {
             let traceData = try managedContext.fetch(request)
@@ -24,8 +24,8 @@ extension CoreDataService {
 
     func getAllTempIDsOfTraceData() -> [String] {
         let context = persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: NSStringFromClass(TraceData.self))
-        request.entity = NSEntityDescription.entity(forEntityName: NSStringFromClass(TraceData.self), in: context)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TraceData")
+        request.entity = NSEntityDescription.entity(forEntityName: "TraceData", in: context)
         request.propertiesToFetch = ["tempId"]
         request.resultType = .dictionaryResultType
         request.returnsDistinctResults = true
@@ -42,11 +42,11 @@ extension CoreDataService {
         }
     }
 
-    func getTraceDataList(tempID: String) -> [TraceData] {
+    func getTraceDataList(tempID: String) -> [TraceDataEntity] {
         // NOTE: 取得に時間がかかるのでスレッドを分けるのを推奨
         let managedContext = persistentContainer.viewContext
         let predicate = NSPredicate(format: "tempId = %@", tempID)
-        let request = getFetchRequestFor(TraceData.self, context: managedContext, with: predicate, with: NSSortDescriptor(key: "timestamp", ascending: false), prefetchKeyPaths: nil)
+        let request = getFetchRequestFor(TraceDataEntity.self, context: managedContext, with: predicate, with: NSSortDescriptor(key: "timestamp", ascending: false), prefetchKeyPaths: nil)
 
         do {
             let traceData = try managedContext.fetch(request)
@@ -60,11 +60,11 @@ extension CoreDataService {
     /// TempIDと時間範囲指定での削除
     /// - Parameter tempId:
     func deleteAllTraceData(tempId: String, startTime: Date, endTime: Date) {
-        deleteObjectsOf(TraceData.self, with: NSPredicate(format: "tempId = %@ AND (timestamp >= %@) AND (timestamp <= %@)", tempId, startTime as NSDate, endTime as NSDate))
+        deleteObjectsOf(TraceDataEntity.self, with: NSPredicate(format: "tempId = %@ AND (timestamp >= %@) AND (timestamp <= %@)", tempId, startTime as NSDate, endTime as NSDate))
     }
 
     func deleteAllTraceData() {
-        deleteObjectsOf(TraceData.self, with: nil)
+        deleteObjectsOf(TraceDataEntity.self, with: nil)
     }
 
     enum Event: String {
@@ -81,7 +81,7 @@ extension CoreDataService {
             guard let sSelf = self else { return }
             let managedContext = sSelf.persistentContainer.viewContext
             let entity = NSEntityDescription.entity(forEntityName: "TraceData", in: managedContext)!
-            let data = TraceData(entity: entity, insertInto: managedContext)
+            let data = TraceDataEntity(entity: entity, insertInto: managedContext)
             data.tempId = event.rawValue
             data.timestamp = Date()
             do {

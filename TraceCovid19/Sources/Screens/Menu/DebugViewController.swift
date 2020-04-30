@@ -101,7 +101,7 @@ final class DebugViewController: UIViewController {
         deepContactJudgedTextField.text = String(Int(deepContactCheck.deepContactJudgedDuration))
         DispatchQueue.global(qos: .userInitiated).async {
             // CoreData直接参照について、処理が重いので別スレッドで反映
-            self.traceData = self.coreData.getTraceDataList().filter { $0.isValidConnection }
+            self.traceData = self.coreData.getTraceDataList().filter { $0.isValidConnection }.compactMap { $0.toTraceDataRecord() }
         }
         deepContactCheck.checkStart { [weak self] _ in
             guard let sSelf = self else { return }
@@ -129,7 +129,7 @@ final class DebugViewController: UIViewController {
         }
     }
 
-    private var traceData: [TraceData] = []
+    private var traceData: [TraceDataRecord] = []
     private var deepContactUsers: [DeepContactUser] = []
 
     @IBAction func tappedCloseButton(_ sender: Any) {
@@ -254,11 +254,11 @@ final class DebugBLECell: UITableViewCell {
     @IBOutlet weak var txPowerLabel: UILabel!
     @IBOutlet weak var tempIDLabel: UILabel!
 
-    func update(traceData: TraceData) {
+    func update(traceData: TraceDataRecord) {
         tempIDLabel.text = traceData.tempId
         dataLabel.text = traceData.timestamp?.toString(format: "yyyy/MM/dd HH:mm:ss.SSS") ?? "Unknown Date"
-        rssiLabel.text = traceData.rssi?.stringValue ?? "-"
-        txPowerLabel.text = traceData.txPower?.stringValue ?? "-"
+        rssiLabel.text = traceData.rssi?.description ?? "-"
+        txPowerLabel.text = traceData.txPower?.description ?? "-"
         selectionStyle = .none
     }
 }

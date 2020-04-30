@@ -42,7 +42,7 @@
 		F02356B82442F046001E72ED /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02356882442EB69001E72ED /* nanopb.framework */; };
 		F02356B92442F046001E72ED /* PromisesObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F023569C2442EBD1001E72ED /* PromisesObjC.framework */; };
 		F02356BC2442F5F4001E72ED /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F02356BA2442F5F4001E72ED /* Model.xcdatamodeld */; };
-		F02356BE2442F7B1001E72ED /* TraceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02356BD2442F7B1001E72ED /* TraceData.swift */; };
+		F02356BE2442F7B1001E72ED /* TraceDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02356BD2442F7B1001E72ED /* TraceDataEntity.swift */; };
 		F02356C02442F83E001E72ED /* TraceDataRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02356BF2442F83E001E72ED /* TraceDataRecord.swift */; };
 		F02356C22442F87B001E72ED /* CoreDataService+SaveTraceDataRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02356C12442F87B001E72ED /* CoreDataService+SaveTraceDataRecord.swift */; };
 		F02356C62442FC57001E72ED /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02356C52442FC57001E72ED /* CoreDataService.swift */; };
@@ -241,7 +241,7 @@
 		F023569C2442EBD1001E72ED /* PromisesObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromisesObjC.framework; path = Carthage/Build/iOS/PromisesObjC.framework; sourceTree = "<group>"; };
 		F02356AB2442EDCC001E72ED /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Carthage/Build/iOS/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
 		F02356BB2442F5F4001E72ED /* Encounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Encounter.xcdatamodel; sourceTree = "<group>"; };
-		F02356BD2442F7B1001E72ED /* TraceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceData.swift; sourceTree = "<group>"; };
+		F02356BD2442F7B1001E72ED /* TraceDataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceDataEntity.swift; sourceTree = "<group>"; };
 		F02356BF2442F83E001E72ED /* TraceDataRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceDataRecord.swift; sourceTree = "<group>"; };
 		F02356C12442F87B001E72ED /* CoreDataService+SaveTraceDataRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataService+SaveTraceDataRecord.swift"; sourceTree = "<group>"; };
 		F02356C52442FC57001E72ED /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
@@ -595,7 +595,6 @@
 				F079FF78244C09B700202A91 /* Profile.swift */,
 				F051ADBF2449476C007278A0 /* TempUserId.swift */,
 				F0A2829D243EC06E008390AE /* TokenResponse.swift */,
-				F02356BD2442F7B1001E72ED /* TraceData.swift */,
 				F02356BF2442F83E001E72ED /* TraceDataRecord.swift */,
 			);
 			path = Models;
@@ -835,9 +834,10 @@
 		F0B9F383245ACD2D006FA28D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				F02356BA2442F5F4001E72ED /* Model.xcdatamodeld */,
 				F0B9F384245ACD3E006FA28D /* DeepContactUserEntity.swift */,
 				F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */,
+				F02356BD2442F7B1001E72ED /* TraceDataEntity.swift */,
+				F02356BA2442F5F4001E72ED /* Model.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1145,7 +1145,7 @@
 				F051ADBE24494688007278A0 /* CoreDataService+TempId.swift in Sources */,
 				F02356BC2442F5F4001E72ED /* Model.xcdatamodeld in Sources */,
 				F0A282CD243ED068008390AE /* AssociatedObjects.swift in Sources */,
-				F02356BE2442F7B1001E72ED /* TraceData.swift in Sources */,
+				F02356BE2442F7B1001E72ED /* TraceDataEntity.swift in Sources */,
 				F051ADC624498085007278A0 /* InputJobViewController.swift in Sources */,
 				F0031D40243462AC009F9643 /* HomeViewController.swift in Sources */,
 				F096D5AD244ED70F00F7919B /* SSLPinningManager.swift in Sources */,

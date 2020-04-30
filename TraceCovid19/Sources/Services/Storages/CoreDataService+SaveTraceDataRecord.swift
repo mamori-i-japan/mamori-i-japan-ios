@@ -12,7 +12,7 @@ extension CoreDataService {
     func save(traceDataRecord: TraceDataRecord) {
         let managedContext = persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "TraceData", in: managedContext)!
-        let data = TraceData(entity: entity, insertInto: managedContext)
+        let data = TraceDataEntity(entity: entity, insertInto: managedContext)
         data.set(traceDataRecord: traceDataRecord)
         print("[CoreData] save: \(data)")
         do {

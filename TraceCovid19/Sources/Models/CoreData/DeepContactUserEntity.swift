@@ -18,7 +18,7 @@ extension DeepContactUserEntity {
     @NSManaged var endTime: Date!
 
     @discardableResult
-    func set(tempId: String, traceData: [TraceData]) -> Bool {
+    func set(tempId: String, traceData: [TraceDataRecord]) -> Bool {
         guard traceData.count >= 2 else { return false }
         self.tempId = tempId
         startTime = traceData.last!.timestamp

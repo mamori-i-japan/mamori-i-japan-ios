@@ -63,7 +63,7 @@ final class DeepContactCheckService {
         tempTraceDataList.removeAll()
         let tempIDs = coreData.getAllTempIDsOfTraceData()
         tempIDs.forEach { tempID in
-            let traceData = coreData.getTraceDataList(tempID: tempID)
+            let traceData = coreData.getTraceDataList(tempID: tempID).compactMap { $0.toTraceDataRecord() }
             check(traceData: traceData)
         }
 
@@ -72,7 +72,7 @@ final class DeepContactCheckService {
         isChecking = false
     }
 
-    private func check(traceData: [TraceData]) {
+    private func check(traceData: [TraceDataRecord]) {
         guard traceData.count >= 2 else { return }
         // NOTE: インデックスが0の方が新しい
         // 直近の閾値以内かどうか
@@ -86,10 +86,10 @@ final class DeepContactCheckService {
         makeTemporaryTraceDataList(traceData: traceData)
     }
 
-    private var tempTraceDataList: [String: [[TraceData]]] = [:]
-    private var tempRecord: [TraceData] = []
+    private var tempTraceDataList: [String: [[TraceDataRecord]]] = [:]
+    private var tempRecord: [TraceDataRecord] = []
 
-    private func makeTemporaryTraceDataList(traceData: [TraceData], index: Int = 0) {
+    private func makeTemporaryTraceDataList(traceData: [TraceDataRecord], index: Int = 0) {
         let tempID = traceData[index].tempId!
         tempRecord.append(traceData[index])
         tempTraceDataList[tempID] = []
