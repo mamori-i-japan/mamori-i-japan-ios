@@ -8,7 +8,7 @@
 import UIKit
 import NVActivityIndicatorView
 
-final class TraceDataUploadViewController: UIViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable {
+final class TraceDataUploadViewController: UIViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable, TraceDataUploadCompleteAccessable {
     var traceDataUpload: TraceDataUploadService!
 
     @IBAction func tappedUploadButton(sender: Any) {
@@ -20,7 +20,14 @@ final class TraceDataUploadViewController: UIViewController, NVActivityIndicator
 
         traceDataUpload.upload { [weak self] result in
             self?.stopAnimating()
-            print(result)
+
+            switch result {
+            case .success:
+                self?.pushToTraceDataUploadComplete()
+            case .failure(let error):
+                // TODO: エラーハンドリング
+                self?.showAlert(message: error.localizedDescription)
+            }
         }
     }
 

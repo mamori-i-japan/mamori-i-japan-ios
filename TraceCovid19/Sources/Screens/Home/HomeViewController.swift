@@ -19,7 +19,7 @@ enum UserStatus {
     static let usualUpperLimitCount = 25
 }
 
-final class HomeViewController: UIViewController, NavigationBarHiddenApplicapable, NVActivityIndicatorViewable, MenuAccessable {
+final class HomeViewController: UIViewController, NavigationBarHiddenApplicapable, NVActivityIndicatorViewable, MenuAccessable, TraceDataUploadAccessable {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var headerBaseView: UIView!
@@ -209,9 +209,7 @@ final class HomeViewController: UIViewController, NavigationBarHiddenApplicapabl
     }
 
     func gotoUpload() {
-        let navigationController = CustomNavigationController(rootViewController: TraceDataUploadViewController.instantiate())
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true, completion: nil)
+        modalToTraceDataUpload()
     }
 
     func gotoHistory() {

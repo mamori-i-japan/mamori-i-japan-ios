@@ -7,26 +7,17 @@
 
 import UIKit
 
-protocol HomeAccessable: NavigationProtocol {
-    var homePresenter: UIViewController { get }
+protocol HomeAccessable: PushNavigationProtocol, ModalNavigationProtocol {
     func modalToHome()
     func setViewControllersWithHome()
 }
 
-extension HomeAccessable where Self: UIViewController {
-    var homePresenter: UIViewController {
-        return self
-    }
-}
-
 extension HomeAccessable {
     func modalToHome() {
-        let navigationController = CustomNavigationController(rootViewController: HomeViewController.instantiate())
-        navigationController.modalPresentationStyle = .fullScreen
-        homePresenter.present(navigationController, animated: false, completion: nil)
+        present(to: HomeViewController.instantiate())
     }
 
     func setViewControllersWithHome() {
-        navigationController?.setViewControllers([HomeViewController.instantiate()], animated: true)
+        setViewControllers(to: [HomeViewController.instantiate()])
     }
 }

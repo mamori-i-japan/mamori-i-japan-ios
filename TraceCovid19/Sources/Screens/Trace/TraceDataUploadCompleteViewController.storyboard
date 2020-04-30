@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j04-Zh-xKd">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Trace Data Upload Complete View Controller-->
+        <scene sceneID="iWh-co-ZSk">
+            <objects>
+                <viewController id="j04-Zh-xKd" customClass="TraceDataUploadCompleteViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wGA-rB-VT5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yTz-mY-rqn">
+                                <rect key="frame" x="16" y="150" width="382" height="48"/>
+                                <string key="text">アップロードが完了しました。
+ご協力ありがとうございました。</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oki-Ea-184">
+                                <rect key="frame" x="92.5" y="242" width="229.5" height="36"/>
+                                <string key="text">医師や保健所の指示にしたがって
+安静にお過ごしください。</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOn-3h-rnd" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
+                                <rect key="frame" x="16" y="350" width="382" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="MWj-SF-xrh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="ホームへ戻る"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tappedBackToHomeButton:" destination="j04-Zh-xKd" eventType="touchUpInside" id="19a-Yt-dln"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yTz-mY-rqn" firstAttribute="leading" secondItem="SmI-Yj-x6T" secondAttribute="leading" constant="16" id="85s-mP-Ez3"/>
+                            <constraint firstItem="yTz-mY-rqn" firstAttribute="top" secondItem="SmI-Yj-x6T" secondAttribute="top" constant="62" id="8eK-6p-QCI"/>
+                            <constraint firstItem="SmI-Yj-x6T" firstAttribute="trailing" secondItem="tOn-3h-rnd" secondAttribute="trailing" constant="16" id="BQ1-gU-N33"/>
+                            <constraint firstItem="tOn-3h-rnd" firstAttribute="leading" secondItem="SmI-Yj-x6T" secondAttribute="leading" constant="16" id="C2T-Ek-87g"/>
+                            <constraint firstItem="SmI-Yj-x6T" firstAttribute="trailing" secondItem="yTz-mY-rqn" secondAttribute="trailing" constant="16" id="C8c-cT-7zp"/>
+                            <constraint firstItem="tOn-3h-rnd" firstAttribute="top" secondItem="SmI-Yj-x6T" secondAttribute="top" constant="262" id="LHj-FB-Q7Y"/>
+                            <constraint firstItem="Oki-Ea-184" firstAttribute="centerX" secondItem="yTz-mY-rqn" secondAttribute="centerX" id="eUM-a6-t9Y"/>
+                            <constraint firstItem="Oki-Ea-184" firstAttribute="top" secondItem="yTz-mY-rqn" secondAttribute="bottom" constant="44" id="gbw-L8-9pp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SmI-Yj-x6T"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cDD-mw-EP6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="215.94202898550725" y="85.714285714285708"/>
+        </scene>
+    </scenes>
+</document>

@@ -7,33 +7,32 @@
 
 import Foundation
 
-protocol MenuAccessable: NavigationProtocol {
+protocol MenuAccessable: PushNavigationProtocol {
     func pushToMenu()
 }
 
 extension MenuAccessable {
     func pushToMenu() {
-        navigationController?.pushViewController(MenuViewController.instantiate(), animated: true)
+        push(to: MenuViewController.instantiate())
     }
 }
 
-protocol AboutAccessable: NavigationProtocol {
+protocol AboutAccessable: PushNavigationProtocol {
     func pushToAbout()
 }
 
 extension AboutAccessable {
     func pushToAbout() {
-        navigationController?.pushViewController(AboutViewController.instantiate(), animated: true)
+        push(to: AboutViewController.instantiate())
     }
 }
 
-protocol SettingAccessable: NavigationProtocol {
+protocol SettingAccessable: PushNavigationProtocol {
     func pushToSetting()
 }
 
 extension AboutAccessable {
     func pushToSetting() {
-        navigationController?.pushViewController(SettingViewController.instantiate(), animated: true)
+        push(to: SettingViewController.instantiate())
     }
 }
-

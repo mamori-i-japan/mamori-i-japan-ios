@@ -195,6 +195,9 @@
 		F0A2833224421142008390AE /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A2833124421142008390AE /* DebugViewController.swift */; };
 		F0A2833424421161008390AE /* DebugViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A2833324421161008390AE /* DebugViewController.storyboard */; };
 		F0B9F37C245A6509006FA28D /* NavigationProtocol+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F37B245A6509006FA28D /* NavigationProtocol+Menu.swift */; };
+		F0B9F37E245A843E006FA28D /* TraceDataUploadCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F37D245A843E006FA28D /* TraceDataUploadCompleteViewController.swift */; };
+		F0B9F380245A8453006FA28D /* TraceDataUploadCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0B9F37F245A8453006FA28D /* TraceDataUploadCompleteViewController.storyboard */; };
+		F0B9F382245A8682006FA28D /* NavigationProtocol+Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F381245A8682006FA28D /* NavigationProtocol+Trace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -400,6 +403,9 @@
 		F0A2833124421142008390AE /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		F0A2833324421161008390AE /* DebugViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DebugViewController.storyboard; sourceTree = "<group>"; };
 		F0B9F37B245A6509006FA28D /* NavigationProtocol+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Menu.swift"; sourceTree = "<group>"; };
+		F0B9F37D245A843E006FA28D /* TraceDataUploadCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceDataUploadCompleteViewController.swift; sourceTree = "<group>"; };
+		F0B9F37F245A8453006FA28D /* TraceDataUploadCompleteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TraceDataUploadCompleteViewController.storyboard; sourceTree = "<group>"; };
+		F0B9F381245A8682006FA28D /* NavigationProtocol+Trace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Trace.swift"; sourceTree = "<group>"; };
 		F0C6AD7C243461A600F863FC /* まもりあい.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "まもりあい.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -524,6 +530,7 @@
 				F0156AAB2457DC7C006CB28F /* NavigationProtocol+Registerations.swift */,
 				F0156AAF2457DFA8006CB28F /* NavigationProtocol+Setting.swift */,
 				F0156AAD2457DC95006CB28F /* NavigationProtocol+Start.swift */,
+				F0B9F381245A8682006FA28D /* NavigationProtocol+Trace.swift */,
 			);
 			path = Navigations;
 			sourceTree = "<group>";
@@ -729,6 +736,8 @@
 		F0A282BC243EC8FC008390AE /* Trace */ = {
 			isa = PBXGroup;
 			children = (
+				F0B9F37F245A8453006FA28D /* TraceDataUploadCompleteViewController.storyboard */,
+				F0B9F37D245A843E006FA28D /* TraceDataUploadCompleteViewController.swift */,
 				F0A282BA243EC826008390AE /* TraceDataUploadViewController.storyboard */,
 				F0A282B8243EC812008390AE /* TraceDataUploadViewController.swift */,
 				F0156AA4245589C4006CB28F /* TraceHistoryViewController.storyboard */,
@@ -941,6 +950,7 @@
 				F0031D362434629F009F9643 /* Assets.xcassets in Resources */,
 				F0475996243585180091059F /* SplashViewController.storyboard in Resources */,
 				F0031D41243462AC009F9643 /* LaunchScreen.storyboard in Resources */,
+				F0B9F380245A8453006FA28D /* TraceDataUploadCompleteViewController.storyboard in Resources */,
 				F0A282FE24416BFE008390AE /* Tutorial3ViewController.storyboard in Resources */,
 				F0A282AB243EC371008390AE /* Tutorial1ViewController.storyboard in Resources */,
 				F03FB9852451F30600158521 /* HomePositiveContentsView.xib in Resources */,
@@ -1150,6 +1160,7 @@
 				F0A282A0243EC0AD008390AE /* LoginService.swift in Sources */,
 				C75FDCF8244FAAB40020FA1E /* CBPeripheral+ShortId.swift in Sources */,
 				F079FF90244D418400202A91 /* BaseLabel.swift in Sources */,
+				F0B9F37E245A843E006FA28D /* TraceDataUploadCompleteViewController.swift in Sources */,
 				F0156AAE2457DC95006CB28F /* NavigationProtocol+Start.swift in Sources */,
 				F051ADCA24498ED4007278A0 /* SettingViewController.swift in Sources */,
 				F0A28325244195A7008390AE /* CodeInputUnitView.swift in Sources */,
@@ -1187,6 +1198,7 @@
 				F079FF8C244D3D0400202A91 /* BaseButton.swift in Sources */,
 				F02356C62442FC57001E72ED /* CoreDataService.swift in Sources */,
 				F079FF94244D431C00202A91 /* BaseTextField.swift in Sources */,
+				F0B9F382245A8682006FA28D /* NavigationProtocol+Trace.swift in Sources */,
 				F0A282D7243EF5CA008390AE /* UserDefaultsService+Property.swift in Sources */,
 				F051ADC224495577007278A0 /* Debug3ViewController.swift in Sources */,
 				C75B12C3244F2FBF009C2ED6 /* Peripheral.swift in Sources */,

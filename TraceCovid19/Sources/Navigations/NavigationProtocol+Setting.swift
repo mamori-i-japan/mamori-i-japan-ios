@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol PermissionSettingAccessable: NavigationProtocol {
+protocol PermissionSettingAccessable: PushNavigationProtocol {
     func pushToPermissionSetting()
 }
 
 extension PermissionSettingAccessable {
     func pushToPermissionSetting() {
-        navigationController?.pushViewController(PermissionSettingViewController.instantiate(), animated: true)
+        push(to: PermissionSettingViewController.instantiate())
     }
 }

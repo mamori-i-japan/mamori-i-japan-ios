@@ -11,18 +11,17 @@
         <!--Trace Data Upload View Controller-->
         <scene sceneID="OYj-QQ-coQ">
             <objects>
-                <viewController id="6aq-Ew-NWX" customClass="TraceDataUploadViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6aq-Ew-NWX" customClass="TraceDataUploadViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YQh-gU-NIz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqa-7B-aj4" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqa-7B-aj4" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
                                 <rect key="frame" x="16" y="307" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="xft-jx-zta"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="照会する"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="upload_data"/>
                                 </userDefinedRuntimeAttributes>
