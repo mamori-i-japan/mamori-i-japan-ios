@@ -21,22 +21,13 @@ final class LoginAPIRequest: APIRequestProtocol {
     }
 
     var parameters: [String: Any] {
-        var result: [String: Any] = [:]
-        if let prefecture = prefecture {
-            result["prefecture"] = prefecture
-        }
-        if let job = job {
-            result["job"] = job
-        }
-        return result
+        return (try? profile.asDictionary()) ?? [:]
     }
 
-    private let prefecture: Int?
-    private let job: String?
+    private let profile: Profile
 
     init(profile: Profile) {
-        prefecture = profile.prefecture
-        job = profile.job
+        self.profile = profile
     }
 }
 

@@ -119,6 +119,17 @@ final class ProfileService {
                 completion(.success(profile))
             }
     }
+
+    enum OrganizationUpdateError: Error {
+        case network
+        case auth
+        case unknown(Error?)
+    }
+
+    func update(organization: String?, completion: @escaping (Result<Void, OrganizationUpdateError>) -> Void) {
+        // TODO
+        completion(.success(()))
+    }
 }
 
 extension String {

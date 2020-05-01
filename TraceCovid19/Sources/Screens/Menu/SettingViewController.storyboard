@@ -10,7 +10,7 @@
         <!--設定-->
         <scene sceneID="PfL-Df-rPT">
             <objects>
-                <tableViewController title="設定" id="DNb-ZI-L5Y" customClass="SettingViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="設定" id="DNb-ZI-L5Y" customClass="SettingViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="4gg-WA-O2B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,8 +130,8 @@
                     </tableView>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="jobLabel" destination="eVz-1M-rpS" id="TiL-Hd-vYo"/>
-                        <outlet property="jobTableViewCell" destination="TaX-QX-hs0" id="5tN-lL-AIf"/>
+                        <outlet property="organizationLabel" destination="eVz-1M-rpS" id="6ra-WE-bIA"/>
+                        <outlet property="organizationTableViewCell" destination="TaX-QX-hs0" id="XhP-nj-C0c"/>
                         <outlet property="prefectureLabel" destination="F1z-Dk-feL" id="2DA-CC-ac9"/>
                         <outlet property="prefectureTableViewCell" destination="QEF-CN-aNW" id="soK-Bg-I4S"/>
                     </connections>

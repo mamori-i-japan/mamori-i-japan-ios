@@ -54,7 +54,7 @@ extension SwinjectStoryboard {
             vc.loginService = r.resolve(LoginService.self)
         }
 
-        defaultContainer.storyboardInitCompleted(InputJobViewController.self) { r, vc in
+        defaultContainer.storyboardInitCompleted(InputOrganizationViewController.self) { r, vc in
             vc.profileService = r.resolve(ProfileService.self)
             vc.loginService = r.resolve(LoginService.self)
         }

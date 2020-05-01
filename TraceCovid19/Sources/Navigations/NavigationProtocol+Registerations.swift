@@ -19,13 +19,13 @@ extension InputPrefectureAccessable {
     }
 }
 
-protocol InputJobAccessable: PushNavigationProtocol {
-    func pushToInputJob(flow: InputJobViewController.Flow)
+protocol InputOrganizationAccessable: PushNavigationProtocol {
+    func pushToInputOrganization(flow: InputOrganizationViewController.Flow)
 }
 
-extension InputJobAccessable {
-    func pushToInputJob(flow: InputJobViewController.Flow) {
-        let vc = InputJobViewController.instantiate()
+extension InputOrganizationAccessable {
+    func pushToInputOrganization(flow: InputOrganizationViewController.Flow) {
+        let vc = InputOrganizationViewController.instantiate()
         vc.flow = flow
         push(to: vc)
     }

@@ -90,10 +90,11 @@ final class InputPrefectureViewController: UIViewController, NVActivityIndicator
 
     @IBAction func tappedNextButton(_ sender: Any) {
         guard let prefecture = PrefectureModel(rawValue: prefectureTextField.text ?? "") else { return }
+        setupErrorText(text: nil)
 
         switch flow {
         case .start:
-            pushToAgreement1(profile: Profile(prefecture: prefecture, job: nil))
+            pushToAgreement1(profile: Profile(prefecture: prefecture, organization: nil))
         case .change(var profile):
             requestProfile(profile: profile.update(prefecture: prefecture))
         case .none:

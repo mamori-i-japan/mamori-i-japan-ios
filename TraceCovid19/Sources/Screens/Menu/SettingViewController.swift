@@ -8,11 +8,11 @@
 import UIKit
 import NVActivityIndicatorView
 
-final class SettingViewController: UITableViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable, InputJobAccessable, InputPrefectureAccessable {
+final class SettingViewController: UITableViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable, InputOrganizationAccessable, InputPrefectureAccessable {
     @IBOutlet weak var prefectureLabel: UILabel!
-    @IBOutlet weak var jobLabel: UILabel!
+    @IBOutlet weak var organizationLabel: UILabel!
     @IBOutlet weak var prefectureTableViewCell: UITableViewCell!
-    @IBOutlet weak var jobTableViewCell: UITableViewCell!
+    @IBOutlet weak var organizationTableViewCell: UITableViewCell!
 
     var profileService: ProfileService!
     var loginService: LoginService!
@@ -53,7 +53,7 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
 
     func clearProfile() {
         profile = nil
-        jobLabel.text = nil
+        organizationLabel.text = nil
         prefectureLabel.text = nil
     }
 
@@ -61,12 +61,12 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
         let normalColor = UIColor(hex: 0x05182E)
         let blankColor = UIColor(hex: 0x9E9FA8)
 
-        if let job = profile.job, !job.isEmpty {
-            jobLabel.text = job
-            jobLabel.textColor = normalColor
+        if let organization = profile.organization, !organization.isEmpty {
+            organizationLabel.text = organization
+            organizationLabel.textColor = normalColor
         } else {
-            jobLabel.text = L10n.noSetting
-            jobLabel.textColor = blankColor
+            organizationLabel.text = L10n.noSetting
+            organizationLabel.textColor = blankColor
         }
 
         if let perefecture = PrefectureModel(index: profile.prefecture) {
@@ -90,8 +90,8 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
         switch tableView.cellForRow(at: indexPath) {
         case prefectureTableViewCell:
             pushToInputPrefecture(flow: .change(profile))
-        case jobTableViewCell:
-            pushToInputJob(flow: .change(profile))
+        case organizationTableViewCell:
+            pushToInputOrganization(flow: .change(profile))
         default:
             break
         }
