@@ -147,9 +147,10 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="R7Z-1z-B4f">
+                        <barButtonItem key="backBarButtonItem" title="ホーム" id="gpj-BC-Phz"/>
                         <barButtonItem key="rightBarButtonItem" id="rXh-LA-hW4">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="klL-Vt-UZA" customClass="BaseButton" customModule="まもりあい" customModuleProvider="target">
-                                <rect key="frame" x="276" y="5.6666666666666679" width="24" height="24"/>
+                                <rect key="frame" x="311" y="0.0" width="48" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="more">
                                     <color key="titleColor" red="0.086274509803921567" green="0.46666666666666667" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>

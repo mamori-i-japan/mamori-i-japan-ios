@@ -78,7 +78,9 @@ extension SwinjectStoryboard {
             vc.loginService = r.resolve(LoginService.self)
         }
 
-        defaultContainer.storyboardInitCompleted(MenuViewController.self) { _, _ in
+        defaultContainer.storyboardInitCompleted(MenuViewController.self) { r, vc in
+            vc.profileService = r.resolve(ProfileService.self)
+            vc.loginService = r.resolve(LoginService.self)
         }
 
         defaultContainer.storyboardInitCompleted(AboutViewController.self) { _, _ in
