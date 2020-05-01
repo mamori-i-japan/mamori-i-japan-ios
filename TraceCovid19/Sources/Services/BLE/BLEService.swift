@@ -80,6 +80,7 @@ final class BLEService {
     private var centralManager: CentralManager?
     private var coreData: CoreDataService!
     private var tempId: TempIdService!
+    private var en: ENService!
 
     // Access traceData from the queue only, except in init, otherwise race can happen
     private var traceData: [UUID: TraceDataRecord]!
@@ -91,13 +92,15 @@ final class BLEService {
     init(
         queue: DispatchQueue,
         coreData: CoreDataService,
-        tempId: TempIdService
+        tempId: TempIdService,
+        en: ENService
     ) {
         self.queue = queue
         self.peripheralManager = nil
         self.centralManager = nil
         self.coreData = coreData
         self.tempId = tempId
+        self.en = en
         self.traceData = [:]
     }
 
@@ -231,6 +234,7 @@ final class BLEService {
         setupBluetooth()
         peripheralManager?.turnOn()
         centralManager?.turnOn()
+        en.turnOn()
     }
 
     func turnOff() {
@@ -241,7 +245,7 @@ final class BLEService {
     // shouldSave throttles the records and saves a new record only after 30seconds has passed since the last record from the same peer, identified by the UUID.
     // Caller should update the timestamp only when shouldSave returns true.
     // record parameter should include a non nil timestamp.
-    func shouldSave(record: TraceDataRecord, about peerUUID: UUID) -> Bool {
+    private func shouldSave(record: TraceDataRecord, about peerUUID: UUID) -> Bool {
         guard let lastRecord = traceData[peerUUID] else {
             return true
         }
@@ -289,7 +293,7 @@ final class BLEService {
         return centralManager!.getState() == CBManagerState.poweredOn
     }
 
-    func centralDidUpdateStateCallback(_ state: CBManagerState) {
+    private func centralDidUpdateStateCallback(_ state: CBManagerState) {
         bluetoothDidUpdateStateCallback?(state)
     }
 }
