@@ -16,4 +16,5 @@ extension UIColor {
     static let systemBlue = UIColor(hex: 0x007AFF)
     static let systemWhite = UIColor(hex: 0xFFFFFF)
     static let systemBlack = UIColor(hex: 0x05182E)
+    static let systemLightGray = UIColor(hex: 0x9EA5A8)
 }

@@ -1,5 +1,5 @@
 //
-//  BorederButton.swift
+//  BorderButton.swift
 //  TraceCovid19
 //
 //  Created by yosawa on 2020/04/23.
@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class BorederButton: BaseButton {
+class BorderButton: BaseButton {
     private var observers = [NSKeyValueObservation]()
 
     override init(frame: CGRect) {
@@ -24,7 +24,7 @@ class BorederButton: BaseButton {
     }
 
     func initialize() {
-        layer.cornerRadius = 8.0
+        layer.cornerRadius = bounds.height / 2.0
         clipsToBounds = true
 
         layer.borderWidth = 2.0

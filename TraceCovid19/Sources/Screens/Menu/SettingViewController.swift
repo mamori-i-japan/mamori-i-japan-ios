@@ -8,11 +8,12 @@
 import UIKit
 import NVActivityIndicatorView
 
-final class SettingViewController: UITableViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable, InputOrganizationAccessable, InputPrefectureAccessable {
+final class SettingViewController: UITableViewController, NVActivityIndicatorViewable, InputOrganizationAccessable, InputPrefectureAccessable {
     @IBOutlet weak var prefectureLabel: UILabel!
     @IBOutlet weak var organizationLabel: UILabel!
     @IBOutlet weak var prefectureTableViewCell: UITableViewCell!
     @IBOutlet weak var organizationTableViewCell: UITableViewCell!
+    @IBOutlet weak var clearOrganizationButton: BorderButton!
 
     var profileService: ProfileService!
     var loginService: LoginService!
@@ -22,7 +23,7 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        clearProfile()
+        resetProfile()
         requestProfile()
     }
 
@@ -51,22 +52,25 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
         }
     }
 
-    func clearProfile() {
+    func resetProfile() {
         profile = nil
         organizationLabel.text = nil
         prefectureLabel.text = nil
+        clearOrganizationButton.isHidden = true
     }
 
     func update(profile: Profile) {
-        let normalColor = UIColor(hex: 0x05182E)
-        let blankColor = UIColor(hex: 0x9E9FA8)
+        let normalColor = UIColor.systemBlack
+        let blankColor = UIColor.systemLightGray
 
         if let organization = profile.organizationCode, !organization.isEmpty {
             organizationLabel.text = organization
             organizationLabel.textColor = normalColor
+            clearOrganizationButton.isHidden = false
         } else {
             organizationLabel.text = L10n.noSetting
             organizationLabel.textColor = blankColor
+            clearOrganizationButton.isHidden = true
         }
 
         if let perefecture = PrefectureModel(index: profile.prefecture) {
@@ -76,6 +80,20 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
             prefectureLabel.text = L10n.noSetting
             prefectureLabel.textColor = blankColor
         }
+    }
+
+    @IBAction func tappedClearOrganizationButton(_ sender: Any) {
+        showConfirmationToClear()
+    }
+
+    private func showConfirmationToClear() {
+        showAlertWithCancel(
+            title: "組織コードをクリアします",
+            message: "この組織との連携が解除されます",
+            okAction: { [weak self] _ in
+                self?.requestClearOrganization()
+            }
+        )
     }
 
     func forceLogout() {
@@ -94,6 +112,36 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
             pushToInputOrganization(flow: .change(profile))
         default:
             break
+        }
+    }
+}
+
+extension SettingViewController: NavigationBarHiddenApplicapable {
+    var navigationBackgroundImage: UIImage? {
+        // シャドウ部分は消すが、ナビゲーション部分はデフォルトままにする
+        return nil
+    }
+}
+
+extension SettingViewController {
+    func requestClearOrganization() {
+        guard let profile = profile else { return }
+        startAnimating(type: .circleStrokeSpin)
+        profileService.update(profile: profile, organization: nil) { [weak self] result in
+            self?.stopAnimating()
+            switch result {
+            case .success:
+                // TODO: 成功時、再度取得しにいくしかない？
+                self?.requestProfile()
+            case .failure(.network):
+                // TODO: リトライ
+                self?.showAlertWithCancel(message: "TODO: ネットワークエラー。再実行しますか？", okButtonTitle: "再試行", okAction: { [weak self] _ in self?.requestClearOrganization() })
+            case .failure(.auth):
+                self?.forceLogout()
+            case .failure(.unknown(let error)):
+                // TODO:
+                self?.showAlert(message: error?.localizedDescription ?? "error")
+            }
         }
     }
 }
