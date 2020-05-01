@@ -190,7 +190,7 @@ extension SwinjectStoryboard {
         }.inObjectScope(.container) // Debug用のものと共用するためcontainerを使用
 
         defaultContainer.register(TempIdService.self) { r in
-            TempIdService(tempIdAPI: r.resolve(TempIdAPI.self)!, coreData: r.resolve(CoreDataService.self)!)
+            TempIdService(tempIdGenerator: r.resolve(TempIdGenerator.self)!, coreData: r.resolve(CoreDataService.self)!)
         }
 
         defaultContainer.register(ProfileService.self) { r in
@@ -261,8 +261,8 @@ extension SwinjectStoryboard {
             LoginAPI(apiClient: r.resolve(APIClient.self)!)
         }
 
-        defaultContainer.register(TempIdAPI.self) { r in
-            TempIdAPI(apiClient: r.resolve(APIClient.self)!)
+        defaultContainer.register(TempIdGenerator.self) { _ in
+            TempIdGenerator()
         }
 
         defaultContainer.register(Firestore.self) { _ in

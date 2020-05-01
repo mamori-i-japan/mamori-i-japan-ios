@@ -8,22 +8,22 @@
 import Foundation
 
 /// 持っておくべき有効なTempID数
-private let shouldHasValidTempIdCount = 3
+private let shouldHasValidTempIdCount = 1
 
 final class TempIdService {
-    private let tempIdAPI: TempIdAPI
+    private let tempIdGenerator: TempIdGenerator
     private let coreData: CoreDataService
 
-    init(tempIdAPI: TempIdAPI, coreData: CoreDataService) {
-        self.tempIdAPI = tempIdAPI
+    init(tempIdGenerator: TempIdGenerator, coreData: CoreDataService) {
+        self.tempIdGenerator = tempIdGenerator
         self.coreData = coreData
     }
 
     var currentTempId: TempUserId? {
         let tempIDs = self.tempIDs
         if filterIsValid(tempIDs: tempIDs).count < shouldHasValidTempIdCount {
-            // 一定数より有効なTempIDがなければ取得しておく(結果は見ない)
-            fetchTempIDs(completion: { _ in })
+            // 一定数より有効なTempIDがなければ補充し、その末端を返却
+            return relaodTempIdsIfNeeded().last
         }
         return filterCurrent(tempIDs: tempIDs)
     }
@@ -44,25 +44,16 @@ final class TempIdService {
         return tempIDs.count != 0
     }
 
-    enum FetchTempIDsError: Error {
-        case unauthorized
-        case unknown(Error?)
-    }
-
-    func fetchTempIDs(completion: @escaping (Result<[TempUserId], FetchTempIDsError>) -> Void) {
-        tempIdAPI.getTempIDs { [weak self] result in
-            switch result {
-            case .success(let response):
-                let tempIds = response.compactMap { TempUserId(response: $0) }
-                self?.save(tempIds: tempIds)
-                completion(.success(tempIds))
-            case .failure(.error(let error)),
-                 .failure(.statusCodeError(_, _, let error)):
-                completion(.failure(.unknown(error)))
-            case .failure(.authzError):
-                completion(.failure(.unauthorized))
-            }
+    @discardableResult
+    func relaodTempIdsIfNeeded() -> [TempUserId] {
+        let validTempIDs = self.validTempIDs
+        guard validTempIDs.count < shouldHasValidTempIdCount else {
+            return validTempIDs
         }
+        // 一定数より有効なTempIDがなければ補充する
+        let tempIds = tempIdGenerator.createTempUserIds()
+        save(tempIds: tempIds)
+        return tempIds
     }
 
     private func save(tempIds: [TempUserId]) {
@@ -82,11 +73,11 @@ final class TempIdService {
     }
 
     private func filterIsValid(tempIDs: [TempUserId]) -> [TempUserId] {
-           let now = Date()
-           return tempIDs.filter { tempId -> Bool in
-               now < tempId.endTime
-           }
-       }
+        let now = Date()
+        return tempIDs.filter { tempId -> Bool in
+            now < tempId.endTime
+        }
+    }
 }
 
 #if DEBUG

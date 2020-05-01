@@ -44,15 +44,12 @@ final class Debug3ViewController: UIViewController, NVActivityIndicatorViewable 
 
     @objc
     func refresh() {
-        startAnimating(type: .circleStrokeSpin)
-        // 再度陽性者情報をリセットしてとりなおす
-        tempId.fetchTempIDs { [weak self] _ in
-            self?.stopAnimating()
-            guard let sSelf = self else { return }
-            self?.refreshControl.endRefreshing()
-            self?.tempUserIDs = sSelf.tempId.tempIDs
-            self?.tablewView.reloadData()
-        }
+        // 再度TempID情報をリセットしてとりなおす
+        tempId.relaodTempIdsIfNeeded()
+
+        refreshControl.endRefreshing()
+        tempUserIDs = tempId.tempIDs
+        tablewView.reloadData()
     }
 }
 
