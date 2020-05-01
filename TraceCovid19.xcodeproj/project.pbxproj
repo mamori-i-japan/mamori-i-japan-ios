@@ -101,7 +101,6 @@
 		F051ADB224486E69007278A0 /* abseil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F051ADB124486E68007278A0 /* abseil.framework */; };
 		F051ADB424486EA4007278A0 /* gRPCCertificates-Cpp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F051ADB324486EA4007278A0 /* gRPCCertificates-Cpp.bundle */; };
 		F051ADB624487084007278A0 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F051ADB524487084007278A0 /* FirebaseFirestore.framework */; };
-		F051ADB824487BC7007278A0 /* TempIdAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADB724487BC7007278A0 /* TempIdAPI.swift */; };
 		F051ADBA2448924D007278A0 /* String+ToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADB92448924D007278A0 /* String+ToDate.swift */; };
 		F051ADBE24494688007278A0 /* CoreDataService+TempId.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADBD24494688007278A0 /* CoreDataService+TempId.swift */; };
 		F051ADC02449476C007278A0 /* TempUserId.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADBF2449476C007278A0 /* TempUserId.swift */; };
@@ -201,6 +200,7 @@
 		F0B9F385245ACD3E006FA28D /* DeepContactUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F384245ACD3E006FA28D /* DeepContactUserEntity.swift */; };
 		F0B9F387245AD02E006FA28D /* TempUserIdEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */; };
 		F0B9F389245BD4B1006FA28D /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */; };
+		F0B9F38B245C0910006FA28D /* TempUserIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F38A245C0910006FA28D /* TempUserIdGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -304,7 +304,6 @@
 		F051ADB124486E68007278A0 /* abseil.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = abseil.framework; path = Carthage/Build/iOS/abseil.framework; sourceTree = "<group>"; };
 		F051ADB324486EA4007278A0 /* gRPCCertificates-Cpp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "gRPCCertificates-Cpp.bundle"; path = "Carthage/Build/iOS/gRPC-C++.framework/Resources/gRPCCertificates-Cpp.bundle"; sourceTree = "<group>"; };
 		F051ADB524487084007278A0 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseFirestore.framework; path = Carthage/Build/iOS/FirebaseFirestore.framework; sourceTree = "<group>"; };
-		F051ADB724487BC7007278A0 /* TempIdAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempIdAPI.swift; sourceTree = "<group>"; };
 		F051ADB92448924D007278A0 /* String+ToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ToDate.swift"; sourceTree = "<group>"; };
 		F051ADBD24494688007278A0 /* CoreDataService+TempId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataService+TempId.swift"; sourceTree = "<group>"; };
 		F051ADBF2449476C007278A0 /* TempUserId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUserId.swift; sourceTree = "<group>"; };
@@ -412,6 +411,7 @@
 		F0B9F384245ACD3E006FA28D /* DeepContactUserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepContactUserEntity.swift; sourceTree = "<group>"; };
 		F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUserIdEntity.swift; sourceTree = "<group>"; };
 		F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
+		F0B9F38A245C0910006FA28D /* TempUserIdGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUserIdGenerator.swift; sourceTree = "<group>"; };
 		F0C6AD7C243461A600F863FC /* まもりあい.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "まもりあい.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -587,7 +587,6 @@
 		F04759B0243599DC0091059F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F0B9F383245ACD2D006FA28D /* CoreData */,
 				F079FF84244C3EBC00202A91 /* AppStatus.swift */,
 				F0A282D8243EF600008390AE /* AppVersion.swift */,
 				F051AD62244699FA007278A0 /* DeepContactUser.swift */,
@@ -596,8 +595,10 @@
 				F0A2831A24418AAD008390AE /* PrefectureModel.swift */,
 				F079FF78244C09B700202A91 /* Profile.swift */,
 				F051ADBF2449476C007278A0 /* TempUserId.swift */,
+				F0B9F38A245C0910006FA28D /* TempUserIdGenerator.swift */,
 				F0A2829D243EC06E008390AE /* TokenResponse.swift */,
 				F02356BF2442F83E001E72ED /* TraceDataRecord.swift */,
+				F0B9F383245ACD2D006FA28D /* CoreData */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -700,7 +701,6 @@
 				F051ADA524481A7A007278A0 /* APIClient.swift */,
 				F051ADA3244819C7007278A0 /* APIRequest.swift */,
 				F0A2829B243EBF7F008390AE /* LoginAPI.swift */,
-				F051ADB724487BC7007278A0 /* TempIdAPI.swift */,
 				F096D5C72450672D00F7919B /* TraceDataUploadAPI.swift */,
 				F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */,
 			);
@@ -1173,6 +1173,7 @@
 				F079FF8A244D3C5200202A91 /* XibLocalizable.swift in Sources */,
 				F0A282A9243EC344008390AE /* Tutorial1ViewController.swift in Sources */,
 				F03FB97524517D7E00158521 /* HomeAttensionHeaderView.swift in Sources */,
+				F0B9F38B245C0910006FA28D /* TempUserIdGenerator.swift in Sources */,
 				F0A282D9243EF600008390AE /* AppVersion.swift in Sources */,
 				F051ADC02449476C007278A0 /* TempUserId.swift in Sources */,
 				F0A28319244189A1008390AE /* NoPerformActionTextField.swift in Sources */,
@@ -1212,7 +1213,6 @@
 				F065130E2452B15500CCCE91 /* UIColor+DesignGuide.swift in Sources */,
 				F0A282B7243EC785008390AE /* PermissionSettingViewController.swift in Sources */,
 				F051AD822446E7C5007278A0 /* PositiveContact.swift in Sources */,
-				F051ADB824487BC7007278A0 /* TempIdAPI.swift in Sources */,
 				F0A282B9243EC812008390AE /* TraceDataUploadViewController.swift in Sources */,
 				F02356C22442F87B001E72ED /* CoreDataService+SaveTraceDataRecord.swift in Sources */,
 				F079FF8C244D3D0400202A91 /* BaseButton.swift in Sources */,

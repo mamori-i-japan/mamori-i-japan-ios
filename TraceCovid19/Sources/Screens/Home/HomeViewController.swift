@@ -79,27 +79,10 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
     @discardableResult
     private func fetchTempIDIfNotHave() -> Bool {
         guard !tempId.hasTempIDs else { return false }
-        // TODO: 多重カウントによるアニメーション管理
-        startAnimating(type: .circleStrokeSpin)
-
-        tempId.fetchTempIDs { [weak self] result in
-            self?.stopAnimating()
-
-            switch result {
-            case .success:
-                // 成功ならBLEを開始する
-                self?.ble.turnOn()
-            case .failure(.unauthorized):
-                // 強制ログアウト
-                self?.loginService.logout()
-                self?.backToSplash()
-            case .failure(.unknown):
-                // TODO: エラーの見せ方
-                self?.showAlert(message: "読み込みに失敗しました", buttonTitle: "再読み込み") { [weak self] _ in
-                    self?.fetchTempIDIfNotHave()
-                }
-            }
-        }
+        // TempIDを補充
+        tempId.relaodTempIdsIfNeeded()
+        // BLEを開始する
+        ble.turnOn()
         return true
     }
 
