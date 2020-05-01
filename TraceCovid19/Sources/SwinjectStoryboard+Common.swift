@@ -54,7 +54,7 @@ extension SwinjectStoryboard {
             vc.loginService = r.resolve(LoginService.self)
         }
 
-        defaultContainer.storyboardInitCompleted(InputJobViewController.self) { r, vc in
+        defaultContainer.storyboardInitCompleted(InputOrganizationViewController.self) { r, vc in
             vc.profileService = r.resolve(ProfileService.self)
             vc.loginService = r.resolve(LoginService.self)
         }
@@ -194,7 +194,8 @@ extension SwinjectStoryboard {
         defaultContainer.register(ProfileService.self) { r in
             ProfileService(
                 firestore: r.resolve(Lazy<Firestore>.self)!,
-                auth: r.resolve(Lazy<Auth>.self)!
+                auth: r.resolve(Lazy<Auth>.self)!,
+                profileAPI: r.resolve(ProfileAPI.self)!
             )
         }
 
@@ -303,6 +304,10 @@ extension SwinjectStoryboard {
 
         defaultContainer.register(TraceDataUploadAPI.self) { r in
             TraceDataUploadAPI(apiClient: r.resolve(APIClient.self)!)
+        }
+
+        defaultContainer.register(ProfileAPI.self) { r in
+            ProfileAPI(apiClient: r.resolve(APIClient.self)!)
         }
     }
 }

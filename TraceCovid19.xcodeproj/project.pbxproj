@@ -107,8 +107,8 @@
 		F051ADC02449476C007278A0 /* TempUserId.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADBF2449476C007278A0 /* TempUserId.swift */; };
 		F051ADC224495577007278A0 /* Debug3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADC124495577007278A0 /* Debug3ViewController.swift */; };
 		F051ADC424495750007278A0 /* Debug3ViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F051ADC324495750007278A0 /* Debug3ViewController.storyboard */; };
-		F051ADC624498085007278A0 /* InputJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADC524498085007278A0 /* InputJobViewController.swift */; };
-		F051ADC8244980A1007278A0 /* InputJobViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F051ADC7244980A1007278A0 /* InputJobViewController.storyboard */; };
+		F051ADC624498085007278A0 /* InputOrganizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADC524498085007278A0 /* InputOrganizationViewController.swift */; };
+		F051ADC8244980A1007278A0 /* InputOrganizationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F051ADC7244980A1007278A0 /* InputOrganizationViewController.storyboard */; };
 		F051ADCA24498ED4007278A0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADC924498ED4007278A0 /* SettingViewController.swift */; };
 		F051ADCC24498EEA007278A0 /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F051ADCB24498EEA007278A0 /* SettingViewController.storyboard */; };
 		F065130E2452B15500CCCE91 /* UIColor+DesignGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = F065130D2452B15500CCCE91 /* UIColor+DesignGuide.swift */; };
@@ -200,6 +200,7 @@
 		F0B9F382245A8682006FA28D /* NavigationProtocol+Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F381245A8682006FA28D /* NavigationProtocol+Trace.swift */; };
 		F0B9F385245ACD3E006FA28D /* DeepContactUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F384245ACD3E006FA28D /* DeepContactUserEntity.swift */; };
 		F0B9F387245AD02E006FA28D /* TempUserIdEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */; };
+		F0B9F389245BD4B1006FA28D /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -309,8 +310,8 @@
 		F051ADBF2449476C007278A0 /* TempUserId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUserId.swift; sourceTree = "<group>"; };
 		F051ADC124495577007278A0 /* Debug3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug3ViewController.swift; sourceTree = "<group>"; };
 		F051ADC324495750007278A0 /* Debug3ViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Debug3ViewController.storyboard; sourceTree = "<group>"; };
-		F051ADC524498085007278A0 /* InputJobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputJobViewController.swift; sourceTree = "<group>"; };
-		F051ADC7244980A1007278A0 /* InputJobViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputJobViewController.storyboard; sourceTree = "<group>"; };
+		F051ADC524498085007278A0 /* InputOrganizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOrganizationViewController.swift; sourceTree = "<group>"; };
+		F051ADC7244980A1007278A0 /* InputOrganizationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputOrganizationViewController.storyboard; sourceTree = "<group>"; };
 		F051ADC924498ED4007278A0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		F051ADCB24498EEA007278A0 /* SettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
 		F065130D2452B15500CCCE91 /* UIColor+DesignGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+DesignGuide.swift"; sourceTree = "<group>"; };
@@ -410,6 +411,7 @@
 		F0B9F381245A8682006FA28D /* NavigationProtocol+Trace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Trace.swift"; sourceTree = "<group>"; };
 		F0B9F384245ACD3E006FA28D /* DeepContactUserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepContactUserEntity.swift; sourceTree = "<group>"; };
 		F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUserIdEntity.swift; sourceTree = "<group>"; };
+		F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
 		F0C6AD7C243461A600F863FC /* まもりあい.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "まもりあい.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -700,6 +702,7 @@
 				F0A2829B243EBF7F008390AE /* LoginAPI.swift */,
 				F051ADB724487BC7007278A0 /* TempIdAPI.swift */,
 				F096D5C72450672D00F7919B /* TraceDataUploadAPI.swift */,
+				F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -730,8 +733,8 @@
 				F0A282AE243EC5D5008390AE /* InputPhoneNumberViewController.swift */,
 				F0A2831424417C5A008390AE /* InputPrefectureViewController.storyboard */,
 				F0A2831224417C41008390AE /* InputPrefectureViewController.swift */,
-				F051ADC7244980A1007278A0 /* InputJobViewController.storyboard */,
-				F051ADC524498085007278A0 /* InputJobViewController.swift */,
+				F051ADC7244980A1007278A0 /* InputOrganizationViewController.storyboard */,
+				F051ADC524498085007278A0 /* InputOrganizationViewController.swift */,
 			);
 			path = Registrations;
 			sourceTree = "<group>";
@@ -971,7 +974,7 @@
 				F03FB97F2451A9CB00158521 /* HomeActionContentsView.xib in Resources */,
 				F0A283112441755B008390AE /* Agreement2ViewController.storyboard in Resources */,
 				F0A282FC24416BE2008390AE /* Tutorial2ViewController.storyboard in Resources */,
-				F051ADC8244980A1007278A0 /* InputJobViewController.storyboard in Resources */,
+				F051ADC8244980A1007278A0 /* InputOrganizationViewController.storyboard in Resources */,
 				F0156AA5245589C4006CB28F /* TraceHistoryViewController.storyboard in Resources */,
 				F0A282C4243EC9CF008390AE /* MenuViewController.storyboard in Resources */,
 				F051AD9E2447769B007278A0 /* Debug2ViewController.storyboard in Resources */,
@@ -1130,6 +1133,7 @@
 				F051AD7E2446D790007278A0 /* PositiveContactService.swift in Sources */,
 				F0B9F385245ACD3E006FA28D /* DeepContactUserEntity.swift in Sources */,
 				F051ADA02447F2EB007278A0 /* TempIdService.swift in Sources */,
+				F0B9F389245BD4B1006FA28D /* ProfileAPI.swift in Sources */,
 				F03FB979245182B700158521 /* HomePositiveHeaderView.swift in Sources */,
 				F096D5BA24501DE000F7919B /* UIViewController+Navigation.swift in Sources */,
 				F0156AAA2457DC4D006CB28F /* NavigationProtocol.swift in Sources */,
@@ -1146,7 +1150,7 @@
 				F02356BC2442F5F4001E72ED /* Model.xcdatamodeld in Sources */,
 				F0A282CD243ED068008390AE /* AssociatedObjects.swift in Sources */,
 				F02356BE2442F7B1001E72ED /* TraceDataEntity.swift in Sources */,
-				F051ADC624498085007278A0 /* InputJobViewController.swift in Sources */,
+				F051ADC624498085007278A0 /* InputOrganizationViewController.swift in Sources */,
 				F0031D40243462AC009F9643 /* HomeViewController.swift in Sources */,
 				F096D5AD244ED70F00F7919B /* SSLPinningManager.swift in Sources */,
 				F03FB9832451F2EC00158521 /* HomePositiveContentsView.swift in Sources */,

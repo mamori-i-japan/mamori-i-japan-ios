@@ -9,22 +9,16 @@ import Foundation
 
 struct Profile: DictionaryEncodable, DictionaryDecodable {
     private(set) var prefecture: Int?
-    private(set) var job: String?
+    private(set) var organizationCode: String?
 
-    init(prefecture: PrefectureModel?, job: String?) {
+    init(prefecture: PrefectureModel?, organizationCode: String?) {
         self.prefecture = prefecture?.index
-        self.job = isValidJob(job: job)
+        self.organizationCode = isValidOrganization(organizationCode: organizationCode)
     }
 
     @discardableResult
     mutating func update(prefecture: PrefectureModel) -> Profile {
         self.prefecture = prefecture.index
-        return self
-    }
-
-    @discardableResult
-    mutating func update(job: String?) -> Profile {
-        self.job = isValidJob(job: job)
         return self
     }
 
@@ -43,18 +37,23 @@ struct Profile: DictionaryEncodable, DictionaryDecodable {
         }
         return encoder
     }
+
+    static var ignoreDecodeKeys: [String] {
+        // 組織コードはread-onlyなためリクエストに含めないためにエンコード対象外とする
+        return ["organizationCode"]
+    }
 }
 
 extension Profile {
     static var empty: Profile {
-        .init(prefecture: nil, job: nil)
+        .init(prefecture: nil, organizationCode: nil)
     }
 }
 
-private func isValidJob(job: String?) -> String? {
-    if let job = job, !job.isEmpty {
+private func isValidOrganization(organizationCode: String?) -> String? {
+    if let organizationCode = organizationCode, !organizationCode.isEmpty {
         // 空文字は省く
-        return job
+        return organizationCode
     } else {
         return nil
     }

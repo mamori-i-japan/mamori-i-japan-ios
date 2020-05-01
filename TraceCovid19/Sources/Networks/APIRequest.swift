@@ -18,6 +18,7 @@ enum APIRequestMethod: String {
     case post = "POST"
     case put = "PUT"
     case delete = "DELETE"
+    case patch = "PATCH"
 }
 
 enum ParameterEncodingType {
@@ -92,7 +93,7 @@ extension APIRequestProtocol {
         switch method {
         case .get, .delete:
             return .url
-        case .post, .put:
+        case .post, .put, .patch:
             return .json
         }
     }

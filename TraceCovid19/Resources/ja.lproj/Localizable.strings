@@ -16,7 +16,8 @@
 "show_detail" = "詳しく見る";
 "input_phone_number" = "電話番号を入力してください";
 "select_prefecture" = "お住まいの都道府県を選択";
-"input_job_name" = "職業名を入力";
+"input_organization_description" = "組織コードを入力していください";
+"input_organization_placeholder" = "組織コードを入力";
 "app_version" = "アプリのバージョン%@";
 "no_setting" = "未入力";
 "menu" = "メニュー";
