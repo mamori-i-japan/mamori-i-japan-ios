@@ -200,6 +200,7 @@
 		F0B9F382245A8682006FA28D /* NavigationProtocol+Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F381245A8682006FA28D /* NavigationProtocol+Trace.swift */; };
 		F0B9F385245ACD3E006FA28D /* DeepContactUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F384245ACD3E006FA28D /* DeepContactUserEntity.swift */; };
 		F0B9F387245AD02E006FA28D /* TempUserIdEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */; };
+		F0B9F389245BD4B1006FA28D /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -410,6 +411,7 @@
 		F0B9F381245A8682006FA28D /* NavigationProtocol+Trace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Trace.swift"; sourceTree = "<group>"; };
 		F0B9F384245ACD3E006FA28D /* DeepContactUserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepContactUserEntity.swift; sourceTree = "<group>"; };
 		F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUserIdEntity.swift; sourceTree = "<group>"; };
+		F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
 		F0C6AD7C243461A600F863FC /* まもりあい.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "まもりあい.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -700,6 +702,7 @@
 				F0A2829B243EBF7F008390AE /* LoginAPI.swift */,
 				F051ADB724487BC7007278A0 /* TempIdAPI.swift */,
 				F096D5C72450672D00F7919B /* TraceDataUploadAPI.swift */,
+				F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -1130,6 +1133,7 @@
 				F051AD7E2446D790007278A0 /* PositiveContactService.swift in Sources */,
 				F0B9F385245ACD3E006FA28D /* DeepContactUserEntity.swift in Sources */,
 				F051ADA02447F2EB007278A0 /* TempIdService.swift in Sources */,
+				F0B9F389245BD4B1006FA28D /* ProfileAPI.swift in Sources */,
 				F03FB979245182B700158521 /* HomePositiveHeaderView.swift in Sources */,
 				F096D5BA24501DE000F7919B /* UIViewController+Navigation.swift in Sources */,
 				F0156AAA2457DC4D006CB28F /* NavigationProtocol.swift in Sources */,

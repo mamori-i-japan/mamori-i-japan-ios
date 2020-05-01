@@ -94,7 +94,7 @@ final class InputPrefectureViewController: UIViewController, NVActivityIndicator
 
         switch flow {
         case .start:
-            pushToAgreement1(profile: Profile(prefecture: prefecture, organization: nil))
+            pushToAgreement1(profile: Profile(prefecture: prefecture, organizationCode: nil))
         case .change(var profile):
             requestProfile(profile: profile.update(prefecture: prefecture))
         case .none:

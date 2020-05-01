@@ -9,11 +9,11 @@ import Foundation
 
 struct Profile: DictionaryEncodable, DictionaryDecodable {
     private(set) var prefecture: Int?
-    private(set) var organization: String?
+    private(set) var organizationCode: String?
 
-    init(prefecture: PrefectureModel?, organization: String?) {
+    init(prefecture: PrefectureModel?, organizationCode: String?) {
         self.prefecture = prefecture?.index
-        self.organization = isValidOrganization(organization: organization)
+        self.organizationCode = isValidOrganization(organizationCode: organizationCode)
     }
 
     @discardableResult
@@ -40,20 +40,20 @@ struct Profile: DictionaryEncodable, DictionaryDecodable {
 
     static var ignoreDecodeKeys: [String] {
         // 組織コードはread-onlyなためリクエストに含めないためにエンコード対象外とする
-        return ["organization"]
+        return ["organizationCode"]
     }
 }
 
 extension Profile {
     static var empty: Profile {
-        .init(prefecture: nil, organization: nil)
+        .init(prefecture: nil, organizationCode: nil)
     }
 }
 
-private func isValidOrganization(organization: String?) -> String? {
-    if let organization = organization, !organization.isEmpty {
+private func isValidOrganization(organizationCode: String?) -> String? {
+    if let organizationCode = organizationCode, !organizationCode.isEmpty {
         // 空文字は省く
-        return organization
+        return organizationCode
     } else {
         return nil
     }

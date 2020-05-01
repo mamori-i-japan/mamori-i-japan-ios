@@ -14,10 +14,12 @@ import Reachability
 final class ProfileService {
     private let firestore: Lazy<Firestore> // Firebase.configure()の後で使用するためLazyでラップ
     private let auth: Lazy<Auth>
+    private let profileAPI: ProfileAPI
 
-    init(firestore: Lazy<Firestore>, auth: Lazy<Auth>) {
+    init(firestore: Lazy<Firestore>, auth: Lazy<Auth>, profileAPI: ProfileAPI) {
         self.firestore = firestore
         self.auth = auth
+        self.profileAPI = profileAPI
     }
 
     enum ProfileSetError: Error {
@@ -126,9 +128,20 @@ final class ProfileService {
         case unknown(Error?)
     }
 
-    func update(organization: String?, completion: @escaping (Result<Void, OrganizationUpdateError>) -> Void) {
-        // TODO
-        completion(.success(()))
+    func update(profile: Profile, organization: String?, completion: @escaping (Result<Void, OrganizationUpdateError>) -> Void) {
+        profileAPI.patch(profile: profile, organization: organization) { result in
+            switch result {
+            case .success:
+                completion(.success(()))
+            case .failure(.authzError):
+                completion(.failure(.auth))
+            case .failure(.error(detail: let error)),
+                 .failure(.statusCodeError(_, _, let error)):
+                // TODO: エラーハンドリング
+                print("[ProfileService] unknown error: \(error?.localizedDescription ?? "nil")")
+                completion(.failure(.unknown(error)))
+            }
+        }
     }
 }
 

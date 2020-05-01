@@ -61,7 +61,7 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
         let normalColor = UIColor(hex: 0x05182E)
         let blankColor = UIColor(hex: 0x9E9FA8)
 
-        if let organization = profile.organization, !organization.isEmpty {
+        if let organization = profile.organizationCode, !organization.isEmpty {
             organizationLabel.text = organization
             organizationLabel.textColor = normalColor
         } else {

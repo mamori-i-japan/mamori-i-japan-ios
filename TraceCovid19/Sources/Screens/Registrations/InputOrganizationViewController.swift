@@ -30,7 +30,7 @@ final class InputOrganizationViewController: UIViewController, NVActivityIndicat
 
         if case .change(let profile) = flow {
             // 変更フローの場合はテキストに設定
-            organizationTextField.text = profile.organization
+            organizationTextField.text = profile.organizationCode
             nextButton.setTitle("設定する", for: .normal)
         }
 
@@ -60,8 +60,8 @@ final class InputOrganizationViewController: UIViewController, NVActivityIndicat
         setupErrorText(text: nil)
 
         switch flow {
-        case .change:
-            requestOrgnization(organization: organizationTextField.text)
+        case .change(let profile):
+            requestOrgnization(profile: profile, organization: organizationTextField.text)
         case .none:
             break
         }
@@ -97,9 +97,11 @@ final class InputOrganizationViewController: UIViewController, NVActivityIndicat
 }
 
 extension InputOrganizationViewController {
-    private func requestOrgnization(organization: String?) {
+    private func requestOrgnization(profile: Profile, organization: String?) {
+        closeKeyboard()
+
         startAnimating(type: .circleStrokeSpin)
-        profileService.update(organization: organization) { [weak self] result in
+        profileService.update(profile: profile, organization: organization) { [weak self] result in
             self?.stopAnimating()
             switch result {
             case .success:
