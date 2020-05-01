@@ -30,8 +30,4 @@ final class TraceDataUploadViewController: UIViewController, NVActivityIndicator
             }
         }
     }
-
-    @IBAction func tappedCloseButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
 }

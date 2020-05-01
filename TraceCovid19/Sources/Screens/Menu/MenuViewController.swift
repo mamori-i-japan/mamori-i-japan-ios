@@ -8,7 +8,7 @@
 import UIKit
 import NVActivityIndicatorView
 
-final class MenuViewController: UITableViewController, NVActivityIndicatorViewable, AboutAccessable, SettingAccessable {
+final class MenuViewController: UITableViewController, NVActivityIndicatorViewable, AboutAccessable, SettingAccessable, TraceDataUploadAccessable {
     @IBOutlet weak var settingTableViewCell: UITableViewCell!
     @IBOutlet weak var dataUploadTableViewCell: UITableViewCell!
     @IBOutlet weak var aboutTableViewCell: UITableViewCell!
@@ -38,8 +38,7 @@ final class MenuViewController: UITableViewController, NVActivityIndicatorViewab
             // TODO
             break
         case dataUploadTableViewCell:
-            // TODO
-            break
+            pushToTraceDataUpload()
         default:
             break
         }

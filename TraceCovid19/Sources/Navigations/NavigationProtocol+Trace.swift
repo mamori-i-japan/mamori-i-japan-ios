@@ -7,13 +7,18 @@
 
 import UIKit
 
-protocol TraceDataUploadAccessable: ModalNavigationProtocol {
+protocol TraceDataUploadAccessable: ModalNavigationProtocol, PushNavigationProtocol {
     func modalToTraceDataUpload()
+    func pushToTraceDataUpload()
 }
 
 extension TraceDataUploadAccessable {
     func modalToTraceDataUpload() {
         present(to: TraceDataUploadViewController.instantiate())
+    }
+
+    func pushToTraceDataUpload() {
+        push(to: TraceDataUploadViewController.instantiate())
     }
 }
 

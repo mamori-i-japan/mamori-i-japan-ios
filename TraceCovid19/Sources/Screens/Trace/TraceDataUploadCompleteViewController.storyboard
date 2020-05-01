@@ -16,24 +16,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yTz-mY-rqn">
-                                <rect key="frame" x="16" y="150" width="382" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yTz-mY-rqn" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                <rect key="frame" x="16" y="150" width="382" height="53"/>
                                 <string key="text">アップロードが完了しました。
 ご協力ありがとうございました。</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oki-Ea-184">
-                                <rect key="frame" x="92.5" y="242" width="229.5" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oki-Ea-184" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                <rect key="frame" x="92.5" y="247" width="229.5" height="40"/>
                                 <string key="text">医師や保健所の指示にしたがって
 安静にお過ごしください。</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOn-3h-rnd" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
-                                <rect key="frame" x="16" y="350" width="382" height="56"/>
+                                <rect key="frame" x="16" y="349" width="382" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="MWj-SF-xrh"/>
                                 </constraints>
@@ -53,7 +63,7 @@
                             <constraint firstItem="SmI-Yj-x6T" firstAttribute="trailing" secondItem="tOn-3h-rnd" secondAttribute="trailing" constant="16" id="BQ1-gU-N33"/>
                             <constraint firstItem="tOn-3h-rnd" firstAttribute="leading" secondItem="SmI-Yj-x6T" secondAttribute="leading" constant="16" id="C2T-Ek-87g"/>
                             <constraint firstItem="SmI-Yj-x6T" firstAttribute="trailing" secondItem="yTz-mY-rqn" secondAttribute="trailing" constant="16" id="C8c-cT-7zp"/>
-                            <constraint firstItem="tOn-3h-rnd" firstAttribute="top" secondItem="SmI-Yj-x6T" secondAttribute="top" constant="262" id="LHj-FB-Q7Y"/>
+                            <constraint firstItem="tOn-3h-rnd" firstAttribute="top" secondItem="SmI-Yj-x6T" secondAttribute="top" constant="261" id="LHj-FB-Q7Y"/>
                             <constraint firstItem="Oki-Ea-184" firstAttribute="centerX" secondItem="yTz-mY-rqn" secondAttribute="centerX" id="eUM-a6-t9Y"/>
                             <constraint firstItem="Oki-Ea-184" firstAttribute="top" secondItem="yTz-mY-rqn" secondAttribute="bottom" constant="44" id="gbw-L8-9pp"/>
                         </constraints>

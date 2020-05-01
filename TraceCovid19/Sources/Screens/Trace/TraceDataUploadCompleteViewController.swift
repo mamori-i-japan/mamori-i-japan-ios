@@ -17,6 +17,6 @@ final class TraceDataUploadCompleteViewController: UIViewController, NavigationB
     }
 
     @IBAction func tappedBackToHomeButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
     }
 }
