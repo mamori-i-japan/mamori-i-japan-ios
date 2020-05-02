@@ -13,3 +13,9 @@ struct TempUserId {
     let startTime: Date
     let endTime: Date
 }
+
+extension TempUserId {
+    var id: String {
+        return "\(tempId)\(Int(startTime.timeIntervalSince1970))\(Int(endTime.timeIntervalSince1970)))".sha256!
+    }
+}
