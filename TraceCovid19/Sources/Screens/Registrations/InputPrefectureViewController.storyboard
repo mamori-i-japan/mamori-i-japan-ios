@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--都道府県入力-->
+        <!--都道府県選択-->
         <scene sceneID="MME-NH-2RS">
             <objects>
                 <viewController id="lmi-Rv-2UM" customClass="InputPrefectureViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,21 +16,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iqF-eh-wRB" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
-                                <rect key="frame" x="16" y="152" width="343" height="40.666666666666657"/>
-                                <string key="text">連絡する保健所を定めるため
-お住いの都道府県を選択してください</string>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="dNK-Xf-axQ">
+                                <rect key="frame" x="16" y="120" width="343" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iqF-eh-wRB" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="69"/>
+                                        <string key="text">お住まいの地域にあわせた
+情報をご提供するため
+都道府県を指定してください</string>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JbC-B6-vME" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="81" width="343" height="39"/>
+                                        <string key="text">この情報は誰にも共有されません
+（開発者や行政機関にも通知されません）</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.43529411764705883" green="0.4392156862745098" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxU-oe-ZHd" customClass="NoPerformActionTextField" customModule="まもりあい" customModuleProvider="target">
-                                <rect key="frame" x="16" y="267" width="343" height="60"/>
+                                <rect key="frame" x="16" y="286" width="343" height="60"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="2nb-On-noa"/>
@@ -43,14 +62,14 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvF-6X-usE">
-                                <rect key="frame" x="16" y="327" width="343" height="1"/>
+                                <rect key="frame" x="16" y="346" width="343" height="1"/>
                                 <color key="backgroundColor" white="0.02" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="IPp-q6-pxT"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Umm-aI-Hl6">
-                                <rect key="frame" x="16" y="342" width="343" height="28.666666666666686"/>
+                                <rect key="frame" x="16" y="361" width="343" height="28.666666666666686"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="erroraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbfe" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHj-Xw-Ehm" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
                                         <rect key="frame" x="0.33333333333334281" y="0.0" width="342.66666666666663" height="28.666666666666668"/>
@@ -60,12 +79,15 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orZ-M0-oOc" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
-                                <rect key="frame" x="16" y="388.66666666666669" width="343" height="56"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orZ-M0-oOc" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
+                                <rect key="frame" x="16" y="407.66666666666669" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="7JH-1C-TT6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="next"/>
                                 </userDefinedRuntimeAttributes>
@@ -76,7 +98,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="CEY-Do-0FW" firstAttribute="trailing" secondItem="iqF-eh-wRB" secondAttribute="trailing" constant="16" id="7LC-iW-Z89"/>
+                            <constraint firstItem="CEY-Do-0FW" firstAttribute="trailing" secondItem="dNK-Xf-axQ" secondAttribute="trailing" constant="16" id="5pj-Fs-mOA"/>
+                            <constraint firstItem="dNK-Xf-axQ" firstAttribute="top" secondItem="CEY-Do-0FW" secondAttribute="top" constant="32" id="CIK-L0-WzN"/>
+                            <constraint firstItem="dNK-Xf-axQ" firstAttribute="leading" secondItem="CEY-Do-0FW" secondAttribute="leading" constant="16" id="DVu-PT-bcM"/>
                             <constraint firstItem="CxU-oe-ZHd" firstAttribute="leading" secondItem="CEY-Do-0FW" secondAttribute="leading" constant="16" id="IdP-hG-kU5"/>
                             <constraint firstItem="dvF-6X-usE" firstAttribute="centerX" secondItem="CxU-oe-ZHd" secondAttribute="centerX" id="Nd6-45-yyy"/>
                             <constraint firstItem="Umm-aI-Hl6" firstAttribute="top" secondItem="dvF-6X-usE" secondAttribute="bottom" constant="14" id="O27-F1-HY9"/>
@@ -87,15 +111,13 @@
                             <constraint firstItem="Umm-aI-Hl6" firstAttribute="leading" secondItem="CEY-Do-0FW" secondAttribute="leading" constant="16" id="ZhS-sL-aSR"/>
                             <constraint firstItem="orZ-M0-oOc" firstAttribute="top" secondItem="Umm-aI-Hl6" secondAttribute="bottom" constant="18" id="a4l-Iw-YjY"/>
                             <constraint firstItem="CEY-Do-0FW" firstAttribute="trailing" secondItem="orZ-M0-oOc" secondAttribute="trailing" constant="16" id="cfs-9w-pFW"/>
-                            <constraint firstItem="iqF-eh-wRB" firstAttribute="top" secondItem="CEY-Do-0FW" secondAttribute="top" constant="64" id="daH-Gg-b4s"/>
-                            <constraint firstItem="iqF-eh-wRB" firstAttribute="leading" secondItem="CEY-Do-0FW" secondAttribute="leading" constant="16" id="hR1-19-8F4"/>
-                            <constraint firstItem="CxU-oe-ZHd" firstAttribute="top" secondItem="CEY-Do-0FW" secondAttribute="top" constant="179" id="huW-KE-PBV"/>
+                            <constraint firstItem="CxU-oe-ZHd" firstAttribute="top" secondItem="CEY-Do-0FW" secondAttribute="top" constant="198" id="huW-KE-PBV"/>
                             <constraint firstItem="CEY-Do-0FW" firstAttribute="trailing" secondItem="Umm-aI-Hl6" secondAttribute="trailing" constant="16" id="pL1-lj-l1d"/>
                             <constraint firstItem="CEY-Do-0FW" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="orZ-M0-oOc" secondAttribute="bottom" constant="8" id="url-fa-NBb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CEY-Do-0FW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="都道府県入力" id="Xbd-0j-nA5">
+                    <navigationItem key="navigationItem" title="都道府県選択" id="Xbd-0j-nA5">
                         <barButtonItem key="backBarButtonItem" title="戻る" id="dEu-yq-hu2"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
