@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="99i-xg-uYj">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -11,17 +11,69 @@
         <!--Tutorial1 View Controller-->
         <scene sceneID="AFv-59-n1P">
             <objects>
-                <viewController id="99i-xg-uYj" customClass="Tutorial1ViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="99i-xg-uYj" customClass="Tutorial1ViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yzx-sx-MFb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHJ-hz-ZCU" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="698" width="343" height="56"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illust01" translatesAutoresizingMaskIntoConstraints="NO" id="EG9-L6-zZH">
+                                <rect key="frame" x="0.0" y="229.5" width="320" height="299"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EG9-L6-zZH" secondAttribute="height" multiplier="15:14" id="Foc-gy-avo"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gx6-Lt-41D">
+                                <rect key="frame" x="16" y="60" width="288" height="197.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="H5G-qv-YWM">
+                                        <rect key="frame" x="12.5" y="0.0" width="263.5" height="145.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="どんなアプリなの？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMI-Zf-Gno" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="0.0" width="183.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="textColor" red="0.43529411764705883" green="0.4392156862745098" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lWZ-HX-5NC" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="40" width="263.5" height="105.5"/>
+                                                <string key="text">まもりあいJapanを
+入れているスマホ同士の
+接触を検知します</string>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rab-9f-Oo3" customClass="BaseButton" customModule="まもりあい" customModuleProvider="target">
+                                        <rect key="frame" x="31" y="153.5" width="226" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="2L5-qp-FVC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="安全なの？仕組みを知りたい">
+                                            <color key="titleColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedHelpButton:" destination="99i-xg-uYj" eventType="touchUpInside" id="fw8-Go-hmZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHJ-hz-ZCU" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
+                                <rect key="frame" x="16" y="488" width="288" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Puv-iP-IbW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="next"/>
                                 </userDefinedRuntimeAttributes>
@@ -29,55 +81,18 @@
                                     <action selector="tappedNextButton:" destination="99i-xg-uYj" eventType="touchUpInside" id="Dbu-Gc-mym"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illust01" translatesAutoresizingMaskIntoConstraints="NO" id="EG9-L6-zZH">
-                                <rect key="frame" x="0.0" y="240" width="375" height="350"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="EG9-L6-zZH" secondAttribute="height" multiplier="15:14" id="Foc-gy-avo"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Q9r-lF-UC2" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="151.66666666666666" width="343" height="68.333333333333343"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                        <real key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="textLocalizedKey" value="tutorial1.main_description"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lvU-ee-JyJ" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="618" width="343" height="42.333333333333371"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <color key="textColor" red="0.019607843137254902" green="0.094117647058823528" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="textLocalizedKey" value="tutorial1.sub_description"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="gx6-Lt-41D" firstAttribute="top" secondItem="4nU-bd-eWA" secondAttribute="top" constant="16" id="3Si-Gt-kNR"/>
                             <constraint firstItem="4nU-bd-eWA" firstAttribute="trailing" secondItem="hHJ-hz-ZCU" secondAttribute="trailing" constant="16" id="4tW-2x-16Q"/>
-                            <constraint firstItem="EG9-L6-zZH" firstAttribute="top" secondItem="Q9r-lF-UC2" secondAttribute="bottom" priority="250" constant="20" id="5Qp-Um-0jm"/>
-                            <constraint firstItem="Q9r-lF-UC2" firstAttribute="leading" secondItem="4nU-bd-eWA" secondAttribute="leading" constant="16" id="6L6-03-THJ"/>
-                            <constraint firstItem="4nU-bd-eWA" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hHJ-hz-ZCU" secondAttribute="bottom" constant="8" id="BUw-dY-mwl"/>
-                            <constraint firstItem="lvU-ee-JyJ" firstAttribute="leading" secondItem="4nU-bd-eWA" secondAttribute="leading" constant="16" id="EgA-6y-s1m"/>
-                            <constraint firstItem="4nU-bd-eWA" firstAttribute="trailing" secondItem="Q9r-lF-UC2" secondAttribute="trailing" constant="16" id="IRB-qT-0EZ"/>
-                            <constraint firstItem="EG9-L6-zZH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Q9r-lF-UC2" secondAttribute="bottom" id="JHP-xg-5AS"/>
-                            <constraint firstItem="EG9-L6-zZH" firstAttribute="centerX" secondItem="4nU-bd-eWA" secondAttribute="centerX" id="Nkw-OQ-u3E"/>
-                            <constraint firstItem="EG9-L6-zZH" firstAttribute="width" secondItem="yzx-sx-MFb" secondAttribute="width" id="QYP-kO-9Pv"/>
-                            <constraint firstItem="4nU-bd-eWA" firstAttribute="trailing" secondItem="lvU-ee-JyJ" secondAttribute="trailing" constant="16" id="QtV-Yi-z90"/>
-                            <constraint firstItem="hHJ-hz-ZCU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lvU-ee-JyJ" secondAttribute="bottom" constant="8" id="VDQ-mO-vkn"/>
+                            <constraint firstItem="EG9-L6-zZH" firstAttribute="centerY" secondItem="4nU-bd-eWA" secondAttribute="centerY" constant="73" id="G2H-dL-Ouy"/>
+                            <constraint firstItem="4nU-bd-eWA" firstAttribute="trailing" secondItem="gx6-Lt-41D" secondAttribute="trailing" constant="16" id="GUZ-Vh-j4m"/>
+                            <constraint firstItem="4nU-bd-eWA" firstAttribute="trailing" secondItem="EG9-L6-zZH" secondAttribute="trailing" id="Ggh-3m-A3y"/>
+                            <constraint firstItem="EG9-L6-zZH" firstAttribute="leading" secondItem="4nU-bd-eWA" secondAttribute="leading" id="UfW-qf-i7B"/>
                             <constraint firstItem="hHJ-hz-ZCU" firstAttribute="leading" secondItem="4nU-bd-eWA" secondAttribute="leading" constant="16" id="Wts-62-FVK"/>
-                            <constraint firstItem="4nU-bd-eWA" firstAttribute="bottom" secondItem="hHJ-hz-ZCU" secondAttribute="bottom" priority="250" constant="24" id="gVp-mt-CaL"/>
-                            <constraint firstItem="lvU-ee-JyJ" firstAttribute="top" secondItem="EG9-L6-zZH" secondAttribute="bottom" priority="750" constant="28" id="ioc-tF-X4F"/>
-                            <constraint firstItem="EG9-L6-zZH" firstAttribute="centerY" secondItem="4nU-bd-eWA" secondAttribute="centerY" priority="749" constant="-18" id="ugP-Dc-2Am"/>
-                            <constraint firstItem="Q9r-lF-UC2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4nU-bd-eWA" secondAttribute="top" id="yHO-jC-ycC"/>
+                            <constraint firstItem="gx6-Lt-41D" firstAttribute="leading" secondItem="4nU-bd-eWA" secondAttribute="leading" constant="16" id="Zac-tc-5zp"/>
+                            <constraint firstItem="4nU-bd-eWA" firstAttribute="bottom" secondItem="hHJ-hz-ZCU" secondAttribute="bottom" constant="24" id="gVp-mt-CaL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4nU-bd-eWA"/>
                     </view>
