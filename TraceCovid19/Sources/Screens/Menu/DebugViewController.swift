@@ -36,6 +36,7 @@ final class DebugViewController: UIViewController {
     var deepContactCheck: DeepContactCheckService!
     var positiveContact: PositiveContactService!
     var tempId: TempIdService!
+    var en: ENService!
 
     private let refreshControl = UIRefreshControl()
     private var timer: Timer?
@@ -173,6 +174,25 @@ final class DebugViewController: UIViewController {
         print("did logout: \(loginService.logout())")
 
         backToSplash()
+    }
+
+    @IBAction func switchedExposureNotification(_ sender: UISwitch) {
+        if sender.isOn {
+            en.turnOn()
+        } else {
+            en.turnOff()
+        }
+    }
+
+    @IBAction func tappedGetDiagnosisKeys(_ sender: UIButton) {
+        if #available(iOS 13.4, *) {
+            en.getDiagnosisKeys { _, _ in
+            }
+        }
+    }
+
+    @IBAction func tappedResetAllData(_ sender: UIButton) {
+        en.resetAllData { _ in }
     }
 }
 

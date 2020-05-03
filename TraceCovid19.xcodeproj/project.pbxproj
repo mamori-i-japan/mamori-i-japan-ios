@@ -12,6 +12,7 @@
 		C75B12C4244F2FBF009C2ED6 /* CentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75B12C1244F2FBF009C2ED6 /* CentralManager.swift */; };
 		C75FDCF6244F82BD0020FA1E /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75FDCF5244F82BD0020FA1E /* Protocol.swift */; };
 		C75FDCF8244FAAB40020FA1E /* CBPeripheral+ShortId.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75FDCF7244FAAB40020FA1E /* CBPeripheral+ShortId.swift */; };
+		C7641B47245CB5B900608D38 /* ENService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7641B46245CB5B900608D38 /* ENService.swift */; };
 		F0031D362434629F009F9643 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0031D342434629F009F9643 /* Assets.xcassets */; };
 		F0031D40243462AC009F9643 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0031D3A243462AC009F9643 /* HomeViewController.swift */; };
 		F0031D41243462AC009F9643 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0031D3B243462AC009F9643 /* LaunchScreen.storyboard */; };
@@ -209,6 +210,7 @@
 		C75B12C1244F2FBF009C2ED6 /* CentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralManager.swift; sourceTree = "<group>"; };
 		C75FDCF5244F82BD0020FA1E /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		C75FDCF7244FAAB40020FA1E /* CBPeripheral+ShortId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBPeripheral+ShortId.swift"; sourceTree = "<group>"; };
+		C7641B46245CB5B900608D38 /* ENService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ENService.swift; sourceTree = "<group>"; };
 		F0031D342434629F009F9643 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0031D352434629F009F9643 /* Info-Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Debug.plist"; sourceTree = "<group>"; };
 		F0031D3A243462AC009F9643 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -682,6 +684,7 @@
 			children = (
 				F0A282DC243EF84C008390AE /* BootService.swift */,
 				F02356DB2445ACEB001E72ED /* DeepContactCheckService.swift */,
+				C7641B46245CB5B900608D38 /* ENService.swift */,
 				F0A2829F243EC0AD008390AE /* LoginService.swift */,
 				F051AD7D2446D78F007278A0 /* PositiveContactService.swift */,
 				F079FF7C244C168700202A91 /* ProfileService.swift */,
@@ -1166,6 +1169,7 @@
 				F0156AB224580C98006CB28F /* NavigationProtocol+Home.swift in Sources */,
 				F0A282C0243EC957008390AE /* TraceNotificationViewController.swift in Sources */,
 				F0A2833224421142008390AE /* DebugViewController.swift in Sources */,
+				C7641B47245CB5B900608D38 /* ENService.swift in Sources */,
 				F079FF7F244C1F0100202A91 /* DictionaryEncodable.swift in Sources */,
 				F051AD9424471D49007278A0 /* EncryptedStringTransformer.swift in Sources */,
 				F0A282ED2440056E008390AE /* CBPeripheralState+ToString.swift in Sources */,

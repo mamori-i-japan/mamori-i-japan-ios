@@ -112,6 +112,7 @@ extension SwinjectStoryboard {
             vc.deepContactCheck = r.resolve(DeepContactCheckService.self)
             vc.positiveContact = r.resolve(PositiveContactService.self)
             vc.tempId = r.resolve(TempIdService.self)
+            vc.en = r.resolve(ENService.self)
         }
 
         defaultContainer.storyboardInitCompleted(Debug2ViewController.self) { r, vc in
@@ -164,7 +165,15 @@ extension SwinjectStoryboard {
             BLEService(
                 queue: queue,
                 coreData: r.resolve(CoreDataService.self)!,
-                tempId: r.resolve(TempIdService.self)!
+                tempId: r.resolve(TempIdService.self)!,
+                en: r.resolve(ENService.self)!
+            )
+        }.inObjectScope(.container)
+
+        defaultContainer.register(ENService.self) { r in
+            ENService(
+                queue: DispatchQueue(label: "ExposureNotificationQueue"),
+                traceDataUploadAPI: r.resolve(TraceDataUploadAPI.self)!
             )
         }.inObjectScope(.container)
 
