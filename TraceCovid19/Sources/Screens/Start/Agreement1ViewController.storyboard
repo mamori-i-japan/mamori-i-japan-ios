@@ -11,13 +11,13 @@
         <!--利用規約への同意-->
         <scene sceneID="qGD-oc-jSY">
             <objects>
-                <viewController id="Hqn-y4-J25" customClass="Agreement1ViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hqn-y4-J25" customClass="Agreement1ViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d9Z-zL-SOC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="udW-Ny-Jfh" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="154" width="343" height="68.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="udW-Ny-Jfh" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                <rect key="frame" x="16" y="119.99999999999999" width="343" height="31.333333333333329"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -28,62 +28,90 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="textLocalizedKey" value="agreement1.main_description"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2o-lb-cas">
-                                <rect key="frame" x="0.0" y="246.33333333333337" width="375" height="322"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8T-nJ-ug3">
+                                <rect key="frame" x="16" y="165.33333333333334" width="343" height="369.33333333333326"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="利用規約の重要部分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHv-Rt-24K">
-                                        <rect key="frame" x="95.666666666666671" y="23.999999999999972" width="183.66666666666663" height="24"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <color key="textColor" red="0.43529411764705883" green="0.4392156862745098" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BN6-oh-9gp">
-                                        <rect key="frame" x="42.666666666666657" y="71.999999999999972" width="290" height="216.00000000000003"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="BN6-oh-9gp">
+                                        <rect key="frame" x="26.666666666666657" y="20" width="290" height="329.33333333333331"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="氏名、年齢、性別は一切取得しません" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9p-ro-3ln" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="290" height="19.333333333333332"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="お約束すること" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHv-Rt-24K" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="textColor" red="0.43529411764705883" green="0.4392156862745098" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="氏名、年齢、性別など、個人の特定につながる情報は一切取得しません" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9p-ro-3ln" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="48" width="290" height="42.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPSによるリアルタイムでの位置情報を取得するものではありません。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9Q-J4-HFj" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="47.333333333333371" width="290" height="38.333333333333343"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPSなどの位置情報は取得しません" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9Q-J4-HFj" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="114.33333333333334" width="290" height="19.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="いつでも情報提供をやめることができます。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wE-Sg-7Ni" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="113.66666666666667" width="290" height="38.333333333333329"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行政機関や開発者が、アプリの中に保存された接触記録を、あなたに無断で引き出すことはありません" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wE-Sg-7Ni" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="157.66666666666666" width="290" height="65.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth設定をオフにするか、このアプリを削除をしてください。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBH-1I-uR3" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="180" width="290" height="36"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="いつでもやめることができます" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zt9-bg-9Gd" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="246.99999999999997" width="290" height="19.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth設定をオフにするか、このアプリを削除をしてください。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBH-1I-uR3" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="290.33333333333337" width="290" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="290" id="zL4-qU-TPv"/>
+                                            <constraint firstAttribute="width" constant="290" id="rJT-9f-4C6"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.92941176470588238" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.96862745100000003" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="BN6-oh-9gp" firstAttribute="top" secondItem="mHv-Rt-24K" secondAttribute="bottom" priority="750" constant="24" id="8ma-rD-90Q"/>
-                                    <constraint firstItem="BN6-oh-9gp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mHv-Rt-24K" secondAttribute="bottom" constant="8" id="d43-85-hLk"/>
-                                    <constraint firstAttribute="bottom" secondItem="BN6-oh-9gp" secondAttribute="bottom" priority="750" constant="34" id="gf9-iF-7jv"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BN6-oh-9gp" secondAttribute="bottom" constant="8" id="nJG-gZ-wsE"/>
-                                    <constraint firstItem="mHv-Rt-24K" firstAttribute="top" secondItem="q2o-lb-cas" secondAttribute="top" constant="24" id="rTd-b3-eEO"/>
-                                    <constraint firstItem="BN6-oh-9gp" firstAttribute="centerX" secondItem="q2o-lb-cas" secondAttribute="centerX" id="tvt-nJ-Fkz"/>
-                                    <constraint firstAttribute="width" secondItem="q2o-lb-cas" secondAttribute="height" multiplier="375:322" priority="249" id="uNz-zt-c9T"/>
-                                    <constraint firstItem="mHv-Rt-24K" firstAttribute="centerX" secondItem="q2o-lb-cas" secondAttribute="centerX" id="wns-cE-pfr"/>
+                                    <constraint firstItem="BN6-oh-9gp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="f8T-nJ-ug3" secondAttribute="leading" constant="8" id="8cD-v6-8IQ"/>
+                                    <constraint firstItem="BN6-oh-9gp" firstAttribute="top" secondItem="f8T-nJ-ug3" secondAttribute="top" constant="20" id="Qoq-wx-cy1"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BN6-oh-9gp" secondAttribute="trailing" constant="8" id="V7g-1P-xku"/>
+                                    <constraint firstItem="BN6-oh-9gp" firstAttribute="centerX" secondItem="f8T-nJ-ug3" secondAttribute="centerX" id="YHg-Yo-pSl"/>
+                                    <constraint firstAttribute="bottom" secondItem="BN6-oh-9gp" secondAttribute="bottom" constant="20" id="oJR-m6-c2D"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRa-gV-PkO" customClass="BaseButton" customModule="TraceCovid19" customModuleProvider="target">
-                                <rect key="frame" x="16" y="591.33333333333337" width="343" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRa-gV-PkO" customClass="BaseButton" customModule="まもりあい" customModuleProvider="target">
+                                <rect key="frame" x="16" y="541.66666666666663" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="6Vs-Kk-UjR"/>
                                 </constraints>
@@ -95,12 +123,15 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="read_all_agreement"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucD-eb-8fH" customClass="ActionButton" customModule="TraceCovid19" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucD-eb-8fH" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
                                 <rect key="frame" x="16" y="698" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="cyD-sa-8Ow"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="go_forword_with_agreement"/>
                                 </userDefinedRuntimeAttributes>
@@ -111,23 +142,20 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="q2o-lb-cas" firstAttribute="leading" secondItem="8fV-PO-2Ie" secondAttribute="leading" id="0ch-TB-d8R"/>
-                            <constraint firstItem="udW-Ny-Jfh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8fV-PO-2Ie" secondAttribute="top" id="1HS-C4-Jaa"/>
                             <constraint firstItem="bRa-gV-PkO" firstAttribute="leading" secondItem="8fV-PO-2Ie" secondAttribute="leading" constant="16" id="2or-MM-3JC"/>
                             <constraint firstItem="8fV-PO-2Ie" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ucD-eb-8fH" secondAttribute="bottom" constant="8" id="5NU-xL-KSw"/>
-                            <constraint firstItem="bRa-gV-PkO" firstAttribute="top" secondItem="q2o-lb-cas" secondAttribute="bottom" priority="750" constant="23" id="8Vt-pv-8DN"/>
-                            <constraint firstItem="q2o-lb-cas" firstAttribute="top" secondItem="udW-Ny-Jfh" secondAttribute="bottom" priority="750" constant="24" id="9qY-Kz-lnT"/>
+                            <constraint firstItem="bRa-gV-PkO" firstAttribute="top" secondItem="f8T-nJ-ug3" secondAttribute="bottom" constant="7" id="86H-VZ-NmP"/>
                             <constraint firstItem="8fV-PO-2Ie" firstAttribute="trailing" secondItem="bRa-gV-PkO" secondAttribute="trailing" constant="16" id="A56-KF-li2"/>
                             <constraint firstItem="8fV-PO-2Ie" firstAttribute="bottom" secondItem="ucD-eb-8fH" secondAttribute="bottom" priority="250" constant="24" id="AY8-Qp-JQk"/>
-                            <constraint firstItem="udW-Ny-Jfh" firstAttribute="top" secondItem="8fV-PO-2Ie" secondAttribute="top" priority="749" constant="66" id="GMk-QX-Gy5"/>
+                            <constraint firstItem="f8T-nJ-ug3" firstAttribute="leading" secondItem="8fV-PO-2Ie" secondAttribute="leading" constant="16" id="AaM-qi-BWg"/>
+                            <constraint firstItem="udW-Ny-Jfh" firstAttribute="top" secondItem="8fV-PO-2Ie" secondAttribute="top" constant="32" id="GMk-QX-Gy5"/>
                             <constraint firstItem="udW-Ny-Jfh" firstAttribute="leading" secondItem="8fV-PO-2Ie" secondAttribute="leading" constant="16" id="PcD-1l-3p7"/>
                             <constraint firstItem="ucD-eb-8fH" firstAttribute="leading" secondItem="8fV-PO-2Ie" secondAttribute="leading" constant="16" id="TbT-BG-XCd"/>
                             <constraint firstItem="8fV-PO-2Ie" firstAttribute="trailing" secondItem="ucD-eb-8fH" secondAttribute="trailing" constant="16" id="VPD-tp-yYp"/>
-                            <constraint firstItem="8fV-PO-2Ie" firstAttribute="trailing" secondItem="q2o-lb-cas" secondAttribute="trailing" id="a40-6j-Mhx"/>
+                            <constraint firstItem="8fV-PO-2Ie" firstAttribute="trailing" secondItem="f8T-nJ-ug3" secondAttribute="trailing" constant="16" id="VVK-QF-7fL"/>
                             <constraint firstItem="8fV-PO-2Ie" firstAttribute="trailing" secondItem="udW-Ny-Jfh" secondAttribute="trailing" constant="16" id="aRd-BT-RTF"/>
-                            <constraint firstItem="q2o-lb-cas" firstAttribute="top" relation="greaterThanOrEqual" secondItem="udW-Ny-Jfh" secondAttribute="bottom" constant="8" id="hbM-kY-4nu"/>
-                            <constraint firstItem="bRa-gV-PkO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="q2o-lb-cas" secondAttribute="bottom" constant="8" id="s6z-DW-wAM"/>
-                            <constraint firstItem="ucD-eb-8fH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bRa-gV-PkO" secondAttribute="bottom" constant="8" id="sHN-PD-AkE"/>
+                            <constraint firstItem="ucD-eb-8fH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bRa-gV-PkO" secondAttribute="bottom" constant="8" id="bIQ-VE-2rB"/>
+                            <constraint firstItem="f8T-nJ-ug3" firstAttribute="top" secondItem="udW-Ny-Jfh" secondAttribute="bottom" constant="14" id="wd6-Dr-9wY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8fV-PO-2Ie"/>
                     </view>
