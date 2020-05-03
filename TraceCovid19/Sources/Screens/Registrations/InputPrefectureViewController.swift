@@ -8,7 +8,7 @@
 import UIKit
 import NVActivityIndicatorView
 
-final class InputPrefectureViewController: UIViewController, NVActivityIndicatorViewable, ProfileChangeable, Agreement1Accessable {
+final class InputPrefectureViewController: UIViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable, ProfileChangeable, Agreement1Accessable {
     @IBOutlet weak var prefectureTextField: UITextField!
     @IBOutlet weak var errorLabel: BaseLabel!
     @IBOutlet weak var nextButton: ActionButton!

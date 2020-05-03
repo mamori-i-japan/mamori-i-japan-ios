@@ -181,6 +181,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="利用規約への同意" id="N11-Fy-aY1"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="scrollView" destination="e81-UG-1hr" id="49p-dM-lTC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMS-YD-7sS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

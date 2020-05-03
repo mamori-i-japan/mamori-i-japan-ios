@@ -9,9 +9,16 @@ import UIKit
 import NVActivityIndicatorView
 
 final class Agreement1ViewController: UIViewController, NavigationBarHiddenApplicapable, NVActivityIndicatorViewable, PermissionSettingAccessable {
+    @IBOutlet weak var scrollView: UIScrollView!
     var loginService: LoginService!
 
     var profile: Profile!
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        scrollView.flashScrollIndicators()
+    }
 
     @IBAction func tappedNextButton(_ sender: Any) {
         login()

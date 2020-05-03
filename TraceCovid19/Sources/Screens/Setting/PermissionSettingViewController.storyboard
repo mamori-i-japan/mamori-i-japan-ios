@@ -16,27 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QmN-GZ-hK9" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illust02" translatesAutoresizingMaskIntoConstraints="NO" id="ZbX-Em-IZo">
+                                <rect key="frame" x="0.0" y="283" width="375" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZbX-Em-IZo" secondAttribute="height" multiplier="15:14" id="vbE-x2-ba3"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QmN-GZ-hK9" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
                                 <rect key="frame" x="16" y="698" width="343" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="TCe-LZ-anf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="next"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="Bluetoothを設定する"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tappedNextButton:" destination="7fz-km-D4C" eventType="touchUpInside" id="FP7-0F-VJv"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PermissionImage" translatesAutoresizingMaskIntoConstraints="NO" id="fJp-ip-uia">
-                                <rect key="frame" x="11" y="157" width="317" height="236"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="fJp-ip-uia" secondAttribute="height" multiplier="317:236" id="bwu-Xv-nht"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="接触カウントのためにBluetooth設定をオンにしてください" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ku5-5B-AKH" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
-                                <rect key="frame" x="16" y="428" width="343" height="53"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ku5-5B-AKH" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                <rect key="frame" x="16" y="121" width="343" height="53"/>
+                                <string key="text">接触を検知するために
+Bluetoothをオンにしてください</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -47,36 +52,35 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="u2l-U1-3BW" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
-                                <rect key="frame" x="16" y="497.00000000000006" width="343" height="44.666666666666686"/>
-                                <string key="text">通知設定をオンにしておけば、
-前日の接触者数の更新を知ることもできます</string>
+                                <rect key="frame" x="16" y="190" width="343" height="44.333333333333343"/>
+                                <string key="text">あわせて通知設定をオンにしておけば
+前日の接触者数の更新もお知らせします</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                        <real key="value" value="4"/>
+                                        <real key="value" value="3.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="ZbX-Em-IZo" firstAttribute="width" secondItem="Ds8-8P-Jpd" secondAttribute="width" id="4Ma-df-Q2i"/>
+                            <constraint firstItem="Ku5-5B-AKH" firstAttribute="top" secondItem="c8G-W7-Eay" secondAttribute="top" constant="33" id="4nU-TT-ZNe"/>
                             <constraint firstItem="c8G-W7-Eay" firstAttribute="trailing" secondItem="QmN-GZ-hK9" secondAttribute="trailing" constant="16" id="6wA-Yh-nLR"/>
-                            <constraint firstItem="fJp-ip-uia" firstAttribute="centerX" secondItem="c8G-W7-Eay" secondAttribute="centerX" constant="-18" id="IRz-4I-NFo"/>
-                            <constraint firstItem="fJp-ip-uia" firstAttribute="top" secondItem="c8G-W7-Eay" secondAttribute="top" priority="750" constant="69" id="JNt-Bc-59L"/>
+                            <constraint firstItem="ZbX-Em-IZo" firstAttribute="leading" secondItem="c8G-W7-Eay" secondAttribute="leading" id="Jnh-kn-gDk"/>
+                            <constraint firstItem="c8G-W7-Eay" firstAttribute="trailing" secondItem="ZbX-Em-IZo" secondAttribute="trailing" id="M91-y8-QtY"/>
                             <constraint firstItem="Ku5-5B-AKH" firstAttribute="leading" secondItem="c8G-W7-Eay" secondAttribute="leading" constant="16" id="UvX-NT-cGP"/>
                             <constraint firstItem="c8G-W7-Eay" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QmN-GZ-hK9" secondAttribute="bottom" constant="8" id="a1T-Xm-aFi"/>
                             <constraint firstItem="c8G-W7-Eay" firstAttribute="trailing" secondItem="Ku5-5B-AKH" secondAttribute="trailing" constant="16" id="e1k-Fc-Vhg"/>
                             <constraint firstItem="c8G-W7-Eay" firstAttribute="bottom" secondItem="QmN-GZ-hK9" secondAttribute="bottom" priority="250" constant="24" id="gLG-rC-Dbe"/>
                             <constraint firstItem="u2l-U1-3BW" firstAttribute="leading" secondItem="c8G-W7-Eay" secondAttribute="leading" constant="16" id="hCo-o4-Fxy"/>
                             <constraint firstItem="u2l-U1-3BW" firstAttribute="top" secondItem="Ku5-5B-AKH" secondAttribute="bottom" constant="16" id="k0h-KL-lXg"/>
-                            <constraint firstItem="Ku5-5B-AKH" firstAttribute="top" secondItem="fJp-ip-uia" secondAttribute="bottom" constant="35" id="nev-qN-hTO"/>
                             <constraint firstItem="c8G-W7-Eay" firstAttribute="trailing" secondItem="u2l-U1-3BW" secondAttribute="trailing" constant="16" id="p4R-my-Pds"/>
-                            <constraint firstItem="QmN-GZ-hK9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="u2l-U1-3BW" secondAttribute="bottom" constant="8" id="sqB-pg-6U3"/>
-                            <constraint firstItem="fJp-ip-uia" firstAttribute="top" relation="greaterThanOrEqual" secondItem="c8G-W7-Eay" secondAttribute="top" id="wiZ-nX-cbE"/>
+                            <constraint firstItem="ZbX-Em-IZo" firstAttribute="centerY" secondItem="c8G-W7-Eay" secondAttribute="centerY" constant="25" id="qeO-6b-C2h"/>
                             <constraint firstItem="QmN-GZ-hK9" firstAttribute="leading" secondItem="c8G-W7-Eay" secondAttribute="leading" constant="16" id="xGf-5B-XnS"/>
-                            <constraint firstItem="fJp-ip-uia" firstAttribute="width" secondItem="Ds8-8P-Jpd" secondAttribute="width" multiplier="0.845333" id="xYR-uN-55A"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c8G-W7-Eay"/>
                     </view>
@@ -89,6 +93,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PermissionImage" width="317" height="236"/>
+        <image name="illust02" width="375" height="350"/>
     </resources>
 </document>

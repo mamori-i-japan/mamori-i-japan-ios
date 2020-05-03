@@ -8,7 +8,7 @@
 import UIKit
 import KeychainAccess
 
-final class PermissionSettingViewController: UIViewController, HomeAccessable {
+final class PermissionSettingViewController: UIViewController, NavigationBarHiddenApplicapable, HomeAccessable {
     var bleService: BLEService!
     var notificationService: PushNotificationService!
 

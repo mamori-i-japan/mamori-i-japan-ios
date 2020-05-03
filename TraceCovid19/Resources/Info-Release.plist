@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>NSBluetoothAlwaysUsageDescription</string>
+	<string>これにより、まもりあいJAPANはBluetoothアクセサリを検出して接続できるようになります。このAppはBluetoothを使ってあなたが近くにいるかどうかを知ることもできます。</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>NSBluetoothPeripheralUsageDescription</string>
+	<string>これにより、まもりあいJAPANはBluetoothアクセサリを検出して接続できるようになります。このAppはBluetoothを使ってあなたが近くにいるかどうかを知ることもできます。</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
