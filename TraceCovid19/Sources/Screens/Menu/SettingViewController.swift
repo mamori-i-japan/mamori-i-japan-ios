@@ -125,6 +125,7 @@ extension SettingViewController: NavigationBarHiddenApplicapable {
 
 extension SettingViewController {
     func requestClearOrganization() {
+        // TODO: クリア処理は変更となる
         guard let profile = profile else { return }
         startAnimating(type: .circleStrokeSpin)
         profileService.update(profile: profile, organization: nil) { [weak self] result in

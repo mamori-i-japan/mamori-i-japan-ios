@@ -38,7 +38,7 @@ struct Profile: DictionaryEncodable, DictionaryDecodable {
         return encoder
     }
 
-    static var ignoreDecodeKeys: [String] {
+    static var ignoreEncodeKeys: [String] {
         // 組織コードはread-onlyなためリクエストに含めないためにエンコード対象外とする
         return ["organizationCode"]
     }
