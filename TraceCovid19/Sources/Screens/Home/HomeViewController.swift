@@ -124,18 +124,16 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
         // ヘッダのSubviewを再描画
         headerBaseView.subviews.forEach { $0.removeFromSuperview() }
         switch status {
-        case .usual(let count):
-            headerImageView.image = Asset.homeUsualHeader.image
-            let header = HomeUsualHeaderView(frame: headerBaseView.frame)
-            header.set(contactCount: count)
-            headerBaseView.addSubview(header)
-            header.snp.makeConstraints { make in
-                make.edges.equalToSuperview()
+        case .usual(let count), .semiUsual(let count):
+            if case .usual = status {
+                headerImageView.image = Asset.homeUsualHeader.image
+            } else {
+                headerImageView.image = Asset.homeSemiUsualHeader.image
             }
-        case .semiUsual(let count):
-            headerImageView.image = Asset.homeSemiUsualHeader.image
             let header = HomeUsualHeaderView(frame: headerBaseView.frame)
-            header.set(contactCount: count)
+            header.set(contactCount: count) { [weak self] in
+                self?.gotoHistory()
+            }
             headerBaseView.addSubview(header)
             header.snp.makeConstraints { make in
                 make.edges.equalToSuperview()

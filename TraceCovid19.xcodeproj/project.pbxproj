@@ -201,6 +201,7 @@
 		F0B9F387245AD02E006FA28D /* TempUserIdEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */; };
 		F0B9F389245BD4B1006FA28D /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */; };
 		F0B9F38B245C0910006FA28D /* TempUserIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F38A245C0910006FA28D /* TempUserIdGenerator.swift */; };
+		F0B9F38D245FF773006FA28D /* Date+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9F38C245FF772006FA28D /* Date+Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -412,6 +413,7 @@
 		F0B9F386245AD02E006FA28D /* TempUserIdEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUserIdEntity.swift; sourceTree = "<group>"; };
 		F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
 		F0B9F38A245C0910006FA28D /* TempUserIdGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUserIdGenerator.swift; sourceTree = "<group>"; };
+		F0B9F38C245FF772006FA28D /* Date+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utility.swift"; sourceTree = "<group>"; };
 		F0C6AD7C243461A600F863FC /* まもりあい.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "まもりあい.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -650,6 +652,7 @@
 				F02356D124444370001E72ED /* UIViewController+ShowAlert.swift */,
 				F0A282DE243F2A86008390AE /* UUID+DataRepresentation.swift */,
 				F079FF89244D3C5200202A91 /* XibLocalizable.swift */,
+				F0B9F38C245FF772006FA28D /* Date+Utility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1117,6 +1120,7 @@
 				F0475995243584850091059F /* SplashViewController.swift in Sources */,
 				F0A282DF243F2A86008390AE /* UUID+DataRepresentation.swift in Sources */,
 				F0A2830F2441754A008390AE /* Agreement2ViewController.swift in Sources */,
+				F0B9F38D245FF773006FA28D /* Date+Utility.swift in Sources */,
 				F051ADA4244819C7007278A0 /* APIRequest.swift in Sources */,
 				F0A282FA24416BC0008390AE /* Tutorial2ViewController.swift in Sources */,
 				F051AD802446E7B5007278A0 /* PositiveContactList.swift in Sources */,

@@ -7,9 +7,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeUsualHeaderView" customModule="TraceCovid19" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeUsualHeaderView" customModule="まもりあい" customModuleProvider="target">
             <connections>
+                <outlet property="detailButton" destination="Bfr-2T-YGJ" id="Xw8-Tv-mbz"/>
                 <outlet property="messageLabel" destination="jwa-si-LCx" id="0CV-Ad-69H"/>
+                <outlet property="subMessageLabel" destination="CwW-jY-Ows" id="2ib-f1-dRm"/>
                 <outlet property="timesCountLabel" destination="ewp-ch-1I7" id="Pwz-jM-A8T"/>
             </connections>
         </placeholder>
@@ -18,67 +20,111 @@
             <rect key="frame" x="0.0" y="0.0" width="327" height="208"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昨日の他のユーザーとの濃厚接触回数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mbf-yE-cMG" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                    <rect key="frame" x="16" y="32" width="295" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.019607843137254902" green="0.094117647058823528" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="textLocalizedKey" value="home.header.contact_description"/>
-                    </userDefinedRuntimeAttributes>
-                </label>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="firstBaseline" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Kk-MC-8rm">
-                    <rect key="frame" x="141.5" y="60" width="44.5" height="40"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Spw-cv-7Sj">
+                    <rect key="frame" x="24" y="24" width="279" height="81.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ewp-ch-1I7" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="3.5" width="19" height="33.5"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                            <color key="textColor" red="0.43529411764705883" green="0.4392156862745098" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH1-Sp-qHm" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                            <rect key="frame" x="27" y="14" width="17.5" height="20.5"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                            <color key="textColor" red="0.43529411764705883" green="0.4392156862745098" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jwa-si-LCx" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="279" height="53"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="textLocalizedKey" value="times_unit"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textLocalizedKey" value="home.header.usual_message"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CwW-jY-Ows" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="61" width="279" height="20.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textLocalizedKey" value="home.header.usual_sub_message"/>
                             </userDefinedRuntimeAttributes>
                         </label>
                     </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="WPn-Zt-ciw"/>
-                        <constraint firstItem="ewp-ch-1I7" firstAttribute="centerY" secondItem="6Kk-MC-8rm" secondAttribute="centerY" id="m0D-hW-xRb"/>
-                    </constraints>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jwa-si-LCx" customClass="BaseLabel" customModule="TraceCovid19" customModuleProvider="target">
-                    <rect key="frame" x="24" y="110" width="279" height="82"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                    <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9BI-Xk-5Y6">
+                    <rect key="frame" x="12" y="148" width="303" height="48"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfr-2T-YGJ" customClass="BaseButton" customModule="まもりあい" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="303" height="48"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="12" maxY="0.0"/>
+                            <state key="normal" image="Disclosure"/>
+                            <connections>
+                                <action selector="tappedShowDetailButton:" destination="-1" eventType="touchUpInside" id="v55-LF-5Rf"/>
+                            </connections>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="firstBaseline" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Kk-MC-8rm">
+                            <rect key="frame" x="127" y="4" width="49.5" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ewp-ch-1I7" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="24" height="40"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                    <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH1-Sp-qHm" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                    <rect key="frame" x="32" y="18.5" width="17.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="textColor" red="0.43529411764705883" green="0.4392156862745098" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="textLocalizedKey" value="times_unit"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="WPn-Zt-ciw"/>
+                                <constraint firstItem="ewp-ch-1I7" firstAttribute="centerY" secondItem="6Kk-MC-8rm" secondAttribute="centerY" id="m0D-hW-xRb"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Bfr-2T-YGJ" firstAttribute="leading" secondItem="9BI-Xk-5Y6" secondAttribute="leading" id="1AD-HY-jx3"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Kk-MC-8rm" secondAttribute="trailing" constant="16" id="4aX-nR-jKG"/>
+                        <constraint firstItem="Bfr-2T-YGJ" firstAttribute="top" secondItem="9BI-Xk-5Y6" secondAttribute="top" id="5L6-tf-ODf"/>
+                        <constraint firstAttribute="height" constant="48" id="7K7-9i-bq4"/>
+                        <constraint firstItem="6Kk-MC-8rm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9BI-Xk-5Y6" secondAttribute="leading" constant="16" id="Hc3-ha-led"/>
+                        <constraint firstItem="6Kk-MC-8rm" firstAttribute="centerY" secondItem="9BI-Xk-5Y6" secondAttribute="centerY" id="lPM-su-cLz"/>
+                        <constraint firstItem="6Kk-MC-8rm" firstAttribute="centerX" secondItem="9BI-Xk-5Y6" secondAttribute="centerX" id="nye-1A-vff"/>
+                        <constraint firstAttribute="trailing" secondItem="Bfr-2T-YGJ" secondAttribute="trailing" id="pTY-dk-aZ9"/>
+                        <constraint firstAttribute="bottom" secondItem="Bfr-2T-YGJ" secondAttribute="bottom" id="txi-vL-9f9"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昨日の他のユーザーとの濃厚接触回数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mbf-yE-cMG" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                    <rect key="frame" x="16" y="124.5" width="295" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.019607843137254902" green="0.094117647058823528" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                            <real key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="string" keyPath="textLocalizedKey" value="home.header.usual_message"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="textLocalizedKey" value="昨日の濃厚接触回数"/>
                     </userDefinedRuntimeAttributes>
                 </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="jwa-si-LCx" secondAttribute="trailing" constant="24" id="1SQ-a5-iF5"/>
-                <constraint firstItem="Mbf-yE-cMG" firstAttribute="top" secondItem="gtu-My-cZK" secondAttribute="top" constant="32" id="2uz-a1-e4Q"/>
                 <constraint firstAttribute="trailing" secondItem="Mbf-yE-cMG" secondAttribute="trailing" constant="16" id="9Zt-TM-KEE"/>
                 <constraint firstItem="Mbf-yE-cMG" firstAttribute="leading" secondItem="gtu-My-cZK" secondAttribute="leading" constant="16" id="BrP-J6-WqA"/>
-                <constraint firstAttribute="bottom" secondItem="jwa-si-LCx" secondAttribute="bottom" constant="16" id="Cli-I3-mTs"/>
-                <constraint firstItem="6Kk-MC-8rm" firstAttribute="centerX" secondItem="gtu-My-cZK" secondAttribute="centerX" id="Gew-nS-FgV"/>
-                <constraint firstItem="6Kk-MC-8rm" firstAttribute="top" secondItem="gtu-My-cZK" secondAttribute="top" constant="60" id="LXn-P1-fqS"/>
-                <constraint firstItem="6Kk-MC-8rm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gtu-My-cZK" secondAttribute="leading" constant="16" id="S9Q-Io-kho"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Kk-MC-8rm" secondAttribute="trailing" constant="16" id="eAV-8A-6nu"/>
-                <constraint firstItem="jwa-si-LCx" firstAttribute="leading" secondItem="gtu-My-cZK" secondAttribute="leading" constant="24" id="kQD-LF-9qJ"/>
+                <constraint firstItem="9BI-Xk-5Y6" firstAttribute="leading" secondItem="gtu-My-cZK" secondAttribute="leading" constant="12" id="Laa-NN-PLc"/>
+                <constraint firstAttribute="trailing" secondItem="9BI-Xk-5Y6" secondAttribute="trailing" constant="12" id="OZP-oq-BMp"/>
+                <constraint firstItem="Spw-cv-7Sj" firstAttribute="top" secondItem="gtu-My-cZK" secondAttribute="top" constant="24" id="Teo-M9-Ef8"/>
+                <constraint firstItem="Spw-cv-7Sj" firstAttribute="leading" secondItem="gtu-My-cZK" secondAttribute="leading" constant="24" id="eVX-x8-0mh"/>
+                <constraint firstAttribute="bottom" secondItem="9BI-Xk-5Y6" secondAttribute="bottom" constant="12" id="fk9-aB-s4o"/>
+                <constraint firstItem="Bfr-2T-YGJ" firstAttribute="top" secondItem="Mbf-yE-cMG" secondAttribute="bottom" constant="9" id="rOH-NG-8PX"/>
+                <constraint firstAttribute="trailing" secondItem="Spw-cv-7Sj" secondAttribute="trailing" constant="24" id="sRh-Oe-2j9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-356" y="35.532233883058474"/>
         </view>
     </objects>
+    <resources>
+        <image name="Disclosure" width="24" height="24"/>
+    </resources>
 </document>

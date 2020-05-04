@@ -32,7 +32,8 @@
 "tutorial3.sub_description" = "行動データの共有は、保健所からの要請があり、ご本人の了承を得た場合に限ります。";
 "agreement1.main_description" = "利用規約";
 "home.header.contact_description" = "昨日の他のユーザーとの濃厚接触回数";
-"home.header.usual_message" = "一緒に日本を守ってくれて\nありがとうございます\n引き続き接触を控えましょう";
+"home.header.usual_message" = "一緒に日本を守ってくれて\nありがとうございます";
+"home.header.usual_sub_message" = "引き続き接触を控えましょう";
 "home.header.semi_usual_message" = "接触を減らすために\n周りに協力してもらえることは\nありませんか";
 "home.header.attension_message" = "%@\n陽性判定者との濃厚接触が\nあったかもしれません";
 "home.header.positive_message" = "PCR検査の結果\nあなたは陽性でした";
