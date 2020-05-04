@@ -14,6 +14,12 @@ final class Agreement1ViewController: UIViewController, NavigationBarHiddenAppli
 
     var profile: Profile!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        scrollView.layer.cornerRadius = 8.0
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
