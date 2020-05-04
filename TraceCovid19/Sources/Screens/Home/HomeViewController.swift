@@ -13,8 +13,9 @@ import SnapKit
 enum UserStatus {
     case usual(count: Int)
     case semiUsual(count: Int)
-    case attension(latest: DeepContactUser)
-    case positive
+    // NOTE: Ph1では未実装
+//    case attension(latest: DeepContactUser)
+//    case positive
 
     static let usualUpperLimitCount = 25
 }
@@ -66,6 +67,10 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
         super.viewDidAppear(animated)
 
         scrollView.flashScrollIndicators()
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     @IBAction func tappedMenuButton(_ sender: Any) {
@@ -135,35 +140,35 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
             header.snp.makeConstraints { make in
                 make.edges.equalToSuperview()
             }
-        case .attension(let latestContactUser):
-            headerImageView.image = Asset.homeAttensionHeader.image
-            let header = HomeAttensionHeaderView(frame: headerBaseView.frame)
-            header.set(positiveContactUser: latestContactUser) { [weak self] in
-                self?.gotoHistory()
-            }
-            headerBaseView.addSubview(header)
-            header.snp.makeConstraints { make in
-                make.edges.equalToSuperview()
-            }
-        case .positive:
-            headerImageView.image = Asset.homePositiveHeader.image
-            let header = HomePositiveHeaderView(frame: headerBaseView.frame)
-            headerBaseView.addSubview(header)
-            header.snp.makeConstraints { make in
-                make.edges.equalToSuperview()
-            }
+//        case .attension(let latestContactUser):
+//            headerImageView.image = Asset.homeAttensionHeader.image
+//            let header = HomeAttensionHeaderView(frame: headerBaseView.frame)
+//            header.set(positiveContactUser: latestContactUser) { [weak self] in
+//                self?.gotoHistory()
+//            }
+//            headerBaseView.addSubview(header)
+//            header.snp.makeConstraints { make in
+//                make.edges.equalToSuperview()
+//            }
+//        case .positive:
+//            headerImageView.image = Asset.homePositiveHeader.image
+//            let header = HomePositiveHeaderView(frame: headerBaseView.frame)
+//            headerBaseView.addSubview(header)
+//            header.snp.makeConstraints { make in
+//                make.edges.equalToSuperview()
+//            }
         }
     }
 
     func redrawActionContentView() {
-        switch status {
-        case .usual, .semiUsual, .attension:
+//        switch status {
+//        case .usual, .semiUsual, .attension:
             homeActionContentsView.isHidden = false
             homePositiveContentsView.isHidden = true
-        case .positive:
-            homeActionContentsView.isHidden = true
-            homePositiveContentsView.isHidden = false
-        }
+//        case .positive:
+//            homeActionContentsView.isHidden = true
+//            homePositiveContentsView.isHidden = false
+//        }
     }
 
     func shareApp() {
@@ -210,20 +215,16 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
 }
 
 extension HomeViewController: NavigationBarHiddenApplicapable {
-    var navigationBackgroundImage: UIImage? {
-        // シャドウ部分は消すが、ナビゲーション部分はデフォルトままにする
-        return nil
-    }
 }
 
 extension HomeViewController {
     private var status: UserStatus {
-        if positiveContact.isPositiveMyself() {
-            return .positive
-        }
-        if let latestPerson = positiveContact.getLatestContactedPositivePeople() {
-            return .attension(latest: latestPerson)
-        }
+//        if positiveContact.isPositiveMyself() {
+//            return .positive
+//        }
+//        if let latestPerson = positiveContact.getLatestContactedPositivePeople() {
+//            return .attension(latest: latestPerson)
+//        }
 
         let count = deepContactCheck.getDeepContactUsersUniqCountAtYesterday()
         return count >= UserStatus.usualUpperLimitCount ? .semiUsual(count: count) : .usual(count: count)

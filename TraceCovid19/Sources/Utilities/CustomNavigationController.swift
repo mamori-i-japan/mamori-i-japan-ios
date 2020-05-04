@@ -12,6 +12,10 @@ final class CustomNavigationController: UINavigationController {
         super.viewDidLoad()
         delegate = self
     }
+
+    override var childForStatusBarStyle: UIViewController? {
+        return visibleViewController
+    }
 }
 
 extension CustomNavigationController: UINavigationControllerDelegate {
