@@ -116,7 +116,7 @@ extension InputOrganizationViewController {
                 self?.showAlert(message: "通信エラー")
             case .failure(.unknown(let error)):
                 // TODO
-                self?.setupErrorText(text: error?.localizedDescription)
+                self?.setupErrorText(text: error?.localizedDescription ?? "error nil")
             }
         }
     }

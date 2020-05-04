@@ -30,12 +30,7 @@ final class TempIdGenerator {
 
     private func create(startDate: Date) -> TempUserId {
         let endDate = startDate.nextDate()
-        return TempUserId(tempId: createId(), startTime: createDate(date: startDate), endTime: createDate(date: endDate))
-    }
-
-    private func createId() -> String {
-        // NOTE: ID体系はUUIDv4とする
-        return UUID().uuidString
+        return TempUserId(startTime: createDate(date: startDate), endTime: createDate(date: endDate))
     }
 
     private func createDate(date: Date) -> Date {
@@ -53,5 +48,16 @@ private extension Date {
     func previousDate() -> Date {
         let calendar = Calendar.current
         return calendar.date(byAdding: .day, value: -1, to: calendar.startOfDay(for: self))! // 前日
+    }
+}
+
+private extension TempUserId {
+    init(startTime: Date, endTime: Date) {
+        // NOTE: IDの生成ルールはUUID1+UUID2+validFrom+validToでSha256とする
+        let uuid1 = UUID().uuidString
+        let uuid2 = UUID().uuidString
+        self.tempId = "\(uuid1)\(uuid2)\(Int(startTime.timeIntervalSince1970))\(Int(endTime.timeIntervalSince1970)))".sha256!
+        self.startTime = startTime
+        self.endTime = endTime
     }
 }
