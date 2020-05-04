@@ -19,17 +19,20 @@ final class TempIdService {
         self.coreData = coreData
     }
 
-    var currentTempId: TempUserId? {
+    func getTempId() -> TempUserId {
         let tempIDs = self.tempIDs
-        if filterIsValid(tempIDs: tempIDs).count < shouldHasValidTempIdCount {
-            // 一定数より有効なTempIDがなければ補充し、その末端を返却
-            return relaodTempIdsIfNeeded().last
+        // 現在時間にマッチするIDの抽出
+        if let currentId = filterCurrent(tempIDs: tempIDs) {
+            return currentId
         }
-        return filterCurrent(tempIDs: tempIDs)
-    }
 
-    var latestTempId: TempUserId? {
-        return tempIDs.first
+        // マッチしない場合、有効なIDで近いIDを抽出
+        if let validId = filterIsValid(tempIDs: tempIDs).last {
+            return validId
+        }
+
+        // 有効なIDがない場合補充して返却
+        return relaodTempIds().last!
     }
 
     var tempIDs: [TempUserId] {
@@ -51,6 +54,10 @@ final class TempIdService {
             return validTempIDs
         }
         // 一定数より有効なTempIDがなければ補充する
+        return relaodTempIds()
+    }
+
+    func relaodTempIds() -> [TempUserId] {
         let tempIds = tempIdGenerator.createTempUserIds()
         save(tempIds: tempIds)
         return tempIds

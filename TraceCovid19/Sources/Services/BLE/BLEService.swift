@@ -120,11 +120,7 @@ final class BLEService {
             .onRead { [unowned self] _, ch in
                 switch ch {
                 case .contact:
-                    guard let userId = self.tempId.currentTempId ?? self.tempId.latestTempId else {
-                        log("not found temp user id on CoreData")
-                        return nil
-                    }
-
+                    let userId = self.tempId.getTempId()
                     let payload = ReadData(tempID: userId.tempId)
                     return payload.data
                 }
@@ -156,9 +152,7 @@ final class BLEService {
 
         let writeCommand: Command = .write(to: .contact, value: { [unowned self] peripheral in
             let record = self.traceData[peripheral.id] ?? TraceDataRecord()
-            guard let userId = self.tempId.currentTempId ?? self.tempId.latestTempId else {
-                return nil
-            }
+            let userId = self.tempId.getTempId()
             let writeData = WriteData(RSSI: record.rssi ?? 0, tempID: userId.tempId)
             return writeData.data
         })

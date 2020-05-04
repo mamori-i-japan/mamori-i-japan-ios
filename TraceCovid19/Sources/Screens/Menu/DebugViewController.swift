@@ -77,10 +77,10 @@ final class DebugViewController: UIViewController {
 
     @objc
     func refreshAccessControl() {
-        let tempID = tempId.currentTempId
-        uuidLabel.text = tempID?.tempId
-        idStartLabel.text = tempID?.startTime.toString(format: "yyyy/MM/dd HH:mm:ss.SSS")
-        idEndLabel.text = tempID?.endTime.toString(format: "yyyy/MM/dd HH:mm:ss.SSS")
+        let tempID = tempId.getTempId()
+        uuidLabel.text = tempID.tempId
+        idStartLabel.text = tempID.startTime.toString(format: "yyyy/MM/dd HH:mm:ss.SSS")
+        idEndLabel.text = tempID.endTime.toString(format: "yyyy/MM/dd HH:mm:ss.SSS")
         modelLabel.text = DeviceUtility.machineName()
         firebaseIdLabel.text = loginService.uid
         phoneNumberLabel.text = loginService.phoneNumber
