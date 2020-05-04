@@ -26,7 +26,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mDV-p9-S2A">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1244"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1207"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q17-Gw-WfZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
@@ -36,7 +36,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXQ-N1-S0Q">
-                                                <rect key="frame" x="0.0" y="88" width="375" height="244"/>
+                                                <rect key="frame" x="0.0" y="88" width="375" height="263"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ket-zt-1kb">
                                                         <rect key="frame" x="24" y="0.0" width="327" height="208"/>
@@ -45,7 +45,7 @@
                                                             <constraint firstAttribute="height" constant="208" id="PTK-7b-CAh"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最終更新：XX月XX日XX時" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-8h-qg8">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最終更新：XX月XX日XX時" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-8h-qg8" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
                                                         <rect key="frame" x="114" y="220" width="147" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.43529411764705883" green="0.4392156862745098" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,33 +55,33 @@
                                                 <color key="backgroundColor" red="0.086274509803921567" green="0.46666666666666667" blue="0.9137254901960784" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="Ket-zt-1kb" firstAttribute="leading" secondItem="uXQ-N1-S0Q" secondAttribute="leading" constant="24" id="ACD-MU-SwR"/>
-                                                    <constraint firstAttribute="bottom" secondItem="8eN-8h-qg8" secondAttribute="bottom" id="Aol-vC-WNW"/>
+                                                    <constraint firstAttribute="bottom" secondItem="8eN-8h-qg8" secondAttribute="bottom" constant="19" id="Aol-vC-WNW"/>
                                                     <constraint firstAttribute="trailing" secondItem="Ket-zt-1kb" secondAttribute="trailing" constant="24" id="MLx-2N-3qN"/>
-                                                    <constraint firstAttribute="height" constant="244" id="S7v-aK-qqy"/>
+                                                    <constraint firstAttribute="height" constant="263" id="S7v-aK-qqy"/>
                                                     <constraint firstItem="Ket-zt-1kb" firstAttribute="top" secondItem="uXQ-N1-S0Q" secondAttribute="top" id="pBB-mE-450"/>
                                                     <constraint firstItem="8eN-8h-qg8" firstAttribute="centerX" secondItem="uXQ-N1-S0Q" secondAttribute="centerX" id="r6J-tQ-bhF"/>
                                                     <constraint firstItem="8eN-8h-qg8" firstAttribute="top" secondItem="Ket-zt-1kb" secondAttribute="bottom" constant="12" id="vjd-zZ-VmK"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJh-Kb-ust" customClass="HomeActionContentsView" customModule="まもりあい" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="332" width="375" height="426"/>
+                                                <rect key="frame" x="0.0" y="351" width="375" height="338"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="426" id="pVO-ih-lFy"/>
+                                                    <constraint firstAttribute="height" constant="338" id="pVO-ih-lFy"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o99-VN-4rq" customClass="HomePositiveContentsView" customModule="まもりあい" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="758" width="375" height="426"/>
+                                                <rect key="frame" x="0.0" y="689" width="375" height="426"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="426" id="dXY-lh-vpE"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twh-SS-Nq5">
-                                                <rect key="frame" x="0.0" y="1184" width="375" height="60"/>
+                                                <rect key="frame" x="0.0" y="1115" width="375" height="92"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bym-QJ-Gzc">
-                                                        <rect key="frame" x="0.0" y="8" width="375" height="44"/>
+                                                        <rect key="frame" x="0.0" y="24" width="375" height="44"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="huE-bV-I0e"/>
@@ -98,8 +98,8 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="Bym-QJ-Gzc" firstAttribute="top" secondItem="twh-SS-Nq5" secondAttribute="top" constant="8" id="Cx9-Id-DUg"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Bym-QJ-Gzc" secondAttribute="bottom" constant="8" id="EjK-p1-NXO"/>
+                                                    <constraint firstItem="Bym-QJ-Gzc" firstAttribute="top" secondItem="twh-SS-Nq5" secondAttribute="top" constant="24" id="Cx9-Id-DUg"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Bym-QJ-Gzc" secondAttribute="bottom" constant="24" id="EjK-p1-NXO"/>
                                                     <constraint firstAttribute="trailing" secondItem="Bym-QJ-Gzc" secondAttribute="trailing" id="t0E-xI-2jG"/>
                                                     <constraint firstItem="Bym-QJ-Gzc" firstAttribute="leading" secondItem="twh-SS-Nq5" secondAttribute="leading" id="vUz-tc-QqW"/>
                                                 </constraints>
