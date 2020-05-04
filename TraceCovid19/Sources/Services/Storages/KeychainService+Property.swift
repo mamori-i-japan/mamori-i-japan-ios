@@ -8,13 +8,13 @@
 import Foundation
 
 private extension String {
-    static let randomToken = "randomToken"
+    static let randomIDs = "randomIDs"
 }
 
 extension KeychainService {
     var properties: [String] {
         return [
-            .randomToken
+            .randomIDs
         ]
     }
 
@@ -26,18 +26,21 @@ extension KeychainService {
 }
 
 extension KeychainService {
-//    var randomToken: String? {
-//        get {
-//            // TODO: 暫定的に、ランダム文字列を固定値として扱う
-//            return "helloworld"
-////            return try? keychain.get(.randomToken)
-//        }
-//        set {
-//            guard let value = newValue else {
-//                try? keychain.remove(.randomToken)
-//                return
-//            }
-//            try? keychain.set(value, key: .randomToken)
-//        }
-//    }
+    var randomIDs: [String] {
+        get {
+            guard let data = try? keychain.getData(.randomIDs) else { return [] }
+            return (try? JSONDecoder().decode([String].self, from: data)) ?? []
+        }
+        set {
+            // JSONエンコードして保存する
+            guard let data = try? JSONEncoder().encode(newValue) else { return }
+            try? keychain.set(data, key: .randomIDs)
+        }
+    }
+
+    func addRandomID(id: String) {
+        var ids = randomIDs
+        ids.append(id)
+        randomIDs = ids
+    }
 }

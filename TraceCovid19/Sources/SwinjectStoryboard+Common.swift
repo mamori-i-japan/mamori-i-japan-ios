@@ -305,7 +305,7 @@ extension SwinjectStoryboard {
         }
 
         defaultContainer.register(TraceDataUploadAPI.self) { r in
-            TraceDataUploadAPI(apiClient: r.resolve(APIClient.self)!)
+            TraceDataUploadAPI(apiClient: r.resolve(APIClient.self)!, keychain: r.resolve(KeychainService.self)!)
         }
 
         defaultContainer.register(ProfileAPI.self) { r in

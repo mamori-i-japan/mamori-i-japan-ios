@@ -9,7 +9,9 @@ import Foundation
 
 protocol KeychainClientProtocol {
     func get(_ key: String, ignoringAttributeSynchronizable: Bool) throws -> String?
+    func getData(_ key: String, ignoringAttributeSynchronizable: Bool) throws -> Data?
     func set(_ value: String, key: String, ignoringAttributeSynchronizable: Bool) throws
+    func set(_ value: Data, key: String, ignoringAttributeSynchronizable: Bool) throws
     func remove(_ key: String, ignoringAttributeSynchronizable: Bool) throws
 }
 
@@ -18,7 +20,15 @@ extension KeychainClientProtocol {
         return try get(key, ignoringAttributeSynchronizable: true)
     }
 
+    func getData(_ key: String) throws -> Data? {
+        return try getData(key, ignoringAttributeSynchronizable: true)
+    }
+
     func set(_ value: String, key: String) throws {
+        try set(value, key: key, ignoringAttributeSynchronizable: true)
+    }
+
+    func set(_ value: Data, key: String) throws {
         try set(value, key: key, ignoringAttributeSynchronizable: true)
     }
 
