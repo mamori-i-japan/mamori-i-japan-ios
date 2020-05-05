@@ -414,7 +414,7 @@
 		F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
 		F0B9F38A245C0910006FA28D /* TempUserIdGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUserIdGenerator.swift; sourceTree = "<group>"; };
 		F0B9F38C245FF772006FA28D /* Date+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utility.swift"; sourceTree = "<group>"; };
-		F0C6AD7C243461A600F863FC /* まもりあい.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "まもりあい.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0C6AD7C243461A600F863FC /* DEV-まもりあい.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DEV-まもりあい.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -861,7 +861,7 @@
 		F0C6AD7D243461A600F863FC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F0C6AD7C243461A600F863FC /* まもりあい.app */,
+				F0C6AD7C243461A600F863FC /* DEV-まもりあい.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -904,7 +904,7 @@
 				F096D5B7245001E300F7919B /* Reachability */,
 			);
 			productName = TraceCovid19;
-			productReference = F0C6AD7C243461A600F863FC /* まもりあい.app */;
+			productReference = F0C6AD7C243461A600F863FC /* DEV-まもりあい.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1360,7 +1360,6 @@
 					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.mamori-i.app";
-				PRODUCT_NAME = "まもりあい";
 				PROVISIONING_PROFILE_SPECIFIER = "mamori-i wild card profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1505,7 +1504,6 @@
 					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.mamori-i.app";
-				PRODUCT_NAME = "まもりあい";
 				PROVISIONING_PROFILE_SPECIFIER = "mamori-i wild card profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1532,7 +1530,6 @@
 					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.mamori-i.app";
-				PRODUCT_NAME = "まもりあい";
 				PROVISIONING_PROFILE_SPECIFIER = "mamori-i wild card profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

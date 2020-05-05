@@ -2,3 +2,4 @@
 
 OTHER_SWIFT_FLAGS = $(inherited) -D DEBUG -D DEV
 FIREBASE_CUSTOM_URL_SCHEME = com.googleusercontent.apps.776506470916-r54hqcgpkpuib3h0rj1jltr0t6n5tetd
+PRODUCT_NAME = DEV-まもりあい

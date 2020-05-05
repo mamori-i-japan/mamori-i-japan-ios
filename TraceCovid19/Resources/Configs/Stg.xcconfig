@@ -2,3 +2,4 @@
 
 OTHER_SWIFT_FLAGS = $(inherited) -D DEBUG -D STG
 FIREBASE_CUSTOM_URL_SCHEME = com.googleusercontent.apps.598864012119-keflrgle163ujj5oktlu8c3ab6gvisuq
+PRODUCT_NAME = STG-まもりあい
