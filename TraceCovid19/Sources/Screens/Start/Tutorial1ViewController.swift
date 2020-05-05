@@ -8,9 +8,9 @@
 import UIKit
 import SafariServices
 
-final class Tutorial1ViewController: UIViewController, NavigationBarHiddenApplicapable, InputPrefectureAccessable {
+final class Tutorial1ViewController: UIViewController, NavigationBarHiddenApplicapable, Agreement1Accessable {
     @IBAction func tappedNextButton(_ sender: Any) {
-        pushToInputPrefecture()
+        pushToAgreement1()
     }
 
     @IBAction func tappedHelpButton(_ sender: Any) {

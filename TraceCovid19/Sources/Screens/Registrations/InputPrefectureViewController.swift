@@ -8,7 +8,7 @@
 import UIKit
 import NVActivityIndicatorView
 
-final class InputPrefectureViewController: UIViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable, ProfileChangeable, Agreement1Accessable {
+final class InputPrefectureViewController: UIViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable, ProfileChangeable, PermissionSettingAccessable {
     @IBOutlet weak var prefectureTextField: UITextField!
     @IBOutlet weak var errorLabel: BaseLabel!
     @IBOutlet weak var nextButton: ActionButton!
@@ -94,7 +94,7 @@ final class InputPrefectureViewController: UIViewController, NVActivityIndicator
 
         switch flow {
         case .start:
-            pushToAgreement1(profile: Profile(prefecture: prefecture, organizationCode: nil))
+            login(profile: Profile(prefecture: prefecture, organizationCode: nil))
         case .change(var profile):
             requestProfile(profile: profile.update(prefecture: prefecture))
         case .none:
@@ -114,6 +114,38 @@ final class InputPrefectureViewController: UIViewController, NVActivityIndicator
     }
 }
 
+// MARK: - 登録処理
+extension InputPrefectureViewController {
+    private func login(profile: Profile) {
+        startAnimating(type: .circleStrokeSpin)
+        loginService.signInAnonymously(profile: profile) { [weak self] result in
+            self?.stopAnimating()
+
+            switch result {
+            case .success:
+                self?.pushToPermissionSetting()
+            case .failure(let error):
+                // TODO: エラーのUX
+                self?.showError(error: error)
+            }
+        }
+    }
+
+    private func showError(error: LoginService.SignInError) {
+        switch error {
+        case .notMatch:
+            break
+        case .expired:
+            break
+        case .networkError:
+            showAlert(message: "TODO: 通信に失敗しました")
+        case .unknown(let error):
+            showAlert(message: error.localizedDescription)
+        }
+    }
+}
+
+// MARK: - UIPickerViewDataSource
 extension InputPrefectureViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
@@ -124,6 +156,7 @@ extension InputPrefectureViewController: UIPickerViewDataSource {
     }
 }
 
+// MARK: - UIPickerViewDelegate
 extension InputPrefectureViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return PrefectureModel.rawValues[row]
@@ -133,6 +166,7 @@ extension InputPrefectureViewController: UIPickerViewDelegate {
     }
 }
 
+// MARK: - UITextFieldDelegate
 extension InputPrefectureViewController: UITextFieldDelegate {
 }
 

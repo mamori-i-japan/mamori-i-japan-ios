@@ -38,14 +38,12 @@ extension Tutorial3Accessable {
 }
 
 protocol Agreement1Accessable: PushNavigationProtocol {
-    func pushToAgreement1(profile: Profile)
+    func pushToAgreement1()
 }
 
 extension Agreement1Accessable {
-    func pushToAgreement1(profile: Profile) {
-        let vc = Agreement1ViewController.instantiate()
-        vc.profile = profile
-        push(to: vc)
+    func pushToAgreement1() {
+        push(to: Agreement1ViewController.instantiate())
     }
 }
 

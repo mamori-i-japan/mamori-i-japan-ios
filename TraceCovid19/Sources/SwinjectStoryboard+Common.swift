@@ -38,8 +38,7 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(Tutorial3ViewController.self) { _, _ in
         }
 
-        defaultContainer.storyboardInitCompleted(Agreement1ViewController.self) { r, vc in
-            vc.loginService = r.resolve(LoginService.self)
+        defaultContainer.storyboardInitCompleted(Agreement1ViewController.self) { _, _ in
         }
 
         defaultContainer.storyboardInitCompleted(Agreement2ViewController.self) { _, _ in
@@ -293,11 +292,18 @@ extension SwinjectStoryboard {
 
         defaultContainer.register([SSLPinningCondition].self) { _ in
             // TODO: 環境
-            #if DEV || STG
-            // DevとStgは共通
+            #if DEV
             return [
                 SSLPinningCondition(
                     host: "api-dev.mamori-i.jp",
+                    hashes: ["zMOvA34BcbgmGIaP3vndMkbThDS74hnTD4UZMK10MqA="],
+                    expiredUnixTime: 1621684800 - 3600 * 24 * 30 // NOTE: May 22 12:00:00 2021 GMT からマージン(30日)を引いた日時を期限として設定
+                )
+            ]
+            #elseif STG
+            return [
+                SSLPinningCondition(
+                    host: "api-stg.mamori-i.jp",
                     hashes: ["zMOvA34BcbgmGIaP3vndMkbThDS74hnTD4UZMK10MqA="],
                     expiredUnixTime: 1621684800 - 3600 * 24 * 30 // NOTE: May 22 12:00:00 2021 GMT からマージン(30日)を引いた日時を期限として設定
                 )
