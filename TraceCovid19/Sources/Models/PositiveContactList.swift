@@ -8,5 +8,5 @@
 import Foundation
 
 struct PositiveContactList: Decodable {
-    let data: [PositiveContact]
+    let data: [String]
 }

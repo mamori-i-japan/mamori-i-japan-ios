@@ -17,7 +17,7 @@ final class PositiveContactService {
     private let deepContactCheck: DeepContactCheckService
 
     private var lastGeneration: Int64?
-    private(set) var positiveContacts: [PositiveContact] = []
+    private(set) var positiveContacts: [String] = []
 
     private var fileName: String {
         return "positives.json.gz"
@@ -43,9 +43,8 @@ final class PositiveContactService {
     /// 自身の陽性判定
     func isPositiveMyself() -> Bool {
         let myTempIDs = tempIdService.tempIDs.compactMap { $0.tempId }
-        let positiveUUIDs = positiveContacts.compactMap { $0.tempID }
         for tempID in myTempIDs {
-            if positiveUUIDs.contains(tempID) {
+            if positiveContacts.contains(tempID) {
                 return true
             }
         }
@@ -54,15 +53,14 @@ final class PositiveContactService {
 
     /// 接触した陽性者の最新を取得
     func getLatestContactedPositivePeople() -> DeepContactUser? {
-        let deepContactUUIDs = deepContactCheck.getDeepContactUsers().compactMap { $0.tempId }
-        let positiveContactUUIDs = positiveContacts.compactMap { $0.tempID }
-        for uuid in deepContactUUIDs where positiveContactUUIDs.contains(uuid) {
-            return deepContactCheck.getDeepContactUsers().first(where: { $0.tempId == uuid })
+        let deepContactTempIds = deepContactCheck.getDeepContactUsers().compactMap { $0.tempId }
+        for tempId in deepContactTempIds where positiveContacts.contains(tempId) {
+            return deepContactCheck.getDeepContactUsers().first(where: { $0.tempId == tempId })
         }
         return nil
     }
 
-    func load(completion: @escaping (Result<[PositiveContact], PositiveContactStatus>) -> Void) {
+    func load(completion: @escaping (Result<[String], PositiveContactStatus>) -> Void) {
         let reference = storage.instance.reference().child(fileName)
 
         reference.getMetadata { [weak self] metaData, error in
@@ -118,16 +116,16 @@ final class PositiveContactService {
 
 #if DEBUG
 extension PositiveContactService {
-    /// (デバッグ用) UUIDを陽性者リストに追加する
-    func appendPositiveContact(uuid: String) {
-        if !(positiveContacts.compactMap { $0.tempID }).contains(uuid) {
-            positiveContacts.append(PositiveContact(tempID: uuid))
+    /// (デバッグ用) TempIdを陽性者リストに追加する
+    func appendPositiveContact(tempId: String) {
+        if !positiveContacts.contains(tempId) {
+            positiveContacts.append(tempId)
         }
     }
 
     /// (デバッグ用) UUIDを陽性者リストから削除する
-    func removePositiveContact(uuid: String) {
-        positiveContacts.removeAll(where: { $0.tempID == uuid })
+    func removePositiveContact(tempId: String) {
+        positiveContacts.removeAll(where: { $0 == tempId })
     }
 
     func resetGeneration() {

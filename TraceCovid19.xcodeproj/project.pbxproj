@@ -82,7 +82,6 @@
 		F051AD7C2446BEA3007278A0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F051AD7B2446BEA3007278A0 /* libz.tbd */; };
 		F051AD7E2446D790007278A0 /* PositiveContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051AD7D2446D78F007278A0 /* PositiveContactService.swift */; };
 		F051AD802446E7B5007278A0 /* PositiveContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051AD7F2446E7B5007278A0 /* PositiveContactList.swift */; };
-		F051AD822446E7C5007278A0 /* PositiveContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051AD812446E7C5007278A0 /* PositiveContact.swift */; };
 		F051AD842446EB36007278A0 /* HomeUsualHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F051AD832446EB36007278A0 /* HomeUsualHeaderView.xib */; };
 		F051AD8A2446EB86007278A0 /* HomeUsualHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051AD892446EB86007278A0 /* HomeUsualHeaderView.swift */; };
 		F051AD92244701D9007278A0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F051AD91244701D9007278A0 /* SnapKit.framework */; };
@@ -286,7 +285,6 @@
 		F051AD7B2446BEA3007278A0 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		F051AD7D2446D78F007278A0 /* PositiveContactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveContactService.swift; sourceTree = "<group>"; };
 		F051AD7F2446E7B5007278A0 /* PositiveContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveContactList.swift; sourceTree = "<group>"; };
-		F051AD812446E7C5007278A0 /* PositiveContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveContact.swift; sourceTree = "<group>"; };
 		F051AD832446EB36007278A0 /* HomeUsualHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeUsualHeaderView.xib; sourceTree = "<group>"; };
 		F051AD892446EB86007278A0 /* HomeUsualHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUsualHeaderView.swift; sourceTree = "<group>"; };
 		F051AD91244701D9007278A0 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
@@ -592,7 +590,6 @@
 				F079FF84244C3EBC00202A91 /* AppStatus.swift */,
 				F0A282D8243EF600008390AE /* AppVersion.swift */,
 				F051AD62244699FA007278A0 /* DeepContactUser.swift */,
-				F051AD812446E7C5007278A0 /* PositiveContact.swift */,
 				F051AD7F2446E7B5007278A0 /* PositiveContactList.swift */,
 				F0A2831A24418AAD008390AE /* PrefectureModel.swift */,
 				F079FF78244C09B700202A91 /* Profile.swift */,
@@ -1216,7 +1213,6 @@
 				F096D5C82450672D00F7919B /* TraceDataUploadAPI.swift in Sources */,
 				F065130E2452B15500CCCE91 /* UIColor+DesignGuide.swift in Sources */,
 				F0A282B7243EC785008390AE /* PermissionSettingViewController.swift in Sources */,
-				F051AD822446E7C5007278A0 /* PositiveContact.swift in Sources */,
 				F0A282B9243EC812008390AE /* TraceDataUploadViewController.swift in Sources */,
 				F02356C22442F87B001E72ED /* CoreDataService+SaveTraceDataRecord.swift in Sources */,
 				F079FF8C244D3D0400202A91 /* BaseButton.swift in Sources */,

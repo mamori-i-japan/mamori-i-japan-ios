@@ -42,11 +42,11 @@ extension Debug2ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let uuid = positiveContact.positiveContacts[indexPath.row].tempID
+        let tempId = positiveContact.positiveContacts[indexPath.row]
         showAlertWithCancel(
-            message: "\(uuid) \nこのIDを一時的に陽性者リストから除外しますか？",
+            message: "\(tempId) \nこのIDを一時的に陽性者リストから除外しますか？",
             okAction: { _ in
-                self.positiveContact.removePositiveContact(uuid: uuid)
+                self.positiveContact.removePositiveContact(tempId: tempId)
                 self.tablewView.reloadData()
             }
         )
@@ -62,7 +62,7 @@ extension Debug2ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DebugPositiveContactCell", for: indexPath) as? DebugPositiveContactCell else {
             return UITableViewCell()
         }
-        cell.update(positiveContact: positiveContact.positiveContacts[indexPath.row])
+        cell.update(tempId: positiveContact.positiveContacts[indexPath.row])
         return cell
     }
 }
@@ -70,8 +70,8 @@ extension Debug2ViewController: UITableViewDataSource {
 final class DebugPositiveContactCell: UITableViewCell {
     @IBOutlet weak var uuidLabel: UILabel!
 
-    func update(positiveContact: PositiveContact) {
-        uuidLabel.text = positiveContact.tempID
+    func update(tempId: String) {
+        uuidLabel.text = tempId
     }
 }
 #endif

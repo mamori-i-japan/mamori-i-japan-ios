@@ -184,11 +184,11 @@ extension DebugViewController: UITableViewDelegate {
         case 0:
             if indexPath.row < deepContactUsers.count {
                 let deepContactUser = deepContactUsers[indexPath.row]
-                let uuid = deepContactUser.tempId
+                let tempId = deepContactUser.tempId
                 showAlertWithCancel(
-                    message: "\(uuid) \n上記を一時的に陽性者として扱いますか？",
+                    message: "\(tempId) \n上記を一時的に陽性者として扱いますか？",
                     okAction: { _ in
-                        self.positiveContact.appendPositiveContact(uuid: uuid)
+                        self.positiveContact.appendPositiveContact(tempId: tempId)
                         self.refreshData()
                     }
                 )
@@ -229,7 +229,7 @@ extension DebugViewController: UITableViewDataSource {
                 let deepContactUser = deepContactUsers[indexPath.row]
                 cell.update(deepContactUser: deepContactUser)
 
-                if (positiveContact.positiveContacts.compactMap { $0.tempID }).contains(deepContactUser.tempId) {
+                if positiveContact.positiveContacts.contains(deepContactUser.tempId) {
                     cell.tempIDLabel.textColor = .red // 陽性者だった場合は赤にする
                 } else {
                     cell.tempIDLabel.textColor = .black
