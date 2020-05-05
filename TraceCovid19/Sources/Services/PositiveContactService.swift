@@ -19,8 +19,8 @@ final class PositiveContactService {
     private var lastGeneration: Int64?
     private(set) var positiveContacts: [String] = []
 
-    private var fileName: String {
-        return "positives.json.gz"
+    private func filePath(dir: String) -> String {
+        return dir + "/positives.json.gz"
     }
 
     init(
@@ -60,8 +60,8 @@ final class PositiveContactService {
         return nil
     }
 
-    func load(completion: @escaping (Result<[String], PositiveContactStatus>) -> Void) {
-        let reference = storage.instance.reference().child(fileName)
+    func load(organizationCode: String, completion: @escaping (Result<[String], PositiveContactStatus>) -> Void) {
+        let reference = storage.instance.reference().child(filePath(dir: organizationCode))
 
         reference.getMetadata { [weak self] metaData, error in
             guard let metaData = metaData, error == nil else {

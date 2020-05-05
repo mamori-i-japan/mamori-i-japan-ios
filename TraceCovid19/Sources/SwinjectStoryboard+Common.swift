@@ -75,6 +75,7 @@ extension SwinjectStoryboard {
             vc.positiveContact = r.resolve(PositiveContactService.self)
             vc.tempId = r.resolve(TempIdService.self)
             vc.loginService = r.resolve(LoginService.self)
+            vc.profileService = r.resolve(ProfileService.self)
         }
 
         defaultContainer.storyboardInitCompleted(MenuViewController.self) { r, vc in
@@ -118,6 +119,7 @@ extension SwinjectStoryboard {
 
         defaultContainer.storyboardInitCompleted(Debug2ViewController.self) { r, vc in
             vc.positiveContact = r.resolve(PositiveContactService.self)
+            vc.profileService = r.resolve(ProfileService.self)
         }
 
         defaultContainer.storyboardInitCompleted(Debug3ViewController.self) { r, vc in

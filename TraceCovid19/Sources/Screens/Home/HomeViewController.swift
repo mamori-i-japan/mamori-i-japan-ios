@@ -36,6 +36,7 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
     var positiveContact: PositiveContactService!
     var tempId: TempIdService!
     var loginService: LoginService!
+    var profileService: ProfileService!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,7 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
         }
 
         // バックグラウンドから復帰時に陽性者取得を行う
-        NotificationCenter.default.addObserver(self, selector: #selector(getPositiveContacts), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchData), name: UIApplication.willEnterForegroundNotification, object: nil)
 
         #if DEBUG
         let debugItem = UIBarButtonItem(title: "デバッグ", style: .plain, target: self, action: #selector(gotoDebug))
@@ -59,7 +60,7 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        getPositiveContacts()
+        fetchData()
         reloadViews()
     }
 
@@ -229,11 +230,41 @@ extension HomeViewController {
     }
 
     @objc
-    func getPositiveContacts() {
+    func fetchData() {
+        // TODO: モーダル先からログアウトをする場合、ここの処理が呼ばれてしまうので余裕があればカバーする
+    }
+
+    private func fetchProfile() {
         startAnimating(type: .circleStrokeSpin)
 
-        // TODO: モーダル先からログアウトをする場合、ここの処理が呼ばれてしまうので余裕があればカバーする
-        positiveContact.load { [weak self] result in
+        profileService.get { [weak self] result in
+            self?.stopAnimating()
+
+            switch result {
+            case .success(let profile):
+                self?.fetchPosisitiveContacts(profile: profile)
+            case .failure(.auth):
+                // ログアウト
+                self?.loginService.logout()
+                self?.backToSplash()
+            case .failure(.network):
+                // TODO: ネットワークエラー
+                print("[Home] network error")
+            case .failure(.parse):
+                // TODO: エラー表示
+                print("[Home] parse error")
+            case .failure(.unknown(let error)):
+                // TODO: エラー表示
+                print("[Home] error: \(String(describing: error))")
+            }
+        }
+    }
+
+    private func fetchPosisitiveContacts(profile: Profile) {
+        guard let organizationCode = profile.organizationCode else { return }
+
+        startAnimating(type: .circleStrokeSpin)
+        positiveContact.load(organizationCode: organizationCode) { [weak self] result in
             self?.stopAnimating()
 
             switch result {
