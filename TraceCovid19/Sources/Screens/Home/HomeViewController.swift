@@ -37,6 +37,7 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
     var tempId: TempIdService!
     var loginService: LoginService!
     var profileService: ProfileService!
+    var informationService: InformationService!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -232,6 +233,7 @@ extension HomeViewController {
     @objc
     func fetchData() {
         // TODO: モーダル先からログアウトをする場合、ここの処理が呼ばれてしまうので余裕があればカバーする
+        fetchProfile()
     }
 
     private func fetchProfile() {
@@ -269,7 +271,7 @@ extension HomeViewController {
 
             switch result {
             case .success:
-                self?.execDeepContactCheck()
+                self?.execDeepContactCheck(profile: profile)
             case .failure(.noNeedToLoad):
                 break
             case .failure(.error(let error)):
@@ -279,12 +281,27 @@ extension HomeViewController {
         }
     }
 
-    private func execDeepContactCheck() {
+    private func execDeepContactCheck(profile: Profile) {
         startAnimating(type: .circleStrokeSpin)
         deepContactCheck.checkStart { [weak self] in
             self?.stopAnimating()
             print("[Home] deep contact check finished: \($0)")
+            // TODO: 濃厚接触判定が真だったらに限定する
+            self?.fetchInformation(profile: profile)
+
             self?.reloadViews()
+        }
+    }
+
+    private func fetchInformation(profile: Profile) {
+        guard let organizationCode = profile.organizationCode else { return }
+
+        startAnimating(type: .circleStrokeSpin)
+        informationService.get(organizationCode: organizationCode) { [weak self] result in
+            self?.stopAnimating()
+
+            print("[Home] fetch infromation] \(result)")
+            // TODO: メッセージがあれば画面にお知らせボタンを表示する
         }
     }
 }

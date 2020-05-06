@@ -72,7 +72,7 @@ final class PositiveContactService {
 
             print("[PositiveContactService] new generation: \(String(describing: metaData.generation)), last generation: \(String(describing: self?.lastGeneration))")
             if let lastGeneration = self?.lastGeneration,
-                lastGeneration <= metaData.generation {
+                lastGeneration == metaData.generation {
                 // 取得不要
                 completion(.failure(.noNeedToLoad))
                 return

@@ -40,6 +40,7 @@ final class TraceDataUploadService {
     }
 
     private func getDeepContactUsers() -> [DeepContactUserUploadModel] {
+        // TODO: 14日間分（0:00スタート）の自身のTempIDに切り替える
         return coreData.getDeepContactUsers().compactMap { DeepContactUserUploadModel(deepContactUser: $0.toDeepContactUser()) }
     }
 }

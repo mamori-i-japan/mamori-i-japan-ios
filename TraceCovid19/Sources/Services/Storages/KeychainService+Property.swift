@@ -8,13 +8,13 @@
 import Foundation
 
 private extension String {
-    static let randomIDs = "randomIDs"
+    static let uploadRamdomKeys = "uploadRamdomKeys"
 }
 
 extension KeychainService {
     var properties: [String] {
         return [
-            .randomIDs
+            .uploadRamdomKeys
         ]
     }
 
@@ -28,13 +28,13 @@ extension KeychainService {
 extension KeychainService {
     var randomIDs: [String] {
         get {
-            guard let data = try? keychain.getData(.randomIDs) else { return [] }
+            guard let data = try? keychain.getData(.uploadRamdomKeys) else { return [] }
             return (try? JSONDecoder().decode([String].self, from: data)) ?? []
         }
         set {
             // JSONエンコードして保存する
             guard let data = try? JSONEncoder().encode(newValue) else { return }
-            try? keychain.set(data, key: .randomIDs)
+            try? keychain.set(data, key: .uploadRamdomKeys)
         }
     }
 

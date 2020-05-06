@@ -109,6 +109,9 @@
 		F051ADC8244980A1007278A0 /* InputOrganizationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F051ADC7244980A1007278A0 /* InputOrganizationViewController.storyboard */; };
 		F051ADCA24498ED4007278A0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051ADC924498ED4007278A0 /* SettingViewController.swift */; };
 		F051ADCC24498EEA007278A0 /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F051ADCB24498EEA007278A0 /* SettingViewController.storyboard */; };
+		F0613E742462DED8000595EE /* InformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0613E732462DED8000595EE /* InformationService.swift */; };
+		F0613E762462E372000595EE /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0613E752462E372000595EE /* Information.swift */; };
+		F0613E782462EB2A000595EE /* DictionaryCodable+FirebaseTimestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0613E772462EB2A000595EE /* DictionaryCodable+FirebaseTimestamp.swift */; };
 		F065130E2452B15500CCCE91 /* UIColor+DesignGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = F065130D2452B15500CCCE91 /* UIColor+DesignGuide.swift */; };
 		F079FF79244C09B700202A91 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF78244C09B700202A91 /* Profile.swift */; };
 		F079FF7D244C168700202A91 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF7C244C168700202A91 /* ProfileService.swift */; };
@@ -312,6 +315,9 @@
 		F051ADC7244980A1007278A0 /* InputOrganizationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputOrganizationViewController.storyboard; sourceTree = "<group>"; };
 		F051ADC924498ED4007278A0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		F051ADCB24498EEA007278A0 /* SettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
+		F0613E732462DED8000595EE /* InformationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationService.swift; sourceTree = "<group>"; };
+		F0613E752462E372000595EE /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
+		F0613E772462EB2A000595EE /* DictionaryCodable+FirebaseTimestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryCodable+FirebaseTimestamp.swift"; sourceTree = "<group>"; };
 		F065130D2452B15500CCCE91 /* UIColor+DesignGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+DesignGuide.swift"; sourceTree = "<group>"; };
 		F079FF78244C09B700202A91 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F079FF7C244C168700202A91 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
@@ -590,6 +596,7 @@
 				F079FF84244C3EBC00202A91 /* AppStatus.swift */,
 				F0A282D8243EF600008390AE /* AppVersion.swift */,
 				F051AD62244699FA007278A0 /* DeepContactUser.swift */,
+				F0613E752462E372000595EE /* Information.swift */,
 				F051AD7F2446E7B5007278A0 /* PositiveContactList.swift */,
 				F0A2831A24418AAD008390AE /* PrefectureModel.swift */,
 				F079FF78244C09B700202A91 /* Profile.swift */,
@@ -624,7 +631,9 @@
 				F0A282EC2440056E008390AE /* CBPeripheralState+ToString.swift */,
 				F0A2832F2441F81A008390AE /* CustomNavigationController.swift */,
 				F0A282E0243F3DAB008390AE /* Date+ToString.swift */,
+				F0B9F38C245FF772006FA28D /* Date+Utility.swift */,
 				F0A282F324408BA8008390AE /* DeviceUtility.swift */,
+				F0613E772462EB2A000595EE /* DictionaryCodable+FirebaseTimestamp.swift */,
 				F079FF80244C1F1300202A91 /* DictionaryDecodable.swift */,
 				F079FF7E244C1F0100202A91 /* DictionaryEncodable.swift */,
 				F051AD9324471D49007278A0 /* EncryptedStringTransformer.swift */,
@@ -649,7 +658,6 @@
 				F02356D124444370001E72ED /* UIViewController+ShowAlert.swift */,
 				F0A282DE243F2A86008390AE /* UUID+DataRepresentation.swift */,
 				F079FF89244D3C5200202A91 /* XibLocalizable.swift */,
-				F0B9F38C245FF772006FA28D /* Date+Utility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -682,6 +690,7 @@
 			children = (
 				F0A282DC243EF84C008390AE /* BootService.swift */,
 				F02356DB2445ACEB001E72ED /* DeepContactCheckService.swift */,
+				F0613E732462DED8000595EE /* InformationService.swift */,
 				F0A2829F243EC0AD008390AE /* LoginService.swift */,
 				F051AD7D2446D78F007278A0 /* PositiveContactService.swift */,
 				F079FF7C244C168700202A91 /* ProfileService.swift */,
@@ -1187,9 +1196,12 @@
 				F0A28325244195A7008390AE /* CodeInputUnitView.swift in Sources */,
 				F0A282D5243EF589008390AE /* UserDefaultsService.swift in Sources */,
 				F0A2831D24419234008390AE /* String+PhoneNumber.swift in Sources */,
+				F0613E742462DED8000595EE /* InformationService.swift in Sources */,
 				F079FF79244C09B700202A91 /* Profile.swift in Sources */,
+				F0613E762462E372000595EE /* Information.swift in Sources */,
 				F0A282C2243EC9BE008390AE /* MenuViewController.swift in Sources */,
 				F096D5B5244FDEE700F7919B /* ISO8601DateFormatter.swift in Sources */,
+				F0613E782462EB2A000595EE /* DictionaryCodable+FirebaseTimestamp.swift in Sources */,
 				F0A282EB244004C9008390AE /* CBManagerState+ToString.swift in Sources */,
 				F079FF9D244D8AE400202A91 /* Localized.swift in Sources */,
 				F0A282CB243ED041008390AE /* UIGestureRecognizer+Closure.swift in Sources */,

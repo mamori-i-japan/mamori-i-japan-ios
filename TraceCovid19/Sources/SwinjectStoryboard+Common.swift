@@ -76,6 +76,7 @@ extension SwinjectStoryboard {
             vc.tempId = r.resolve(TempIdService.self)
             vc.loginService = r.resolve(LoginService.self)
             vc.profileService = r.resolve(ProfileService.self)
+            vc.informationService = r.resolve(InformationService.self)
         }
 
         defaultContainer.storyboardInitCompleted(MenuViewController.self) { r, vc in
@@ -207,6 +208,10 @@ extension SwinjectStoryboard {
 
         defaultContainer.register(TraceDataUploadService.self) { r in
             TraceDataUploadService(traceDataUploadAPI: r.resolve(TraceDataUploadAPI.self)!, coreData: r.resolve(CoreDataService.self)!)
+        }
+
+        defaultContainer.register(InformationService.self) { r in
+            InformationService(firestore: r.resolve(Lazy<Firestore>.self)!)
         }
 
         // MARK: - Others
