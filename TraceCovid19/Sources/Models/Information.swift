@@ -9,15 +9,15 @@ import Foundation
 
 struct Information: DictionaryDecodable {
     let messageForAppAccess: String
-    let updateAt: String
+    let updateAt: Date
+
+    static var jsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(.iso8601DateFormatter)
+        return decoder
+    }()
 }
 
 extension Information {
-    var updateAtDate: Date? {
-        return updateAt.toDate(format: .iso8601DateFormat)
-    }
-}
-
-extension Information {
-    static let empty = Information(messageForAppAccess: "", updateAt: "")
+    static let empty = Information(messageForAppAccess: "", updateAt: Date(timeIntervalSince1970: 0))
 }

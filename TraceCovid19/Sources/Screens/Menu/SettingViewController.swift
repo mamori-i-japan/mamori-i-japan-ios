@@ -17,6 +17,7 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
 
     var profileService: ProfileService!
     var loginService: LoginService!
+    var keychainService: KeychainService!
 
     private var profile: Profile?
 
@@ -125,15 +126,17 @@ extension SettingViewController: NavigationBarHiddenApplicapable {
 
 extension SettingViewController {
     func requestClearOrganization() {
-        // TODO: クリア処理は変更となる
-        guard let profile = profile else { return }
         startAnimating(type: .circleStrokeSpin)
-        profileService.update(profile: profile, organization: nil) { [weak self] result in
+
+        let randomIDs = keychainService.randomIDs
+
+        profileService.delete(randomIDs: randomIDs) { [weak self] result in
             self?.stopAnimating()
             switch result {
             case .success:
-                // TODO: 成功時、再度取得しにいくしかない？
+                // 再度取得しにいく
                 self?.requestProfile()
+                self?.keychainService.clearRandomIDs()
             case .failure(.network):
                 // TODO: リトライ
                 self?.showAlertWithCancel(message: "TODO: ネットワークエラー。再実行しますか？", okButtonTitle: "再試行", okAction: { [weak self] _ in self?.requestClearOrganization() })

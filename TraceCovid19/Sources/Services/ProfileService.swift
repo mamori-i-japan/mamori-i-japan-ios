@@ -143,4 +143,26 @@ final class ProfileService {
             }
         }
     }
+
+    enum OrganizationCodeDeleteError: Error {
+        case network
+        case auth
+        case unknown(Error?)
+    }
+
+    func delete(randomIDs: [String], completion: @escaping (Result<Void, OrganizationUpdateError>) -> Void) {
+        profileAPI.deleteOrganizationCode(randomIDs: randomIDs) { result in
+            switch result {
+            case .success:
+                completion(.success(()))
+            case .failure(.authzError):
+                completion(.failure(.auth))
+            case .failure(.error(detail: let error)),
+                 .failure(.statusCodeError(_, _, let error)):
+                // TODO: エラーハンドリング
+                print("[ProfileService] unknown error: \(error?.localizedDescription ?? "nil")")
+                completion(.failure(.unknown(error)))
+            }
+        }
+    }
 }

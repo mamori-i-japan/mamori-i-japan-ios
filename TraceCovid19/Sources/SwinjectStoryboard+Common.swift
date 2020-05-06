@@ -90,6 +90,7 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(SettingViewController.self) { r, vc in
             vc.profileService = r.resolve(ProfileService.self)
             vc.loginService = r.resolve(LoginService.self)
+            vc.keychainService = r.resolve(KeychainService.self)
         }
 
         defaultContainer.storyboardInitCompleted(TraceDataUploadViewController.self) { r, vc in

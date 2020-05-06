@@ -43,4 +43,8 @@ extension KeychainService {
         ids.append(id)
         randomIDs = ids
     }
+
+    func clearRandomIDs() {
+        _ = try? keychain.remove(.uploadRamdomKeys)
+    }
 }

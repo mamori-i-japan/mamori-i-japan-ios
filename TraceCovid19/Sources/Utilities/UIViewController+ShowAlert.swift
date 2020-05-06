@@ -24,7 +24,7 @@ extension UIViewController {
         message: String = "",
         okButtonTitle: String = "OK",
         okAction: @escaping (UIAlertAction) -> Void = { _ in },
-        cancelButtonTitle: String = "Cancel",
+        cancelButtonTitle: String = "キャンセル",
         cancelAction: @escaping (UIAlertAction) -> Void = { _ in }
     ) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

@@ -38,6 +38,47 @@ final class ProfilePatchAPIRequest: APIRequestProtocol {
     }
 }
 
+final class ProfileDeleteOrganizationCodeAPIRequest: APIRequestProtocol {
+    typealias Response = EmpytResponse
+
+    var method: APIRequestMethod {
+        return .delete
+    }
+    var path: String {
+        return "/users/me/organization"
+    }
+    var isNeedAuthentication: Bool {
+        return true
+    }
+
+    var encodingType: ParameterEncodingType {
+        // DELETEだが、JSONリクエストとして送る
+        return .json
+    }
+
+    var parameters: [String: Any] {
+        return (try? randomIDs.asDictionary()) ?? [:]
+    }
+
+    private let randomIDs: RandomIDs
+
+    init(randomIDs: [String]) {
+        self.randomIDs = RandomIDs(randomIDs: randomIDs)
+    }
+}
+
+private struct RandomIDs: DictionaryEncodable {
+    let randomIDs: [RandomID]
+
+    struct RandomID: DictionaryEncodable {
+        let randomID: String
+    }
+
+    init(randomIDs: [String]) {
+        self.randomIDs = randomIDs.compactMap { .init(randomID: $0) }
+    }
+}
+
 final class ProfileAPI {
     private let apiClient: APIClient
 
@@ -47,6 +88,11 @@ final class ProfileAPI {
 
     func patch(profile: Profile, organization: String?, completionHandler: @escaping (Result<EmpytResponse, APIRequestError>) -> Void) {
         let request = ProfilePatchAPIRequest(profile: profile, organizationCode: organization)
+        apiClient.request(request: request, completionHandler: completionHandler)
+    }
+
+    func deleteOrganizationCode(randomIDs: [String], completionHandler: @escaping (Result<EmpytResponse, APIRequestError>) -> Void) {
+        let request = ProfileDeleteOrganizationCodeAPIRequest(randomIDs: randomIDs)
         apiClient.request(request: request, completionHandler: completionHandler)
     }
 }
