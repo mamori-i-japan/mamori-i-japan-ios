@@ -9,7 +9,8 @@ import Foundation
 
 struct Information: DictionaryDecodable {
     let messageForAppAccess: String
-    let updateAt: Date
+    // TODO: いったんはオプショナルにしておくが、あとで外す
+    let updateAt: Date?
 
     static var jsonDecoder: JSONDecoder = {
         let decoder = JSONDecoder()
