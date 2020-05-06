@@ -63,6 +63,8 @@ private extension Int {
     var numberFormat: String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        return formatter.string(from: NSNumber(value: self))
+        let formatted = formatter.string(from: NSNumber(value: self))
+        // "0"の場合はハイフンに変更する
+        return formatted == "0" ? "-" : formatted
     }
 }
