@@ -136,6 +136,12 @@ final class ProfileService {
                 completion(.success(()))
             case .failure(.authzError):
                 completion(.failure(.auth))
+            case .failure(.statusCodeError(400, let data, _))
+                where data != nil
+                    && (try? JSONDecoder().decode(ErrorResponse.self, from: data!))?.message == "Organization code does not match any existing organization":
+                // TODO: エラー形式が確定なのか不明なため、ひとまず共通部分で作り込まずにサービスのハンドリングとしてデコードする
+                // NOTE: 判定ができないため、無理やりエラーメッセージで行う
+                completion(.failure(.notMatchCode))
             case .failure(.error(detail: let error)),
                  .failure(.statusCodeError(_, _, let error)):
                 // TODO: エラーハンドリング

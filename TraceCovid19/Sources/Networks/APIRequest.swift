@@ -44,6 +44,12 @@ protocol DecodableAPIResponseType: APIResponseType, Decodable {
 struct EmpytResponse: APIResponseType {
 }
 
+struct ErrorResponse: Decodable {
+    let statusCode: Int
+    let error: String?
+    let message: String?
+}
+
 protocol APIRequestProtocol: CustomStringConvertible {
     associatedtype Response: APIResponseType
 

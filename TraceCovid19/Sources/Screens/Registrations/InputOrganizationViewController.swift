@@ -46,6 +46,12 @@ final class InputOrganizationViewController: UIViewController, NVActivityIndicat
         organizationTextField.becomeFirstResponder()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        organizationTextField.resignFirstResponder()
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         closeKeyboard()
         return false
@@ -109,8 +115,8 @@ extension InputOrganizationViewController {
                     self?.navigationController?.popViewController(animated: true)
                 }
             case .failure(.notMatchCode):
-                // TODO: インラインエラーで表示する
-                break
+                // NOTE: インラインエラーで表示する
+                self?.setupErrorText(text: L10n.Error.NoMatchOrganizationCode.title)
             case .failure(.auth):
                 self?.showAlert(title: L10n.Error.Authentication.title, message: L10n.Error.Authentication.message, buttonTitle: L10n.logout) { [weak self] _ in
                     self?.loginService.logout()

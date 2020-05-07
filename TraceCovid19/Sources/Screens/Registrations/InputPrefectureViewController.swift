@@ -48,6 +48,12 @@ final class InputPrefectureViewController: UIViewController, NVActivityIndicator
         prefectureTextField.becomeFirstResponder()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        prefectureTextField.resignFirstResponder()
+    }
+
     private func setupPickerView() {
         pickerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: pickerView.bounds.size.height)
         pickerView.delegate = self
