@@ -37,3 +37,21 @@
 "home.header.semi_usual_message" = "接触を減らすために\n周りに協力してもらえることは\nありませんか";
 "home.header.attension_message" = "%@\n陽性判定者との濃厚接触が\nあったかもしれません";
 "home.header.positive_message" = "PCR検査の結果\nあなたは陽性でした";
+
+"error.network.title" = "インターネットに接続できません";
+"error.network.message" = "通信状況の良い環境で再度お試しください。";
+"error.unknown.title" = "不明なエラーが発生しました";
+"error.unknown.message" = "時間を置いてから再度お試しください。";
+"error.authentication.title" = "認証エラーが発生しました";
+"error.authentication.message" = "時間を置いてから再度お試しください。";
+"error.organization_code.title" = "組織コードの取得に失敗しました";
+"error.organization_code.message" = "インターネットに接続されていません。通信状況の良い環境で再度お試しください。";
+"error.clear_organization_code.title" = "組織コードのクリアに失敗しました";
+"error.clear_organization_code.message" = "インターネットに接続されていません。通信状況の良い環境で再度お試しください。";
+"error.prefecture.title" = "都道府県の設定に失敗しました";
+"error.prefecture.message" = "インターネットに接続されていません。通信状況の良い環境で再度お試しください。";
+"error.no_match_organization_code.title" = "組織コードが異なります。";
+"error.failed_setting_organization_code.title" = "組織コードの設定に失敗しました";
+"error.failed_setting_organization_code.message" = "インターネットに接続されていません。通信状況の良い環境で再度お試しください。";
+"error.failed_uploading.title" = "データのアップロードに失敗しました";
+"error.failed_uploading.message" = "インターネットに接続されていません。通信状況の良い環境で再度お試しください。";
