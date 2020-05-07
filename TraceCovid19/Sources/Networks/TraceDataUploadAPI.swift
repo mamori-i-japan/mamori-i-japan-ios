@@ -21,33 +21,33 @@ final class TraceDataUploadAPIRequest: APIRequestProtocol {
     }
 
     var parameters: [String: Any] {
-        var result: [String: Any] = [
-            "randomID": randomID
-        ]
-        result["tempIDs"] = deepContactUsers.compactMap { try? $0.asDictionary() }
+        var result: [String: Any] = (try? tempIDs.asDictionary()) ?? [:]
+        result["randomID"] = randomID
         return result
     }
 
     private let randomID: String
-    private let deepContactUsers: [DeepContactUserUploadModel]
+    private let tempIDs: TempIDs
 
-    init(randomID: String, deepContactUsers: [DeepContactUserUploadModel]) {
+    init(randomID: String, tempUserIds: [TempUserId]) {
         self.randomID = randomID
-        self.deepContactUsers = deepContactUsers
+        self.tempIDs = TempIDs(tempIDs: tempUserIds.compactMap { .init(tempUserId: $0) })
     }
 }
 
-struct DeepContactUserUploadModel: DictionaryEncodable {
-    let tempID: String
-    let validFrom: Int
-    let validTo: Int
-}
+private struct TempIDs: DictionaryEncodable {
+    let tempIDs: [TempID]
 
-extension DeepContactUserUploadModel {
-    init(deepContactUser: DeepContactUser) {
-        tempID = deepContactUser.tempId
-        validFrom = Int(deepContactUser.startTime.timeIntervalSince1970)
-        validTo = Int(deepContactUser.endTime.timeIntervalSince1970)
+    struct TempID: DictionaryEncodable {
+        let tempID: String
+        let validFrom: Int
+        let validTo: Int
+
+        init(tempUserId: TempUserId) {
+            tempID = tempUserId.tempId
+            validFrom = Int(tempUserId.startTime.timeIntervalSince1970)
+            validTo = Int(tempUserId.endTime.timeIntervalSince1970)
+        }
     }
 }
 
@@ -60,9 +60,9 @@ final class TraceDataUploadAPI {
         self.keychain = keychain
     }
 
-    func upload(deepContactUsers: [DeepContactUserUploadModel], completionHandler: @escaping (Result<EmpytResponse, APIRequestError>) -> Void) {
+    func upload(tempUserIds: [TempUserId], completionHandler: @escaping (Result<EmpytResponse, APIRequestError>) -> Void) {
         let randomID = creatRandomID()
-        let request = TraceDataUploadAPIRequest(randomID: randomID, deepContactUsers: deepContactUsers)
+        let request = TraceDataUploadAPIRequest(randomID: randomID, tempUserIds: tempUserIds)
         apiClient.request(request: request) { [weak self] result in
             if case .success = result {
                 // NOTE: 成功時に、発行したランダムIDを保存しておく

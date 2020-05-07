@@ -9,11 +9,11 @@ import Foundation
 
 final class TraceDataUploadService {
     private let traceDataUploadAPI: TraceDataUploadAPI
-    private let coreData: CoreDataService
+    private let tempIdService: TempIdService
 
-    init(traceDataUploadAPI: TraceDataUploadAPI, coreData: CoreDataService) {
+    init(traceDataUploadAPI: TraceDataUploadAPI, tempIdService: TempIdService) {
         self.traceDataUploadAPI = traceDataUploadAPI
-        self.coreData = coreData
+        self.tempIdService = tempIdService
     }
 
     enum UploadError: Error {
@@ -22,8 +22,8 @@ final class TraceDataUploadService {
     }
 
     func upload(completion: @escaping (Result<Void, UploadError>) -> Void) {
-        let deepContactUsers = getDeepContactUsers()
-        traceDataUploadAPI.upload(deepContactUsers: deepContactUsers) { result in
+        let tempUserIds = tempIdService.getTempIdsForTwoWeeks()
+        traceDataUploadAPI.upload(tempUserIds: tempUserIds) { result in
             switch result {
             case .success:
                 // TODO: 成功したリストは削除したほうが良い？ずっととっておいて次回以降も含める？
@@ -37,10 +37,5 @@ final class TraceDataUploadService {
                 completion(.failure(.unknown(NSError(domain: "unknown error", code: 0, userInfo: nil))))
             }
         }
-    }
-
-    private func getDeepContactUsers() -> [DeepContactUserUploadModel] {
-        // TODO: 14日間分（0:00スタート）の自身のTempIDに切り替える
-        return coreData.getDeepContactUsers().compactMap { DeepContactUserUploadModel(deepContactUser: $0.toDeepContactUser()) }
     }
 }

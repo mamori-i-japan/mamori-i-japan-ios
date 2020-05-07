@@ -63,6 +63,11 @@ final class TempIdService {
         return tempIds
     }
 
+    func getTempIdsForTwoWeeks() -> [TempUserId] {
+        // TODO: 14日間分（0:00スタート）にする
+        return tempIDs
+    }
+
     private func save(tempIds: [TempUserId]) {
         // 重複排除してから保存する
         let localTempIDs = tempIDs.compactMap { $0.tempId }

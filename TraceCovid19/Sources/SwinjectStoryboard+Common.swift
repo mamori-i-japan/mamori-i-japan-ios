@@ -208,7 +208,7 @@ extension SwinjectStoryboard {
         }
 
         defaultContainer.register(TraceDataUploadService.self) { r in
-            TraceDataUploadService(traceDataUploadAPI: r.resolve(TraceDataUploadAPI.self)!, coreData: r.resolve(CoreDataService.self)!)
+            TraceDataUploadService(traceDataUploadAPI: r.resolve(TraceDataUploadAPI.self)!, tempIdService: r.resolve(TempIdService.self)!)
         }
 
         defaultContainer.register(InformationService.self) { r in
