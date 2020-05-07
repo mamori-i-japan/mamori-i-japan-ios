@@ -11,7 +11,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HomeViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HomeViewController" customModule="DEV_まもりあい" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mDV-p9-S2A">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1207"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1352"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q17-Gw-WfZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
@@ -45,7 +45,7 @@
                                                             <constraint firstAttribute="height" constant="208" id="PTK-7b-CAh"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最終更新：XX月XX日XX時" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-8h-qg8" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最終更新：XX月XX日XX時" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-8h-qg8" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
                                                         <rect key="frame" x="114" y="220" width="147" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.43529411764705883" green="0.4392156862745098" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,22 +63,29 @@
                                                     <constraint firstItem="8eN-8h-qg8" firstAttribute="top" secondItem="Ket-zt-1kb" secondAttribute="bottom" constant="12" id="vjd-zZ-VmK"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJh-Kb-ust" customClass="HomeActionContentsView" customModule="まもりあい" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="351" width="375" height="338"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="516-FQ-G8V" customClass="HomeInformationView" customModule="DEV_まもりあい" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="351" width="375" height="145"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="145" id="rGu-h4-rgp"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJh-Kb-ust" customClass="HomeActionContentsView" customModule="DEV_まもりあい" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="496" width="375" height="338"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="338" id="pVO-ih-lFy"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o99-VN-4rq" customClass="HomePositiveContentsView" customModule="まもりあい" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="689" width="375" height="426"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o99-VN-4rq" customClass="HomePositiveContentsView" customModule="DEV_まもりあい" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="834" width="375" height="426"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="426" id="dXY-lh-vpE"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twh-SS-Nq5">
-                                                <rect key="frame" x="0.0" y="1115" width="375" height="92"/>
+                                                <rect key="frame" x="0.0" y="1260" width="375" height="92"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bym-QJ-Gzc">
                                                         <rect key="frame" x="0.0" y="24" width="375" height="44"/>
@@ -141,7 +148,7 @@
                     <navigationItem key="navigationItem" id="R7Z-1z-B4f">
                         <barButtonItem key="backBarButtonItem" title="ホーム" id="gpj-BC-Phz"/>
                         <barButtonItem key="rightBarButtonItem" id="rXh-LA-hW4">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="klL-Vt-UZA" customClass="BaseButton" customModule="まもりあい" customModuleProvider="target">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="klL-Vt-UZA" customClass="BaseButton" customModule="DEV_まもりあい" customModuleProvider="target">
                                 <rect key="frame" x="311" y="0.0" width="48" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="more">
@@ -159,6 +166,7 @@
                         <outlet property="headerBaseView" destination="Ket-zt-1kb" id="YBe-6F-nDI"/>
                         <outlet property="headerImageView" destination="NgX-2e-DW3" id="nuN-2U-WDM"/>
                         <outlet property="homeActionContentsView" destination="hJh-Kb-ust" id="Hoa-6w-VDV"/>
+                        <outlet property="homeInformationView" destination="516-FQ-G8V" id="t4m-Kf-qqK"/>
                         <outlet property="homePositiveContentsView" destination="o99-VN-4rq" id="O59-t3-Ysp"/>
                         <outlet property="scrollView" destination="57U-zj-zzS" id="Atk-24-1I4"/>
                         <outlet property="stackView" destination="mDV-p9-S2A" id="RaZ-a7-UnL"/>

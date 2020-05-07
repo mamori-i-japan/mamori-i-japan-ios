@@ -28,6 +28,7 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var homeActionContentsView: HomeActionContentsView!
+    @IBOutlet weak var homeInformationView: HomeInformationView!
     @IBOutlet weak var homePositiveContentsView: HomePositiveContentsView!
 
     var keychain: KeychainService!
@@ -38,6 +39,8 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
     var loginService: LoginService!
     var profileService: ProfileService!
     var informationService: InformationService!
+
+    private var information: Information?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,8 +166,17 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
     func redrawActionContentView() {
 //        switch status {
 //        case .usual, .semiUsual, .attension:
-            homeActionContentsView.isHidden = false
-            homePositiveContentsView.isHidden = true
+        homeActionContentsView.isHidden = false
+        homePositiveContentsView.isHidden = true
+        if let information = information {
+            homeInformationView.isHidden = false
+            homeInformationView.set(information: information) { [weak self] information in
+                // TODO: 画面とかの見せ方
+                self?.showAlert(message: information.messageForAppAccess)
+            }
+        } else {
+            homeInformationView.isHidden = true
+        }
 //        case .positive:
 //            homeActionContentsView.isHidden = true
 //            homePositiveContentsView.isHidden = false
@@ -301,7 +313,15 @@ extension HomeViewController {
             self?.stopAnimating()
 
             print("[Home] fetch infromation] \(result)")
-            // TODO: メッセージがあれば画面にお知らせボタンを表示する
+            switch result {
+            case .success(let information):
+                self?.information = information
+                self?.redrawActionContentView()
+            case .failure:
+                // TODO: エラーハンドリング
+                self?.information = nil
+                self?.redrawActionContentView()
+            }
         }
     }
 }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeInformationView" customModule="DEV_まもりあい" customModuleProvider="target">
+            <connections>
+                <outlet property="dateLabel" destination="DCw-OX-dlU" id="MeU-gS-32B"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="145"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0g-Qe-nhF" customClass="ActionButton" customModule="DEV_まもりあい" customModuleProvider="target">
+                    <rect key="frame" x="36" y="14" width="342" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="Ow5-zX-jko"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="お知らせ"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="tappedInformationButtonWithSendar:" destination="-1" eventType="touchUpInside" id="zIb-Vj-WO8"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCw-OX-dlU" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
+                    <rect key="frame" x="36" y="84" width="342" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="NoD-KS-809"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <color key="textColor" red="0.43529411764705883" green="0.4392156862745098" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="DCw-OX-dlU" secondAttribute="bottom" constant="37" id="EiM-un-iaJ"/>
+                <constraint firstAttribute="trailing" secondItem="M0g-Qe-nhF" secondAttribute="trailing" constant="36" id="I68-HH-qe3"/>
+                <constraint firstItem="M0g-Qe-nhF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="36" id="Pko-fq-0ng"/>
+                <constraint firstAttribute="trailing" secondItem="DCw-OX-dlU" secondAttribute="trailing" constant="36" id="Rby-h4-Csp"/>
+                <constraint firstItem="DCw-OX-dlU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="36" id="Wpc-O5-XvF"/>
+                <constraint firstItem="M0g-Qe-nhF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="dE3-je-bBv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139" y="110"/>
+        </view>
+    </objects>
+</document>

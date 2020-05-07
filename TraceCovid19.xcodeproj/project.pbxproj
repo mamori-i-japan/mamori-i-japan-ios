@@ -112,6 +112,8 @@
 		F0613E742462DED8000595EE /* InformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0613E732462DED8000595EE /* InformationService.swift */; };
 		F0613E762462E372000595EE /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0613E752462E372000595EE /* Information.swift */; };
 		F0613E782462EB2A000595EE /* DictionaryCodable+FirebaseTimestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0613E772462EB2A000595EE /* DictionaryCodable+FirebaseTimestamp.swift */; };
+		F0613E7A2463A729000595EE /* HomeInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0613E792463A729000595EE /* HomeInformationView.swift */; };
+		F0613E7C2463A73A000595EE /* HomeInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0613E7B2463A73A000595EE /* HomeInformationView.xib */; };
 		F065130E2452B15500CCCE91 /* UIColor+DesignGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = F065130D2452B15500CCCE91 /* UIColor+DesignGuide.swift */; };
 		F079FF79244C09B700202A91 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF78244C09B700202A91 /* Profile.swift */; };
 		F079FF7D244C168700202A91 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF7C244C168700202A91 /* ProfileService.swift */; };
@@ -318,6 +320,8 @@
 		F0613E732462DED8000595EE /* InformationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationService.swift; sourceTree = "<group>"; };
 		F0613E752462E372000595EE /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		F0613E772462EB2A000595EE /* DictionaryCodable+FirebaseTimestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryCodable+FirebaseTimestamp.swift"; sourceTree = "<group>"; };
+		F0613E792463A729000595EE /* HomeInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInformationView.swift; sourceTree = "<group>"; };
+		F0613E7B2463A73A000595EE /* HomeInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeInformationView.xib; sourceTree = "<group>"; };
 		F065130D2452B15500CCCE91 /* UIColor+DesignGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+DesignGuide.swift"; sourceTree = "<group>"; };
 		F079FF78244C09B700202A91 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F079FF7C244C168700202A91 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
@@ -662,6 +666,25 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		F0613E7D2463A73F000595EE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F03FB97C2451A92100158521 /* HomeActionContentsView.swift */,
+				F03FB97E2451A9CB00158521 /* HomeActionContentsView.xib */,
+				F03FB97424517D7E00158521 /* HomeAttensionHeaderView.swift */,
+				F03FB97624517D9000158521 /* HomeAttensionHeaderView.xib */,
+				F0613E792463A729000595EE /* HomeInformationView.swift */,
+				F0613E7B2463A73A000595EE /* HomeInformationView.xib */,
+				F03FB9822451F2EB00158521 /* HomePositiveContentsView.swift */,
+				F03FB9842451F30600158521 /* HomePositiveContentsView.xib */,
+				F03FB978245182B700158521 /* HomePositiveHeaderView.swift */,
+				F03FB97A245182C400158521 /* HomePositiveHeaderView.xib */,
+				F051AD892446EB86007278A0 /* HomeUsualHeaderView.swift */,
+				F051AD832446EB36007278A0 /* HomeUsualHeaderView.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		F079FF99244D8AE400202A91 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -785,6 +808,7 @@
 		F0A2830124416C6A008390AE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F0613E7D2463A73F000595EE /* Home */,
 				F0A2830224416C77008390AE /* ActionButton.swift */,
 				F079FF8B244D3D0400202A91 /* BaseButton.swift */,
 				F079FF8F244D418400202A91 /* BaseLabel.swift */,
@@ -793,16 +817,6 @@
 				F0A28324244195A7008390AE /* CodeInputUnitView.swift */,
 				F0A2831E2441932B008390AE /* CodeInputUnitView.xib */,
 				F0A28320244194B4008390AE /* CodeInputView.swift */,
-				F03FB97C2451A92100158521 /* HomeActionContentsView.swift */,
-				F03FB97E2451A9CB00158521 /* HomeActionContentsView.xib */,
-				F03FB97424517D7E00158521 /* HomeAttensionHeaderView.swift */,
-				F03FB97624517D9000158521 /* HomeAttensionHeaderView.xib */,
-				F03FB9822451F2EB00158521 /* HomePositiveContentsView.swift */,
-				F03FB9842451F30600158521 /* HomePositiveContentsView.xib */,
-				F03FB978245182B700158521 /* HomePositiveHeaderView.swift */,
-				F03FB97A245182C400158521 /* HomePositiveHeaderView.xib */,
-				F051AD892446EB86007278A0 /* HomeUsualHeaderView.swift */,
-				F051AD832446EB36007278A0 /* HomeUsualHeaderView.xib */,
 				F0A28318244189A1008390AE /* NoPerformActionTextField.swift */,
 			);
 			path = Views;
@@ -965,6 +979,7 @@
 				F03FB97724517D9000158521 /* HomeAttensionHeaderView.xib in Resources */,
 				F0A2833424421161008390AE /* DebugViewController.storyboard in Resources */,
 				F051ADCC24498EEA007278A0 /* SettingViewController.storyboard in Resources */,
+				F0613E7C2463A73A000595EE /* HomeInformationView.xib in Resources */,
 				F047599A243586C50091059F /* Settings.bundle in Resources */,
 				F0A282BB243EC826008390AE /* TraceDataUploadViewController.storyboard in Resources */,
 				F0A282B3243EC6C3008390AE /* AuthSMSViewController.storyboard in Resources */,
@@ -1164,6 +1179,7 @@
 				F0031D40243462AC009F9643 /* HomeViewController.swift in Sources */,
 				F096D5AD244ED70F00F7919B /* SSLPinningManager.swift in Sources */,
 				F03FB9832451F2EC00158521 /* HomePositiveContentsView.swift in Sources */,
+				F0613E7A2463A729000595EE /* HomeInformationView.swift in Sources */,
 				F079FF83244C244500202A91 /* ProfileChangeable.swift in Sources */,
 				F051AD9D2447769B007278A0 /* Debug2ViewController.swift in Sources */,
 				F0A282CF243ED0C5008390AE /* KeyboardCloseProtocol.swift in Sources */,
