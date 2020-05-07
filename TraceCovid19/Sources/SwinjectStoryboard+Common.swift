@@ -95,6 +95,7 @@ extension SwinjectStoryboard {
 
         defaultContainer.storyboardInitCompleted(TraceDataUploadViewController.self) { r, vc in
             vc.traceDataUpload = r.resolve(TraceDataUploadService.self)
+            vc.loginService = r.resolve(LoginService.self)
         }
 
         defaultContainer.storyboardInitCompleted(TraceDataUploadCompleteViewController.self) { _, _ in

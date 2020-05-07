@@ -138,9 +138,9 @@ extension InputPrefectureViewController {
 
     private func showError(error: LoginService.SignInError) {
         switch (error, flow!) {
-        case (.networkError, .start):
+        case (.network, .start):
             showAlert(title: L10n.Error.Network.title, message: L10n.Error.Network.message)
-        case (.networkError, .change):
+        case (.network, .change):
             showAlert(title: L10n.Error.Prefecture.title, message: L10n.Error.Prefecture.message)
         case (.unknown(let error), .start):
             print("[InputPrefecture] error: \(error.localizedDescription)")

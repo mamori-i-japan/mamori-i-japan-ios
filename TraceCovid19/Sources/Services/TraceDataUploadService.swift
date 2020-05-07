@@ -17,7 +17,8 @@ final class TraceDataUploadService {
     }
 
     enum UploadError: Error {
-        case unauthorized
+        case auth
+        case network
         case unknown(Error?)
     }
 
@@ -30,7 +31,7 @@ final class TraceDataUploadService {
                 completion(.success(()))
             case .failure(.authzError):
                 print("[TraceDataUploadService] authzError: \(result)")
-                completion(.failure(.unauthorized))
+                completion(.failure(.auth))
             case .failure:
                 // TODO: エラー
                 print("[TraceDataUploadService] error: \(result)")

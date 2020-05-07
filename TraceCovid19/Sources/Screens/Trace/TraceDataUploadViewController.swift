@@ -10,6 +10,7 @@ import NVActivityIndicatorView
 
 final class TraceDataUploadViewController: UIViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable, TraceDataUploadCompleteAccessable {
     var traceDataUpload: TraceDataUploadService!
+    var loginService: LoginService!
 
     @IBAction func tappedUploadButton(sender: Any) {
         requestUpload()
@@ -24,9 +25,16 @@ final class TraceDataUploadViewController: UIViewController, NVActivityIndicator
             switch result {
             case .success:
                 self?.pushToTraceDataUploadComplete()
-            case .failure(let error):
-                // TODO: エラーハンドリング
-                self?.showAlert(message: error.localizedDescription)
+            case .failure(.auth):
+                self?.showAlert(title: L10n.Error.Authentication.title, message: L10n.Error.Authentication.message, buttonTitle: L10n.logout) { [weak self] _ in
+                    self?.loginService.logout()
+                    self?.backToSplash()
+                }
+            case .failure(.network):
+                self?.showAlert(title: L10n.Error.FailedUploading.title, message: L10n.Error.FailedUploading.message)
+            case .failure(.unknown(let error)):
+                print("[InputOrganization] error: \(error?.localizedDescription ?? "nil")")
+                self?.showAlert(title: L10n.Error.Unknown.title)
             }
         }
     }

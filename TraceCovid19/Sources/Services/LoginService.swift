@@ -42,7 +42,7 @@ final class LoginService {
     }
 
     enum SignInError: Error {
-        case networkError
+        case network
         case unknown(Error)
     }
 
@@ -52,7 +52,7 @@ final class LoginService {
                 switch AuthErrorCode(rawValue: (error as NSError).code) {
                 case .some(.networkError):
                     print("[LoginService] singIn ローカル通信エラー")
-                    completion(.failure(.networkError))
+                    completion(.failure(.network))
                 default:
                     print("[LoginService] singIn その他エラー: code=\((error as NSError).code)")
                     completion(.failure(.unknown(error)))
@@ -78,7 +78,7 @@ final class LoginService {
 //                    completion(.failure(.expired))
                 case .some(.networkError):
                     print("[LoginService] singIn ローカル通信エラー")
-                    completion(.failure(.networkError))
+                    completion(.failure(.network))
                 default:
                     print("[LoginService] singIn その他エラー: code=\((error as NSError).code)")
                     completion(.failure(.unknown(error)))
@@ -96,6 +96,8 @@ final class LoginService {
                 // 非同期で、とりあえず投げておく（結果は見ない）
                 self?.forceRefreshToken(profile: profile)
                 completion(.success(()))
+            case .failure(.network):
+                completion(.failure(.network))
             case .failure(.error(let error)),
                  .failure(.statusCodeError(_, _, let error)):
                 completion(.failure(.unknown(error ?? NSError(domain: "unknown", code: 0, userInfo: nil))))

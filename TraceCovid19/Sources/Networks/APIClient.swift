@@ -81,8 +81,13 @@ final class APIClient {
         return { result in
             print("[APIClient] \(String(describing: String(data: result.data ?? Data(), encoding: .utf8)))")
 
-            let statusCode = result.response?.statusCode
+            guard (result.error?.underlyingError as NSError?)?.code != NSURLErrorNotConnectedToInternet else {
+                // ネットワークエラー
+                completionHandler(.failure(.network))
+                return
+            }
 
+            let statusCode = result.response?.statusCode
             guard statusCode != 401 else {
                 // 401の場合は認証エラー
                 completionHandler(.failure(.authzError))
@@ -113,9 +118,19 @@ final class APIClient {
          return { result in
              print("[APIClient] \(String(describing: String(data: result.data ?? Data(), encoding: .utf8)))")
 
-             // TODO: ログアウトする判定どうする？
+            guard (result.error?.underlyingError as NSError?)?.code != NSURLErrorNotConnectedToInternet else {
+                // ネットワークエラー
+                completionHandler(.failure(.network))
+                return
+            }
 
              let statusCode = result.response?.statusCode
+             guard statusCode != 401 else {
+                 // 401の場合は認証エラー
+                 completionHandler(.failure(.authzError))
+                 return
+             }
+
              guard request.acceptableStatusCode.contains(statusCode ?? -1) else {
                  completionHandler(.failure(.statusCodeError(statusCode: statusCode, data: result.data, error: result.error)))
                  return
