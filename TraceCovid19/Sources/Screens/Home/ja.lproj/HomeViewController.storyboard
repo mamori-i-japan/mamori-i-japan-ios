@@ -103,7 +103,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="Bym-QJ-Gzc" firstAttribute="top" secondItem="twh-SS-Nq5" secondAttribute="top" constant="24" id="Cx9-Id-DUg"/>
                                                     <constraint firstAttribute="bottom" secondItem="Bym-QJ-Gzc" secondAttribute="bottom" constant="24" id="EjK-p1-NXO"/>
