@@ -78,13 +78,13 @@ final class AuthSMSViewController: UIViewController, KeyboardCloseProtocol, NVAc
 
     private func setError(error: LoginService.SignInError) {
         switch error {
-        case .notMatch:
-            setError(text: "TODO: 確認番号が違います、もう一度入力してください")
-            codeInputView.becomeFirstResponder()
-        case .expired:
-            showAlert(message: "TODO: 有効期限が切れました") { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
-            }
+//        case .notMatch:
+//            setError(text: "TODO: 確認番号が違います、もう一度入力してください")
+//            codeInputView.becomeFirstResponder()
+//        case .expired:
+//            showAlert(message: "TODO: 有効期限が切れました") { [weak self] _ in
+//                self?.navigationController?.popViewController(animated: true)
+//            }
         case .networkError:
             setError(text: nil)
             showAlert(message: "TODO: 通信に失敗しました") { [weak self] _ in

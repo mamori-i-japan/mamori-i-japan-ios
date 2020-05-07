@@ -123,6 +123,7 @@ final class ProfileService {
     }
 
     enum OrganizationUpdateError: Error {
+        case notMatchCode
         case network
         case auth
         case unknown(Error?)
@@ -150,7 +151,7 @@ final class ProfileService {
         case unknown(Error?)
     }
 
-    func delete(randomIDs: [String], completion: @escaping (Result<Void, OrganizationUpdateError>) -> Void) {
+    func delete(randomIDs: [String], completion: @escaping (Result<Void, OrganizationCodeDeleteError>) -> Void) {
         profileAPI.deleteOrganizationCode(randomIDs: randomIDs) { result in
             switch result {
             case .success:

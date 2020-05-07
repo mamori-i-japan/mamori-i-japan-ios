@@ -42,8 +42,6 @@ final class LoginService {
     }
 
     enum SignInError: Error {
-        case notMatch
-        case expired
         case networkError
         case unknown(Error)
     }
@@ -65,18 +63,19 @@ final class LoginService {
         }
     }
 
+    // NOTE: SMS認証はPh1では未使用
     func signIn(verificationID: String, code: String, profile: Profile, completion: @escaping (Result<Void, SignInError>) -> Void) {
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: code)
 
         auth.instance.signIn(with: credential) { [weak self] _, error in
             if let error = error {
                 switch AuthErrorCode(rawValue: (error as NSError).code) {
-                case .some(.invalidVerificationCode):
-                    print("[LoginService] singIn コード不正")
-                    completion(.failure(.notMatch))
-                case .some(.sessionExpired):
-                    print("[LoginService] singIn 期限切れ")
-                    completion(.failure(.expired))
+//                case .some(.invalidVerificationCode):
+//                    print("[LoginService] singIn コード不正")
+//                    completion(.failure(.notMatch))
+//                case .some(.sessionExpired):
+//                    print("[LoginService] singIn 期限切れ")
+//                    completion(.failure(.expired))
                 case .some(.networkError):
                     print("[LoginService] singIn ローカル通信エラー")
                     completion(.failure(.networkError))

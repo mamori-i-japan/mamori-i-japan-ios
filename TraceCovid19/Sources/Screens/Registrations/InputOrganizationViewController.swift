@@ -108,15 +108,19 @@ extension InputOrganizationViewController {
                 self?.showAlert(title: "組織コードを確認しました", message: "陽性判定時に行動データのアップロードをお願いします", buttonTitle: "閉じる") { [weak self] _ in
                     self?.navigationController?.popViewController(animated: true)
                 }
+            case .failure(.notMatchCode):
+                // TODO: インラインエラーで表示する
+                break
             case .failure(.auth):
-                self?.loginService.logout()
-                self?.backToSplash()
+                self?.showAlert(title: L10n.Error.Authentication.title, message: L10n.Error.Authentication.message, buttonTitle: L10n.logout) { [weak self] _ in
+                    self?.loginService.logout()
+                    self?.backToSplash()
+                }
             case .failure(.network):
-                // TODO
-                self?.showAlert(message: "通信エラー")
+                self?.showAlert(title: L10n.Error.ClearOrganizationCode.title, message: L10n.Error.ClearOrganizationCode.message)
             case .failure(.unknown(let error)):
-                // TODO
-                self?.setupErrorText(text: error?.localizedDescription ?? "error nil")
+                print("[InputOrganization] error: \(error?.localizedDescription ?? "nil")")
+                self?.showAlert(title: L10n.Error.Unknown.title)
             }
         }
     }

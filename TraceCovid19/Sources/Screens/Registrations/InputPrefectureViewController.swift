@@ -125,22 +125,23 @@ extension InputPrefectureViewController {
             case .success:
                 self?.pushToPermissionSetting()
             case .failure(let error):
-                // TODO: エラーのUX
                 self?.showError(error: error)
             }
         }
     }
 
     private func showError(error: LoginService.SignInError) {
-        switch error {
-        case .notMatch:
-            break
-        case .expired:
-            break
-        case .networkError:
-            showAlert(message: "TODO: 通信に失敗しました")
-        case .unknown(let error):
-            showAlert(message: error.localizedDescription)
+        switch (error, flow!) {
+        case (.networkError, .start):
+            showAlert(title: L10n.Error.Network.title, message: L10n.Error.Network.message)
+        case (.networkError, .change):
+            showAlert(title: L10n.Error.Prefecture.title, message: L10n.Error.Prefecture.message)
+        case (.unknown(let error), .start):
+            print("[InputPrefecture] error: \(error.localizedDescription)")
+            showAlert(title: L10n.Error.Unknown.title, message: L10n.Error.Unknown.message)
+        case (.unknown(let error), .change):
+            print("[InputPrefecture] error: \(error.localizedDescription)")
+            showAlert(title: L10n.Error.Unknown.title)
         }
     }
 }

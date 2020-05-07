@@ -23,6 +23,7 @@
 "menu" = "メニュー";
 "times_unit" = "回";
 "upload_data" = "データをアップロードする";
+"logout" = "ログアウト";
 "tutorial1.main_description" = "アプリ保持者同士の\n接触履歴を保存します";
 "tutorial1.sub_description" = "氏名、年齢、性別などの\n個人情報は一切取得・通信しません。";
 "tutorial2.main_description" = "陽性者と接触の可能性が\nあった場合に通知が来ます";
