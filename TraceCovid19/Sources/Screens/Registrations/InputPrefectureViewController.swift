@@ -8,7 +8,7 @@
 import UIKit
 import NVActivityIndicatorView
 
-final class InputPrefectureViewController: UIViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable, ProfileChangeable, PermissionSettingAccessable {
+final class InputPrefectureViewController: UIViewController, NVActivityIndicatorViewable, NavigationBarHiddenApplicapable, PermissionSettingAccessable {
     @IBOutlet weak var prefectureTextField: UITextField!
     @IBOutlet weak var errorLabel: BaseLabel!
     @IBOutlet weak var nextButton: ActionButton!
@@ -108,11 +108,6 @@ final class InputPrefectureViewController: UIViewController, NVActivityIndicator
         }
     }
 
-    func forceLogout() {
-        loginService.logout()
-        backToSplash()
-    }
-
     @objc
     func done() {
         prefectureTextField.endEditing(true)
@@ -137,18 +132,20 @@ extension InputPrefectureViewController {
     }
 
     private func showError(error: LoginService.SignInError) {
-        switch (error, flow!) {
-        case (.network, .start):
+        switch error {
+        case .network:
             showAlert(title: L10n.Error.Network.title, message: L10n.Error.Network.message)
-        case (.network, .change):
-            showAlert(title: L10n.Error.Prefecture.title, message: L10n.Error.Prefecture.message)
-        case (.unknown(let error), .start):
+        case .unknown(let error):
             print("[InputPrefecture] error: \(error.localizedDescription)")
             showAlert(title: L10n.Error.Unknown.title, message: L10n.Error.Unknown.message)
-        case (.unknown(let error), .change):
-            print("[InputPrefecture] error: \(error.localizedDescription)")
-            showAlert(title: L10n.Error.Unknown.title)
         }
+    }
+}
+
+extension InputPrefectureViewController: ProfileChangeable {
+    func showNetworkError() {
+        // ネットワークエラー時の文言を変更
+        showAlert(title: L10n.Error.Prefecture.title)
     }
 }
 

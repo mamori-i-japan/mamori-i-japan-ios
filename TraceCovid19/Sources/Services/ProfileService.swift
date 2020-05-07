@@ -86,6 +86,14 @@ final class ProfileService {
             completion(.failure(.unknown(NSError(domain: "not found uid", code: 0, userInfo: nil))))
             return
         }
+
+        // NOTE: Firestoreだと性質上オフラインでもエラーのcoallbackが帰ってこないので事前にチェックする
+        guard let rechability = try? Reachability(), rechability.connection != .unavailable else {
+            print("[ProfileService] network error")
+            completion(.failure(.network))
+            return
+        }
+
         firestore.instance
             .collection("users")
             .document(uid)
@@ -146,7 +154,6 @@ final class ProfileService {
                 completion(.failure(.notMatchCode))
             case .failure(.error(detail: let error)),
                  .failure(.statusCodeError(_, _, let error)):
-                // TODO: エラーハンドリング
                 print("[ProfileService] unknown error: \(error?.localizedDescription ?? "nil")")
                 completion(.failure(.unknown(error)))
             }
@@ -170,7 +177,6 @@ final class ProfileService {
                 completion(.failure(.network))
             case .failure(.error(detail: let error)),
                  .failure(.statusCodeError(_, _, let error)):
-                // TODO: エラーハンドリング
                 print("[ProfileService] unknown error: \(error?.localizedDescription ?? "nil")")
                 completion(.failure(.unknown(error)))
             }

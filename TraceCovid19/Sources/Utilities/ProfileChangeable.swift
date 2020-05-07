@@ -11,13 +11,15 @@ import NVActivityIndicatorView
 /// プロフィール変更を共通化したプロトコル
 protocol ProfileChangeable: class {
     var profileService: ProfileService! { get }
+    var loginService: LoginService! { get }
     func startAnimation()
     func stopAnimation()
     func requestProfile(profile: Profile)
     func endNavigation()
-    func showRetry(retry: @escaping () -> Void)
-    func errorNavigation(error: Error?)
+    func errorNavigation(error: ProfileService.ProfileSetError?)
     func forceLogout()
+    func showNetworkError()
+    func showUnknownError()
 }
 
 extension ProfileChangeable {
@@ -29,14 +31,7 @@ extension ProfileChangeable {
             switch result {
             case .success:
                 self?.endNavigation()
-            case .failure(.network):
-                // TODO: 再実行のみせかた
-                self?.showRetry { [weak self] in
-                    self?.requestProfile(profile: profile)
-                }
-            case .failure(.auth):
-                self?.forceLogout()
-            case .failure(.unknown(let error)):
+            case .failure(let error):
                 self?.errorNavigation(error: error)
             }
         }
@@ -64,12 +59,30 @@ extension ProfileChangeable where Self: UIViewController {
         }
     }
 
-    func showRetry(retry: @escaping () -> Void) {
-        showAlertWithCancel(message: "TODO: ネットワークエラー。再読み込みしますか？", okButtonTitle: "再読み込み", okAction: { _ in retry() })
+    func errorNavigation(error: ProfileService.ProfileSetError?) {
+        switch error {
+        case .some(.auth):
+            forceLogout()
+        case .some(.network):
+            showNetworkError()
+        case .some(.unknown), .none:
+            showUnknownError()
+        }
     }
 
-    func errorNavigation(error: Error?) {
-        // TODO: エラー表示
-        showAlert(message: error.debugDescription)
+    func showNetworkError() {
+        showAlert(title: L10n.Error.Network.title)
+    }
+
+    func showUnknownError() {
+        showAlert(title: L10n.Error.Unknown.title)
+    }
+
+    func forceLogout() {
+        // ダイアログを表示して強制ログアウト
+        showAlert(title: L10n.Error.Authentication.title, message: L10n.Error.Authentication.message, buttonTitle: L10n.logout) { [weak self] _ in
+            self?.loginService.logout()
+            self?.backToSplash()
+        }
     }
 }

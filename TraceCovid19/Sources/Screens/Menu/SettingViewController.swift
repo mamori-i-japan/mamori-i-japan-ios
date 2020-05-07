@@ -39,16 +39,26 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
                 self?.profile = profile
                 self?.update(profile: profile)
             case .failure(.network):
-                // TODO: ネットワークエラー
-                self?.showAlertWithCancel(message: "TODO: ネットワークエラー。再読み込みしますか？", okButtonTitle: "再読み込み", okAction: { [weak self] _ in self?.requestProfile() })
+                self?.showAlert(title: L10n.Error.OrganizationCode.title, message: L10n.Error.OrganizationCode.message) { [weak self] _ in
+                    // 前に戻る
+                    self?.navigationController?.popViewController(animated: true)
+                }
             case .failure(.auth):
-                self?.forceLogout()
+                self?.showAlert(title: L10n.Error.Authentication.title, message: L10n.Error.Authentication.message, buttonTitle: L10n.logout) { [weak self] _ in
+                    self?.loginService.logout()
+                    self?.backToSplash()
+                }
             case  .failure(.parse):
-                // TODO: パースエラー
-                self?.showAlert(message: "TODO: parse error")
+                self?.showAlert(title: L10n.Error.Unknown.title) { [weak self] _ in
+                    // 前に戻る
+                    self?.navigationController?.popViewController(animated: true)
+                }
             case .failure(.unknown(let error)):
-                // TODO: そのたエラー
-                self?.showAlert(message: error?.localizedDescription ?? "nil")
+                print("[Setting] error: \(error?.localizedDescription ?? "nil")")
+                self?.showAlert(title: L10n.Error.Unknown.title) { [weak self] _ in
+                    // 前に戻る
+                    self?.navigationController?.popViewController(animated: true)
+                }
             }
         }
     }
@@ -97,11 +107,6 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
         )
     }
 
-    func forceLogout() {
-        loginService.logout()
-        backToSplash()
-    }
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
@@ -138,13 +143,15 @@ extension SettingViewController {
                 self?.requestProfile()
                 self?.keychainService.clearRandomIDs()
             case .failure(.network):
-                // TODO: リトライ
-                self?.showAlertWithCancel(message: "TODO: ネットワークエラー。再実行しますか？", okButtonTitle: "再試行", okAction: { [weak self] _ in self?.requestClearOrganization() })
+                self?.showAlert(title: L10n.Error.ClearOrganizationCode.title, message: L10n.Error.ClearOrganizationCode.message)
             case .failure(.auth):
-                self?.forceLogout()
+                self?.showAlert(title: L10n.Error.Authentication.title, message: L10n.Error.Authentication.message, buttonTitle: L10n.logout) { [weak self] _ in
+                    self?.loginService.logout()
+                    self?.backToSplash()
+                }
             case .failure(.unknown(let error)):
-                // TODO:
-                self?.showAlert(message: error?.localizedDescription ?? "error")
+                print("[Setting] error: \(error?.localizedDescription ?? "nil")")
+                self?.showAlert(title: L10n.Error.Unknown.title)
             }
         }
     }

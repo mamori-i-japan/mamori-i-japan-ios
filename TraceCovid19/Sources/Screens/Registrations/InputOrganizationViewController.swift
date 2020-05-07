@@ -95,11 +95,6 @@ final class InputOrganizationViewController: UIViewController, NVActivityIndicat
             errorLabel.isHidden = true
         }
     }
-
-    func forceLogout() {
-        loginService.logout()
-        backToSplash()
-    }
 }
 
 extension InputOrganizationViewController {
