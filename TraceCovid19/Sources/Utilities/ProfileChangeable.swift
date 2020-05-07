@@ -16,7 +16,7 @@ protocol ProfileChangeable: class {
     func stopAnimation()
     func requestProfile(profile: Profile)
     func endNavigation()
-    func errorNavigation(error: ProfileService.ProfileSetError?)
+    func errorNavigation(error: ProfileService.ProfileUpdateError?)
     func forceLogout()
     func showNetworkError()
     func showUnknownError()
@@ -26,7 +26,7 @@ extension ProfileChangeable {
     func requestProfile(profile: Profile) {
         startAnimation()
 
-        profileService.set(profile: profile) { [weak self] result in
+        profileService.update(profile: profile, organization: nil) { [weak self] result in
             self?.stopAnimation()
             switch result {
             case .success:
@@ -53,13 +53,10 @@ extension ProfileChangeable where Self: NVActivityIndicatorViewable & UIViewCont
 extension ProfileChangeable where Self: UIViewController {
     func endNavigation() {
         // デフォルトでは1つ戻る
-        // TODO: 文言とか
-        showAlert(message: "更新が完了しました", buttonTitle: "OK") { [weak self] _ in
-            self?.navigationController?.popViewController(animated: true)
-        }
+        navigationController?.popViewController(animated: true)
     }
 
-    func errorNavigation(error: ProfileService.ProfileSetError?) {
+    func errorNavigation(error: ProfileService.ProfileUpdateError?) {
         switch error {
         case .some(.auth):
             forceLogout()
@@ -67,6 +64,9 @@ extension ProfileChangeable where Self: UIViewController {
             showNetworkError()
         case .some(.unknown), .none:
             showUnknownError()
+        case .some(.notMatchCode):
+            // 組織コードのアップデートはここでは見ない
+            break
         }
     }
 

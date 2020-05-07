@@ -274,7 +274,12 @@ extension HomeViewController {
     }
 
     private func fetchPosisitiveContacts(profile: Profile) {
-        guard let organizationCode = profile.organizationCode else { return }
+        guard let organizationCode = profile.organizationCode else {
+            // NOTE: 組織コードをクリアして戻ってきた場合を考慮し、コードがなければお知らせもクリアする
+            information = nil
+            redrawActionContentView()
+            return
+        }
 
         startAnimating(type: .circleStrokeSpin)
         positiveContact.load(organizationCode: organizationCode) { [weak self] result in
@@ -317,7 +322,7 @@ extension HomeViewController {
         informationService.get(organizationCode: organizationCode) { [weak self] result in
             self?.stopAnimating()
 
-            print("[Home] fetch infromation] \(result)")
+            print("[Home] fetch infromation \(result)")
             switch result {
             case .success(let information):
                 self?.information = information

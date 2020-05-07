@@ -106,12 +106,13 @@ extension InputOrganizationViewController {
             self?.stopAnimating()
             switch result {
             case .success:
-                self?.showAlert(title: "組織コードを確認しました", message: "陽性判定時に行動データのアップロードをお願いします", buttonTitle: "閉じる") { [weak self] _ in
+                self?.showAlert(title: "組織コードを確認しました", message: "接触デバイスIDのアップロードをお願いします", buttonTitle: "閉じる") { [weak self] _ in
                     self?.navigationController?.popViewController(animated: true)
                 }
             case .failure(.notMatchCode):
                 // NOTE: インラインエラーで表示する
                 self?.setupErrorText(text: L10n.Error.NoMatchOrganizationCode.title)
+                self?.organizationTextField.text = nil
             case .failure(.auth):
                 self?.showAlert(title: L10n.Error.Authentication.title, message: L10n.Error.Authentication.message, buttonTitle: L10n.logout) { [weak self] _ in
                     self?.loginService.logout()

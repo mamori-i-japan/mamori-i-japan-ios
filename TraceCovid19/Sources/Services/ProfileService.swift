@@ -22,62 +22,11 @@ final class ProfileService {
         self.profileAPI = profileAPI
     }
 
-    enum ProfileSetError: Error {
-        case network
-        case auth
-        case unknown(Error?)
-    }
-
     enum ProfileGetError: Error {
         case network
         case auth
         case parse
         case unknown(Error?)
-    }
-
-    func set(profile: Profile, completion: @escaping (Result<Void, ProfileSetError>) -> Void) {
-        guard let uid = auth.instance.currentUser?.uid else {
-            print("[ProfileService] not found uid")
-            completion(.failure(.unknown(NSError(domain: "Not found uid", code: 0, userInfo: nil))))
-            return
-        }
-        guard let profileData = try? profile.asDictionary() else {
-            print("[ProfileService] profile is invalid format: \(profile)")
-            completion(.failure(.unknown(NSError(domain: "Profile is invalid format", code: 0, userInfo: nil))))
-            return
-        }
-
-        // NOTE: Firestoreだと性質上オフラインでもエラーのcoallbackが帰ってこないので事前にチェックする
-        guard let rechability = try? Reachability(), rechability.connection != .unavailable else {
-            print("[ProfileService] network error")
-            completion(.failure(.network))
-            return
-        }
-
-        firestore.instance
-            .collection("users")
-            .document(uid)
-            .collection("profile")
-            .document(uid).setData(profileData.convertDateToFirebaseTimestamp()) { error in
-                if let error = error {
-                    print("[ProfileService] Error writing profile: \(error)")
-                    switch FirestoreErrorCode(rawValue: (error as NSError).code) {
-                    case .unavailable:
-                        print("[ProfileService] network error")
-                        completion(.failure(.network))
-                    case .unauthenticated:
-                        // TODO: 認証エラーはこのコード？
-                        print("[ProfileService] unauthenticated error")
-                        completion(.failure(.auth))
-                    default:
-                        print("[ProfileService] error \(error as NSError)")
-                        completion(.failure(.unknown(error)))
-                    }
-                } else {
-                    print("[ProfileService] Profile successfully written")
-                    completion(.success(()))
-                }
-            }
     }
 
     func get(completion: @escaping (Result<Profile, ProfileGetError>) -> Void) {
@@ -130,14 +79,14 @@ final class ProfileService {
             }
     }
 
-    enum OrganizationUpdateError: Error {
+    enum ProfileUpdateError: Error {
         case notMatchCode
         case network
         case auth
         case unknown(Error?)
     }
 
-    func update(profile: Profile, organization: String?, completion: @escaping (Result<Void, OrganizationUpdateError>) -> Void) {
+    func update(profile: Profile, organization: String?, completion: @escaping (Result<Void, ProfileUpdateError>) -> Void) {
         profileAPI.patch(profile: profile, organization: organization) { result in
             switch result {
             case .success:
