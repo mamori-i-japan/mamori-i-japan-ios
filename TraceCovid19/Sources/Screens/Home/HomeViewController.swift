@@ -119,7 +119,6 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
     }
 
     private func reloadViews() {
-        // TODO: 時間
         dateLabel.text = "最終更新: \(Date().toString(format: "MM月dd日HH時"))"
         redrawHeaderView()
         redrawActionContentView()

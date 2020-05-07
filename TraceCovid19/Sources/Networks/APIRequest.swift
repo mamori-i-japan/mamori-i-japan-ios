@@ -66,7 +66,6 @@ extension APIRequestProtocol {
         return "https://"
     }
     var host: String {
-        // TODO: 環境わけ
         #if DEV
         return "api-dev.mamori-i.jp"
         #elseif STG

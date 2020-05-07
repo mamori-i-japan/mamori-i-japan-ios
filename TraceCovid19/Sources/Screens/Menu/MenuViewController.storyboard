@@ -10,7 +10,7 @@
         <!--メニュー-->
         <scene sceneID="i4g-gJ-TvY">
             <objects>
-                <tableViewController id="U6Q-5d-BdF" customClass="MenuViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="U6Q-5d-BdF" customClass="MenuViewController" customModule="DEV_まもりあい" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="tiM-qc-OKk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +35,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="Rgu-dv-HLY">
-                            <rect key="frame" x="0.0" y="300" width="414" height="1"/>
+                            <rect key="frame" x="0.0" y="245" width="414" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HPF-mT-GRz">
@@ -63,7 +63,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQt-0x-9Gy" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQt-0x-9Gy" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
                                                     <rect key="frame" x="27" y="17.5" width="35" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -100,7 +100,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="データのアップロード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSo-je-Wwy" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="データのアップロード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSo-je-Wwy" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
                                                     <rect key="frame" x="27" y="18.5" width="153" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -137,7 +137,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このアプリについて" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpK-tW-qYp" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このアプリについて" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpK-tW-qYp" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
                                                     <rect key="frame" x="27" y="17.5" width="156" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -167,31 +167,6 @@
                                             <constraint firstItem="fgb-Id-eZe" firstAttribute="centerY" secondItem="eGk-hK-3b6" secondAttribute="centerY" id="vyx-z1-Al8"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="8e8-Nd-euK">
-                                        <rect key="frame" x="0.0" y="217" width="414" height="55"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8e8-Nd-euK" id="HZW-41-faj">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お問い合わせ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXT-j9-jm5" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
-                                                    <rect key="frame" x="27" y="17.5" width="104" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector" translatesAutoresizingMaskIntoConstraints="NO" id="I3B-es-d24">
-                                                    <rect key="frame" x="388" y="19" width="10" height="17"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="I3B-es-d24" secondAttribute="trailing" constant="16" id="0Cg-Um-Myy"/>
-                                            <constraint firstItem="I3B-es-d24" firstAttribute="centerY" secondItem="8e8-Nd-euK" secondAttribute="centerY" id="1wb-De-abC"/>
-                                            <constraint firstItem="eXT-j9-jm5" firstAttribute="centerY" secondItem="8e8-Nd-euK" secondAttribute="centerY" id="3JT-QU-b2W"/>
-                                            <constraint firstItem="eXT-j9-jm5" firstAttribute="leading" secondItem="8e8-Nd-euK" secondAttribute="leading" constant="27" id="wqE-Ys-S5F"/>
-                                        </constraints>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -204,7 +179,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="aboutTableViewCell" destination="eGk-hK-3b6" id="slj-ZX-46i"/>
-                        <outlet property="contactTableViewCell" destination="8e8-Nd-euK" id="MfK-Vn-dRf"/>
                         <outlet property="dataUploadTableViewCell" destination="WQD-Xz-9vu" id="Aqj-sf-ElL"/>
                         <outlet property="settingTableViewCell" destination="Yyd-1Z-yNx" id="9mB-sS-egZ"/>
                     </connections>

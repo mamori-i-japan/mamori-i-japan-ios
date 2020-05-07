@@ -12,7 +12,6 @@ final class MenuViewController: UITableViewController, NVActivityIndicatorViewab
     @IBOutlet weak var settingTableViewCell: UITableViewCell!
     @IBOutlet weak var dataUploadTableViewCell: UITableViewCell!
     @IBOutlet weak var aboutTableViewCell: UITableViewCell!
-    @IBOutlet weak var contactTableViewCell: UITableViewCell!
 
     var profileService: ProfileService!
     var loginService: LoginService!
@@ -34,9 +33,6 @@ final class MenuViewController: UITableViewController, NVActivityIndicatorViewab
             pushToAbout()
         case settingTableViewCell:
             pushToSetting()
-        case contactTableViewCell:
-            // TODO
-            break
         case dataUploadTableViewCell:
             pushToTraceDataUpload()
         default:
