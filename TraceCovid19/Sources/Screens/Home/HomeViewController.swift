@@ -330,11 +330,3 @@ extension HomeViewController {
         }
     }
 }
-
- // TODO: あとできりだす
-extension UIViewController {
-    var topBarHeight: CGFloat {
-        return UIApplication.shared.statusBarFrame.height +
-            (navigationController?.navigationBar.bounds.height ?? 0.0)
-    }
-}

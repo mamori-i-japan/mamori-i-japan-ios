@@ -114,6 +114,7 @@
 		F0613E782462EB2A000595EE /* DictionaryCodable+FirebaseTimestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0613E772462EB2A000595EE /* DictionaryCodable+FirebaseTimestamp.swift */; };
 		F0613E7A2463A729000595EE /* HomeInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0613E792463A729000595EE /* HomeInformationView.swift */; };
 		F0613E7C2463A73A000595EE /* HomeInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0613E7B2463A73A000595EE /* HomeInformationView.xib */; };
+		F0613E7F2463F6B3000595EE /* UIViewController+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0613E7E2463F6B3000595EE /* UIViewController+Utility.swift */; };
 		F065130E2452B15500CCCE91 /* UIColor+DesignGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = F065130D2452B15500CCCE91 /* UIColor+DesignGuide.swift */; };
 		F079FF79244C09B700202A91 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF78244C09B700202A91 /* Profile.swift */; };
 		F079FF7D244C168700202A91 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079FF7C244C168700202A91 /* ProfileService.swift */; };
@@ -322,6 +323,7 @@
 		F0613E772462EB2A000595EE /* DictionaryCodable+FirebaseTimestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DictionaryCodable+FirebaseTimestamp.swift"; sourceTree = "<group>"; };
 		F0613E792463A729000595EE /* HomeInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInformationView.swift; sourceTree = "<group>"; };
 		F0613E7B2463A73A000595EE /* HomeInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeInformationView.xib; sourceTree = "<group>"; };
+		F0613E7E2463F6B3000595EE /* UIViewController+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utility.swift"; sourceTree = "<group>"; };
 		F065130D2452B15500CCCE91 /* UIColor+DesignGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+DesignGuide.swift"; sourceTree = "<group>"; };
 		F079FF78244C09B700202A91 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F079FF7C244C168700202A91 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 				F04759B524359AC20091059F /* UIViewController+Instantiate.swift */,
 				F096D5B924501DE000F7919B /* UIViewController+Navigation.swift */,
 				F02356D124444370001E72ED /* UIViewController+ShowAlert.swift */,
+				F0613E7E2463F6B3000595EE /* UIViewController+Utility.swift */,
 				F0A282DE243F2A86008390AE /* UUID+DataRepresentation.swift */,
 				F079FF89244D3C5200202A91 /* XibLocalizable.swift */,
 			);
@@ -1261,6 +1264,7 @@
 				F0A2830B24417500008390AE /* Agreement1ViewController.swift in Sources */,
 				F0A2830324416C77008390AE /* ActionButton.swift in Sources */,
 				F051AD6524469BDC007278A0 /* CoreDataService+DeepContactUser.swift in Sources */,
+				F0613E7F2463F6B3000595EE /* UIViewController+Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
