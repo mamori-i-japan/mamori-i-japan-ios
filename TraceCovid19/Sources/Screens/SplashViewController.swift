@@ -39,10 +39,9 @@ final class SplashViewController: UIViewController, NVActivityIndicatorViewable,
             case .isNeedUpdate(let storeURL):
                 self?.showUpdateAlert(storeURL: storeURL)
             case .failed:
-                // TODO: アラート表示
-                self?.showAlert(message: "TODO: データの読み込みに失敗しました", buttonTitle: "再読み込み") { [weak self] _ in
-                    self?.firstLaunch()
-                }
+                print("RemoteConfig Error.")
+                // NOTE: 初回表示でも、ひとまず止めずにエラー抑制して次へ流す
+                self?.handleNavigation()
             }
         }
     }

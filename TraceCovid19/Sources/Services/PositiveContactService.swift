@@ -9,6 +9,7 @@ import Foundation
 import FirebaseStorage
 import Swinject
 import Gzip
+import Reachability
 
 final class PositiveContactService {
     private let storage: Lazy<Storage>
@@ -36,8 +37,10 @@ final class PositiveContactService {
     }
 
     enum PositiveContactStatus: Error {
-        case error(Error?)
         case noNeedToLoad
+        case network
+        case parse
+        case unknown(Error?)
     }
 
     /// 自身の陽性判定
@@ -61,12 +64,19 @@ final class PositiveContactService {
     }
 
     func load(organizationCode: String, completion: @escaping (Result<[String], PositiveContactStatus>) -> Void) {
+        // NOTE: FirebaseStorageもオフラインではコールバックが呼ばれないため事前にチェックする
+        guard let rechability = try? Reachability(), rechability.connection != .unavailable else {
+            print("[PositiveContactService] network error")
+            completion(.failure(.network))
+            return
+        }
+
         let reference = storage.instance.reference().child(filePath(dir: organizationCode))
 
         reference.getMetadata { [weak self] metaData, error in
             guard let metaData = metaData, error == nil else {
                 print("[PositiveContactService] error occurred: \(String(describing: error))")
-                completion(.failure(.error(error)))
+                completion(.failure(.unknown(error)))
                 return
             }
 
@@ -83,7 +93,7 @@ final class PositiveContactService {
                 guard let sSelf = self else { return }
                 guard let data = data, error == nil else {
                     print("[PositiveContactService] error occurred: \(String(describing: error))")
-                    completion(.failure(.error(error)))
+                    completion(.failure(.unknown(error)))
                     return
                 }
 
@@ -92,7 +102,7 @@ final class PositiveContactService {
                 if data.isGzipped {
                     guard let gunzippedData = try? data.gunzipped() else {
                         print("[PositiveContactService] gunzip failed: \(String(describing: String(data: data, encoding: .utf8)))")
-                        completion(.failure(.error(NSError(domain: "gunzip failed", code: 0, userInfo: nil))))
+                        completion(.failure(.parse))
                         return
                     }
                     rawData = gunzippedData
@@ -107,7 +117,7 @@ final class PositiveContactService {
                     completion(.success(list.data))
                 } catch {
                     print("[PositiveContactService] parse error: \(error)")
-                    completion(.failure(.error(error)))
+                    completion(.failure(.unknown(error)))
                 }
             }
         }

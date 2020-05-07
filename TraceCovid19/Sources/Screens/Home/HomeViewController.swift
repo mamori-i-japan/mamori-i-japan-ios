@@ -285,9 +285,15 @@ extension HomeViewController {
                 self?.execDeepContactCheck(profile: profile)
             case .failure(.noNeedToLoad):
                 break
-            case .failure(.error(let error)):
-                // TODO: エラー表示
-                print("[Home] error: \(String(describing: error))")
+            case .failure(.parse):
+                // NOTE: エラー表示しない
+                print("[Home] fetch positive contact parse error")
+            case .failure(.network):
+                // NOTE: エラー表示しない
+                print("[Home] fetch positive contact network error")
+            case .failure(.unknown(let error)):
+                // NOTE: エラー表示しない
+                print("[Home] fetch positive contact error: \(String(describing: error))")
             }
         }
     }

@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseStorage
 import Swinject
+import Reachability
 
 final class BootService {
     private let userDefaults: UserDefaultsService
@@ -39,9 +40,15 @@ final class BootService {
 
     enum RemoteConfigStatus {
         case success
-        case failed
+        case failed(RemoteConfigError)
         case isMaintenance
         case isNeedUpdate(storeURL: URL)
+    }
+
+    enum RemoteConfigError: Error {
+        case network
+        case parse
+        case unknown(Error?)
     }
 
     func execLaunch(completion: @escaping (RemoteConfigStatus) -> Void) {
@@ -66,11 +73,18 @@ final class BootService {
     }
 
     private func fetchAppStatus(completion: @escaping (RemoteConfigStatus) -> Void) {
+        // NOTE: FirebaseStorageもオフラインではコールバックが呼ばれないため事前にチェックする
+        guard let rechability = try? Reachability(), rechability.connection != .unavailable else {
+            print("[BootService] network error")
+            completion(.failed(.network))
+            return
+        }
+
         let reference = storage.instance.reference().child(fileName)
         reference.getMetadata { [weak self] metaData, error in
             guard let metaData = metaData, error == nil else {
                 print("[BootService] error occurred: \(String(describing: error))")
-                completion(.failed)
+                completion(.failed(.unknown(error)))
                 return
             }
 
@@ -87,7 +101,7 @@ final class BootService {
                 guard let sSelf = self else { return }
                 guard let data = data, error == nil else {
                     print("[BootService] error occurred: \(String(describing: error))")
-                    completion(.failed)
+                    completion(.failed(.unknown(error)))
                     return
                 }
                 print("[BootService] data: \(String(describing: String(data: data, encoding: .utf8)))")
@@ -99,7 +113,7 @@ final class BootService {
                     self?.handle(completion: completion)
                 } catch {
                     print("[BootService] parse error: \(error)")
-                    completion(.failed)
+                    completion(.failed(.parse))
                 }
             }
         }
@@ -107,7 +121,7 @@ final class BootService {
 
     private func handle(completion: @escaping (RemoteConfigStatus) -> Void) {
         guard let appStatus = appStatus, appStatus.minAppVersion != nil else {
-            completion(.failed)
+            completion(.failed(.parse))
             return
         }
 
