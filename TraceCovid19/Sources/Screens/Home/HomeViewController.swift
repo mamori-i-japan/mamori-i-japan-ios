@@ -236,8 +236,8 @@ extension HomeViewController {
 //        if let latestPerson = positiveContact.getLatestContactedPositivePeople() {
 //            return .attension(latest: latestPerson)
 //        }
-
-        let count = deepContactCheck.getDeepContactUsersUniqCountAtYesterday()
+        // 昨日の接触情報の回数
+        let count = deepContactCheck.getDeepContactUsersAtYesterday().count
         return count >= UserStatus.usualUpperLimitCount ? .semiUsual(count: count) : .usual(count: count)
     }
 
