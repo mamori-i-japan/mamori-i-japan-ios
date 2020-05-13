@@ -25,6 +25,8 @@
 		F0156AAE2457DC95006CB28F /* NavigationProtocol+Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0156AAD2457DC95006CB28F /* NavigationProtocol+Start.swift */; };
 		F0156AB02457DFA8006CB28F /* NavigationProtocol+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0156AAF2457DFA8006CB28F /* NavigationProtocol+Setting.swift */; };
 		F0156AB224580C98006CB28F /* NavigationProtocol+Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0156AB124580C98006CB28F /* NavigationProtocol+Home.swift */; };
+		F01E6B25246BDA1D00A4C7AA /* TraceHistorySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01E6B24246BDA1D00A4C7AA /* TraceHistorySectionHeaderView.swift */; };
+		F01E6B27246BDA3A00A4C7AA /* TraceHistorySectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01E6B26246BDA3A00A4C7AA /* TraceHistorySectionHeaderView.xib */; };
 		F01EA9042449C95D00B81DB6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F01EA9032449C95D00B81DB6 /* Alamofire */; };
 		F01EA9072449C97400B81DB6 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F01EA9062449C97400B81DB6 /* KeychainAccess */; };
 		F02356A92442EDCC001E72ED /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04759A5243592840091059F /* Swinject.framework */; };
@@ -234,6 +236,8 @@
 		F0156AAD2457DC95006CB28F /* NavigationProtocol+Start.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Start.swift"; sourceTree = "<group>"; };
 		F0156AAF2457DFA8006CB28F /* NavigationProtocol+Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Setting.swift"; sourceTree = "<group>"; };
 		F0156AB124580C98006CB28F /* NavigationProtocol+Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Home.swift"; sourceTree = "<group>"; };
+		F01E6B24246BDA1D00A4C7AA /* TraceHistorySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceHistorySectionHeaderView.swift; sourceTree = "<group>"; };
+		F01E6B26246BDA3A00A4C7AA /* TraceHistorySectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TraceHistorySectionHeaderView.xib; sourceTree = "<group>"; };
 		F02356842442E3B8001E72ED /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
 		F02356862442EB69001E72ED /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = Carthage/Build/iOS/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
 		F02356872442EB69001E72ED /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransport.framework; path = Carthage/Build/iOS/GoogleDataTransport.framework; sourceTree = "<group>"; };
@@ -811,7 +815,6 @@
 		F0A2830124416C6A008390AE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F0613E7D2463A73F000595EE /* Home */,
 				F0A2830224416C77008390AE /* ActionButton.swift */,
 				F079FF8B244D3D0400202A91 /* BaseButton.swift */,
 				F079FF8F244D418400202A91 /* BaseLabel.swift */,
@@ -820,7 +823,10 @@
 				F0A28324244195A7008390AE /* CodeInputUnitView.swift */,
 				F0A2831E2441932B008390AE /* CodeInputUnitView.xib */,
 				F0A28320244194B4008390AE /* CodeInputView.swift */,
+				F0613E7D2463A73F000595EE /* Home */,
 				F0A28318244189A1008390AE /* NoPerformActionTextField.swift */,
+				F01E6B24246BDA1D00A4C7AA /* TraceHistorySectionHeaderView.swift */,
+				F01E6B26246BDA3A00A4C7AA /* TraceHistorySectionHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1003,6 +1009,7 @@
 				F0A282FC24416BE2008390AE /* Tutorial2ViewController.storyboard in Resources */,
 				F051ADC8244980A1007278A0 /* InputOrganizationViewController.storyboard in Resources */,
 				F0156AA5245589C4006CB28F /* TraceHistoryViewController.storyboard in Resources */,
+				F01E6B27246BDA3A00A4C7AA /* TraceHistorySectionHeaderView.xib in Resources */,
 				F0A282C4243EC9CF008390AE /* MenuViewController.storyboard in Resources */,
 				F051AD9E2447769B007278A0 /* Debug2ViewController.storyboard in Resources */,
 				F0A282C7243ECA55008390AE /* AboutViewController.storyboard in Resources */,
@@ -1226,6 +1233,7 @@
 				F0A282CB243ED041008390AE /* UIGestureRecognizer+Closure.swift in Sources */,
 				C75B12C4244F2FBF009C2ED6 /* CentralManager.swift in Sources */,
 				F079FF92244D41B800202A91 /* LabelUtilityProtocol.swift in Sources */,
+				F01E6B25246BDA1D00A4C7AA /* TraceHistorySectionHeaderView.swift in Sources */,
 				F02356D224444370001E72ED /* UIViewController+ShowAlert.swift in Sources */,
 				F0A282E1243F3DAB008390AE /* Date+ToString.swift in Sources */,
 				F0A28321244194B4008390AE /* CodeInputView.swift in Sources */,

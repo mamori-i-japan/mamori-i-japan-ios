@@ -11,35 +11,33 @@
         <!--接触履歴-->
         <scene sceneID="zuz-4n-FLQ">
             <objects>
-                <viewController title="接触履歴" id="4p9-Gc-Saf" customClass="TraceHistoryViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="接触履歴" id="4p9-Gc-Saf" customClass="TraceHistoryViewController" customModule="DEV_まもりあい" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="buf-zg-vGM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yY0-xd-K8f">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="yY0-xd-K8f">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TraceHistoryTableViewCell" id="Psb-6E-KAS" customClass="TraceHistoryTableViewCell" customModule="まもりあい" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TraceHistoryTableViewCell" id="Psb-6E-KAS" customClass="TraceHistoryTableViewCell" customModule="DEV_まもりあい" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Psb-6E-KAS" id="H4f-gj-GeL">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llb-Vf-DsO" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="0.0" width="382" height="68"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llb-Vf-DsO" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="0.0" width="382" height="44"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="68" id="pnb-9w-prJ"/>
+                                                        <constraint firstAttribute="height" constant="44" id="pnb-9w-prJ"/>
                                                     </constraints>
-                                                    <string key="text">Label
-A</string>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPA-T2-XiO">
-                                                    <rect key="frame" x="16" y="67" width="382" height="1"/>
+                                                    <rect key="frame" x="16" y="43" width="398" height="1"/>
                                                     <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="W4C-I8-a31"/>
@@ -56,16 +54,17 @@ A</string>
                                             <constraint firstItem="MPA-T2-XiO" firstAttribute="leading" secondItem="Psb-6E-KAS" secondAttribute="leading" constant="16" id="XKe-Uw-2ED"/>
                                             <constraint firstAttribute="bottom" secondItem="MPA-T2-XiO" secondAttribute="bottom" id="aN3-Qq-R8m"/>
                                             <constraint firstAttribute="trailing" secondItem="Llb-Vf-DsO" secondAttribute="trailing" constant="16" id="r0d-j6-bdE"/>
-                                            <constraint firstAttribute="trailing" secondItem="MPA-T2-XiO" secondAttribute="trailing" constant="16" id="t3y-IY-GvP"/>
+                                            <constraint firstAttribute="trailing" secondItem="MPA-T2-XiO" secondAttribute="trailing" id="t3y-IY-GvP"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="label" destination="Llb-Vf-DsO" id="5Ac-T4-fGe"/>
+                                            <outlet property="separatorViewLeadingConstraint" destination="XKe-Uw-2ED" id="5lM-Xb-vqb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.96078431372549022" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jBq-R9-0lX" firstAttribute="bottom" secondItem="yY0-xd-K8f" secondAttribute="bottom" id="IuY-PM-T63"/>
                             <constraint firstItem="yY0-xd-K8f" firstAttribute="leading" secondItem="jBq-R9-0lX" secondAttribute="leading" id="T5H-ep-lbd"/>
