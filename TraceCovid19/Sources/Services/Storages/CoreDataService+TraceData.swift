@@ -14,6 +14,7 @@ extension CoreDataService {
         let request = getFetchRequestFor(TraceDataEntity.self, context: managedContext, with: nil, with: NSSortDescriptor(key: "timestamp", ascending: false), prefetchKeyPaths: nil)
 
         do {
+            // TODO: performBlockなどでの考慮を入れる
             let traceData = try managedContext.fetch(request)
             return traceData
         } catch {
@@ -31,6 +32,7 @@ extension CoreDataService {
         request.returnsDistinctResults = true
 
         do {
+            // TODO: performBlockなどでの考慮を入れる
             let traceData: [Any] = try context.fetch(request)
             print("[CoreData] read success")
             return traceData.compactMap { result -> String? in
@@ -49,6 +51,7 @@ extension CoreDataService {
         let request = getFetchRequestFor(TraceDataEntity.self, context: managedContext, with: predicate, with: NSSortDescriptor(key: "timestamp", ascending: false), prefetchKeyPaths: nil)
 
         do {
+            // TODO: performBlockなどでの考慮を入れる
             let traceData = try managedContext.fetch(request)
             return traceData.filter { $0.isValidConnection }
         } catch {
@@ -85,6 +88,7 @@ extension CoreDataService {
             data.tempId = event.rawValue
             data.timestamp = Date()
             do {
+                // TODO: performBlockなどでの考慮を入れる
                 try managedContext.save()
                 print("[CoreData] save (\(event.rawValue))")
             } catch {

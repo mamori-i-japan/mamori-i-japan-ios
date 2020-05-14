@@ -17,6 +17,7 @@ extension CoreDataService {
         tempUserIdEntity.set(tempUserId: tempUserId)
         print("[CoreData] save: \(tempUserId)")
         do {
+            // TODO: performBlockなどでの考慮を入れる
             try managedContext.save()
         } catch {
             print("[CoreData] Could not save. \(error)")
@@ -28,6 +29,7 @@ extension CoreDataService {
         let request = getFetchRequestFor(TempUserIdEntity.self, context: managedContext, with: nil, with: NSSortDescriptor(key: "startTime", ascending: false), prefetchKeyPaths: nil)
 
         do {
+            // TODO: performBlockなどでの考慮を入れる
             let result = try managedContext.fetch(request)
             return result.compactMap { $0.toTempUserId() }
         } catch {

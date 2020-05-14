@@ -49,6 +49,7 @@ final class CoreDataService {
         var result: [T]!
 
         do {
+            // TODO: performBlockなどでの考慮を入れる
             result = try context.fetch(fetchRequest)
         } catch {
             print("Error occured: \(error). Error description : \(error.localizedDescription)")

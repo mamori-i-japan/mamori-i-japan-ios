@@ -16,6 +16,7 @@ extension CoreDataService {
         data.set(traceDataRecord: traceDataRecord)
         print("[CoreData] save: \(data)")
         do {
+            // TODO: performBlockなどでの考慮を入れる
             try managedContext.save()
         } catch {
             print("[CoreData] Could not save. \(error)")
