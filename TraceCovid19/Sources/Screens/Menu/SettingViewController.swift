@@ -19,6 +19,10 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
     var loginService: LoginService!
     var keychainService: KeychainService!
 
+    static let organizationColeIndexPath = IndexPath(row: 1, section: 0)
+    // NOTE: 常に組織コードは表示しないように対応
+    private var isHideOrganiztionCodeCell = true
+
     private var profile: Profile?
 
     override func viewWillAppear(_ animated: Bool) {
@@ -74,7 +78,7 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
         let normalColor = UIColor.systemBlack
         let blankColor = UIColor.systemLightGray
 
-        if let organization = profile.organizationCode, !organization.isEmpty {
+        if let organization = profile.organizationCode, !organization.isEmpty, !isHideOrganiztionCodeCell {
             organizationLabel.text = organization
             organizationLabel.textColor = normalColor
             clearOrganizationButton.isHidden = false
@@ -105,6 +109,15 @@ final class SettingViewController: UITableViewController, NVActivityIndicatorVie
                 self?.requestClearOrganization()
             }
         )
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isHideOrganiztionCodeCell && indexPath == type(of: self).organizationColeIndexPath {
+            // データアップロードのセルを隠す場合、対象のセルの高さを0として扱う
+            return 0.0
+        }
+
+        return tableView.rowHeight
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -10,7 +10,7 @@
         <!--設定-->
         <scene sceneID="PfL-Df-rPT">
             <objects>
-                <tableViewController title="設定" id="DNb-ZI-L5Y" customClass="SettingViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="設定" id="DNb-ZI-L5Y" customClass="SettingViewController" customModule="DEV_まもりあい" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="4gg-WA-O2B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
                                         <constraint firstAttribute="height" constant="1" id="9FK-Zh-DLL"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="en3-vG-Uez" customClass="BorderButton" customModule="まもりあい" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="en3-vG-Uez" customClass="BorderButton" customModule="DEV_まもりあい" customModuleProvider="target">
                                     <rect key="frame" x="36" y="40" width="303" height="56"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -83,7 +83,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="都道府県" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0f-iC-yY7" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="都道府県" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0f-iC-yY7" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
                                                     <rect key="frame" x="27" y="17.333333333333336" width="69.333333333333329" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -95,20 +95,12 @@
                                                     <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRs-Vi-N4h">
-                                                    <rect key="frame" x="16" y="54" width="359" height="1"/>
-                                                    <color key="backgroundColor" red="0.84313725490196079" green="0.8784313725490196" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="j4C-BH-RWH"/>
-                                                    </constraints>
-                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector" translatesAutoresizingMaskIntoConstraints="NO" id="NHt-9I-vQO">
                                                     <rect key="frame" x="349" y="19" width="10" height="17"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="F1z-Dk-feL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d0f-iC-yY7" secondAttribute="trailing" constant="8" id="Z7d-11-kaV"/>
-                                                <constraint firstItem="eRs-Vi-N4h" firstAttribute="leading" secondItem="uZG-rw-qiv" secondAttribute="leading" constant="16" id="ZTH-g8-gZZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -118,8 +110,6 @@
                                             <constraint firstItem="NHt-9I-vQO" firstAttribute="centerY" secondItem="QEF-CN-aNW" secondAttribute="centerY" id="iaN-Ja-9vM"/>
                                             <constraint firstItem="F1z-Dk-feL" firstAttribute="centerY" secondItem="QEF-CN-aNW" secondAttribute="centerY" id="ibT-M1-hXb"/>
                                             <constraint firstAttribute="trailing" secondItem="NHt-9I-vQO" secondAttribute="trailing" constant="16" id="mpb-vz-rnb"/>
-                                            <constraint firstAttribute="bottom" secondItem="eRs-Vi-N4h" secondAttribute="bottom" id="qE7-En-qkP"/>
-                                            <constraint firstAttribute="trailing" secondItem="eRs-Vi-N4h" secondAttribute="trailing" id="zQP-w4-HZ9"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="TaX-QX-hs0">
@@ -129,8 +119,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="組織コード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jB-Os-OEC" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
-                                                    <rect key="frame" x="27.000000000000007" y="18" width="86.666666666666686" height="19.333333333333329"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="組織コード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jB-Os-OEC" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
+                                                    <rect key="frame" x="27.000000000000007" y="17.333333333333336" width="86.666666666666686" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
