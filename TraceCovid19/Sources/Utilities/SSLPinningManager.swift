@@ -17,7 +17,7 @@ struct SSLPinningCondition {
     /// 初期化処理
     ///
     /// - Parameters:
-    ///   - host: ホスト名 ex) www.decurret.com
+    ///   - host: ホスト名 ex) www.yahoo.co.jp
     ///   - hashes: ハッシュ値の配列
     ///     ```
     ///     // CRTの取得
@@ -39,7 +39,7 @@ struct SSLPinningCondition {
     /// 初期化処理
     ///
     /// - Parameters:
-    ///   - host: ホスト名 ex) www.decurret.com
+    ///   - host: ホスト名 ex) www.yahoo.co.jp
     ///   - hashes: ハッシュ値の配列
     ///     ```
     ///     // CRTの取得

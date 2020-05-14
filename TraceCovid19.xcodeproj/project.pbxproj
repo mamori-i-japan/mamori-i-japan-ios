@@ -27,6 +27,7 @@
 		F0156AB224580C98006CB28F /* NavigationProtocol+Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0156AB124580C98006CB28F /* NavigationProtocol+Home.swift */; };
 		F01E6B25246BDA1D00A4C7AA /* TraceHistorySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01E6B24246BDA1D00A4C7AA /* TraceHistorySectionHeaderView.swift */; };
 		F01E6B27246BDA3A00A4C7AA /* TraceHistorySectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01E6B26246BDA3A00A4C7AA /* TraceHistorySectionHeaderView.xib */; };
+		F01E6B29246CFE0A00A4C7AA /* UIViewController+ShowSafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01E6B28246CFE0A00A4C7AA /* UIViewController+ShowSafariView.swift */; };
 		F01EA9042449C95D00B81DB6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F01EA9032449C95D00B81DB6 /* Alamofire */; };
 		F01EA9072449C97400B81DB6 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F01EA9062449C97400B81DB6 /* KeychainAccess */; };
 		F02356A92442EDCC001E72ED /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04759A5243592840091059F /* Swinject.framework */; };
@@ -238,6 +239,7 @@
 		F0156AB124580C98006CB28F /* NavigationProtocol+Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationProtocol+Home.swift"; sourceTree = "<group>"; };
 		F01E6B24246BDA1D00A4C7AA /* TraceHistorySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceHistorySectionHeaderView.swift; sourceTree = "<group>"; };
 		F01E6B26246BDA3A00A4C7AA /* TraceHistorySectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TraceHistorySectionHeaderView.xib; sourceTree = "<group>"; };
+		F01E6B28246CFE0A00A4C7AA /* UIViewController+ShowSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowSafariView.swift"; sourceTree = "<group>"; };
 		F02356842442E3B8001E72ED /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
 		F02356862442EB69001E72ED /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = Carthage/Build/iOS/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
 		F02356872442EB69001E72ED /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransport.framework; path = Carthage/Build/iOS/GoogleDataTransport.framework; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 				F04759B524359AC20091059F /* UIViewController+Instantiate.swift */,
 				F096D5B924501DE000F7919B /* UIViewController+Navigation.swift */,
 				F02356D124444370001E72ED /* UIViewController+ShowAlert.swift */,
+				F01E6B28246CFE0A00A4C7AA /* UIViewController+ShowSafariView.swift */,
 				F0613E7E2463F6B3000595EE /* UIViewController+Utility.swift */,
 				F0A282DE243F2A86008390AE /* UUID+DataRepresentation.swift */,
 				F079FF89244D3C5200202A91 /* XibLocalizable.swift */,
@@ -1191,6 +1194,7 @@
 				F03FB9832451F2EC00158521 /* HomePositiveContentsView.swift in Sources */,
 				F0613E7A2463A729000595EE /* HomeInformationView.swift in Sources */,
 				F079FF83244C244500202A91 /* ProfileChangeable.swift in Sources */,
+				F01E6B29246CFE0A00A4C7AA /* UIViewController+ShowSafariView.swift in Sources */,
 				F051AD9D2447769B007278A0 /* Debug2ViewController.swift in Sources */,
 				F0A282CF243ED0C5008390AE /* KeyboardCloseProtocol.swift in Sources */,
 				F0A2831B24418AAD008390AE /* PrefectureModel.swift in Sources */,

@@ -8,6 +8,8 @@
 import UIKit
 import NVActivityIndicatorView
 
+// TODO: 廃止予定
+
 final class InputOrganizationViewController: UIViewController, NVActivityIndicatorViewable, KeyboardCloseProtocol, InputPhoneNumberAccessable {
     @IBOutlet weak var organizationTextField: UITextField!
     @IBOutlet weak var errorLabel: BaseLabel!

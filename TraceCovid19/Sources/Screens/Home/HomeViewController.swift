@@ -116,6 +116,20 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
         homePositiveContentsView.setUploadButtonAction { [weak self] in
             self?.gotoUpload()
         }
+
+        // コンテンツタップ時の内容を設定
+        homeActionContentsView.setup(
+            action1: { [weak self] in
+                // TODO: URL
+                self?.showSafariView(url: URL(string: "https://www.yahoo.co.jp")!)
+            }, action2: { [weak self] in
+                // TODO: URL
+                self?.showSafariView(url: URL(string: "https://www.yahoo.co.jp")!)
+            }, action3: { [weak self] in
+                // TODO: URL
+                self?.showSafariView(url: URL(string: "https://www.yahoo.co.jp")!)
+            }
+        )
     }
 
     private func reloadViews() {

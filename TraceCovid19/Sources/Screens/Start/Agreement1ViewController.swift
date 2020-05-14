@@ -23,6 +23,11 @@ final class Agreement1ViewController: UIViewController, NavigationBarHiddenAppli
         scrollView.flashScrollIndicators()
     }
 
+    @IBAction func tappedReadAllAgreementButton(_ sender: Any) {
+        // TODO: URL
+        showSafariView(url: URL(string: "https://www.yahoo.co.jp")!)
+    }
+
     @IBAction func tappedNextButton(_ sender: Any) {
         pushToInputPrefecture(flow: .start)
     }

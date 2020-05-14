@@ -300,7 +300,6 @@ extension SwinjectStoryboard {
         }
 
         defaultContainer.register([SSLPinningCondition].self) { _ in
-            // TODO: 環境
             #if DEV
             return [
                 SSLPinningCondition(
@@ -318,6 +317,7 @@ extension SwinjectStoryboard {
                 )
             ]
             #else
+            // TODO: 本番環境の内容決まったら差し替えをする
             return [SSLPinningCondition]()
             #endif
         }

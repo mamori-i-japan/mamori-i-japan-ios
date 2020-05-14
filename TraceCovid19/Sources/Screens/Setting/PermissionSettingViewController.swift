@@ -31,8 +31,6 @@ final class PermissionSettingViewController: UIViewController, NavigationBarHidd
             self?.bleService.bluetoothDidUpdateStateCallback = nil
             self?.bleService.turnOff()
 
-            // TODO: stateによって許可されなかった場合とかの見せ方
-
             // NOTE: iOS13未満の場合に、許可ダイアログのもどりを判別できないのでハンドリングはしない
         }
 
@@ -43,8 +41,6 @@ final class PermissionSettingViewController: UIViewController, NavigationBarHidd
     func requestNotification() {
         notificationService.requestAuthorization { [weak self] isGranted in
             print("[PermissionSetting] push: \(isGranted)")
-            // TODO: 許可されなかった場合に何かする？
-
             self?.isPushPermissionConfirmed = true
         }
     }

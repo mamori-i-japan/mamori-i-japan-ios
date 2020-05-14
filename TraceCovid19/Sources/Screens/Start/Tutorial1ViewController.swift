@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SafariServices
 
 final class Tutorial1ViewController: UIViewController, NavigationBarHiddenApplicapable, Agreement1Accessable {
     @IBAction func tappedNextButton(_ sender: Any) {
@@ -15,8 +14,6 @@ final class Tutorial1ViewController: UIViewController, NavigationBarHiddenApplic
 
     @IBAction func tappedHelpButton(_ sender: Any) {
         // TODO: URL
-        let safariVC = SFSafariViewController(url: URL(string: "https://www.yahoo.co.jp")!)
-        safariVC.modalPresentationStyle = .overFullScreen
-        present(safariVC, animated: true, completion: nil)
+        showSafariView(url: URL(string: "https://www.yahoo.co.jp")!)
     }
 }

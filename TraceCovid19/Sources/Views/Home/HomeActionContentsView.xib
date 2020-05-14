@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeActionContentsView" customModule="まもりあい" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeActionContentsView" customModule="DEV_まもりあい" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="338"/>
@@ -19,7 +19,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lXg-Qd-KeZ">
                             <rect key="frame" x="0.0" y="0.0" width="303" height="20.333333333333332"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行動指針" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPR-M7-96r" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行動指針" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPR-M7-96r" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
                                     <rect key="frame" x="117" y="0.0" width="69.333333333333314" height="20.333333333333332"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <color key="textColor" red="0.43529411764705883" green="0.4392156862745098" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -35,7 +35,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bru-L0-tkX">
                             <rect key="frame" x="0.0" y="28.333333333333343" width="303" height="128"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAj-hw-g57" customClass="BorderButton" customModule="まもりあい" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAj-hw-g57" customClass="BorderButton" customModule="DEV_まもりあい" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="303" height="56"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -48,8 +48,11 @@
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="基本的に外出しない"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="tappedAction1Button:" destination="-1" eventType="touchUpInside" id="AK7-qs-qlN"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCV-5G-usH" customClass="BorderButton" customModule="まもりあい" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCV-5G-usH" customClass="BorderButton" customModule="DEV_まもりあい" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="72" width="303" height="56"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -62,6 +65,9 @@
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="マスクと手洗いをしてください"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="tappedAction2Button:" destination="-1" eventType="touchUpInside" id="WTK-en-241"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
@@ -76,7 +82,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Na1-Om-AH4">
                             <rect key="frame" x="0.0" y="0.0" width="303" height="44.666666666666664"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxD-rT-E8C" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxD-rT-E8C" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
                                     <rect key="frame" x="30.333333333333329" y="0.0" width="242.66666666666669" height="44.666666666666664"/>
                                     <string key="text">医療機関に連絡するべきなのか
 確認しましょう</string>
@@ -94,7 +100,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3ZS-zy-yME">
                             <rect key="frame" x="0.0" y="55.666666666666657" width="303" height="56"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSv-IY-4OQ" customClass="BorderButton" customModule="まもりあい" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSv-IY-4OQ" customClass="BorderButton" customModule="DEV_まもりあい" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="303" height="56"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -107,6 +113,9 @@
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="不安、体調不良を相談したい"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="tappedAction3Button:" destination="-1" eventType="touchUpInside" id="e1B-pK-G2n"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
