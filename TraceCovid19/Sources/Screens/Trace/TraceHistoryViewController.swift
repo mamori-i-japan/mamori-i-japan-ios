@@ -71,10 +71,6 @@ final class TraceHistoryViewController: UIViewController, NVActivityIndicatorVie
 }
 
 extension TraceHistoryViewController: NavigationBarHiddenApplicapable {
-    var navigationBackgroundImage: UIImage? {
-        // ナビゲーション部分は白色
-        return UIColor.systemWhite.toImage
-    }
 }
 
 extension TraceHistoryViewController: UITableViewDataSource {
@@ -128,6 +124,6 @@ final class TraceHistoryTableViewCell: UITableViewCell, NibInstantiatable {
 
 private extension DeepContactUser {
     var dateForHeader: String {
-        return startTime.toString(format: "yyyy年M月d日")
+        return startTime.toString(format: "yyyy年 M月 d日")
     }
 }
