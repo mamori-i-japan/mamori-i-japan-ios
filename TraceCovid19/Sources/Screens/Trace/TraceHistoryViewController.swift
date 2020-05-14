@@ -115,7 +115,7 @@ final class TraceHistoryTableViewCell: UITableViewCell, NibInstantiatable {
     private static let defaultSeparatorViewLeadingValue: CGFloat = 16.0
 
     func update(deepContactUser: DeepContactUser, isLastCell: Bool) {
-        let timeDuration = "\(deepContactUser.startTime.toString(format: "HH:mm"))〜\(deepContactUser.endTime.toString(format: "HH:mm"))"
+        let timeDuration = "\(deepContactUser.startTime.toString(format: "HH：mm"))〜\(deepContactUser.endTime.toString(format: "HH：mm"))"
         label.text = timeDuration
 
         separatorViewLeadingConstraint.constant = isLastCell ? 0.0 : type(of: self).defaultSeparatorViewLeadingValue
