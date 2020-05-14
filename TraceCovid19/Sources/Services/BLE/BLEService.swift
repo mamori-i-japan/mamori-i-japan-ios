@@ -256,7 +256,7 @@ final class BLEService {
         if #available(iOS 13.1, *) {
             return CBManager.authorization == .allowedAlways
         } else {
-            // todo: consider iOS 13.0, which has different behavior from 13.1 onwards
+            // NOTE: iOS13.0だと挙動が違うので注意
             return CBPeripheralManager.authorizationStatus() == .authorized
         }
     }

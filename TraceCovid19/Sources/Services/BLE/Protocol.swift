@@ -1,10 +1,8 @@
 import Foundation
 
 struct ReadData: Codable {
-//    var mp: String // phone model of peripheral
     var i: String // tempID
-//    var o: String // organisation
-//    var v: Int // protocol version
+
     init(tempID: String) {
         i = tempID
     }
@@ -27,11 +25,9 @@ struct ReadData: Codable {
 }
 
 struct WriteData: Codable {
-    //    var mc: String // phone model of central
     var rs: Double // rssi
     var i: String // tempID
-    //    var o: String // organisation
-    //    var v: Int // protocol version
+
     init(RSSI: Double, tempID: String) {
         rs = RSSI
         i = tempID
