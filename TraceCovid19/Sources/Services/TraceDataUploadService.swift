@@ -22,9 +22,9 @@ final class TraceDataUploadService {
         case unknown(Error?)
     }
 
-    func upload(completion: @escaping (Result<Void, UploadError>) -> Void) {
+    func upload(healthCenterToken: String, completion: @escaping (Result<Void, UploadError>) -> Void) {
         let tempUserIds = tempIdService.getTempIdsForTwoWeeks()
-        traceDataUploadAPI.upload(tempUserIds: tempUserIds) { result in
+        traceDataUploadAPI.upload(tempUserIds: tempUserIds, healthCenterToken: healthCenterToken) { result in
             switch result {
             case .success:
                 // TODO: 成功したリストは削除したほうが良い？ずっととっておいて次回以降も含める？

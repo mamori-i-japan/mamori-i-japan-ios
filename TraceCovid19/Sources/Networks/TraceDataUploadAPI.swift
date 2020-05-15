@@ -14,7 +14,7 @@ final class TraceDataUploadAPIRequest: APIRequestProtocol {
         return .post
     }
     var path: String {
-        return "/users/me/diagnosis_keys_for_org"
+        return "/users/me/health_center_tokens"
     }
     var isNeedAuthentication: Bool {
         return true
@@ -23,15 +23,18 @@ final class TraceDataUploadAPIRequest: APIRequestProtocol {
     var parameters: [String: Any] {
         var result: [String: Any] = (try? tempIDs.asDictionary()) ?? [:]
         result["randomID"] = randomID
+        result["healthCenterToken"] = healthCenterToken
         return result
     }
 
     private let randomID: String
     private let tempIDs: TempIDs
+    private let healthCenterToken: String
 
-    init(randomID: String, tempUserIds: [TempUserId]) {
+    init(randomID: String, tempUserIds: [TempUserId], healthCenterToken: String) {
         self.randomID = randomID
         self.tempIDs = TempIDs(tempIDs: tempUserIds.compactMap { .init(tempUserId: $0) })
+        self.healthCenterToken = healthCenterToken
     }
 }
 
@@ -60,9 +63,9 @@ final class TraceDataUploadAPI {
         self.keychain = keychain
     }
 
-    func upload(tempUserIds: [TempUserId], completionHandler: @escaping (Result<EmpytResponse, APIRequestError>) -> Void) {
+    func upload(tempUserIds: [TempUserId], healthCenterToken: String, completionHandler: @escaping (Result<EmpytResponse, APIRequestError>) -> Void) {
         let randomID = creatRandomID()
-        let request = TraceDataUploadAPIRequest(randomID: randomID, tempUserIds: tempUserIds)
+        let request = TraceDataUploadAPIRequest(randomID: randomID, tempUserIds: tempUserIds, healthCenterToken: healthCenterToken)
         apiClient.request(request: request) { [weak self] result in
             if case .success = result {
                 // NOTE: 成功時に、発行したランダムIDを保存しておく

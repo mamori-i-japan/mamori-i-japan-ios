@@ -11,25 +11,12 @@
         <!--Trace Data Upload View Controller-->
         <scene sceneID="OYj-QQ-coQ">
             <objects>
-                <viewController id="6aq-Ew-NWX" customClass="TraceDataUploadViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6aq-Ew-NWX" customClass="TraceDataUploadViewController" customModule="DEV_まもりあい" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YQh-gU-NIz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqa-7B-aj4" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
-                                <rect key="frame" x="16" y="305" width="343" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="xft-jx-zta"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="upload_data"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="tappedUploadButtonWithSender:" destination="6aq-Ew-NWX" eventType="touchUpInside" id="O1V-tg-Brl"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="N6H-pl-p4e" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="N6H-pl-p4e" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
                                 <rect key="frame" x="16" y="165" width="343" height="53"/>
                                 <string key="text">接触デバイスIDの
 アップロード要請がありました。</string>
@@ -42,20 +29,59 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zkg-vQ-GYu" customClass="NoPerformActionTextField" customModule="DEV_まもりあい" customModuleProvider="target">
+                                <rect key="frame" x="16" y="249" width="343" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="0I2-60-htf"/>
+                                </constraints>
+                                <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KbR-8h-Ohe">
+                                <rect key="frame" x="16" y="309" width="343" height="1"/>
+                                <color key="backgroundColor" white="0.02" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="4uV-vH-Cc1"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqa-7B-aj4" customClass="ActionButton" customModule="DEV_まもりあい" customModuleProvider="target">
+                                <rect key="frame" x="16" y="345" width="343" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="xft-jx-zta"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="upload_data"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tappedUploadButtonWithSender:" destination="6aq-Ew-NWX" eventType="touchUpInside" id="O1V-tg-Brl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="N6H-pl-p4e" firstAttribute="top" secondItem="qlL-l3-tPt" secondAttribute="top" constant="77" id="EGx-So-ozg"/>
                             <constraint firstItem="N6H-pl-p4e" firstAttribute="leading" secondItem="qlL-l3-tPt" secondAttribute="leading" constant="16" id="Ewq-0c-RdN"/>
-                            <constraint firstItem="xqa-7B-aj4" firstAttribute="top" secondItem="N6H-pl-p4e" secondAttribute="bottom" constant="87" id="S3M-hx-SKm"/>
+                            <constraint firstItem="KbR-8h-Ohe" firstAttribute="trailing" secondItem="Zkg-vQ-GYu" secondAttribute="trailing" id="Gvd-wz-Pri"/>
+                            <constraint firstItem="KbR-8h-Ohe" firstAttribute="top" secondItem="Zkg-vQ-GYu" secondAttribute="bottom" id="N6d-c5-88S"/>
+                            <constraint firstItem="KbR-8h-Ohe" firstAttribute="leading" secondItem="Zkg-vQ-GYu" secondAttribute="leading" id="Nas-Kg-F6u"/>
+                            <constraint firstItem="xqa-7B-aj4" firstAttribute="top" secondItem="N6H-pl-p4e" secondAttribute="bottom" constant="127" id="S3M-hx-SKm"/>
                             <constraint firstItem="qlL-l3-tPt" firstAttribute="trailing" secondItem="xqa-7B-aj4" secondAttribute="trailing" constant="16" id="XRS-Fp-GMZ"/>
+                            <constraint firstItem="qlL-l3-tPt" firstAttribute="trailing" secondItem="Zkg-vQ-GYu" secondAttribute="trailing" constant="16" id="djg-i0-IF5"/>
                             <constraint firstItem="qlL-l3-tPt" firstAttribute="trailing" secondItem="N6H-pl-p4e" secondAttribute="trailing" constant="16" id="fla-OU-ypg"/>
+                            <constraint firstItem="xqa-7B-aj4" firstAttribute="top" secondItem="Zkg-vQ-GYu" secondAttribute="bottom" constant="36" id="h47-H8-aF0"/>
                             <constraint firstItem="xqa-7B-aj4" firstAttribute="leading" secondItem="qlL-l3-tPt" secondAttribute="leading" constant="16" id="jOk-SJ-DfM"/>
+                            <constraint firstItem="Zkg-vQ-GYu" firstAttribute="leading" secondItem="qlL-l3-tPt" secondAttribute="leading" constant="16" id="mQA-4j-PEN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qlL-l3-tPt"/>
                     </view>
                     <navigationItem key="navigationItem" id="ggS-sc-jjh"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="nextButton" destination="xqa-7B-aj4" id="cVJ-Cg-VVC"/>
+                        <outlet property="tokenTextField" destination="Zkg-vQ-GYu" id="moO-ko-ZMZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vlb-Eb-V9s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
