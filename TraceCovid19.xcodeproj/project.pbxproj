@@ -561,6 +561,17 @@
 			path = Navigations;
 			sourceTree = "<group>";
 		};
+		F01E6B2C246E8D8D00A4C7AA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F0A2829B243EBF7F008390AE /* LoginAPI.swift */,
+				F096D5C72450672D00F7919B /* TraceDataUploadAPI.swift */,
+				F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */,
+				F01E6B2A246E8C5C00A4C7AA /* CancelPositiveAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		F04759A3243592830091059F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -744,10 +755,7 @@
 			children = (
 				F051ADA524481A7A007278A0 /* APIClient.swift */,
 				F051ADA3244819C7007278A0 /* APIRequest.swift */,
-				F0A2829B243EBF7F008390AE /* LoginAPI.swift */,
-				F096D5C72450672D00F7919B /* TraceDataUploadAPI.swift */,
-				F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */,
-				F01E6B2A246E8C5C00A4C7AA /* CancelPositiveAPI.swift */,
+				F01E6B2C246E8D8D00A4C7AA /* API */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
