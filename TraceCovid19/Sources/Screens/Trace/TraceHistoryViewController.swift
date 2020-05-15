@@ -10,6 +10,7 @@ import NVActivityIndicatorView
 
 final class TraceHistoryViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyView: UIView!
 
     var deepContactCheck: DeepContactCheckService!
     private var deepContactUsers: [DeepContactUser] = [] {
@@ -30,6 +31,11 @@ final class TraceHistoryViewController: UIViewController, NVActivityIndicatorVie
                     return section.append(SectionData(section: deepContactUser.dateForHeader, data: [deepContactUser]))
                 }
             }
+
+            DispatchQueue.main.async { [weak self] in
+                guard let sSelf = self else { return }
+                sSelf.emptyView.isHidden = !sSelf.sectionData.isEmpty
+            }
         }
     }
     private var sectionData: [SectionData] = []
@@ -42,6 +48,7 @@ final class TraceHistoryViewController: UIViewController, NVActivityIndicatorVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        emptyView.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -113,6 +120,29 @@ final class TraceHistoryTableViewCell: UITableViewCell, NibInstantiatable {
     @IBOutlet weak var separatorViewLeadingConstraint: NSLayoutConstraint!
 
     private static let defaultSeparatorViewLeadingValue: CGFloat = 16.0
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        initialize()
+    }
+
+    private func initialize() {
+        // 文字サイズが等間隔になるように調整
+        let defaultFont: UIFont = label.font
+        let fontDescriptor = defaultFont.fontDescriptor
+        let bodyMonospacedNumbersFontDescriptor = fontDescriptor.addingAttributes(
+            [
+                UIFontDescriptor.AttributeName.featureSettings: [
+                    [
+                        UIFontDescriptor.FeatureKey.featureIdentifier: kNumberSpacingType,
+                        UIFontDescriptor.FeatureKey.typeIdentifier: kMonospacedNumbersSelector
+                    ]
+                ]
+            ]
+        )
+        label.font = UIFont(descriptor: bodyMonospacedNumbersFontDescriptor, size: defaultFont.pointSize)
+    }
 
     func update(deepContactUser: DeepContactUser, isLastCell: Bool) {
         let timeDuration = "\(deepContactUser.startTime.toString(format: "HH：mm"))〜\(deepContactUser.endTime.toString(format: "HH：mm"))"
