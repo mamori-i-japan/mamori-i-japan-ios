@@ -13,9 +13,8 @@ import SnapKit
 enum UserStatus {
     case usual(count: Int)
     case semiUsual(count: Int)
-    // NOTE: Ph1では未実装
-//    case attension(latest: DeepContactUser)
-//    case positive
+    case attension(latest: DeepContactUser)
+    case positive
 
     static let usualUpperLimitCount = 25
 }
@@ -158,44 +157,44 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
             header.snp.makeConstraints { make in
                 make.edges.equalToSuperview()
             }
-//        case .attension(let latestContactUser):
-//            headerImageView.image = Asset.homeAttensionHeader.image
-//            let header = HomeAttensionHeaderView(frame: headerBaseView.frame)
-//            header.set(positiveContactUser: latestContactUser) { [weak self] in
-//                self?.gotoHistory()
-//            }
-//            headerBaseView.addSubview(header)
-//            header.snp.makeConstraints { make in
-//                make.edges.equalToSuperview()
-//            }
-//        case .positive:
-//            headerImageView.image = Asset.homePositiveHeader.image
-//            let header = HomePositiveHeaderView(frame: headerBaseView.frame)
-//            headerBaseView.addSubview(header)
-//            header.snp.makeConstraints { make in
-//                make.edges.equalToSuperview()
-//            }
+        case .attension(let latestContactUser):
+            headerImageView.image = Asset.homeAttensionHeader.image
+            let header = HomeAttensionHeaderView(frame: headerBaseView.frame)
+            header.set(positiveContactUser: latestContactUser) { [weak self] in
+                self?.gotoHistory()
+            }
+            headerBaseView.addSubview(header)
+            header.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+        case .positive:
+            headerImageView.image = Asset.homePositiveHeader.image
+            let header = HomePositiveHeaderView(frame: headerBaseView.frame)
+            headerBaseView.addSubview(header)
+            header.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
         }
     }
 
     func redrawActionContentView() {
-//        switch status {
-//        case .usual, .semiUsual, .attension:
-        homeActionContentsView.isHidden = false
-        homePositiveContentsView.isHidden = true
-        if let information = information {
-            homeInformationView.isHidden = false
-            homeInformationView.set(information: information) { [weak self] information in
-                // TODO: 画面とかの見せ方
-                self?.showAlert(message: information.messageForAppAccess)
+        switch status {
+        case .usual, .semiUsual, .attension:
+            homeActionContentsView.isHidden = false
+            homePositiveContentsView.isHidden = true
+            if let information = information {
+                homeInformationView.isHidden = false
+                homeInformationView.set(information: information) { [weak self] information in
+                    // TODO: 画面とかの見せ方
+                    self?.showAlert(message: information.messageForAppAccess)
+                }
+            } else {
+                homeInformationView.isHidden = true
             }
-        } else {
-            homeInformationView.isHidden = true
+        case .positive:
+            homeActionContentsView.isHidden = true
+            homePositiveContentsView.isHidden = false
         }
-//        case .positive:
-//            homeActionContentsView.isHidden = true
-//            homePositiveContentsView.isHidden = false
-//        }
     }
 
     func shareApp() {
@@ -246,12 +245,12 @@ extension HomeViewController: NavigationBarHiddenApplicapable {
 
 extension HomeViewController {
     private var status: UserStatus {
-//        if positiveContact.isPositiveMyself() {
-//            return .positive
-//        }
-//        if let latestPerson = positiveContact.getLatestContactedPositivePeople() {
-//            return .attension(latest: latestPerson)
-//        }
+        if positiveContact.isPositiveMyself() {
+            return .positive
+        }
+        if let latestPerson = positiveContact.getLatestContactedPositivePeople() {
+            return .attension(latest: latestPerson)
+        }
         // 昨日の接触情報の回数
         let count = deepContactCheck.getDeepContactUsersAtYesterday().count
         return count >= UserStatus.usualUpperLimitCount ? .semiUsual(count: count) : .usual(count: count)

@@ -7,8 +7,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeAttensionHeaderView" customModule="まもりあい" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeAttensionHeaderView" customModule="DEV_まもりあい" customModuleProvider="target">
             <connections>
+                <outlet property="detailButton" destination="DQD-zr-7Fd" id="pf0-fc-3FL"/>
                 <outlet property="messageLabel" destination="gc5-ja-Oze" id="86f-pk-Kix"/>
             </connections>
         </placeholder>
@@ -17,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="327" height="208"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gc5-ja-Oze" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gc5-ja-Oze" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
                     <rect key="frame" x="24" y="52" width="279" height="82"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <color key="textColor" red="0.019607843140000001" green="0.094117647060000004" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,30 +30,37 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="textLocalizedKey" value="home.header.attension_message"/>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EbA-pe-FkV" customClass="BaseButton" customModule="まもりあい" customModuleProvider="target">
-                    <rect key="frame" x="130" y="160" width="67" height="28"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="Button">
-                        <color key="titleColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="show_detail"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="tappedShowDetailButton:" destination="-1" eventType="touchUpInside" id="Lsh-Ih-6v7"/>
-                    </connections>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQD-zr-7Fd" customClass="BaseButton" customModule="DEV_まもりあい" customModuleProvider="target">
+                    <rect key="frame" x="12" y="148" width="303" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="xSS-OM-c1X"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="12" maxY="0.0"/>
+                    <state key="normal" image="Disclosure"/>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="詳しく見る" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0w4-ks-RJP">
+                    <rect key="frame" x="120" y="161.5" width="87" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="gc5-ja-Oze" secondAttribute="trailing" constant="24" id="5we-W4-cmq"/>
-                <constraint firstAttribute="bottom" secondItem="EbA-pe-FkV" secondAttribute="bottom" constant="20" id="AwY-CG-eee"/>
-                <constraint firstItem="EbA-pe-FkV" firstAttribute="centerX" secondItem="R4F-9S-cE8" secondAttribute="centerX" id="YnP-nA-7kX"/>
+                <constraint firstItem="DQD-zr-7Fd" firstAttribute="leading" secondItem="R4F-9S-cE8" secondAttribute="leading" constant="12" id="7ni-16-kvn"/>
+                <constraint firstItem="0w4-ks-RJP" firstAttribute="centerX" secondItem="DQD-zr-7Fd" secondAttribute="centerX" id="P7m-r2-oBd"/>
+                <constraint firstItem="0w4-ks-RJP" firstAttribute="centerY" secondItem="DQD-zr-7Fd" secondAttribute="centerY" id="WeP-aJ-w1M"/>
+                <constraint firstAttribute="trailing" secondItem="DQD-zr-7Fd" secondAttribute="trailing" constant="12" id="Ymy-KV-PHT"/>
                 <constraint firstItem="gc5-ja-Oze" firstAttribute="top" secondItem="R4F-9S-cE8" secondAttribute="top" constant="52" id="tIa-mX-pLS"/>
+                <constraint firstAttribute="bottom" secondItem="DQD-zr-7Fd" secondAttribute="bottom" constant="12" id="vs3-6W-zis"/>
                 <constraint firstItem="gc5-ja-Oze" firstAttribute="leading" secondItem="R4F-9S-cE8" secondAttribute="leading" constant="24" id="wWK-hi-yPc"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-357.24637681159425" y="35.491071428571423"/>
         </view>
     </objects>
+    <resources>
+        <image name="Disclosure" width="24" height="24"/>
+    </resources>
 </document>

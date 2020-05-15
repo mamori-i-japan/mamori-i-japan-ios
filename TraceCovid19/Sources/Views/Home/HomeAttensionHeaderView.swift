@@ -8,7 +8,8 @@
 import UIKit
 
 final class HomeAttensionHeaderView: UIView, NibInstantiatable {
-    @IBOutlet weak var messageLabel: BaseLabel!//
+    @IBOutlet weak var messageLabel: BaseLabel!
+    @IBOutlet weak var detailButton: BaseButton!
 
     private var showDetailAction: (() -> Void)?
 
@@ -31,11 +32,15 @@ final class HomeAttensionHeaderView: UIView, NibInstantiatable {
         view.frame = bounds
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(view)
+
+        detailButton.layer.cornerRadius = 8.0
+        detailButton.clipsToBounds = true
+        detailButton.setBackgroundImage(UIColor.primary3.toImage, for: .normal)
+        detailButton.setBackgroundImage(UIColor.primary1.withAlphaComponent(0.2).toImage, for: .highlighted)
     }
 
     func set(positiveContactUser: DeepContactUser, showDetailAction: @escaping (() -> Void)) {
-        let ampm = positiveContactUser.startTime.toStringWithAMPMInJapanese(format: "h") // 例: 午前1
-        let contactDateString = positiveContactUser.startTime.toString(format: "yyyy年M月d日") + ampm + "頃"
+        let contactDateString = "１週間" // TODO: おおよその日数計算をする（正確な値は出さない）
         messageLabel.text = L10n.Home.Header.attensionMessage(contactDateString)
         self.showDetailAction = showDetailAction
     }

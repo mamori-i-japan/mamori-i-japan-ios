@@ -9,6 +9,9 @@ import UIKit
 
 final class HomePositiveContentsView: UIView, NibInstantiatable {
     private var uploadButtonAction: (() -> Void)?
+    @IBOutlet weak var dummyView1: UIView!
+    @IBOutlet weak var dummyView2: UIView!
+    @IBOutlet weak var dummyView3: UIView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,6 +28,10 @@ final class HomePositiveContentsView: UIView, NibInstantiatable {
         view.frame = bounds
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(view)
+
+        dummyView1.layer.cornerRadius = dummyView1.bounds.height / 2.0
+        dummyView2.layer.cornerRadius = dummyView2.bounds.height / 2.0
+        dummyView3.layer.cornerRadius = dummyView3.bounds.height / 2.0
     }
 
     func setUploadButtonAction(uploadButtonAction: @escaping () -> Void) {
