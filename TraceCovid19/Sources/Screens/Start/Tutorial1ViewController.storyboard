@@ -11,7 +11,7 @@
         <!--Tutorial1 View Controller-->
         <scene sceneID="AFv-59-n1P">
             <objects>
-                <viewController id="99i-xg-uYj" customClass="Tutorial1ViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="99i-xg-uYj" customClass="Tutorial1ViewController" customModule="DEV_まもりあい" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yzx-sx-MFb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,19 +23,19 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gx6-Lt-41D">
-                                <rect key="frame" x="16" y="60" width="288" height="197.5"/>
+                                <rect key="frame" x="16" y="60" width="288" height="185.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="H5G-qv-YWM">
-                                        <rect key="frame" x="12.5" y="0.0" width="263.5" height="145.5"/>
+                                        <rect key="frame" x="25.5" y="0.0" width="237.5" height="133.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="どんなアプリなの？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMI-Zf-Gno" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="0.0" width="183.5" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="どんなアプリなの？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMI-Zf-Gno" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
+                                                <rect key="frame" x="27" y="0.0" width="183.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" red="0.43529411764705883" green="0.4392156862745098" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lWZ-HX-5NC" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="40" width="263.5" height="105.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lWZ-HX-5NC" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="40" width="237.5" height="93.5"/>
                                                 <string key="text">まもりあいJapanを
 入れているスマホ同士の
 接触を検知します</string>
@@ -50,8 +50,8 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rab-9f-Oo3" customClass="BaseButton" customModule="まもりあい" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="153.5" width="226" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rab-9f-Oo3" customClass="BaseButton" customModule="DEV_まもりあい" customModuleProvider="target">
+                                        <rect key="frame" x="31" y="141.5" width="226" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="2L5-qp-FVC"/>
                                         </constraints>
@@ -65,7 +65,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHJ-hz-ZCU" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHJ-hz-ZCU" customClass="ActionButton" customModule="DEV_まもりあい" customModuleProvider="target">
                                 <rect key="frame" x="16" y="488" width="288" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Puv-iP-IbW"/>
@@ -75,7 +75,7 @@
                                     <color key="titleColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="next"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="始める"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tappedNextButton:" destination="99i-xg-uYj" eventType="touchUpInside" id="Dbu-Gc-mym"/>

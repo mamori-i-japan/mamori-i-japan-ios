@@ -17,8 +17,8 @@ final class MenuViewController: UITableViewController, NVActivityIndicatorViewab
     var loginService: LoginService!
 
     static let dataUploadIndexPath = IndexPath(row: 1, section: 0)
-    // NOTE: 組織コードに関わらず常に表示するように対応
-    private var isHideDataUploadCell = false //true
+    // NOTE: 組織コードに関わらず常に非表示するように対応
+    private var isHideDataUploadCell = true
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
