@@ -10,7 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeActionContentsView" customModule="DEV_まもりあい" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="338"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iMD-gb-muq">
@@ -121,14 +121,60 @@
                         </stackView>
                     </subviews>
                 </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="pPl-di-0BQ">
+                    <rect key="frame" x="36" y="373" width="303" height="87.333333333333314"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fnv-5T-2s4">
+                            <rect key="frame" x="0.0" y="0.0" width="303" height="20.333333333333332"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="陽性判定があった場合" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGj-i0-Iac" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
+                                    <rect key="frame" x="65.000000000000014" y="0.0" width="173.33333333333337" height="20.333333333333332"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="textColor" red="0.43529411759999997" green="0.43921568630000002" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                            <real key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dhL-Cn-PHT">
+                            <rect key="frame" x="0.0" y="31.333333333333314" width="303" height="56"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRt-dy-sNK" customClass="ActionButton" customModule="DEV_まもりあい" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="303" height="56"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="56" id="TLK-4n-quY"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="センターへ情報共有をする"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="tappedAction4Button:" destination="-1" eventType="touchUpInside" id="Oco-Ut-3qH"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="XOp-2L-7H2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5ug-99-1Sk"/>
                 <constraint firstItem="6Ea-Sa-Qle" firstAttribute="top" secondItem="XOp-2L-7H2" secondAttribute="bottom" constant="20" id="DaP-nt-ctz"/>
                 <constraint firstItem="XOp-2L-7H2" firstAttribute="top" secondItem="iMD-gb-muq" secondAttribute="bottom" constant="20" id="H71-Uy-xN5"/>
+                <constraint firstItem="pPl-di-0BQ" firstAttribute="top" secondItem="6Ea-Sa-Qle" secondAttribute="bottom" constant="35" id="Hoh-kz-MR4"/>
                 <constraint firstItem="iMD-gb-muq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="NDR-vC-848"/>
                 <constraint firstItem="6Ea-Sa-Qle" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="36" id="YR6-Kl-oeP"/>
+                <constraint firstAttribute="trailing" secondItem="pPl-di-0BQ" secondAttribute="trailing" constant="36" id="YjD-Nt-kyv"/>
+                <constraint firstItem="pPl-di-0BQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="35.999999999999986" id="au6-4V-VRe"/>
                 <constraint firstAttribute="trailing" secondItem="iMD-gb-muq" secondAttribute="trailing" constant="36" id="cxq-iB-yaM"/>
                 <constraint firstItem="iMD-gb-muq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="36" id="fiA-lR-uRR"/>
                 <constraint firstAttribute="trailing" secondItem="6Ea-Sa-Qle" secondAttribute="trailing" constant="36" id="rMs-q4-Y28"/>

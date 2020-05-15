@@ -128,6 +128,8 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
             }, action3: { [weak self] in
                 // TODO: URL
                 self?.showSafariView(url: URL(string: "https://www.yahoo.co.jp")!)
+            }, action4: { [weak self] in
+                self?.pushToTraceDataUpload()
             }
         )
     }

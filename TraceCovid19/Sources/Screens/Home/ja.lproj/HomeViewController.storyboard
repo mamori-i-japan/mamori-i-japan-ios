@@ -26,7 +26,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mDV-p9-S2A">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1352"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1474"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q17-Gw-WfZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
@@ -71,21 +71,21 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJh-Kb-ust" customClass="HomeActionContentsView" customModule="DEV_まもりあい" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="496" width="375" height="338"/>
+                                                <rect key="frame" x="0.0" y="496" width="375" height="460"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="338" id="pVO-ih-lFy"/>
+                                                    <constraint firstAttribute="height" constant="460" id="pVO-ih-lFy"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o99-VN-4rq" customClass="HomePositiveContentsView" customModule="DEV_まもりあい" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="834" width="375" height="426"/>
+                                                <rect key="frame" x="0.0" y="956" width="375" height="426"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="426" id="dXY-lh-vpE"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twh-SS-Nq5">
-                                                <rect key="frame" x="0.0" y="1260" width="375" height="92"/>
+                                                <rect key="frame" x="0.0" y="1382" width="375" height="92"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bym-QJ-Gzc">
                                                         <rect key="frame" x="0.0" y="24" width="375" height="44"/>

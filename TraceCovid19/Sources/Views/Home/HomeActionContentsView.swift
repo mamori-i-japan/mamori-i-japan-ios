@@ -11,6 +11,7 @@ final class HomeActionContentsView: UIView, NibInstantiatable {
     private var action1: (() -> Void)?
     private var action2: (() -> Void)?
     private var action3: (() -> Void)?
+    private var action4: (() -> Void)?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,10 +30,11 @@ final class HomeActionContentsView: UIView, NibInstantiatable {
         addSubview(view)
     }
 
-    func setup(action1: @escaping () -> Void, action2: @escaping () -> Void, action3: @escaping () -> Void) {
+    func setup(action1: @escaping () -> Void, action2: @escaping () -> Void, action3: @escaping () -> Void, action4: @escaping () -> Void) {
         self.action1 = action1
         self.action2 = action2
         self.action3 = action3
+        self.action4 = action4
     }
 
     @IBAction func tappedAction1Button(_ sender: Any) {
@@ -43,5 +45,8 @@ final class HomeActionContentsView: UIView, NibInstantiatable {
     }
     @IBAction func tappedAction3Button(_ sender: Any) {
         action3?()
+    }
+    @IBAction func tappedAction4Button(_ sender: Any) {
+        action4?()
     }
 }
