@@ -28,6 +28,7 @@
 		F01E6B25246BDA1D00A4C7AA /* TraceHistorySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01E6B24246BDA1D00A4C7AA /* TraceHistorySectionHeaderView.swift */; };
 		F01E6B27246BDA3A00A4C7AA /* TraceHistorySectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01E6B26246BDA3A00A4C7AA /* TraceHistorySectionHeaderView.xib */; };
 		F01E6B29246CFE0A00A4C7AA /* UIViewController+ShowSafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01E6B28246CFE0A00A4C7AA /* UIViewController+ShowSafariView.swift */; };
+		F01E6B2B246E8C5C00A4C7AA /* CancelPositiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01E6B2A246E8C5C00A4C7AA /* CancelPositiveAPI.swift */; };
 		F01EA9042449C95D00B81DB6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F01EA9032449C95D00B81DB6 /* Alamofire */; };
 		F01EA9072449C97400B81DB6 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F01EA9062449C97400B81DB6 /* KeychainAccess */; };
 		F02356A92442EDCC001E72ED /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04759A5243592840091059F /* Swinject.framework */; };
@@ -240,6 +241,7 @@
 		F01E6B24246BDA1D00A4C7AA /* TraceHistorySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceHistorySectionHeaderView.swift; sourceTree = "<group>"; };
 		F01E6B26246BDA3A00A4C7AA /* TraceHistorySectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TraceHistorySectionHeaderView.xib; sourceTree = "<group>"; };
 		F01E6B28246CFE0A00A4C7AA /* UIViewController+ShowSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowSafariView.swift"; sourceTree = "<group>"; };
+		F01E6B2A246E8C5C00A4C7AA /* CancelPositiveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelPositiveAPI.swift; sourceTree = "<group>"; };
 		F02356842442E3B8001E72ED /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
 		F02356862442EB69001E72ED /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = Carthage/Build/iOS/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
 		F02356872442EB69001E72ED /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransport.framework; path = Carthage/Build/iOS/GoogleDataTransport.framework; sourceTree = "<group>"; };
@@ -745,6 +747,7 @@
 				F0A2829B243EBF7F008390AE /* LoginAPI.swift */,
 				F096D5C72450672D00F7919B /* TraceDataUploadAPI.swift */,
 				F0B9F388245BD4B1006FA28D /* ProfileAPI.swift */,
+				F01E6B2A246E8C5C00A4C7AA /* CancelPositiveAPI.swift */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -1213,6 +1216,7 @@
 				F079FF8A244D3C5200202A91 /* XibLocalizable.swift in Sources */,
 				F0A282A9243EC344008390AE /* Tutorial1ViewController.swift in Sources */,
 				F03FB97524517D7E00158521 /* HomeAttensionHeaderView.swift in Sources */,
+				F01E6B2B246E8C5C00A4C7AA /* CancelPositiveAPI.swift in Sources */,
 				F0B9F38B245C0910006FA28D /* TempUserIdGenerator.swift in Sources */,
 				F0A282D9243EF600008390AE /* AppVersion.swift in Sources */,
 				F051ADC02449476C007278A0 /* TempUserId.swift in Sources */,
