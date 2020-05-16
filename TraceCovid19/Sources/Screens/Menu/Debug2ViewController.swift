@@ -49,12 +49,12 @@ final class Debug2ViewController: UIViewController, NVActivityIndicatorViewable 
 
     @objc
     func refreshPositiveContacts() {
-        guard let organizationCode = organizationCodeTextField.text, !organizationCode.isEmpty else { return }
+//        guard let organizationCode = organizationCodeTextField.text, !organizationCode.isEmpty else { return }
 
         startAnimating(type: .circleStrokeSpin)
         // 再度陽性者情報をリセットしてとりなおす
         positiveContact.resetGeneration()
-        positiveContact.load(organizationCode: organizationCode) { [weak self] _ in
+        positiveContact.load { [weak self] _ in
             self?.stopAnimating()
             self?.refreshControl.endRefreshing()
             self?.tablewView.reloadData()

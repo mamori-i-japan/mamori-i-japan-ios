@@ -20,8 +20,8 @@ final class PositiveContactService {
     private var lastGeneration: Int64?
     private(set) var positiveContacts: [String] = []
 
-    private func filePath(dir: String) -> String {
-        return dir + "/positives.json.gz"
+    private var fileName: String {
+        return "positives.json.gz"
     }
 
     init(
@@ -63,7 +63,7 @@ final class PositiveContactService {
         return nil
     }
 
-    func load(organizationCode: String, completion: @escaping (Result<[String], PositiveContactStatus>) -> Void) {
+    func load(completion: @escaping (Result<[String], PositiveContactStatus>) -> Void) {
         // NOTE: FirebaseStorageもオフラインではコールバックが呼ばれないため事前にチェックする
         guard let rechability = try? Reachability(), rechability.connection != .unavailable else {
             print("[PositiveContactService] network error")
@@ -71,7 +71,7 @@ final class PositiveContactService {
             return
         }
 
-        let reference = storage.instance.reference().child(filePath(dir: organizationCode))
+        let reference = storage.instance.reference().child(fileName)
 
         reference.getMetadata { [weak self] metaData, error in
             guard let metaData = metaData, error == nil else {

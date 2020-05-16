@@ -113,7 +113,7 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
         headerBaseView.clipsToBounds = false
 
         homePositiveContentsView.setUploadButtonAction { [weak self] in
-            self?.gotoUpload()
+            self?.pushToTraceDataUpload()
         }
 
         // コンテンツタップ時の内容を設定
@@ -222,10 +222,6 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
         present(activityViewController, animated: true, completion: nil)
     }
 
-    func gotoUpload() {
-        modalToTraceDataUpload()
-    }
-
     func gotoHistory() {
         navigationController?.pushViewController(TraceHistoryViewController.instantiate(), animated: true)
     }
@@ -259,50 +255,53 @@ extension HomeViewController {
     @objc
     func fetchData() {
         // TODO: モーダル先からログアウトをする場合、ここの処理が呼ばれてしまうので余裕があればカバーする
-        fetchProfile()
+
+        // Profile取得からする必要はなくなったので、陽性者情報を取得しにいく
+        fetchPosisitiveContacts()
+//        fetchProfile()
     }
 
-    private func fetchProfile() {
+//    private func fetchProfile() {
+//        startAnimating(type: .circleStrokeSpin)
+//
+//        profileService.get { [weak self] result in
+//            self?.stopAnimating()
+//
+//            switch result {
+//            case .success(let profile):
+//                self?.fetchPosisitiveContacts(profile: profile)
+//            case .failure(.auth):
+//                // ログアウト
+//                self?.loginService.logout()
+//                self?.backToSplash()
+//            case .failure(.network):
+//                // TODO: ネットワークエラー
+//                print("[Home] network error")
+//            case .failure(.parse):
+//                // TODO: エラー表示
+//                print("[Home] parse error")
+//            case .failure(.unknown(let error)):
+//                // TODO: エラー表示
+//                print("[Home] error: \(String(describing: error))")
+//            }
+//        }
+//    }
+
+    private func fetchPosisitiveContacts() {
+//        guard let organizationCode = profile.organizationCode else {
+//            // NOTE: 組織コードをクリアして戻ってきた場合を考慮し、コードがなければお知らせもクリアする
+//            information = nil
+//            redrawActionContentView()
+//            return
+//        }
+
         startAnimating(type: .circleStrokeSpin)
-
-        profileService.get { [weak self] result in
-            self?.stopAnimating()
-
-            switch result {
-            case .success(let profile):
-                self?.fetchPosisitiveContacts(profile: profile)
-            case .failure(.auth):
-                // ログアウト
-                self?.loginService.logout()
-                self?.backToSplash()
-            case .failure(.network):
-                // TODO: ネットワークエラー
-                print("[Home] network error")
-            case .failure(.parse):
-                // TODO: エラー表示
-                print("[Home] parse error")
-            case .failure(.unknown(let error)):
-                // TODO: エラー表示
-                print("[Home] error: \(String(describing: error))")
-            }
-        }
-    }
-
-    private func fetchPosisitiveContacts(profile: Profile) {
-        guard let organizationCode = profile.organizationCode else {
-            // NOTE: 組織コードをクリアして戻ってきた場合を考慮し、コードがなければお知らせもクリアする
-            information = nil
-            redrawActionContentView()
-            return
-        }
-
-        startAnimating(type: .circleStrokeSpin)
-        positiveContact.load(organizationCode: organizationCode) { [weak self] result in
+        positiveContact.load { [weak self] result in
             self?.stopAnimating()
 
             switch result {
             case .success:
-                self?.execDeepContactCheck(profile: profile)
+                self?.execDeepContactCheck()
             case .failure(.noNeedToLoad):
                 break
             case .failure(.parse):
@@ -318,13 +317,13 @@ extension HomeViewController {
         }
     }
 
-    private func execDeepContactCheck(profile: Profile) {
+    private func execDeepContactCheck() {
         startAnimating(type: .circleStrokeSpin)
         deepContactCheck.checkStart { [weak self] in
             self?.stopAnimating()
             print("[Home] deep contact check finished: \($0)")
             // TODO: 濃厚接触判定が真だったらに限定する
-            self?.fetchInformation(profile: profile)
+//            self?.fetchInformation(profile: profile)
 
             self?.reloadViews()
         }
