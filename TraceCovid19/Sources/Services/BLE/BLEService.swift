@@ -10,12 +10,23 @@ import CoreBluetooth
 
 let traceDataRecordThrottleInterval: TimeInterval = 30
 
-enum Service: String, CustomStringConvertible {
-    // TODO currently from https://github.com/TCNCoalition/TCN
-    case trace = "0000C019-0000-1000-8000-00805F9B34FB"
-    func toCBUUID() -> CBUUID {
-        return CBUUID(string: self.rawValue)
+enum Service: CustomStringConvertible {
+    case trace
+
+    private var bleSSID: String {
+        #if DEV
+        return "416DFC7B-D6E2-4373-9299-D81ACD3CC728"
+        #elseif STG
+        return "0E2FD244-2114-466C-9F18-2D493CD70407"
+        #else
+        return "90FA7ABE-FAB6-485E-B700-1A17804CAA13"
+        #endif
     }
+
+    func toCBUUID() -> CBUUID {
+        return CBUUID(string: bleSSID)
+    }
+
     var description: String {
         switch self {
         case .trace:
@@ -24,9 +35,18 @@ enum Service: String, CustomStringConvertible {
     }
 }
 
-enum Characteristic: String, CustomStringConvertible {
-    // TODO currently from https://github.com/TCNCoalition/TCN
-    case contact = "D61F4F27-3D6B-4B04-9E46-C9D2EA617F62"
+enum Characteristic: CustomStringConvertible {
+    case contact
+
+    private static var characteristicId: String {
+        #if DEV
+        return "416DFC7B-D6E2-4373-9299-D81ACD3CC729"
+        #elseif STG
+        return "0E2FD244-2114-466C-9F18-2D493CD70408"
+        #else
+        return "90FA7ABE-FAB6-485E-B700-1A17804CAA14"
+        #endif
+    }
 
     func toService() -> Service {
         switch self {
@@ -34,17 +54,21 @@ enum Characteristic: String, CustomStringConvertible {
             return .trace
         }
     }
+
     func toCBUUID() -> CBUUID {
-        return CBUUID(string: self.rawValue)
+        return CBUUID(string: type(of: self).characteristicId)
     }
+
     var description: String {
         switch self {
         case .contact:
             return "contact"
         }
     }
+
     static func fromCBCharacteristic(_ c: CBCharacteristic) -> Characteristic? {
-        return Characteristic(rawValue: c.uuid.uuidString)
+        guard c.uuid.uuidString == characteristicId else { return nil }
+        return .contact
     }
 }
 
