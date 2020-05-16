@@ -8,15 +8,10 @@
 import UIKit
 
 protocol TraceDataUploadAccessable: ModalNavigationProtocol, PushNavigationProtocol {
-    func modalToTraceDataUpload()
     func pushToTraceDataUpload()
 }
 
 extension TraceDataUploadAccessable {
-    func modalToTraceDataUpload() {
-        present(to: TraceDataUploadViewController.instantiate())
-    }
-
     func pushToTraceDataUpload() {
         push(to: TraceDataUploadViewController.instantiate())
     }
@@ -29,5 +24,15 @@ protocol TraceDataUploadCompleteAccessable: PushNavigationProtocol {
 extension TraceDataUploadCompleteAccessable {
     func pushToTraceDataUploadComplete() {
         push(to: TraceDataUploadCompleteViewController.instantiate())
+    }
+}
+
+protocol TraceHistoryAccessable: PushNavigationProtocol {
+    func pushToTraceHistory()
+}
+
+extension TraceHistoryAccessable {
+    func pushToTraceHistory() {
+        push(to: TraceHistoryViewController.instantiate())
     }
 }

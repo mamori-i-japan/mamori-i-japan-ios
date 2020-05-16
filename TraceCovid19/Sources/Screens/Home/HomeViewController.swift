@@ -19,7 +19,7 @@ enum UserStatus {
     static let usualUpperLimitCount = 25
 }
 
-final class HomeViewController: UIViewController, NVActivityIndicatorViewable, MenuAccessable, TraceDataUploadAccessable {
+final class HomeViewController: UIViewController, NVActivityIndicatorViewable, MenuAccessable, TraceDataUploadAccessable, TraceHistoryAccessable {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var headerBaseView: UIView!
@@ -151,7 +151,7 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
             }
             let header = HomeUsualHeaderView(frame: headerBaseView.frame)
             header.set(contactCount: count) { [weak self] in
-                self?.gotoHistory()
+                self?.pushToTraceHistory()
             }
             headerBaseView.addSubview(header)
             header.snp.makeConstraints { make in
@@ -161,7 +161,7 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
             headerImageView.image = Asset.homeAttensionHeader.image
             let header = HomeAttensionHeaderView(frame: headerBaseView.frame)
             header.set(positiveContactUser: latestContactUser) { [weak self] in
-                self?.gotoHistory()
+                self?.pushToTraceHistory()
             }
             headerBaseView.addSubview(header)
             header.snp.makeConstraints { make in
@@ -220,10 +220,6 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
 
         // UIActivityViewControllerを表示
         present(activityViewController, animated: true, completion: nil)
-    }
-
-    func gotoHistory() {
-        navigationController?.pushViewController(TraceHistoryViewController.instantiate(), animated: true)
     }
 
     #if DEBUG
