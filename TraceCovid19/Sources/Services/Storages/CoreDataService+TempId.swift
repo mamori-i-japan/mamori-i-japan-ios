@@ -24,9 +24,9 @@ extension CoreDataService {
         }
     }
 
-    func getTempUserIDs() -> [TempUserId] {
+    func getTempUserIDs(predicate: NSPredicate? = nil) -> [TempUserId] {
         let managedContext = persistentContainer.viewContext
-        let request = getFetchRequestFor(TempUserIdEntity.self, context: managedContext, with: nil, with: NSSortDescriptor(key: "startTime", ascending: false), prefetchKeyPaths: nil)
+        let request = getFetchRequestFor(TempUserIdEntity.self, context: managedContext, with: predicate, with: NSSortDescriptor(key: "startTime", ascending: false), prefetchKeyPaths: nil)
 
         do {
             // TODO: performBlockなどでの考慮を入れる
@@ -36,6 +36,14 @@ extension CoreDataService {
             print("[CoreData] error occured: \(error)")
             return []
         }
+    }
+
+    func getTempUserIDsForTwoWeeks() -> [TempUserId] {
+        // TODO: ２週間分のTempUserID取得の範囲をより厳密にする
+        let twoWeekAgo = NSDate(timeIntervalSinceNow: -60 * 60 * 24 * 15)
+        let toDay = NSDate()
+        let predicate = NSPredicate(format: "(%@ <= startTime) AND (expiryTime < %@)", twoWeekAgo, toDay)
+        return getTempUserIDs(predicate: predicate)
     }
 
     func deleteAllTempUserIDs() {

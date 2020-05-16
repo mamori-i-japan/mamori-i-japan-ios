@@ -64,8 +64,7 @@ final class TempIdService {
     }
 
     func getTempIdsForTwoWeeks() -> [TempUserId] {
-        // TODO: 14日間分（0:00スタート）にする
-        return tempIDs
+        return coreData.getTempUserIDsForTwoWeeks()
     }
 
     private func save(tempIds: [TempUserId]) {
