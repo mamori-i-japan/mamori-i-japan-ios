@@ -95,6 +95,7 @@ final class DeepContactCheckService {
         tempTraceDataList[tempID] = []
 
         (index..<traceData.count - 1).forEach { index in
+            // TODO: 接触時系列データの作成の際に、RSSIおよびTxPowerを使用して接触判定をより厳密にする
             if traceData[index].timestamp!.timeIntervalSince1970 - traceData[index + 1].timestamp!.timeIntervalSince1970 > deepContactSequenceDuration {
                 // 閾値外だったらそれまでの配列を退避させる
                 tempTraceDataList[tempID]?.append(tempRecord)

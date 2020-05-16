@@ -9,6 +9,8 @@ import Foundation
 import FirebaseAuth
 import Swinject
 
+// TODO: Ph1では使わなくなったので廃止予定
+
 final class SMSService {
     private let phoneAuth: Lazy<PhoneAuthProvider> // Firebase.configure()の後で使用するためLazyでラップ
 
