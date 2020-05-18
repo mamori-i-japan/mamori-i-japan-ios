@@ -11,13 +11,13 @@
         <!--Trace Data Upload Complete View Controller-->
         <scene sceneID="iWh-co-ZSk">
             <objects>
-                <viewController id="j04-Zh-xKd" customClass="TraceDataUploadCompleteViewController" customModule="まもりあい" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="j04-Zh-xKd" customClass="TraceDataUploadCompleteViewController" customModule="DEV_まもりあい" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wGA-rB-VT5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yTz-mY-rqn" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
-                                <rect key="frame" x="16" y="150" width="382" height="53"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yTz-mY-rqn" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
+                                <rect key="frame" x="16" y="150" width="382" height="48"/>
                                 <string key="text">アップロードが完了しました。
 ご協力ありがとうございました。</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -29,8 +29,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oki-Ea-184" customClass="BaseLabel" customModule="まもりあい" customModuleProvider="target">
-                                <rect key="frame" x="92.5" y="247" width="229.5" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oki-Ea-184" customClass="BaseLabel" customModule="DEV_まもりあい" customModuleProvider="target">
+                                <rect key="frame" x="92.5" y="242" width="229.5" height="36"/>
                                 <string key="text">医師や保健所の指示にしたがって
 安静にお過ごしください。</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -42,12 +42,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOn-3h-rnd" customClass="ActionButton" customModule="まもりあい" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOn-3h-rnd" customClass="ActionButton" customModule="DEV_まもりあい" customModuleProvider="target">
                                 <rect key="frame" x="16" y="349" width="382" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="MWj-SF-xrh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.56078431370000004" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLocalizedKey" value="ホームへ戻る"/>
                                 </userDefinedRuntimeAttributes>
