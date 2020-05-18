@@ -14,6 +14,6 @@ final class Tutorial1ViewController: UIViewController, NavigationBarHiddenApplic
 
     @IBAction func tappedHelpButton(_ sender: Any) {
         // TODO: URL
-        showSafariView(url: URL(string: "https://www.yahoo.co.jp")!)
+        showAlert(message: "URLを設定して必要な情報に誘導します")
     }
 }

@@ -120,13 +120,13 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
         homeActionContentsView.setup(
             action1: { [weak self] in
                 // TODO: URL
-                self?.showSafariView(url: URL(string: "https://www.yahoo.co.jp")!)
+                self?.showAlert(message: "URLを設定して必要な情報に誘導します")
             }, action2: { [weak self] in
                 // TODO: URL
-                self?.showSafariView(url: URL(string: "https://www.yahoo.co.jp")!)
+                self?.showAlert(message: "URLを設定して必要な情報に誘導します")
             }, action3: { [weak self] in
                 // TODO: URL
-                self?.showSafariView(url: URL(string: "https://www.yahoo.co.jp")!)
+                self?.showAlert(message: "URLを設定して必要な情報に誘導します")
             }, action4: { [weak self] in
                 self?.pushToTraceDataUpload()
             }
