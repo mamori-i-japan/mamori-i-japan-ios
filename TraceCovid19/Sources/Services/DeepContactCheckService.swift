@@ -73,6 +73,10 @@ final class DeepContactCheckService {
     }
 
     private func check(traceData: [TraceDataRecord]) {
+        // TODO: 接触時系列データの作成の際に、RSSIおよびTxPowerを使用して接触判定をより厳密にする
+        // ひとまず、あまりにもRSSI値が小さすぎる（100）ものは除外する
+        let traceData = traceData.filter { $0.rssi ?? -100 > -100 }
+
         guard traceData.count >= 2 else { return }
         // NOTE: インデックスが0の方が新しい
         // 直近の閾値以内かどうか
@@ -95,7 +99,6 @@ final class DeepContactCheckService {
         tempTraceDataList[tempID] = []
 
         (index..<traceData.count - 1).forEach { index in
-            // TODO: 接触時系列データの作成の際に、RSSIおよびTxPowerを使用して接触判定をより厳密にする
             if traceData[index].timestamp!.timeIntervalSince1970 - traceData[index + 1].timestamp!.timeIntervalSince1970 > deepContactSequenceDuration {
                 // 閾値外だったらそれまでの配列を退避させる
                 tempTraceDataList[tempID]?.append(tempRecord)
