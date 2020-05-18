@@ -40,8 +40,7 @@ final class HomeAttensionHeaderView: UIView, NibInstantiatable {
     }
 
     func set(positiveContactUser: DeepContactUser, showDetailAction: @escaping (() -> Void)) {
-        let contactDateString = "１週間" // TODO: おおよその日数計算をする（正確な値は出さない）
-        messageLabel.text = L10n.Home.Header.attensionMessage(contactDateString)
+        messageLabel.text = L10n.Home.Header.attensionMessage
         self.showDetailAction = showDetailAction
     }
 

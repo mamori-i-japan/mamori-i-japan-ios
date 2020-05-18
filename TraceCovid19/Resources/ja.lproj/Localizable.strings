@@ -36,7 +36,7 @@
 "home.header.usual_message" = "一緒に日本を守ってくれて\nありがとうございます";
 "home.header.usual_sub_message" = "引き続き接触を控えましょう";
 "home.header.semi_usual_message" = "接触を減らすために\n周りに協力してもらえることは\nありませんか";
-"home.header.attension_message" = "%@ほど前\n陽性判定者との濃厚接触が\nあったかもしれません";
+"home.header.attension_message" = "この2週間以内に\n陽性判定者との濃厚接触が\nあったかもしれません";
 "home.header.positive_message" = "PCR検査の結果\nあなたは陽性でした";
 
 "error.network.title" = "インターネットに接続できません";
