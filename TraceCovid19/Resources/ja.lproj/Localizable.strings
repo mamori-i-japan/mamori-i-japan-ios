@@ -56,3 +56,5 @@
 "error.failed_setting_organization_code.message" = "インターネットに接続されていません。通信状況の良い環境で再度お試しください。";
 "error.failed_uploading.title" = "データのアップロードに失敗しました";
 "error.failed_uploading.message" = "インターネットに接続されていません。通信状況の良い環境で再度お試しください。";
+"error.failed_delete_sharing.title" = "取り消しに失敗しました。";
+"error.failed_delete_sharing.message" = "インターネットに接続されていません。通信状況の良い環境で再度お試しください。";

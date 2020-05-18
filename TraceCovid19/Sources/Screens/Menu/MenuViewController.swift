@@ -10,32 +10,45 @@ import NVActivityIndicatorView
 
 final class MenuViewController: UITableViewController, NVActivityIndicatorViewable, AboutAccessable, SettingAccessable, TraceDataUploadAccessable {
     @IBOutlet weak var settingTableViewCell: UITableViewCell!
+    @IBOutlet weak var deleteSharingTableViewCell: UITableViewCell!
     @IBOutlet weak var dataUploadTableViewCell: UITableViewCell!
     @IBOutlet weak var aboutTableViewCell: UITableViewCell!
 
     var profileService: ProfileService!
     var loginService: LoginService!
+    var cancelPositiveService: CancelPositiveService!
 
-    static let dataUploadIndexPath = IndexPath(row: 1, section: 0)
+    static let dataUploadIndexPath = IndexPath(row: 2, section: 0)
     // NOTE: 組織コードに関わらず常に非表示するように対応
     private var isHideDataUploadCell = true
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-//        getProfile()
+        //        getProfile()
+    }
+
+    private func showDeleteSharing() {
+        showAlertWithCancel(
+            message: "センターへの情報共有を取り消しますか？",
+            okAction: { [weak self] _ in
+                self?.requestDeleteSharing()
+            }
+        )
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
         switch tableView.cellForRow(at: indexPath) {
-        case aboutTableViewCell:
-            pushToAbout()
         case settingTableViewCell:
             pushToSetting()
+        case deleteSharingTableViewCell:
+            showDeleteSharing()
         case dataUploadTableViewCell:
             pushToTraceDataUpload()
+        case aboutTableViewCell:
+            pushToAbout()
         default:
             break
         }
@@ -77,6 +90,26 @@ extension MenuViewController {
                 self?.backToSplash()
             case .failure:
                 break
+            }
+        }
+    }
+
+    func requestDeleteSharing() {
+        startAnimating(type: .circleStrokeSpin)
+        cancelPositiveService.cancel { [weak self] result in
+            self?.stopAnimating()
+            switch result {
+            case .success:
+                self?.showAlert(message: "取り消しました")
+            case .failure(.auth):
+                self?.loginService.logout()
+                self?.backToSplash()
+            case .failure(.network):
+                // TODO: 文言は仮のものをLocalizableに記述している
+                self?.showAlert(title: L10n.Error.FailedDeleteSharing.title, message: L10n.Error.FailedDeleteSharing.message)
+            case .failure(.unknown(let error)):
+                print("[Cancel] error: \(error?.localizedDescription ?? "nil")")
+                self?.showAlert(title: L10n.Error.Unknown.title)
             }
         }
     }

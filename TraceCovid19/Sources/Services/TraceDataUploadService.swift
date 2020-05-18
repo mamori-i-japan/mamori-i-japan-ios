@@ -32,8 +32,10 @@ final class TraceDataUploadService {
             case .failure(.authzError):
                 print("[TraceDataUploadService] authzError: \(result)")
                 completion(.failure(.auth))
+            case .failure(.network):
+                print("[TraceDataUploadService] network error: \(result)")
+                completion(.failure(.network))
             case .failure:
-                // TODO: エラー
                 print("[TraceDataUploadService] error: \(result)")
                 completion(.failure(.unknown(NSError(domain: "unknown error", code: 0, userInfo: nil))))
             }

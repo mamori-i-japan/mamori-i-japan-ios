@@ -82,6 +82,7 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(MenuViewController.self) { r, vc in
             vc.profileService = r.resolve(ProfileService.self)
             vc.loginService = r.resolve(LoginService.self)
+            vc.cancelPositiveService = r.resolve(CancelPositiveService.self)
         }
 
         defaultContainer.storyboardInitCompleted(AboutViewController.self) { _, _ in
@@ -216,6 +217,10 @@ extension SwinjectStoryboard {
             InformationService(firestore: r.resolve(Lazy<Firestore>.self)!)
         }
 
+        defaultContainer.register(CancelPositiveService.self) { r in
+            CancelPositiveService(cancelPositiveAPI: r.resolve(CancelPositiveAPI.self)!, keychainService: r.resolve(KeychainService.self)!)
+        }
+
         // MARK: - Others
 
         defaultContainer.register(Keychain.self) { _ in
@@ -328,6 +333,10 @@ extension SwinjectStoryboard {
 
         defaultContainer.register(ProfileAPI.self) { r in
             ProfileAPI(apiClient: r.resolve(APIClient.self)!)
+        }
+
+        defaultContainer.register(CancelPositiveAPI.self) { r in
+            CancelPositiveAPI(apiClient: r.resolve(APIClient.self)!)
         }
     }
 }

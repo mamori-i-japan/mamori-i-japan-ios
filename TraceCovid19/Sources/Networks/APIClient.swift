@@ -24,6 +24,7 @@ final class APIClient {
         completionHandler: @escaping (Result<T.Response, APIRequestError>) -> Void
     ) where T.Response == EmpytResponse {
         print("[APIClient] start \(request)")
+        print("[APIClient] parameters: \(request.parameters)")
         fetchAccessToken(request: request) { [weak self] accessToken in
             guard let sSelf = self else { return }
             let dataRequest = sSelf.makeDataRequest(request: request, accessToken: accessToken)
@@ -38,6 +39,7 @@ final class APIClient {
         completionHandler: @escaping (Result<T.Response, APIRequestError>) -> Void
     ) where T.Response: Decodable {
         print("[APIClient] start \(request)")
+        print("[APIClient] parameters: \(request.parameters)")
         fetchAccessToken(request: request) { [weak self] accessToken in
             guard let sSelf = self else { return }
             let dataRequest = sSelf.makeDataRequest(request: request, accessToken: accessToken)

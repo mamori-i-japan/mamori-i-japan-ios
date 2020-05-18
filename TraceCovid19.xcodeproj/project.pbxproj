@@ -59,6 +59,7 @@
 		F02356D82445575C001E72ED /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02356D62445575C001E72ED /* FirebaseRemoteConfig.framework */; };
 		F02356DA24455B5B001E72ED /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02356D924455B5B001E72ED /* FirebaseInstanceID.framework */; };
 		F02356DC2445ACEB001E72ED /* DeepContactCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02356DB2445ACEB001E72ED /* DeepContactCheckService.swift */; };
+		F02D67FE2472243700AE6100 /* CancelPositiveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D67FD2472243700AE6100 /* CancelPositiveService.swift */; };
 		F03FB97524517D7E00158521 /* HomeAttensionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03FB97424517D7E00158521 /* HomeAttensionHeaderView.swift */; };
 		F03FB97724517D9000158521 /* HomeAttensionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F03FB97624517D9000158521 /* HomeAttensionHeaderView.xib */; };
 		F03FB979245182B700158521 /* HomePositiveHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03FB978245182B700158521 /* HomePositiveHeaderView.swift */; };
@@ -269,6 +270,7 @@
 		F02356D62445575C001E72ED /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = Carthage/Build/iOS/FirebaseRemoteConfig.framework; sourceTree = "<group>"; };
 		F02356D924455B5B001E72ED /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Carthage/Build/iOS/FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		F02356DB2445ACEB001E72ED /* DeepContactCheckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepContactCheckService.swift; sourceTree = "<group>"; };
+		F02D67FD2472243700AE6100 /* CancelPositiveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelPositiveService.swift; sourceTree = "<group>"; };
 		F03FB97424517D7E00158521 /* HomeAttensionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAttensionHeaderView.swift; sourceTree = "<group>"; };
 		F03FB97624517D9000158521 /* HomeAttensionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeAttensionHeaderView.xib; sourceTree = "<group>"; };
 		F03FB978245182B700158521 /* HomePositiveHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePositiveHeaderView.swift; sourceTree = "<group>"; };
@@ -735,6 +737,7 @@
 			isa = PBXGroup;
 			children = (
 				F0A282DC243EF84C008390AE /* BootService.swift */,
+				F02D67FD2472243700AE6100 /* CancelPositiveService.swift */,
 				F02356DB2445ACEB001E72ED /* DeepContactCheckService.swift */,
 				F0613E732462DED8000595EE /* InformationService.swift */,
 				F0A2829F243EC0AD008390AE /* LoginService.swift */,
@@ -1209,6 +1212,7 @@
 				F051AD9D2447769B007278A0 /* Debug2ViewController.swift in Sources */,
 				F0A282CF243ED0C5008390AE /* KeyboardCloseProtocol.swift in Sources */,
 				F0A2831B24418AAD008390AE /* PrefectureModel.swift in Sources */,
+				F02D67FE2472243700AE6100 /* CancelPositiveService.swift in Sources */,
 				F0A2829E243EC06E008390AE /* TokenResponse.swift in Sources */,
 				F0156AA3245589AB006CB28F /* TraceHistoryViewController.swift in Sources */,
 				F02356C02442F83E001E72ED /* TraceDataRecord.swift in Sources */,
