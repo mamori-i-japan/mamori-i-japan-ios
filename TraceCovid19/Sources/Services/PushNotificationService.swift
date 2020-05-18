@@ -19,8 +19,6 @@ final class PushNotificationService {
         notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             print("[PUSH] granted: \(granted), error: \(String(describing: error))")
             completion(granted)
-
-            // TODO: リモート通知の有効化（このあたりの実際の実装はFirebaseをつかう？）
         }
     }
 
