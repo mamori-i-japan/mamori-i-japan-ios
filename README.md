@@ -36,6 +36,10 @@ The images made by [Miro](https://miro.com/app/board/o9J_ksGHtPE=/) (read only a
 $ make bootstrap
 ```
 
+## テストレポート
+
+- [内部脆弱性診断レポート](https://docs.google.com/document/d/1OfCHe0gPAP1MTm5kr68lDkvBgg1JImvt7TguHLq5NUs/edit?usp=sharing)
+
 ## お問い合わせ
 
 - [お問い合わせフォーム](https://docs.google.com/forms/d/e/1FAIpQLSfcGM9itQ3i--GN9FUsQpdlW58Ug4Y6lcnE11N-igILDJdZlw/viewform)
