@@ -11,37 +11,11 @@
         <!--Splash View Controller-->
         <scene sceneID="JOJ-vd-16Q">
             <objects>
-                <viewController id="srX-Cg-HzW" customClass="SplashViewController" customModule="TraceCovid19" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="srX-Cg-HzW" customClass="SplashViewController" customModule="DEV_まもりあい" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YLk-qr-R73">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unnamed-5 1" translatesAutoresizingMaskIntoConstraints="NO" id="oOv-pL-9Vk">
-                                <rect key="frame" x="102.66666666666669" y="665" width="170" height="50"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="yeG-Nd-ZoD">
-                                <rect key="frame" x="95" y="178" width="185" height="298"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="yeG-Nd-ZoD" secondAttribute="height" multiplier="185:298" id="dqh-B1-KXl"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開発協力AAAAA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-l7-jHc">
-                                <rect key="frame" x="125" y="743" width="125" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="yeG-Nd-ZoD" firstAttribute="width" secondItem="YLk-qr-R73" secondAttribute="width" multiplier="0.493333" id="6bT-1T-sP1"/>
-                            <constraint firstItem="oOv-pL-9Vk" firstAttribute="centerX" secondItem="4Ok-CJ-2wr" secondAttribute="centerX" id="W2T-Mm-Epd"/>
-                            <constraint firstItem="yeG-Nd-ZoD" firstAttribute="centerY" secondItem="4Ok-CJ-2wr" secondAttribute="centerY" constant="-84" id="Wt4-Ai-Kg7"/>
-                            <constraint firstItem="MGo-l7-jHc" firstAttribute="top" secondItem="oOv-pL-9Vk" secondAttribute="bottom" constant="28" id="XIY-pW-T1u"/>
-                            <constraint firstItem="yeG-Nd-ZoD" firstAttribute="centerX" secondItem="4Ok-CJ-2wr" secondAttribute="centerX" id="XL6-Pv-nML"/>
-                            <constraint firstItem="4Ok-CJ-2wr" firstAttribute="bottom" secondItem="oOv-pL-9Vk" secondAttribute="bottom" constant="63" id="dQ0-Nr-C15"/>
-                            <constraint firstItem="MGo-l7-jHc" firstAttribute="centerX" secondItem="oOv-pL-9Vk" secondAttribute="centerX" id="oSV-VT-3qy"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4Ok-CJ-2wr"/>
                     </view>
                 </viewController>
@@ -50,8 +24,4 @@
             <point key="canvasLocation" x="99" y="-394"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="logo" width="185" height="298"/>
-        <image name="unnamed-5 1" width="170" height="50"/>
-    </resources>
 </document>
