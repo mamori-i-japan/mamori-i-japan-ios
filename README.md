@@ -1,3 +1,22 @@
+# mamori-i-japan-ios
+
+## Architecture
+
+### Overview and Data Flow Diagram
+
+![Overview](./docs/overview.jpg)
+
+![Data Flow Diagram](./docs/dfd.jpg)
+
+The images made by [Miro](https://miro.com/app/board/o9J_ksGHtPE=/) (read only access).
+
+## Screenshot
+
+![ScreenOverview](./docs/screen-overview.png)
+
+[Screens](./docs/screens.pdf)
+
+- figma will be public soon.
 
 ## 環境
 
