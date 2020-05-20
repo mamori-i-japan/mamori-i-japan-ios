@@ -14,25 +14,25 @@ import UIKit
 
 extension StoryboardInstantiatable where Self: NSObject {
     static var storyboardName: String {
-        return className
+        className
     }
 
     static var storyboardBundle: Bundle {
-        return Bundle(for: self)
+        Bundle(for: self)
     }
 
     private static var storyboard: UIStoryboard {
-        return UIStoryboard(name: storyboardName, bundle: storyboardBundle)
+        UIStoryboard(name: storyboardName, bundle: storyboardBundle)
     }
 }
 
 extension StoryboardInstantiatable where Self: UIViewController {
     static func instantiate() -> Self {
-        return storyboard.instantiateInitialViewController() as? Self ?? { fatalError("InitialViewControllerを変換できない") }()
+        storyboard.instantiateInitialViewController() as? Self ?? { fatalError("InitialViewControllerを変換できない") }()
     }
 
     static func instantiate(identifier: String) -> Self {
-        return storyboard.instantiateViewController(withIdentifier: identifier) as? Self ?? { fatalError("\(identifier)をViewControllerに変換できない") }()
+        storyboard.instantiateViewController(withIdentifier: identifier) as? Self ?? { fatalError("\(identifier)をViewControllerに変換できない") }()
     }
 }
 

@@ -52,7 +52,7 @@ extension AppVersion {
     }
 
     var versionString: String {
-        return "\(major)\(separator)\(minor)\(separator)\(patch)"
+        "\(major)\(separator)\(minor)\(separator)\(patch)"
     }
 }
 

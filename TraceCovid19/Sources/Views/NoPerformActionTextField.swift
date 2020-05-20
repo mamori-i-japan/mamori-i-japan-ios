@@ -9,6 +9,6 @@ import UIKit
 
 class NoPerformActionTextField: BaseTextField {
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        return false
+        false
     }
 }

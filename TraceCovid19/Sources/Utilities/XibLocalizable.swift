@@ -24,11 +24,11 @@ extension XIBLocalizable {
 
 extension XIBLocalizable {
     var localizableFileName: String? {
-        return nil
+        nil
     }
 
     func localizedString(_ key: String) -> String {
-        return NSLocalizedString(key, tableName: localizableFileName, bundle: localizableBundle, comment: "")
+        NSLocalizedString(key, tableName: localizableFileName, bundle: localizableBundle, comment: "")
     }
 }
 

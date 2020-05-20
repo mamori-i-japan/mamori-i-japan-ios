@@ -11,13 +11,13 @@ final class CancelPositiveAPIRequest: APIRequestProtocol {
     typealias Response = EmpytResponse
 
     var method: APIRequestMethod {
-        return .delete
+        .delete
     }
     var path: String {
-        return "/users/me/diagnosis_keys"
+        "/users/me/diagnosis_keys"
     }
     var isNeedAuthentication: Bool {
-        return true
+        true
     }
 
     var encodingType: ParameterEncodingType {
@@ -26,7 +26,7 @@ final class CancelPositiveAPIRequest: APIRequestProtocol {
      }
 
     var parameters: [String: Any] {
-        return (try? randomIDs.asDictionary()) ?? [:]
+        (try? randomIDs.asDictionary()) ?? [:]
     }
 
     private let randomIDs: RandomIDs

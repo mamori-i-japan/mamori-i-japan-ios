@@ -19,6 +19,6 @@ struct AppStatusDetail: Decodable {
 
 extension AppStatusDetail {
     var minAppVersion: AppVersion? {
-        return AppVersion(versionString: minVersion)
+        AppVersion(versionString: minVersion)
     }
 }

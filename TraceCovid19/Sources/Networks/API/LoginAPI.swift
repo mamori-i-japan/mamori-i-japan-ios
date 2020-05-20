@@ -11,17 +11,17 @@ final class LoginAPIRequest: APIRequestProtocol {
     typealias Response = LoginAPIResponse
 
     var method: APIRequestMethod {
-        return .post
+        .post
     }
     var path: String {
-        return "/auth/login"
+        "/auth/login"
     }
     var isNeedAuthentication: Bool {
-        return true
+        true
     }
 
     var parameters: [String: Any] {
-        return (try? profile.asDictionary()) ?? [:]
+        (try? profile.asDictionary()) ?? [:]
     }
 
     private let profile: Profile

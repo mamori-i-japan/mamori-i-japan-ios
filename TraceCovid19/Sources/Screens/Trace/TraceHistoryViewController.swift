@@ -82,11 +82,11 @@ extension TraceHistoryViewController: NavigationBarHiddenApplicapable {
 
 extension TraceHistoryViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionData.count
+        sectionData.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sectionData[section].data.count
+        sectionData[section].data.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -97,7 +97,7 @@ extension TraceHistoryViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return TraceHistorySectionHeaderView.hight
+        TraceHistorySectionHeaderView.hight
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -154,6 +154,6 @@ final class TraceHistoryTableViewCell: UITableViewCell, NibInstantiatable {
 
 private extension DeepContactUser {
     var dateForHeader: String {
-        return startTime.toString(format: "yyyy年 M月 d日")
+        startTime.toString(format: "yyyy年 M月 d日")
     }
 }

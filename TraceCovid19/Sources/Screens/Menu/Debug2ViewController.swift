@@ -91,7 +91,7 @@ extension Debug2ViewController: UITableViewDelegate {
 
 extension Debug2ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return positiveContact.positiveContacts.count
+        positiveContact.positiveContacts.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

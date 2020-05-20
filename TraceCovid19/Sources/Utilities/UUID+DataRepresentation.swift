@@ -10,7 +10,7 @@ import CoreBluetooth
 
 extension UUID {
     var data: Data {
-        return withUnsafePointer(to: uuid) {
+        withUnsafePointer(to: uuid) {
             Data(bytes: $0, count: MemoryLayout.size(ofValue: uuid))
         }
     }

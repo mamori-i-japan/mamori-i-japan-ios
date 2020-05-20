@@ -13,7 +13,7 @@ private extension String {
 
 extension KeychainService {
     var properties: [String] {
-        return [
+        [
             .uploadRamdomKeys
         ]
     }

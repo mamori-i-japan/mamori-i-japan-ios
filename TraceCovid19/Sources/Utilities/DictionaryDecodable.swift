@@ -16,11 +16,11 @@ protocol DictionaryDecodable: Decodable {
 
 extension DictionaryDecodable {
     static var jsonDecoder: JSONDecoder {
-        return JSONDecoder()
+        JSONDecoder()
     }
 
     static var ignoreDecodeKeys: [String] {
-        return []
+        []
     }
 }
 

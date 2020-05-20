@@ -21,7 +21,7 @@ final class PositiveContactService {
     private(set) var positiveContacts: [String] = []
 
     private var fileName: String {
-        return "positives.json.gz"
+        "positives.json.gz"
     }
 
     init(

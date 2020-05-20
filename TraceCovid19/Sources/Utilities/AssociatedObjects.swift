@@ -29,7 +29,7 @@ class AssociatedObjects: NSObject {
 
     subscript(key: String) -> Any? {
         get {
-            return dictionary[key]
+            dictionary[key]
         }
         set {
             dictionary[key] = newValue

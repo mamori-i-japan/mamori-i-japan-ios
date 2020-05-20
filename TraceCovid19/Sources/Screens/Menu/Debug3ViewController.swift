@@ -69,7 +69,7 @@ extension Debug3ViewController: UITableViewDelegate {
 
 extension Debug3ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tempUserIDs.count
+        tempUserIDs.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

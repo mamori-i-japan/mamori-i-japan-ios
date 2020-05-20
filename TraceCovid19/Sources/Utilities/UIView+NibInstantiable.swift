@@ -16,16 +16,16 @@ protocol NibInstantiatable {
 }
 
 extension NibInstantiatable where Self: NSObject {
-    var nibName: String { return className }
-    var nibBundle: Bundle { return Bundle(for: type(of: self)) }
-    var nibOwner: Any? { return self }
-    var nibOptions: [UINib.OptionsKey: Any]? { return nil }
-    var instantiateIndex: Int { return 0 }
+    var nibName: String { className }
+    var nibBundle: Bundle { Bundle(for: type(of: self)) }
+    var nibOwner: Any? { self }
+    var nibOptions: [UINib.OptionsKey: Any]? { nil }
+    var instantiateIndex: Int { 0 }
 }
 
 extension NibInstantiatable where Self: UIView {
     func instantiate() -> UIView? {
-        return UINib(nibName: nibName, bundle: nibBundle).instantiate(withOwner: nibOwner, options: nibOptions)[instantiateIndex] as? UIView
+        UINib(nibName: nibName, bundle: nibBundle).instantiate(withOwner: nibOwner, options: nibOptions)[instantiateIndex] as? UIView
     }
 }
 

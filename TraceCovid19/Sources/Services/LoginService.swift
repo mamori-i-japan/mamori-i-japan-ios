@@ -20,7 +20,7 @@ final class LoginService {
     private let profileService: ProfileService
 
     var isLogin: Bool {
-        return auth.instance.currentUser != nil
+        auth.instance.currentUser != nil
     }
 
     init(
@@ -132,11 +132,11 @@ final class LoginService {
 
     #if DEBUG
     var uid: String? {
-        return auth.instance.currentUser?.uid
+        auth.instance.currentUser?.uid
     }
 
     var phoneNumber: String? {
-        return auth.instance.currentUser?.phoneNumber
+        auth.instance.currentUser?.phoneNumber
     }
     #endif
 }

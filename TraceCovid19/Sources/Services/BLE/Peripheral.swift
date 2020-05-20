@@ -35,10 +35,10 @@ class Peripheral: NSObject {
     private var timer: Timer?
 
     var id: UUID {
-        return peripheral.identifier
+        peripheral.identifier
     }
     var shortId: String {
-        return peripheral.shortId
+        peripheral.shortId
     }
 
     init(peripheral: CBPeripheral, queue: DispatchQueue, services: [Service], commands: [Command], didUpdateValue: CharacteristicDidUpdateValue?, didReadRSSI: DidReadRSSI?) {

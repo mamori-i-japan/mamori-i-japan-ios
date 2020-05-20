@@ -27,6 +27,6 @@ extension DeepContactUserEntity {
     }
 
     func toDeepContactUser() -> DeepContactUser {
-         return DeepContactUser(tempId: tempId, startTime: startTime, endTime: endTime)
+         DeepContactUser(tempId: tempId, startTime: startTime, endTime: endTime)
      }
 }

@@ -11,13 +11,13 @@ final class TraceDataUploadAPIRequest: APIRequestProtocol {
     typealias Response = EmpytResponse
 
     var method: APIRequestMethod {
-        return .post
+        .post
     }
     var path: String {
-        return "/users/me/health_center_tokens"
+        "/users/me/health_center_tokens"
     }
     var isNeedAuthentication: Bool {
-        return true
+        true
     }
 
     var parameters: [String: Any] {
@@ -76,6 +76,6 @@ final class TraceDataUploadAPI {
     }
 
     private func creatRandomID() -> String {
-        return UUID().uuidString // TODO: ひとまずランダム値をUUIDv4で生成
+        UUID().uuidString // TODO: ひとまずランダム値をUUIDv4で生成
     }
 }

@@ -18,7 +18,7 @@ private let attributeKey = "_attributeKey"
 extension LabelUtilityProtocol where Self: UILabel {
     var attributes: [NSAttributedString.Key: Any] {
         get {
-            return associatedObjects[attributeKey] as? [NSAttributedString.Key: Any] ?? [:]
+            associatedObjects[attributeKey] as? [NSAttributedString.Key: Any] ?? [:]
         }
         set {
             associatedObjects[attributeKey] = newValue
@@ -34,7 +34,7 @@ extension LabelUtilityProtocol where Self: UILabel {
 
 extension LabelUtilityProtocol where Self: UILabel {
     var paragraphStyle: NSMutableParagraphStyle? {
-        return attributes[.paragraphStyle] as? NSMutableParagraphStyle
+        attributes[.paragraphStyle] as? NSMutableParagraphStyle
     }
 
     func setParagraph<T>(_ value: T, for keyPath: ReferenceWritableKeyPath<NSMutableParagraphStyle, T>) {

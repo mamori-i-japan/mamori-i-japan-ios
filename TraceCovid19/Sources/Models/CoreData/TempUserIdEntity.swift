@@ -24,6 +24,6 @@ extension TempUserIdEntity {
     }
 
     func toTempUserId() -> TempUserId {
-        return TempUserId(tempId: tempId, startTime: startTime, endTime: expiryTime)
+        TempUserId(tempId: tempId, startTime: startTime, endTime: expiryTime)
     }
 }

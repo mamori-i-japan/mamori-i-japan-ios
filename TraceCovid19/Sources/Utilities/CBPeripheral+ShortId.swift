@@ -3,6 +3,6 @@ import CoreBluetooth
 
 extension CBPeripheral {
     var shortId: String {
-        return String(identifier.uuidString.prefix(8))
+        String(identifier.uuidString.prefix(8))
     }
 }

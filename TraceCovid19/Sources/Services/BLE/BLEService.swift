@@ -24,7 +24,7 @@ enum Service: CustomStringConvertible {
     }
 
     func toCBUUID() -> CBUUID {
-        return CBUUID(string: bleSSID)
+        CBUUID(string: bleSSID)
     }
 
     var description: String {
@@ -56,7 +56,7 @@ enum Characteristic: CustomStringConvertible {
     }
 
     func toCBUUID() -> CBUUID {
-        return CBUUID(string: type(of: self).characteristicId)
+        CBUUID(string: type(of: self).characteristicId)
     }
 
     var description: String {

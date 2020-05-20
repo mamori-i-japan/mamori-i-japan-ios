@@ -38,6 +38,6 @@ extension ModalNavigationProtocol {
 
 extension ModalNavigationProtocol where Self: UIViewController {
     var presenter: UIViewController {
-        return self
+        self
     }
 }

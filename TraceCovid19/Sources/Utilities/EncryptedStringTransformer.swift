@@ -20,7 +20,7 @@ import RNCryptor
 @objc(EncryptedStringTransformer)
 final class EncryptedStringTransformer: ValueTransformer {
     private var p: String {
-        return "feawpjfa+JF213jifop" // TODO: フィールドの暗号化をちゃんとするなら共通鍵の管理を考える
+        "feawpjfa+JF213jifop" // TODO: フィールドの暗号化をちゃんとするなら共通鍵の管理を考える
     }
 
     override func transformedValue(_ value: Any?) -> Any? {

@@ -66,11 +66,11 @@ enum PrefectureModel: String, CaseIterable {
     }
 
     var index: Int {
-        return rawIndex == errorIndex ? errorIndex : rawIndex + 1 // 0始まりになってしまうので、B/Eに投げる場合などは1を加算（異常系は固定）
+        rawIndex == errorIndex ? errorIndex : rawIndex + 1 // 0始まりになってしまうので、B/Eに投げる場合などは1を加算（異常系は固定）
     }
 
     static var rawValues: [String] {
-        return allCases.compactMap { $0.rawValue }
+        allCases.compactMap { $0.rawValue }
     }
 
     init?(index: Int?) {

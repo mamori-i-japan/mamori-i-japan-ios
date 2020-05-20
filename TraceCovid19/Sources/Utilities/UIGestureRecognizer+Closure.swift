@@ -29,7 +29,7 @@ private let key = "_closureWrapper"
 extension UITapGestureRecognizer: HasAssociatedObjects {
     private var closureWrapper: GestureClosureWrapper<UITapGestureRecognizer>? {
         get {
-            return associatedObjects[key] as? GestureClosureWrapper
+            associatedObjects[key] as? GestureClosureWrapper
         }
         set {
             associatedObjects[key] = newValue
@@ -53,7 +53,7 @@ extension UITapGestureRecognizer {
 extension UIPanGestureRecognizer: HasAssociatedObjects {
     private var closureWrapper: GestureClosureWrapper<UIPanGestureRecognizer>? {
         get {
-            return associatedObjects[key] as? GestureClosureWrapper
+            associatedObjects[key] as? GestureClosureWrapper
         }
         set {
             associatedObjects[key] = newValue

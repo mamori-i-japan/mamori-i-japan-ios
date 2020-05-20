@@ -36,15 +36,15 @@ final class TempIdService {
     }
 
     var tempIDs: [TempUserId] {
-        return coreData.getTempUserIDs()
+        coreData.getTempUserIDs()
     }
 
     var validTempIDs: [TempUserId] {
-        return filterIsValid(tempIDs: tempIDs)
+        filterIsValid(tempIDs: tempIDs)
     }
 
     var hasTempIDs: Bool {
-        return tempIDs.count != 0
+        tempIDs.count != 0
     }
 
     @discardableResult
@@ -64,7 +64,7 @@ final class TempIdService {
     }
 
     func getTempIdsForTwoWeeks() -> [TempUserId] {
-        return coreData.getTempUserIDsForTwoWeeks()
+        coreData.getTempUserIDsForTwoWeeks()
     }
 
     private func save(tempIds: [TempUserId]) {

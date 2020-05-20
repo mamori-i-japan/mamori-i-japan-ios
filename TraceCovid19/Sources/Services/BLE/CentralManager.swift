@@ -83,7 +83,7 @@ class CentralManager: NSObject {
     }
 
     func getState() -> CBManagerState {
-        return centralManager.state
+        centralManager.state
     }
 
     private func startScanning() {

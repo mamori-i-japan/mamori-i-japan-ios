@@ -74,7 +74,7 @@ final class HomeViewController: UIViewController, NVActivityIndicatorViewable, M
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        .lightContent
     }
 
     @IBAction func tappedMenuButton(_ sender: Any) {

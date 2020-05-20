@@ -14,7 +14,7 @@ final class CustomNavigationController: UINavigationController {
     }
 
     override var childForStatusBarStyle: UIViewController? {
-        return visibleViewController
+        visibleViewController
     }
 }
 
@@ -50,10 +50,10 @@ extension NavigationBarHiddenApplicapable {
     }
 
     var navigationBackgroundImage: UIImage? {
-        return UIImage()
+        UIImage()
     }
 
     var navigationShadowImage: UIImage {
-        return UIImage()
+        UIImage()
     }
 }

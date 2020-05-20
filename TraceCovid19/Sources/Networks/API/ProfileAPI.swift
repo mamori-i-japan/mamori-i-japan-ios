@@ -11,13 +11,13 @@ final class ProfilePatchAPIRequest: APIRequestProtocol {
     typealias Response = EmpytResponse
 
     var method: APIRequestMethod {
-        return .patch
+        .patch
     }
     var path: String {
-        return "/users/me/profile"
+        "/users/me/profile"
     }
     var isNeedAuthentication: Bool {
-        return true
+        true
     }
 
     var parameters: [String: Any] {
@@ -42,13 +42,13 @@ final class ProfileDeleteOrganizationCodeAPIRequest: APIRequestProtocol {
     typealias Response = EmpytResponse
 
     var method: APIRequestMethod {
-        return .delete
+        .delete
     }
     var path: String {
-        return "/users/me/organization"
+        "/users/me/organization"
     }
     var isNeedAuthentication: Bool {
-        return true
+        true
     }
 
     var encodingType: ParameterEncodingType {
@@ -57,7 +57,7 @@ final class ProfileDeleteOrganizationCodeAPIRequest: APIRequestProtocol {
     }
 
     var parameters: [String: Any] {
-        return (try? randomIDs.asDictionary()) ?? [:]
+        (try? randomIDs.asDictionary()) ?? [:]
     }
 
     private let randomIDs: RandomIDs

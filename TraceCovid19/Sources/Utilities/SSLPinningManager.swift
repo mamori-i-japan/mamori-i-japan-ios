@@ -70,7 +70,7 @@ final class SSLPinningManager {
     }
 
     var hosts: [String] {
-        return conditions.compactMap { $0.host }
+        conditions.compactMap { $0.host }
     }
 
     /// SSLチャレンジ処理を実行する
@@ -162,7 +162,7 @@ final class SSLPinningManager {
 
 private extension SSLPinningManager {
     var rsa2048Asn1Header: [UInt8] {
-        return [
+        [
             0x30, 0x82, 0x01, 0x22, 0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86,
             0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00, 0x03, 0x82, 0x01, 0x0f, 0x00
         ]

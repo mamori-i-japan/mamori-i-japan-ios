@@ -53,7 +53,7 @@ class PeripheralManager: NSObject {
     }
 
     func getState() -> CBManagerState {
-        return peripheralManager.state
+        peripheralManager.state
     }
 
     private func startAdvertising() {

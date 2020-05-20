@@ -13,7 +13,7 @@ final class CodeInputUnitView: UIView, NibInstantiatable {
 
     var text: String {
         get {
-            return label.text ?? ""
+            label.text ?? ""
         }
         set {
             label.text = newValue

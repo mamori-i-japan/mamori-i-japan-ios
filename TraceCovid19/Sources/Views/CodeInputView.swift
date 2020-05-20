@@ -22,7 +22,7 @@ final class CodeInputView: UIView {
 
     var text: String {
         get {
-            return textField.text ?? ""
+            textField.text ?? ""
         }
         set {
             textField.text = newValue
@@ -92,7 +92,7 @@ final class CodeInputView: UIView {
 
     @discardableResult
     override func becomeFirstResponder() -> Bool {
-        return textField.becomeFirstResponder()
+        textField.becomeFirstResponder()
     }
 }
 

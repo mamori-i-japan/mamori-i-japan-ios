@@ -18,7 +18,7 @@ class BaseLabel: UILabel, XIBLocalizable, LabelUtilityProtocol {
 
     @IBInspectable var spacing: CGFloat {
         get {
-            return paragraphStyle?.lineSpacing ?? 0.0
+            paragraphStyle?.lineSpacing ?? 0.0
         }
         set {
             setParagraph(newValue, for: \.lineSpacing)

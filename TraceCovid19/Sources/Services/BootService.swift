@@ -21,7 +21,7 @@ final class BootService {
     private(set) var appStatus: AppStatusDetail?
 
     private var fileName: String {
-        return "app_status.json"
+        "app_status.json"
     }
 
     init(

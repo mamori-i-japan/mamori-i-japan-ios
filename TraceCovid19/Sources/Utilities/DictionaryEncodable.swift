@@ -16,11 +16,11 @@ protocol DictionaryEncodable: Encodable {
 
 extension DictionaryEncodable {
     var jsonEncoder: JSONEncoder {
-        return JSONEncoder()
+        JSONEncoder()
     }
 
     static var ignoreEncodeKeys: [String] {
-        return []
+        []
     }
 }
 

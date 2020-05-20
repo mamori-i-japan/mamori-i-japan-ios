@@ -26,13 +26,13 @@ extension TraceDataEntity {
     }
 
     func toTraceDataRecord() -> TraceDataRecord {
-        return TraceDataRecord(timestamp: timestamp, tempId: tempId, rssi: rssi?.doubleValue, txPower: txPower?.doubleValue)
+        TraceDataRecord(timestamp: timestamp, tempId: tempId, rssi: rssi?.doubleValue, txPower: txPower?.doubleValue)
     }
 }
 
 extension TraceDataEntity {
     var isValidConnection: Bool {
-        return timestamp != nil
+        timestamp != nil
             && tempId != nil
             && tempId!.isValidTempId
             && rssi != nil
@@ -41,7 +41,7 @@ extension TraceDataEntity {
 
 extension String {
     var isValidTempId: Bool {
-        return self != CoreDataService.Event.scanningStarted.rawValue
+        self != CoreDataService.Event.scanningStarted.rawValue
             && self != CoreDataService.Event.scanningStopped.rawValue
             && self != CoreDataService.Event.scanningRestarted.rawValue
             && self != BluetraceConfig.initialMsg

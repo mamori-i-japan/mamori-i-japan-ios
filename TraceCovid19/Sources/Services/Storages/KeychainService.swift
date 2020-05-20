@@ -17,11 +17,11 @@ protocol KeychainClientProtocol {
 
 extension KeychainClientProtocol {
     func get(_ key: String) throws -> String? {
-        return try get(key, ignoringAttributeSynchronizable: true)
+        try get(key, ignoringAttributeSynchronizable: true)
     }
 
     func getData(_ key: String) throws -> Data? {
-        return try getData(key, ignoringAttributeSynchronizable: true)
+        try getData(key, ignoringAttributeSynchronizable: true)
     }
 
     func set(_ value: String, key: String) throws {

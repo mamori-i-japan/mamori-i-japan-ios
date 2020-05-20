@@ -70,7 +70,7 @@ protocol APIRequestProtocol: CustomStringConvertible {
 
 extension APIRequestProtocol {
     var scheme: String {
-        return "https://"
+        "https://"
     }
     var host: String {
         #if DEV
@@ -84,16 +84,16 @@ extension APIRequestProtocol {
         #endif
     }
     var basePath: String {
-        return ""
+        ""
     }
     var urlString: String {
-        return scheme + host + basePath + path
+        scheme + host + basePath + path
     }
     var headers: [String: String] {
-        return [:]
+        [:]
     }
     var parameters: [String: Any] {
-        return [:]
+        [:]
     }
     var encodingType: ParameterEncodingType {
         switch method {
@@ -104,10 +104,10 @@ extension APIRequestProtocol {
         }
     }
     var acceptableStatusCode: Range<Int> {
-        return 200..<300
+        200..<300
     }
     var decoder: JSONDecoder? {
-        return nil
+        nil
     }
 }
 
@@ -127,6 +127,6 @@ extension APIRequestProtocol {
 
 extension APIRequestProtocol {
     var description: String {
-        return "[\(method.rawValue)] \(urlString)"
+        "[\(method.rawValue)] \(urlString)"
     }
 }

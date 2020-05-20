@@ -30,6 +30,6 @@ extension KeyboardCloseProtocol {
 
 extension KeyboardCloseProtocol where Self: UIViewController {
     var target: UIView {
-        return view
+        view
     }
 }

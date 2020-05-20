@@ -67,7 +67,7 @@ final class APIClient {
     }
 
     private func makeDataRequest<T: APIRequestProtocol>(request: T, accessToken: String?) -> DataRequest {
-        return session.request(
+        session.request(
             request.urlString,
             method: Alamofire.HTTPMethod(rawValue: request.method.rawValue),
             parameters: request.parameters,
@@ -79,8 +79,7 @@ final class APIClient {
     private func makeDecodableHandler<T: APIRequestProtocol>(
         request: T,
         completionHandler: @escaping (Result<T.Response, APIRequestError>) -> Void
-    ) -> (DataResponse<T.Response, AFError>) -> Void where T.Response: Decodable {
-        return { result in
+    ) -> (DataResponse<T.Response, AFError>) -> Void where T.Response: Decodable { { result in
             print("[APIClient] \(String(describing: String(data: result.data ?? Data(), encoding: .utf8)))")
 
             guard (result.error?.underlyingError as NSError?)?.code != NSURLErrorNotConnectedToInternet else {
@@ -116,8 +115,7 @@ final class APIClient {
     private func makeEmptyHandler<T: APIRequestProtocol>(
          request: T,
          completionHandler: @escaping (Result<T.Response, APIRequestError>) -> Void
-    ) -> (AFDataResponse<Data?>) -> Void where T.Response == EmpytResponse {
-         return { result in
+    ) -> (AFDataResponse<Data?>) -> Void where T.Response == EmpytResponse { { result in
              print("[APIClient] \(String(describing: String(data: result.data ?? Data(), encoding: .utf8)))")
 
             guard (result.error?.underlyingError as NSError?)?.code != NSURLErrorNotConnectedToInternet else {
