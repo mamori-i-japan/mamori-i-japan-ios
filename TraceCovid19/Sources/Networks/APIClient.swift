@@ -25,12 +25,17 @@ final class APIClient {
     ) where T.Response == EmpytResponse {
         print("[APIClient] start \(request)")
         print("[APIClient] parameters: \(request.parameters)")
-        fetchAccessToken(request: request) { [weak self] accessToken in
-            guard let sSelf = self else { return }
-            let dataRequest = sSelf.makeDataRequest(request: request, accessToken: accessToken)
-            let handler = sSelf.makeEmptyHandler(request: request, completionHandler: completionHandler)
+        fetchIDTokenIfNeeded(request: request) { [weak self] result in
+            switch result {
+            case .success(let token):
+                guard let sSelf = self else { return }
+                let dataRequest = sSelf.makeDataRequest(request: request, accessToken: token)
+                let handler = sSelf.makeEmptyHandler(request: request, completionHandler: completionHandler)
 
-            dataRequest.response(completionHandler: handler)
+                dataRequest.response(completionHandler: handler)
+            case .failure(let error):
+                completionHandler(.failure(.error(detail: error)))
+            }
         }
     }
 
@@ -40,30 +45,45 @@ final class APIClient {
     ) where T.Response: Decodable {
         print("[APIClient] start \(request)")
         print("[APIClient] parameters: \(request.parameters)")
-        fetchAccessToken(request: request) { [weak self] accessToken in
-            guard let sSelf = self else { return }
-            let dataRequest = sSelf.makeDataRequest(request: request, accessToken: accessToken)
-            let handler = sSelf.makeDecodableHandler(request: request, completionHandler: completionHandler)
+        fetchIDTokenIfNeeded(request: request) { [weak self] result in
+            switch result {
+            case .success(let token):
+                guard let sSelf = self else { return }
+                let dataRequest = sSelf.makeDataRequest(request: request, accessToken: token)
+                let handler = sSelf.makeDecodableHandler(request: request, completionHandler: completionHandler)
 
-            if let decoder = request.decoder {
-                // 指定のDecoderに切り替えてHandlerと接続
-                dataRequest.responseDecodable(of: T.Response.self, decoder: decoder, completionHandler: handler)
-            } else {
-                dataRequest.responseDecodable(of: T.Response.self, completionHandler: handler)
+                if let decoder = request.decoder {
+                    // 指定のDecoderに切り替えてHandlerと接続
+                    dataRequest.responseDecodable(of: T.Response.self, decoder: decoder, completionHandler: handler)
+                } else {
+                    dataRequest.responseDecodable(of: T.Response.self, completionHandler: handler)
+                }
+            case .failure(let error):
+                completionHandler(.failure(.error(detail: error)))
             }
         }
     }
 
-    private func fetchAccessToken<T: APIRequestProtocol>(request: T, completion: @escaping (String?) -> Void) {
-        if request.isNeedAuthentication && auth.instance.currentUser != nil {
-            // NOTE: 10分でトークンが切れるらしいので、都度リフレッシュして取得する（負荷が高いなどの問題があったら変更する）
-            auth.instance.currentUser!.getIDTokenForcingRefresh(true) { token, _ in
-                completion(token)
+    private func fetchIDTokenIfNeeded<T: APIRequestProtocol>(request: T, completion: @escaping (Result<String?, Error>) -> Void) {
+        if request.isNeedAuthentication {
+            guard let currentUser = auth.instance.currentUser else {
+                assertionFailure("Should be logged in before posting authenticated request.")
+                completion(.success(nil))
+                return
             }
+            currentUser.getIDTokenResult(completion: { result, error in
+                if let result = result {
+                    completion(.success(result.token))
+                } else if let error = error {
+                    completion(.failure(error))
+                } else {
+                    fatalError("Unreachable")
+                }
+            }
+            )
             return
         }
-
-        completion(nil)
+        completion(.success(nil))
     }
 
     private func makeDataRequest<T: APIRequestProtocol>(request: T, accessToken: String?) -> DataRequest {

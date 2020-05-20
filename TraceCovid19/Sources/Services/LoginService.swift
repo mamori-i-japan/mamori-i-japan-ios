@@ -90,11 +90,9 @@ final class LoginService {
     }
 
     private func requestLogin(profile: Profile, completion: @escaping (Result<Void, SignInError>) -> Void) {
-        loginAPI.login(profile: profile) { [weak self] result in
+        loginAPI.login(profile: profile) { result in
             switch result {
             case .success:
-                // 非同期で、とりあえず投げておく（結果は見ない）
-                self?.forceRefreshToken(profile: profile)
                 completion(.success(()))
             case .failure(.network):
                 completion(.failure(.network))
@@ -105,12 +103,6 @@ final class LoginService {
                 completion(.failure(.unknown(APIRequestError.authzError)))
             }
             print(result)
-        }
-    }
-
-    private func forceRefreshToken(profile: Profile) {
-        auth.instance.currentUser?.getIDTokenForcingRefresh(true) { token, error in
-            print("[LoginService] ForeceRefresh finished. token: \(token ?? "nil"), error: \(String(describing: error))")
         }
     }
 
