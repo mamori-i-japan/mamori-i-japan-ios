@@ -1,4 +1,0 @@
-#include "Release.xcconfig"
-
-OTHER_SWIFT_FLAGS = $(inherited) -D PROD
-PRODUCT_NAME = まもりあい

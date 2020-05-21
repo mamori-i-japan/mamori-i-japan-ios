@@ -1,0 +1,5 @@
+#include "Release.xcconfig"
+
+OTHER_SWIFT_FLAGS = $(inherited) -D DEMO
+FIREBASE_CUSTOM_URL_SCHEME = com.googleusercontent.apps.460152481873-3uefkjukkb5f11lge2fo271ip7e3g9cd
+PRODUCT_NAME = まもりあい

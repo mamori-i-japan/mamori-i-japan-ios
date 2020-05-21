@@ -40,6 +40,15 @@ platform :ios do
     )
   end
 
+  lane :build_demo do
+    build_ipa(
+      configuration: "Demo",
+      export_method: "development",
+      code_sign_identity: "iPhone Developer",
+      provisioning: "mamori-i wild card profile"
+    )
+  end
+
   lane :build_ipa do |options|
     gym(
       workspace: workspace,
