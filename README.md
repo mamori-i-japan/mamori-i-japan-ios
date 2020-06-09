@@ -15,7 +15,7 @@ The images made by [Miro](https://miro.com/app/board/o9J_ksGHtPE=/) (read only a
 ![ScreenOverview](./docs/screen-overview.png)
 
 - [Screens](./docs/screens.pdf)
-- figma will be public soon.
+- [Figma](https://www.figma.com/file/elO1hZvXfE2WO2oQwBtWhU/App-Design)
 
 ## 環境
 
