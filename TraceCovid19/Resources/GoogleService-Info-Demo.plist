@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>460152481873-3uefkjukkb5f11lge2fo271ip7e3g9cd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.460152481873-3uefkjukkb5f11lge2fo271ip7e3g9cd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCTeouYsNVe_aqKylPA1oxPYop7SbB9Elg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>460152481873</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>jp.mamori-i.app</string>
+	<key>PROJECT_ID</key>
+	<string>contact-tracing-49368</string>
+	<key>STORAGE_BUCKET</key>
+	<string>contact-tracing-49368.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:460152481873:ios:ff775eba21dbcbd3a0f070</string>
+	<key>DATABASE_URL</key>
+	<string>https://contact-tracing-49368.firebaseio.com</string>
+</dict>
+</plist>

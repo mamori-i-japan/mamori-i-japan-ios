@@ -77,8 +77,8 @@ extension APIRequestProtocol {
         return "api-dev.mamori-i.jp"
         #elseif STG
         return "api-stg.mamori-i.jp"
-        #elseif PROD
-        return "api.mamori-i.jp"
+        #elseif DEMO
+        return "api-demo.mamori-i.jp"
         #else
         fatalError("環境の指定がおかしい")
         #endif

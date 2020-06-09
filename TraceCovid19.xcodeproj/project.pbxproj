@@ -359,7 +359,7 @@
 		F096D5AE244EED5A00F7919B /* SSLPinningManager+Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SSLPinningManager+Alamofire.swift"; sourceTree = "<group>"; };
 		F096D5B4244FDEE700F7919B /* ISO8601DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601DateFormatter.swift; sourceTree = "<group>"; };
 		F096D5B924501DE000F7919B /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
-		F096D5C224504D3600F7919B /* Prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
+		F096D5C224504D3600F7919B /* Demo.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Demo.xcconfig; sourceTree = "<group>"; };
 		F096D5C324504D3600F7919B /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		F096D5C424504D3700F7919B /* Stg.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Stg.xcconfig; sourceTree = "<group>"; };
 		F096D5C72450672D00F7919B /* TraceDataUploadAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceDataUploadAPI.swift; sourceTree = "<group>"; };
@@ -435,6 +435,7 @@
 		F0B9F38A245C0910006FA28D /* TempUserIdGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUserIdGenerator.swift; sourceTree = "<group>"; };
 		F0B9F38C245FF772006FA28D /* Date+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utility.swift"; sourceTree = "<group>"; };
 		F0C6AD7C243461A600F863FC /* DEV-まもりあい.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DEV-まもりあい.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0FF568E247674EC006FC40E /* GoogleService-Info-Demo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Demo.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -493,6 +494,7 @@
 				F0475999243586C50091059F /* Settings.bundle */,
 				F0031D522434695B009F9643 /* debug.entitlements */,
 				F0031D54243469A6009F9643 /* release.entitlements */,
+				F0FF568E247674EC006FC40E /* GoogleService-Info-Demo.plist */,
 				F02356842442E3B8001E72ED /* GoogleService-Info-Dev.plist */,
 				F0156AA1245305B5006CB28F /* GoogleService-Info-Stg.plist */,
 				F0031D352434629F009F9643 /* Info-Debug.plist */,
@@ -542,7 +544,7 @@
 			children = (
 				F0031D45243464A0009F9643 /* Debug.xcconfig */,
 				F096D5C324504D3600F7919B /* Dev.xcconfig */,
-				F096D5C224504D3600F7919B /* Prod.xcconfig */,
+				F096D5C224504D3600F7919B /* Demo.xcconfig */,
 				F0031D47243464CF009F9643 /* Release.xcconfig */,
 				F096D5C424504D3700F7919B /* Stg.xcconfig */,
 			);
@@ -1071,7 +1073,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "base_path=\"${SRCROOT}/TraceCovid19/Resources\";\nif [ $CONFIGURATION = \"Dev\" ]; then\n  google_service_file=\"${base_path}/GoogleService-Info-Dev.plist\";\nelif [ $CONFIGURATION = \"Stg\" ]; then\n  google_service_file=\"${base_path}/GoogleService-Info-Stg.plist\";\nelse\n  google_service_file=\"${base_path}/GoogleService-Info-Release.plist\";\nfi\n\ncp ${google_service_file} ${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/GoogleService-Info.plist;\n\n\n";
+			shellScript = "base_path=\"${SRCROOT}/TraceCovid19/Resources\";\nif [ $CONFIGURATION = \"Dev\" ]; then\n  google_service_file=\"${base_path}/GoogleService-Info-Dev.plist\";\nelif [ $CONFIGURATION = \"Stg\" ]; then\n  google_service_file=\"${base_path}/GoogleService-Info-Stg.plist\";\nelse\n  google_service_file=\"${base_path}/GoogleService-Info-Demo.plist\";\nfi\n\ncp ${google_service_file} ${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/GoogleService-Info.plist;\n\n\n";
 		};
 		F047599D24358C1A0091059F /* Update License Plist Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1094,7 +1096,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION != \"Prod\" ]; then\n  ./Scripts/update_license_plist.sh\nfi\n";
+			shellScript = "if [ $CONFIGURATION != \"Demo\" ]; then\n  ./Scripts/update_license_plist.sh\nfi\n";
 		};
 		F04759AB243592990091059F /* Carthage Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1484,9 +1486,9 @@
 			};
 			name = Dev;
 		};
-		F0C6AD8D243461A800F863FC /* Prod */ = {
+		F0C6AD8D243461A800F863FC /* Demo */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F096D5C224504D3600F7919B /* Prod.xcconfig */;
+			baseConfigurationReference = F096D5C224504D3600F7919B /* Demo.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1538,7 +1540,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Prod;
+			name = Demo;
 		};
 		F0C6AD8F243461A800F863FC /* Dev */ = {
 			isa = XCBuildConfiguration;
@@ -1566,7 +1568,7 @@
 			};
 			name = Dev;
 		};
-		F0C6AD90243461A800F863FC /* Prod */ = {
+		F0C6AD90243461A800F863FC /* Demo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1590,7 +1592,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Prod;
+			name = Demo;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1600,20 +1602,20 @@
 			buildConfigurations = (
 				F0C6AD8C243461A800F863FC /* Dev */,
 				F096D5C524504D4B00F7919B /* Stg */,
-				F0C6AD8D243461A800F863FC /* Prod */,
+				F0C6AD8D243461A800F863FC /* Demo */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Prod;
+			defaultConfigurationName = Demo;
 		};
 		F0C6AD8E243461A800F863FC /* Build configuration list for PBXNativeTarget "TraceCovid19" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F0C6AD8F243461A800F863FC /* Dev */,
 				F096D5C624504D4B00F7919B /* Stg */,
-				F0C6AD90243461A800F863FC /* Prod */,
+				F0C6AD90243461A800F863FC /* Demo */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Prod;
+			defaultConfigurationName = Demo;
 		};
 /* End XCConfigurationList section */
 

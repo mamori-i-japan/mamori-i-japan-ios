@@ -322,8 +322,13 @@ extension SwinjectStoryboard {
                 )
             ]
             #else
-            // TODO: 本番環境の内容決まったら差し替えをする
-            return [SSLPinningCondition]()
+            return [
+                SSLPinningCondition(
+                    host: "api-demo.mamori-i.jp",
+                    hashes: ["q2EjjSpLfR+nqnWE/yrjLQVmq8Lse0CI2/vQn/F07VA="],
+                    expiredUnixTime: 1621684800 - 3600 * 24 * 30 // NOTE: May 22 12:00:00 2021 GMT からマージン(30日)を引いた日時を期限として設定
+                )
+            ]
             #endif
         }
 

@@ -26,6 +26,11 @@ fastlane ios build_dev
 fastlane ios build_stg
 ```
 
+### ios build_demo
+```
+fastlane ios build_demo
+```
+
 ### ios build_ipa
 ```
 fastlane ios build_ipa
